@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-#
+# -*- coding: utf-8 -*-
+#@date  :2015-3-from
 # Copyright 2009 Facebook
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -16,11 +17,11 @@
 
 import tornado.httpserver
 import tornado.ioloop
-import tornado.options
 import tornado.web
 import os
 
 from tornado.options import define, options
+from UI_moudles.UI_moudle import *
 
 define("port", default=3000, help="run on the given port", type=int)
 class Application(tornado.web.Application):
@@ -32,6 +33,7 @@ class Application(tornado.web.Application):
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
             template_path=os.path.join(os.path.dirname(__file__), 'templates'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
+            ui_modules={'header':HeaderMoudle,'footer':FooterMoudle},
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
             debug=True
         )
@@ -40,7 +42,7 @@ class Application(tornado.web.Application):
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render('header.html')
+        self.render('body.html')
 
 
 if __name__ == "__main__":
