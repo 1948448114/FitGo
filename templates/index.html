@@ -1,8 +1,28 @@
-<html>
-    <head>
-        <title>Welcome Back!</title>
-    </head>
-    <body>
-        <h1>Welcome back, {{ user }}</h1>
-    </body>
-</html>
+{% extends "header.html" %}
+{% block header %}
+<script src="{{static_url('js/unslider.min.js')}}"></script>
+<style type="text/css">
+.banner { position: relative; overflow: auto; }
+    .banner li { list-style: none; }
+        .banner ul li { float: left; }
+</style>
+{% end %}
+
+{% block body %}
+<div class="banner">
+    <ul>
+        <li>This is a slide.</li>
+        <li>This is another slide.</li>
+        <li>This is a final slide.</li>
+    </ul>
+</div>
+<script>
+    $(function() {
+        $('.banner').unslider(
+            {arrows: true,
+            fluid: true,
+            dots: true
+    });
+});
+</script>
+{% end %}
