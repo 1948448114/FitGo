@@ -9,6 +9,9 @@
         <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="{{static_url('js/bootstrap.min.js') }}"></script>
+        {% block header %}
+        
+        {% end %}
         <title>FitGo</title>
         <style type="text/css">
         /*#footera {
@@ -54,6 +57,8 @@
             </div>
         </nav>
     </div>
-            
+    {% block body %}
+    {% end %}
+    {% module footer() %}       
             
             
