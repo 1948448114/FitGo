@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 #@date  :2015-3-from
 # Copyright 2009 Facebook
 #
