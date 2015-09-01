@@ -26,7 +26,7 @@ from mod.databases.db import engine
 from UI_moudles.UI_moudle import *
 from mod.auth.Login_Handler import LoginHandler,LogoutHandler
 from mod.auth.Base_Handler import BaseHandler
-from mod.index import IndexHandler
+from mod.index.index import IndexHandler
 
 
 define("port", default=8888, help="run on the given port", type=int)
