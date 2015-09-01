@@ -28,6 +28,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/',MainHandler),
+            (r'/test',TestHandler),
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -44,6 +45,20 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('body.html')
 
+class TestHandler(tornado.web.RequestHandler):
+    def get(self):
+        cookie = self.get_secure_cookie("count")
+        count = int(cookie) + 1 if cookie else 1
+
+        countString = "1 time" if count == 1 else "%d times" % count
+
+        self.set_secure_cookie("count", str(count),httponly=True)
+
+        self.write(
+            '<html><head><title>Cookie Counter</title></head>'
+            '<body><h1>You’ve viewed this page %s times.</h1>' % countString + 
+            '</body></html>'
+        )
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
