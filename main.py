@@ -22,38 +22,19 @@ import os
 from tornado.options import define, options
 
 from sqlalchemy.orm import scoped_session, sessionmaker
-from databases.db import engine
-
+from mod.databases.db import engine
 from UI_moudles.UI_moudle import *
-from auth.Login_Handler import LoginHandler
-from auth.Base_Handler import BaseHandler
+from mod.auth.Login_Handler import LoginHandler,LogoutHandler
+from mod.auth.Base_Handler import BaseHandler
+from mod.index import IndexHandler
 
 
 define("port", default=8888, help="run on the given port", type=int)
 
-
-
-
-class WelcomeHandler(BaseHandler):
-    # @tornado.web.authenticated
-   
-    def get(self):
-        # if not self.current_user:
-        #     print " no user redirect to login "
-        #     self.redirect("/auth/login")
-        # return
-        self.render('index.html', user=self.current_user)
-
-class LogoutHandler(BaseHandler):
-    def get(self):
-        if (self.get_argument("logout", None)):
-            self.clear_cookie("username")
-            self.redirect("/")
-
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            (r'/',WelcomeHandler),
+            (r'/',IndexHandler),
             (r'/body',BodyHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler)
@@ -75,12 +56,6 @@ class Application(tornado.web.Application):
         self.db = scoped_session(sessionmaker(bind=engine,
                                               autocommit=False, autoflush=True,
                                               expire_on_commit=False))
-
-class MainHandler(tornado.web.RequestHandler):
-    @tornado.web.authenticated
-    def get(self):
-        self.render('body.html')
-
 class BodyHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('body.html')
