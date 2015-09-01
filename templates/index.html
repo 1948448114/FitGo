@@ -2,9 +2,41 @@
 {% block header %}
 <script src="{{static_url('js/unslider.min.js')}}"></script>
 <style type="text/css">
-.banner { position: relative; overflow: auto; }
-.banner li { list-style: none; }
-.banner ul li { float: left; }
+.banner { 
+    position: relative;
+    width: 100%;
+    overflow: auto;
+
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+
+    color: rgba(255,255,255,.6);
+    text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);
+
+    background: #5b4d3d;
+    box-shadow: 0 1px 2px rgba(0,0,0,.25); }
+.banner ul { 
+        list-style: none;
+        width: 300%;
+         }
+.banner li{
+    background-size:100% 100%;
+}
+.banner ul li { 
+        display: block;
+        float: left;
+        width: 33%;
+        min-height: 350px;
+
+        -o-background-size: 100% 100%;
+        -ms-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+
+        box-shadow: inset 0 -3px 6px rgba(0,0,0,.1); 
+    }
 .banner .dots {
         position: absolute;
         left: 0;
@@ -31,7 +63,7 @@
             transition: background .5s, opacity .5s;
         }
 .banner .dots li.active {
-                background: #000;
+                background: #fff;
                 opacity: 1;
             }
 .banner .arrows {
@@ -51,18 +83,42 @@
 {% block body %}
 <div class="banner">
     <ul>
-        <li>This is a slide.</li>
-        <li>This is another slide.</li>
-        <li>This is a final slide.</li>
+        
+        <li style="background-image: url('static/images/show1.jpg');">
+                    <div class="inner">
+                        <p>1</p>
+                    </div>
+                </li>
+
+                <li style="background-image: url('static/images/show2.jpg');">
+                    <div class="inner">
+                        <p>2</p>
+                    </div>
+                </li>
+
+                <li style="background-image: url('static/images/show3.jpg');">
+                    <div class="inner">
+                        <p>3</p>
+                    </div>
+                </li>
     </ul>
 </div>
+<a href="#" class="unslider-arrow prev">Previous slide</a>
+<a href="#" class="unslider-arrow next">Next slide</a>
 <script>
-    $(function() {
-        $('.banner').unslider(
-            {arrows: true,
+    $(function(){
+        $('.banner').unslider({arrows: true,
+            delay:1000,
+            keys: true,
             fluid: true,
             dots: true
+        });
+        $('.unslider-arrow').click(function() {
+        var fn = this.className.split(' ')[1];
+
+        //  Either do unslider.data('unslider').next() or .prev() depending on the className
+        unslider.data('unslider')[fn]();
+        });
     });
-});
 </script>
 {% end %}
