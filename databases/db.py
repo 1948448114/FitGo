@@ -7,7 +7,7 @@ DB_NAME = 'test'
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-Base = declarative_base()
+Base = declarative_base() #create Base lei
 engine = create_engine('mysql://%s:%s@%s/%s?charset=utf8' %
                        (DB_USER, DB_PWD, DB_HOST, DB_NAME),
                      encoding='utf-8', echo=False,
