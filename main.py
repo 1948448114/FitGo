@@ -20,28 +20,19 @@ import tornado.ioloop
 import tornado.web
 import os
 from tornado.options import define, options
+
+from sqlalchemy.orm import scoped_session, sessionmaker
+from databases.db import engine
+
 from UI_moudles.UI_moudle import *
+from auth.Login_Handler import LoginHandler
+from auth.Base_Handler import BaseHandler
+
 
 define("port", default=8888, help="run on the given port", type=int)
 
 
-class BaseHandler(tornado.web.RequestHandler):
-    def get_current_user(self):
-        return self.get_secure_cookie("username")
 
-class LoginHandler(BaseHandler):
-    def get(self):
-        self.render('login.html')
-
-    def post(self):
-        info_email=self.get_argument("info_email")
-        user_password=self.get_argument("user_password")
-        code=self.get_argument("code")
-        if 1 :    
-            self.set_secure_cookie("username", self.get_argument("info_email"))
-            self.write("{'code':{200},'content':'ok'}")
-            # self.finish()
-            # self.redirect("/")
 
 class WelcomeHandler(BaseHandler):
     # @tornado.web.authenticated
@@ -70,6 +61,7 @@ class Application(tornado.web.Application):
         settings = dict(
             cookie_secret="<7CA71A57B571B5AEAC5E64C6042415DE></7CA71A57B571B5AEAC5E64C6042415DE>",
             template_path=os.path.join(os.path.dirname(__file__), 'templates'),
+            auth_path=os.path.join(os.path.dirname(__file__),'auth'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
             ui_modules={'header':HeaderMoudle,'footer':FooterMoudle},
             # xsrf_cookies=True,
@@ -80,7 +72,9 @@ class Application(tornado.web.Application):
             
         )
         tornado.web.Application.__init__(self, handlers, **settings)
-
+        self.db = scoped_session(sessionmaker(bind=engine,
+                                              autocommit=False, autoflush=True,
+                                              expire_on_commit=False))
 
 class MainHandler(tornado.web.RequestHandler):
     @tornado.web.authenticated
