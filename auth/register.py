@@ -3,4 +3,3 @@ from tornado.httpclient import HTTPRequest, AsyncHTTPClient
 import tornado.web
 import tornado.gen
 
-class 	
