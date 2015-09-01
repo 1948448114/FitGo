@@ -40,20 +40,27 @@
 	border-color: #666665;
 }
 #hs-slider .largetext{
-	font-size: 45px;
+	font-size: 50px;
 	font-weight:200; 
+
 }
 #hs-slider{
 	background: url(/static/images/background.png) center center no-repeat;
 	background-size: cover;
 	height: 500px;
+	text-align: center;
 }
 body{
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 16px;
 }
-
-
+#cover{
+	width: 100%;	
+}
+.flexider{
+	background: rgba(238,234,234,.7);
+    position: relative;
+}
 
 
 
