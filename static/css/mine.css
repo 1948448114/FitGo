@@ -1,5 +1,7 @@
 #navigation{
 	background:#140d3f; 
+	margin-bottom: 0px;
+	border: 0px;
 }
 /*#menu a{
 	color:#eeeaea;
@@ -37,3 +39,25 @@
 	color:#7f81e7;
 	border-color: #666665;
 }
+#hs-slider .largetext{
+	font-size: 45px;
+	font-weight:200; 
+}
+#hs-slider{
+	background: url(/static/images/background.png) center center no-repeat;
+	background-size: cover;
+	height: 500px;
+}
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+}
+
+
+
+
+
+
+
+
+

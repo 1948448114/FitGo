@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="{{static_url('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/mine.css') }}">
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
         <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -29,7 +30,8 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id="menu">
+        <nav id="navigation" class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -38,29 +40,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">FITGO.COM</a>
+                    <a class="navbar-brand" href="#">
+                        <img  src="static/images/logo1.png" alt="FitGo" title="FitGo">
+                    </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse" style="align:right">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">Discover</a></li>
-                        <li><a href="#contact">Plans</a></li>
-                        <li><a href="#contact">Invaite</a></li>
-                        <li><a href="#contact">Activies</a></li>
-                        <li><button type="button" class="btn btn-default navbar-btn" >Log IN</button></li>
+                    <ul  id="different" class="nav navbar-nav navbar-right">
+                        <li><a id="home" href="#">HOME</a></li>
+                        <li><a class="bar" href="#about">DISCOVER</a></li>
+                        <li><a class="bar" href="#contact">PLANS</a></li>
+                        <li><a class="bar" href="#contact">INVITE</a></li>
+                        <li><a class="bar" href="#contact">ACTIVITIES</a></li>
+                        <li id="but"><button type="button" class="btn btn-default navbar-btn" >LOG IN</button></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
-
+    </div>
     {% block body %}
-    
     {% end %}
-
-    {% block footer %}
-    {% module footer() %}
-    {% end %}
-            
-            
+    {% module footer() %}       
             
             
