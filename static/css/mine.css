@@ -41,19 +41,22 @@
 	color:#7f81e7;
 	border-color: #666665;
 }
+/*#content p{
+	font-family: 'SourceSansPro-ExtraLight';
+}*/
 #hs-slider .largetext{
 	font-size: 50px;
 	font-weight:200; 
 
 }
 #hs-slider{
-	background: url(/static/images/background.png) center center no-repeat;
+	background: url(/static/images/background2.png) center center no-repeat;
 	background-size: cover;
 /*	height: 500px;
 */	text-align: center;
 }
 body{
-	font-family: 'Source Sans Pro', 'Microsoft YaHei',sans-serif;
+	font-family: 'SourceSansPro-Regular','Source Sans Pro','Microsoft YaHei',sans-serif;
 	font-size: 16px;
 }
 
@@ -69,6 +72,16 @@ body{
 	margin-left: 20px;
 }
 }
+* {
+	margin: 0;
+	padding: 0;
+
+	-webkit-font-smoothing: antialiased;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
 .banner { 
     position: relative;
     width: 100%;
@@ -79,10 +92,10 @@ body{
     text-align: center;
 
     color: rgba(255,255,255,.6);
-    text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);
+    text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);}
 
-    background: #5b4d3d;
-    box-shadow: 0 1px 2px rgba(0,0,0,.25); }
+ /*   background: #5b4d3d;
+ /*   box-shadow: 0 1px 2px rgba(0,0,0,.25); }*/
 .banner ul { 
         list-style: none;
         width: 300%;
@@ -94,7 +107,7 @@ body{
         display: block;
         float: left;
         width: 33%;
-        min-height: 350px;
+        min-height: 500px;
 
         -o-background-size: 100% 100%;
         -ms-background-size: 100% 100%;
@@ -135,7 +148,7 @@ body{
             }
 .banner .arrows {
         position: absolute;
-        bottom: 20px;
+        bottom: 20px;s
         right: 20px;
         color: #fff;
     }
@@ -144,6 +157,50 @@ body{
             padding-left: 10px;
             cursor: pointer;
         }
+.slider-image{
+	
+}
+.inner{
+	margin: 60px 30px 30px;
+	overflow: hidden;
+}
+div{
+	display: block;
+}
+#slider li{
+	text-align:-webkit-match-parent;
+}
+.inner h1{
+	font-size: 60px;
+	line-height: 62px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-weight: bold;
+	color: #000000;
+}
+.inner #pic-show{
+	background: url(/static/images/show2.jpg)
+	
+}
+#pic{
+	background: url(/static/images/show2.jpg)
+	height:400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

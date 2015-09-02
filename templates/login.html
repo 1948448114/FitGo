@@ -39,11 +39,18 @@
                     </div>
                 
                 
-                    <div class="form-group form-group col-sm-4">
+                    <div class="form-group col-sm-4">
                         <input type="password" name="password" id="password_signup" class="form-control" placeholder="Password">
                     </div>
-                    <div class="form-group form-group col-sm-4 ">
+                    
+                    <div class="form-group col-sm-4 ">
                         <input type="password" name="password_confirm" class="form-control" placeholder="Password Again">
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="rememberme" id = "login_check" value="forever" checked="checked"> Remember Me
+                        </label>
+
                     </div>
                 </div>
                 <div class="col-sm-offset-4 col-sm-4">
@@ -101,15 +108,19 @@
 </div>
 <script>
     $(document).ready(function() {
-       $("#sub").click(function() {
+
+       $("#login_btn").click(function() {
+            if($("#login_check").is(':checked')){
+            alert('hello');
+            }
            jQuery.ajax({
              url: '/auth/login',
              type: 'POST',
              dataType:'json',
              data: {
-                    'email':$("#email").val(),
-                    'user_password':$("#user_password").val(),
-                    'code':$("#code").val()
+                    'info_email':$("#info_email_login").val(),
+                    'user_password':$("#password_login").val(),
+                    'code':$("#code_login").val()
                     },
              success: function(data, textStatus, xhr) {
                 // result = data.parseJSON();
