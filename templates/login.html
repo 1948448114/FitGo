@@ -6,34 +6,35 @@
 {% end %}
 
 {% block body %}
-<div id="login-dropdown">
 
-        <div class="container-login">
+<div id="login-dropdown">
+        <a href="#" class="dropdown-close"><span >CLOSE</span></a>
+        <div class="container">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="login-form-header">
-                    <h3>Login</h3>
+                    <h3>LOGIN</h3>
                 </div>
 
    
 
-                    <input type="hidden" id="security" name="security" value="b023f1aff6" />
-                    <input type="hidden" name="_wp_http_referer" value="/drink-number/2" />                 
-                    <input type="hidden" name="redirect_to" value="/drink-number/2">
-
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" placeholder="Info_Email">
+                        <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
                     </div>
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
                         </label>
                     </div>
-                    <button id="login_btn" type="submit" class="btn btn-danger btn-lg btn-block">LOGIN</button>
+                    <button id="login_btn"  class="btn btn-danger btn-lg btn-block">LOGIN</button>
 
+                     <button id="sign_up_btn"  class="btn btn-danger btn-lg btn-block">SIGN UP</button>
                     <p class="text-right"><a href="#" class="forgot-password btn btn-link btn-sm">Forgot Your Password</a></p>
 
 
