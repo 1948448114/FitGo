@@ -29,7 +29,7 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
+                            <input type="checkbox" name="rememberme" id = "login_check" value="forever" checked="checked"> Remember Me
                         </label>
                     </div>
                     <button id="login_btn"  class="btn btn-danger btn-lg btn-block">LOGIN</button>
@@ -48,15 +48,19 @@
 </div>
 <script>
     $(document).ready(function() {
-       $("#sub").click(function() {
+
+       $("#login_btn").click(function() {
+            if($("#login_check").is(':checked')){
+            alert('hello');
+            }
            jQuery.ajax({
              url: '/auth/login',
              type: 'POST',
              dataType:'json',
              data: {
-                    'email':$("#email").val(),
-                    'user_password':$("#user_password").val(),
-                    'code':$("#code").val()
+                    'info_email':$("#info_email_login").val(),
+                    'user_password':$("#password_login").val(),
+                    'code':$("#code_login").val()
                     },
              success: function(data, textStatus, xhr) {
                 // result = data.parseJSON();
