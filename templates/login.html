@@ -9,6 +9,8 @@
 
  }
  #message{
+    width: 70%;
+    padding-left: 500px;
     padding-top: 20px;
     text-align: center;
  }
@@ -20,10 +22,9 @@
 
 </div>
 <div id="form_input">
-<form action="/auth/login" method="POST" role="form">
     <div class="form-group" class="col-sm-10">
-        <label for="info_email" >Email</label>
-        <input type="text" class="form-control" id="info_email"
+        <label for="email" >Email</label>
+        <input type="text" class="form-control" id="email"
         placeholder="Info_Email">
     </div class="col-sm-10">
     <div class="form-group">
@@ -38,35 +39,37 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" id="sub" class="btn btn-primary">LogIn</button>
+            <button id="sub" class="btn btn-primary">LogIn</button>
         </div>
     </div>
 </div>
-</form>
 <script>
     $(document).ready(function() {
-       $("#sub").click(function(event) {
-           /* Act on the event */
+       $("#sub").click(function() {
            jQuery.ajax({
-             url: '/auth/logi',
+             url: '/auth/login',
              type: 'POST',
-             dataType: 'json',
              data: {
-                    info_email: $("#info_email").val(),
-                    user_password:$("#user_password").val(),
-                    code:$("#code").val()
+                    'email':$("#email").val(),
+                    'user_password':$("#user_password").val(),
+                    'code':$("#code").val()
                     },
-             ,
              success: function(data, textStatus, xhr) {
-                $("#message").append('<p class="text-success">登录成功</p>')
+                // result = data.parseJSON();
+                $("#message").append('<p class="bg-success">登录成功</p>');
              },
              error: function(xhr, textStatus, errorThrown) {
-              $("#message").append('<p class="text-warning">网络无法连接T_T</p>')
+                alert(errorThrown);
+                $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
              }
+
            });
            
        }); 
     });
+    
 </script>
 {% end %}
+
+
 

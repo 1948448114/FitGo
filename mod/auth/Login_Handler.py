@@ -14,11 +14,11 @@ class LoginHandler(BaseHandler):
         self.render('login.html')
 
     def post(self):
-        info_email=self.get_argument("info_email")
-        user_password=self.get_argument("user_password")
-        code=self.get_argument("code")
+        info_email = self.get_argument('email')
+        user_password = self.get_argument('user_password')
+        code = self.get_argument('code')
         if 1 :    
-            self.set_secure_cookie("username", self.get_argument("info_email"))
+            self.set_secure_cookie("username", self.get_argument("email"))
             self.write("{'code':{200},'content':'ok'}")
             # self.finish()
             # self.redirect("/")
