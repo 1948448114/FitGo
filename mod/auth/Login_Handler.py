@@ -14,9 +14,14 @@ class LoginHandler(BaseHandler):
         self.render('login.html')
 
     def post(self):
-        info_email = self.get_argument('email')
-        user_password = self.get_argument('user_password')
-        code = self.get_argument('code')
+        info_email=self.get_argument("info_email")
+        user_password=self.get_argument("user_password")
+        code=self.get_argument("code")
+        try:
+            person=self.db.query(Users).filter(Users.info_email==info_email).one()
+            print person
+        except Exception, e:
+            print e
         if 1 :    
             self.set_secure_cookie("username", self.get_argument("email"))
             self.write("{'code':{200},'content':'ok'}")
