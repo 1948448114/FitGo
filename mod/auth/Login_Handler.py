@@ -15,10 +15,11 @@ class LoginHandler(BaseHandler):
         self.db.close()
 
     def get(self):
-        if not self.current_user:  
-            self.render('login.html')  
-        else:  
-            self.redirect('/')  
+        self.render('login.html')  
+        # if not self.current_user:  
+        #     self.render('login.html')  
+        # else:  
+        #     self.redirect('/')  
         
 
     def post(self):
