@@ -8,9 +8,9 @@ class UsersCache(Base):
 	__tablename__ = 'Users'
 
 	uid = Column(Integer,primary_key=True)
-	name = Column(VARCHAR(64),nullable=False)
-	student_card = Column(VARCHAR(64),nullable=False)
-	student_id = Column(Integer,nullable=False)
+	name = Column(VARCHAR(64),nullable=True)
+	student_card = Column(VARCHAR(64),nullable=True)
+	student_id = Column(Integer,nullable=True)
 	gender = Column(VARCHAR(64))
 	user_name = Column(VARCHAR(64))
 	school = Column(VARCHAR(64))
@@ -19,7 +19,12 @@ class UsersCache(Base):
 	info_email = Column(VARCHAR(64))
 	info_phone = Column(VARCHAR(64))
 	portrait = Column(VARCHAR(64))
+class CoolieCache(Base):
+	__tablename__ = "Cookie"
 
+	id = Column(Integer,primary_key=True)
+	uid = Column(Integer)
+	cookie = Column(VARCHAR(64))
 class PlansCache(Base):
 	__tablename__ = 'Plans'
 
