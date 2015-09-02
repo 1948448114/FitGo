@@ -6,16 +6,11 @@ from Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,CookieCache
 #/auth/logout
 class LogoutHandler(BaseHandler):
-    @property
-    def db(self):
-        return self.application.db
-    def on_finish(self):
-        self.db.close()
 	def delete(self):#用户登出，删除cookie
         status = self.get_current_user()
 		if status:
-            cookie = self.db.query(CookieCache).filter(CookieCache.cookie == status.cookie)
-            self.db.remove(cookie)
+            # cookie = self.db.query(CookieCache).filter(CookieCache.cookie == status.cookie)
+            self.db.remove(status)
             try:
                 slef.db.commit()
             except:

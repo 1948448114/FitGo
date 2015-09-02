@@ -22,8 +22,8 @@ class LoginHandler(BaseHandler):
         
 
     def post(self):
-        info_email=self.get_argument("info_email")
-        user_password=self.get_argument("user_password")
+        info_email,user_password=self.get_argument("info_email","user_password")
+        # user_password=self.get_argument("user_password")
         code=self.get_argument("code")
         retjson = {'code':200,'content':'ok'}
         if not info_email or not user_password or not code :
@@ -51,9 +51,3 @@ class LoginHandler(BaseHandler):
                 retjson['code'] = u'用户名或者密码错误'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
-
-class LogoutHandler(BaseHandler):
-    def get(self):
-        if (self.get_argument("logout", None)):
-            self.clear_cookie("username")
-            self.redirect("/")

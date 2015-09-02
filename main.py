@@ -10,7 +10,8 @@ from tornado.options import define, options
 from sqlalchemy.orm import scoped_session, sessionmaker
 from mod.databases.db import engine
 from UI_moudles.UI_moudle import *
-from mod.auth.Login_Handler import LoginHandler,LogoutHandler
+from mod.auth.Login_Handler import LoginHandler
+from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Base_Handler import BaseHandler
 from mod.index.index import IndexHandler
 
