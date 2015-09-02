@@ -16,7 +16,7 @@
 
 {% block body %}
 <div id="message">
-    
+
 </div>
 <div id="form_input">
 <form action="/auth/login" method="POST" role="form">
@@ -57,10 +57,10 @@
                     },
              ,
              success: function(data, textStatus, xhr) {
-               
+                $("#message").append('<p class="text-success">登录成功</p>')
              },
              error: function(xhr, textStatus, errorThrown) {
-              
+              $("#message").append('<p class="text-warning">网络无法连接T_T</p>')
              }
            });
            
