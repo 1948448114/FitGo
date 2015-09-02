@@ -9,11 +9,10 @@ from time import time
 import uuid
 class LoginHandler(BaseHandler):
     def get(self):
-        self.render('login.html')  
-        # if not self.current_user:  
-        #     self.render('login.html')  
-        # else:  
-        #     self.redirect('/')  
+        if not self.current_user:  
+            self.render('login.html')  
+        else:  
+            self.redirect('/')  
         
 
     def post(self):
