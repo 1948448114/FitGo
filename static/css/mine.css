@@ -1,8 +1,13 @@
 @font-face{
 	font-family: "SourceSansPro-ExtraLight";
-	src:url("/static/fonts/SourceSansPro-ExtraLight.ttf");
+	src:url("/static/fonts/SourceSansPro-ExtraLight.ttf");}
+@font-face{
 	font-family: "SourceSansPro-Regular";
 	src:url("/static/fonts/SourceSansPro-Regular.ttf");
+}
+body{
+	font-family: 'SourceSansPro-Regular',sans-serif,'Microsoft YaHei';
+	font-size: 16px;
 }
 #navigation{
 	background:#140d3f; 
@@ -57,9 +62,9 @@
 }
 .title strong{
 	font-weight: 600;
-	font-family: 'SourceSansPro-Regular'
+	font-family: 'SourceSansPro-Regular';
 }
-.title p{
+.largetext{
 	font-family: 'SourceSansPro-ExtraLight';
 }
 #hs-slider{
@@ -68,11 +73,6 @@
 /*	height: 500px;
 */	text-align: center;
 }
-body{
-	font-family: sans-serif,'SourceSansPro-Regular','Source Sans Pro','Microsoft YaHei';
-	font-size: 16px;
-}
-
 .flexider{
 	background: rgba(238,234,234,.6);
     position: relative;
