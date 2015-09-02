@@ -9,7 +9,7 @@
     <input type="text" class="form-control" placeholder="twitterhandle">
 </div>
 <br>
-<div id="r" class="alert alert-warning alert-dismissable">
+<div id="r"  style="display:none" class="alert alert-warning alert-dismissable">
     <button type="button" class="close" data-dismiss="alert"
     aria-hidden="true">
     &times;
@@ -23,11 +23,10 @@
 <button id="ha">ha</button>
 
 <script>
-    .$(document).ready(function() {
-        $("#r").css("dispaly":"none");
+    $(document).ready(function() {
         $("#ha").click(function(event) {
             /* Act on the event */
-            $("#r").css("visibility":"visible");
+            $("#r").show();
         });
     });
 </script>

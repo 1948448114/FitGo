@@ -38,3 +38,4 @@ databases/db.py
 
 # IDEA
 *.idea
+mod/databases/db.py

@@ -1,5 +1,24 @@
-
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+import tornado.web
+import tornado.gen
+from Base_Handler import BaseHandler
+from ..databases.tables import UsersCache,CookieCache
 #/auth/logout
-class LogoutHandler(tornado.web.RequestHandler):
+class LogoutHandler(BaseHandler):
+    @property
+    def db(self):
+        return self.application.db
+    def on_finish(self):
+        self.db.close()
 	def delete(self):#用户登出，删除cookie
-		pass
+        status = self.get_current_user()
+		if status:
+            cookie = self.db.query(CookieCache).filter(CookieCache.cookie == status.cookie)
+            self.db.remove(cookie)
+            try:
+                slef.db.commit()
+            except:
+                self.db.rollback()
+        else:
+            pass

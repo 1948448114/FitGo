@@ -13,7 +13,6 @@ class LoginHandler(BaseHandler):
         return self.application.db
     def on_finish(self):
         self.db.close()
-
     def get(self):
         self.render('login.html')  
         # if not self.current_user:  
@@ -30,7 +29,6 @@ class LoginHandler(BaseHandler):
         if not info_email or not user_password or not code :
             retjson['code'] = 400
             retjson['content'] = u'参数不能为空哦~'
-            
         else:
             try:
                 #user is right?
