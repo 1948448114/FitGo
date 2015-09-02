@@ -3,7 +3,7 @@
 import tornado.web
 import tornado.gen
 from Base_Handler import BaseHandler
-from ..databases.tables import UsersCache,CoolieCache
+from ..databases.tables import UsersCache,CookieCache
 import json
 from time import time
 import uuid
@@ -26,10 +26,11 @@ class LoginHandler(BaseHandler):
         info_email=self.get_argument("info_email")
         user_password=self.get_argument("user_password")
         code=self.get_argument("code")
-        if info_email=="" or user_password=="" or code=="" :
-            retjson={'code':400,'content':'Empty'}
-            ret = json.dumps(retjson, ensure_ascii=False, indent=2)
-            self.write(ret)
+        retjson = {'code':200,'content':'ok'}
+        if not info_email or not user_password or not code :
+            retjson['code'] = 400
+            retjson['content'] = u'参数不能为空哦~'
+            
         else:
             try:
                 #user is right?
@@ -38,7 +39,7 @@ class LoginHandler(BaseHandler):
                 cookie_uuid=uuid.uuid1()
                 self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+86400)
                 #ok => store
-                status = CoolieCache(cookie=cookie_uuid,uid=person.uid)
+                status = CookieCache(cookie=cookie_uuid,uid=person.uid)
                 self.db.add(status)
                 try:
                     self.db.commit()
@@ -48,8 +49,10 @@ class LoginHandler(BaseHandler):
                 self.write(ret)
             except Exception, e:
                 print e
-                ret = json.dumps({'code':400,'content':'not found'}, ensure_ascii=False, indent=2)
-                self.write(ret)
+                retjson['code'] = 400
+                retjson['code'] = u'用户名或者密码错误'
+        ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+        self.write(ret)
 
 class LogoutHandler(BaseHandler):
     def get(self):

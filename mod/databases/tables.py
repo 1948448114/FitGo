@@ -19,7 +19,7 @@ class UsersCache(Base):
 	info_email = Column(VARCHAR(64))
 	info_phone = Column(VARCHAR(64))
 	portrait = Column(VARCHAR(64))
-class CoolieCache(Base):
+class CookieCache(Base):
 	__tablename__ = "Cookie"
 
 	id = Column(Integer,primary_key=True)
