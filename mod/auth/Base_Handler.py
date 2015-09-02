@@ -18,7 +18,7 @@ class BaseHandler(tornado.web.RequestHandler):
                 status = self.db.query(CookieCache).filter(CookieCache.cookie == name).one()
                 return status
             except NoResultFound:
-                return false
+                return False
         else:
-            return false
+            return False
 

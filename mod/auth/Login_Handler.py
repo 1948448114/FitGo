@@ -8,11 +8,6 @@ import json
 from time import time
 import uuid
 class LoginHandler(BaseHandler):
-    @property
-    def db(self):
-        return self.application.db
-    def on_finish(self):
-        self.db.close()
     def get(self):
         self.render('login.html')  
         # if not self.current_user:  
