@@ -26,7 +26,7 @@ class Application(tornado.web.Application):
             (r'/auth/logout', LogoutHandler)
             ]
         settings = dict(
-            cookie_secret="<7CA71A57B571B5AEAC5E64C6042415DE></7CA71A57B571B5AEAC5E64C6042415DE>",
+            cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
             template_path=os.path.join(os.path.dirname(__file__), 'templates'),
             auth_path=os.path.join(os.path.dirname(__file__),'auth'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
