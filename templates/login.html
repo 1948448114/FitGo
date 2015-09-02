@@ -1,147 +1,138 @@
 {% extends "header.html" %}
 {% block header %}
-
-
-
 {% end %}
-
 {% block body %}
-<div id="signup-dropdown">
-        <a href="#" class="dropdown-close"><span >CLOSE</span></a>
-        <div class="container">
-            <div class="login-header">
-                <h3>Sign Up For Free</h3>
-            </div>
+    <div class='login_signup'>
+        <div id="signup_dropdown">
+            <a href="#" class="dropdown-close"><span >CLOSE</span></a>
+            <div class="container">
+                <div class="login-header">
+                    <h3>Sign Up For Free</h3>
+                </div>
                 <div class="row">
                     <div class="col-sm-4 col-sm-offset-4">
-
                         <div class="form-group">
                             <input type="text" name="username" id="name_signup" class="form-control" placeholder="Your Real name">
                         </div>
                         <div class="form-group">
                             <input type="text" name="student_card" id="student_card_signup" class="form-control" placeholder="Your Student Card Number">
                         </div>
-                    
-
+                        
                         <div class="form-group">
                             <input type="text" name="student_id" id="student_id_signup" class="form-control" placeholder="Your Student ID">
                         </div>
-
                         
-                            <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
+                        <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
                         
                     </div>
                 </div>
+            </div>
+        </div>
+        <div id="verify_dropdown">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
+                </div>
                 
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
-                    </div>
                 
+                <div class="form-group col-sm-4">
+                    <input type="password" name="password" id="password_signup" class="form-control" placeholder="Password">
+                </div>
                 
-                    <div class="form-group col-sm-4">
-                        <input type="password" name="password" id="password_signup" class="form-control" placeholder="Password">
-                    </div>
-                    
-                    <div class="form-group col-sm-4 ">
-                        <input type="password" name="password_confirm" class="form-control" placeholder="Password Again">
-
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="rememberme" id = "login_check" value="forever" checked="checked"> Remember Me
-                        </label>
-
-                    </div>
+                <div class="form-group col-sm-4 ">
+                    <input type="password" name="password_confirm" class="form-control" placeholder="Password Again">
                 </div>
                 <div class="col-sm-offset-4 col-sm-4">
-                   
+                    
                     <button  class="btn btn-danger btn-lg btn-block">Sign Up</button>
                 </div>
-            </form>
-        </div>
-</div>
-        </div>
-
-<div id="login-dropdown">
-    <a href="#" class="dropdown-close"><span >CLOSE</span></a>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 col-sm-offset-4">
-                <div class="login-header">
-                    <h3>LOGIN</h3>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
-                </div>
-
-                <div class="form-group">
-                    <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
-                </div>
-
-                <div class="form-group">
-                    <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
-                </div>
-
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
-                    </label>
-                </div>
-            </div>  
-
-            <div class="col-sm-2 col-sm-offset-4">
-                <button id="login_btn"  class="btn btn-danger btn-lg btn-block col-sm-2 ">LOGIN</button>
             </div>
+        </div>
+    </div>
 
-            <div class="col-sm-2">
-                <button id="sign_up_btn"  class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
-            </div>  
-            
-            <div class="col-sm-4 col-sm-offset-4">
-                <p class="text-right">
-                    <a href="#" class="forgot-password btn btn-link btn-sm ">Forgot Your Password</a>
-                </p>
+    <div id="login_div">
+        <a href="#" class="dropdown-close"><span >CLOSE</span></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div class="login-header">
+                        <h3>LOGIN</h3>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-sm-offset-4">
+                    <button id="login_btn"  class="btn btn-danger btn-lg btn-block col-sm-2 ">LOGIN</button>
+                </div>
+                <div class="col-sm-2">
+                    <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
+                </div>
+                
+                <div class="col-sm-4 col-sm-offset-4">
+                    <p class="text-right">
+                        <a href="#" class="forgot-password btn btn-link btn-sm ">Forgot Your Password</a>
+                    </p>
+                </div>
             </div>
-
         </div>
     </div>
 </div>
 <script>
-    $(document).ready(function() {
 
-       $("#login_btn").click(function() {
-            if($("#login_check").is(':checked')){
-            alert('hello');
-            }
-           jQuery.ajax({
-             url: '/auth/login',
-             type: 'POST',
-             dataType:'json',
-             data: {
-                    'info_email':$("#info_email_login").val(),
-                    'user_password':$("#password_login").val(),
-                    'code':$("#code_login").val()
-                    },
-             success: function(data, textStatus, xhr) {
-                // result = data.parseJSON();
-                if(data['code']==200){
-                    $("#message").append('<p class="bg-success">登录成功</p>');
-                }
-                else{
-                    $("#message").append('<p class="bg-danger">'+data['content']+'</p>');
-                }
-             },
-             error: function(xhr, textStatus, errorThrown) {
-                $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
-             }
 
-           });
-           
-       }); 
-    });
-    
+$(document).ready(function() {
+
+$("#sign_up_btn").click(function(event) {
+    /* Act on the event */
+    $("#signup_dropdown").show();
+    $("#login_div").hide();
+});
+
+$("#verify").click(function(event) {
+    /* Act on the event */
+    $("#verify_dropdown").show();
+    $("#signup_dropdown").hide();
+});
+
+$("#login_btn").click(function() {
+if($("#login_check").is(':checked')){
+alert('hello');
+}
+jQuery.ajax({
+url: '/auth/login',
+type: 'POST',
+dataType:'json',
+data: {
+'info_email':$("#info_email_login").val(),
+'user_password':$("#password_login").val(),
+'code':$("#code_login").val()
+},
+success: function(data, textStatus, xhr) {
+// result = data.parseJSON();
+if(data['code']==200){
+$("#message").append('<p class="bg-success">登录成功</p>');
+}
+else{
+$("#message").append('<p class="bg-danger">'+data['content']+'</p>');
+}
+},
+error: function(xhr, textStatus, errorThrown) {
+$("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
+}
+});
+});
+});
 </script>
 {% end %}
-
-
-
