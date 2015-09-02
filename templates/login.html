@@ -1,58 +1,49 @@
 {% extends "header.html" %}
 {% block header %}
 
- <style type="text/css">
- #form_input{
-    width: 70%;
-    padding-top: 20px;
-    padding-left: 500px;
 
- }
- #message{
-    width: 70%;
-    padding-left: 500px;
-    padding-top: 20px;
-    text-align: center;
- }
  </style>
 {% end %}
 
 {% block body %}
-<div id="message">
-    <h1>LOGIN</hi>
-</div>
-<div id="form_input">
-    <div class="row">
-        <div class="col-sm-4 col-sm-offset-4">
+<div id="login-dropdown">
+
+        <div class="container-login">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
                 <div class="login-form-header">
                     <h3>Login</h3>
                 </div>
-        <div class="form-group">
-            <label for="email" ></label>
-            <input type="text" class="form-control" id="email"
-            placeholder="Info_Email">
+
+   
+
+                    <input type="hidden" id="security" name="security" value="b023f1aff6" />
+                    <input type="hidden" name="_wp_http_referer" value="/drink-number/2" />                 
+                    <input type="hidden" name="redirect_to" value="/drink-number/2">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="email" placeholder="Info_Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
+                        </label>
+                    </div>
+                    <button id="login_btn" type="submit" class="btn btn-danger btn-lg btn-block">LOGIN</button>
+
+                    <p class="text-right"><a href="#" class="forgot-password btn btn-link btn-sm">Forgot Your Password</a></p>
+
+
+            </div>
         </div>
-        <div class="form-group">
-            <label for="user_password" ></label>
-            <input type="password" class="form-control" id="user_password"
-            placeholder="Password">
         </div>
-        <div class="form-group">
-            <label for="code" ></label>
-            <input type="text" class="form-control" id="code"
-            placeholder="Code">
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
-            </label>
-        </div>
-    </div>    
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button id="sub" class="btn btn-primary">LogIn</button>
-        </div>
-    </div>
+
+
+
+
 </div>
 <script>
     $(document).ready(function() {
