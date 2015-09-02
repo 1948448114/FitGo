@@ -1,0 +1,77 @@
+{% extends "header.html" %}
+{% block header %}
+
+
+ </style>
+{% end %}
+
+{% block body %}
+<div id="login-dropdown">
+
+        <div class="container-login">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="login-form-header">
+                    <h3>Login</h3>
+                </div>
+
+   
+
+                    <input type="hidden" id="security" name="security" value="b023f1aff6" />
+                    <input type="hidden" name="_wp_http_referer" value="/drink-number/2" />                 
+                    <input type="hidden" name="redirect_to" value="/drink-number/2">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="email" placeholder="Info_Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
+                        </label>
+                    </div>
+                    <button id="login_btn" type="submit" class="btn btn-danger btn-lg btn-block">LOGIN</button>
+
+                    <p class="text-right"><a href="#" class="forgot-password btn btn-link btn-sm">Forgot Your Password</a></p>
+
+
+            </div>
+        </div>
+        </div>
+
+
+
+
+</div>
+<script>
+    $(document).ready(function() {
+       $("#sub").click(function() {
+           jQuery.ajax({
+             url: '/auth/login',
+             type: 'POST',
+             data: {
+                    'email':$("#email").val(),
+                    'user_password':$("#user_password").val(),
+                    'code':$("#code").val()
+                    },
+             success: function(data, textStatus, xhr) {
+                // result = data.parseJSON();
+                $("#message").append('<p class="bg-success">登录成功</p>');
+             },
+             error: function(xhr, textStatus, errorThrown) {
+                alert(errorThrown);
+                $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
+             }
+
+           });
+           
+       }); 
+    });
+    
+</script>
+{% end %}
+
+
+

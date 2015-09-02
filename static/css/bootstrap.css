@@ -4217,11 +4217,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
   }
-}
+}*/
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
@@ -4322,9 +4322,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
-  font-size: 18px;
+/*  padding: 15px 15px;
+*/  font-size: 18px;
   line-height: 20px;
+  margin-top: 0px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {

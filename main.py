@@ -1,47 +1,50 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
-#
-# Copyright 2009 Facebook
-#
-# Licensed under the Apache License, Version 2.0 (the "License"); you may
-# not use this file except in compliance with the License. You may obtain
-# a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-# License for the specific language governing permissions and limitations
-# under the License.
-
+#@date  :2015-3-from
 import tornado.httpserver
 import tornado.ioloop
-import tornado.options
 import tornado.web
 import os
-
 from tornado.options import define, options
 
-define("port", default=3000, help="run on the given port", type=int)
+from sqlalchemy.orm import scoped_session, sessionmaker
+from mod.databases.db import engine
+from UI_moudles.UI_moudle import *
+from mod.auth.Login_Handler import LoginHandler,LogoutHandler
+from mod.auth.Base_Handler import BaseHandler
+from mod.index.index import IndexHandler
+
+
+define("port", default=8888, help="run on the given port", type=int)
+
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            (r'/',MainHandler),
+            (r'/',IndexHandler),
+            (r'/body',BodyHandler),
+            (r'/auth/login',LoginHandler),
+            (r'/auth/logout', LogoutHandler)
             ]
         settings = dict(
-            cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
+            cookie_secret="<7CA71A57B571B5AEAC5E64C6042415DE></7CA71A57B571B5AEAC5E64C6042415DE>",
             template_path=os.path.join(os.path.dirname(__file__), 'templates'),
+            auth_path=os.path.join(os.path.dirname(__file__),'auth'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
+            ui_modules={'header':HeaderMoudle,'footer':FooterMoudle},
+            # xsrf_cookies=True,
+            login_url="/auth/login",
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
-            debug=True
+            debug=True,
+            # "lohin_url":"/auth/LoginHandler"
+            
         )
         tornado.web.Application.__init__(self, handlers, **settings)
-
-
-class MainHandler(tornado.web.RequestHandler):
+        self.db = scoped_session(sessionmaker(bind=engine,
+                                              autocommit=False, autoflush=True,
+                                              expire_on_commit=False))
+class BodyHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render('header.html')
-
+        self.render('body.html')
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()

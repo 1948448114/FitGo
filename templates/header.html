@@ -3,50 +3,64 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="{{static_url('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/mine.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/andrew.css') }}">
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
         <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="{{static_url('js/bootstrap.min.js') }}"></script>
+        <script src="{{static_url('js/unslider.min.js')}}"></script>
+        {% block header %}
+
+        {% end %}
         <title>FitGo</title>
         <style type="text/css">
+        /*#footera {
+        margin-top: 10px;
+        }
+        #content {
+        padding-bottom: 40%
+        }*/
         /*body {
-            padding-top: 50px;
+        padding-top: 50px;
         }
         .starter-template {
-            padding: 40px 15px;
-            text-align: center;
+        padding: 40px 15px;
+        text-align: center;
         }*/
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div id="menu">
+        <nav id="navigation" class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    </button> -->
-                    <a class="navbar-brand" href="#">Project name</a>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img  src="/static/images/logo-white50.png" alt="FitGo" title="FitGo">
+                    </a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div id="navbar" class="collapse navbar-collapse" style="align:right">
+                    <ul  id="different" class="nav navbar-nav navbar-right">
+                        <li><a id="home" href="/">HOME</a></li>
+                        <li><a class="bar" href="#about">DISCOVER</a></li>
+                        <li><a class="bar" href="#contact">PLANS</a></li>
+                        <li><a class="bar" href="#contact">INVITE</a></li>
+                        <li><a class="bar" href="#contact">ACTIVITIES</a></li>
+                        <li id="but"><button id="login" type="button" class="btn btn-default navbar-btn" >LOGIN</button></li>
                     </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </nav>
-            <div class="container">
-                <div class="starter-template" style="padding:40px 15px;text-align:center">
-                    <h1>Bootstrap starter template</h1>
-                    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-                </div>
+                </div><!--/.nav-collapse -->
             </div>
-        </body>
-        <script>
-        </script>
-    </html>
+        </nav>
+    </div>
+    {% block body %}
+    {% end %}
+    {% module footer() %}       
+            
+            
