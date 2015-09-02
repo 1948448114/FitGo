@@ -15,11 +15,10 @@ class LoginHandler(BaseHandler):
         self.db.close()
 
     def get(self):
-        self.set_secure_cookie("username","123")#,expires_days=30,expires=int(time())+86400)
-        # if not self.current_user:  
-        #     self.render('login.html')  
-        # else:  
-        #     self.redirect('/')  
+        if not self.current_user:  
+            self.render('login.html')  
+        else:  
+            self.redirect('/')  
         
 
     def post(self):

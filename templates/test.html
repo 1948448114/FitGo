@@ -1,1 +1,34 @@
-test.html
+{% extends "header.html" %}
+{% block header %}
+
+{% end %}
+
+{% block body %}
+<div class="input-group">
+    <span class="input-group-addon">@</span>
+    <input type="text" class="form-control" placeholder="twitterhandle">
+</div>
+<br>
+<div id="r" class="alert alert-warning alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert"
+    aria-hidden="true">
+    &times;
+    </button>
+    警告！请不要提交。
+</div>
+<div class="input-group">
+    <input type="text" class="form-control">
+    <span class="input-group-addon">.00</span>
+</div>
+<button id="ha">ha</button>
+
+<script>
+    .$(document).ready(function() {
+        $("#r").css("dispaly":"none");
+        $("#ha").click(function(event) {
+            /* Act on the event */
+            $("#r").css("visibility":"visible");
+        });
+    });
+</script>
+{% end %}
