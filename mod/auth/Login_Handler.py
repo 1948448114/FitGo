@@ -23,7 +23,7 @@ class LoginHandler(BaseHandler):
         except Exception, e:
             print e
         if 1 :    
-            self.set_secure_cookie("username", self.get_argument("info_email"))
+            self.set_secure_cookie("username", self.get_argument("email"))
             self.write("{'code':{200},'content':'ok'}")
             # self.finish()
             # self.redirect("/")
