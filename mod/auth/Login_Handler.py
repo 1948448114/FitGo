@@ -16,7 +16,7 @@ class LoginHandler(BaseHandler):
         
 
     def post(self):
-        info_email=self.get_argument("info_email")
+        info_email=self.get_arguments("info_email")
         user_password=self.get_argument("user_password")
         code=self.get_argument("code")
         retjson = {'code':200,'content':'ok'}
@@ -26,7 +26,8 @@ class LoginHandler(BaseHandler):
         else:
             try:
                 #user is right?
-                person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password == user_password).one()
+                print user_password
+                person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password==user_password).one()
                 #yes => set cookie
                 cookie_uuid=uuid.uuid1()
                 self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+86400)
@@ -37,17 +38,11 @@ class LoginHandler(BaseHandler):
                     self.db.commit()
                 except:
                     self.sb.rollback()
-                ret=json.dumps({'code':200,'content':'ok'},ensure_ascii=False,indent=2)
-                self.write(ret)
+                    ret=json.dumps({'code':402,'content':'cookie store is wrong'},ensure_ascii=False,indent=2)
+                    self.write(ret)
             except Exception, e:
                 print e
                 retjson['code'] = 400
-                retjson['code'] = u'用户名或者密码错误'
+                retjson['content'] = u'用户名或者密码错误'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
-
-class LogoutHandler(BaseHandler):
-    def get(self):
-        if (self.get_argument("logout", None)):
-            self.clear_cookie("username")
-            self.redirect("/")
