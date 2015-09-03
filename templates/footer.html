@@ -42,110 +42,14 @@
 <div id="myfooter" class="container align-center">
     <a onclick="toTop()" class="to-top"><i><img src="https://jcd.pl/data/themes/jcd/img/arrowtop.png" style="margin-top:10px;"></i></a>
     <p>
-        Wszelkie prawa zastrzeżone, kopiowanie materiałów zawartych na stronie bez uprzedniej zgody właściciela jest
-        zabronione. Projekt i wykonanie: <a href="https://jcd.pl/"> jcd.pl </a> | Na silniku <a href="http://pl.windu.org/">windu.org</a>
+        
+        <a href="https://jcd.pl/"> jcd.pl </a> | Na silniku <a href="http://pl.windu.org/">windu.org</a>
     </p>
 </div>
 </footer>
 </body>
 <script>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 $(document).ready(function(){
 });
-=======
->>>>>>> Stashed changes
-    $(document).ready(function() {
-            $(".dropdown_close").click(function(event) {
-            /* Act on the event */
-            $("#verify_dropdown").hide();
-            $("#signup_dropdown").hide();
-            $("#login_div").hide();
-            $("#find_password_dropdown").hide();
-<<<<<<< Updated upstream
-            $("#find_password_new_pwd").hide();
-=======
->>>>>>> Stashed changes
-            });
-                
-            $(".forgot-password").click(function(event) {
-            /* Act on the event */
-            $("#verify_dropdown").hide();
-            $("#signup_dropdown").hide();
-            $("#login_div").hide();
-            $("#find_password_dropdown").show();
-<<<<<<< Updated upstream
-
-            });
-            $("#check_btn").click(function(event) {
-            /* Act on the event */
-            $("#verify_dropdown").hide();
-            $("#signup_dropdown").hide();
-            $("#login_div").hide();
-            $("#find_password_new_pwd").show();
-
-            });
-=======
-            });
-
->>>>>>> Stashed changes
-            $("#login").click(function(event) {
-            /* Act on the event */
-            $("#verify_dropdown").hide();
-            $("#signup_dropdown").hide();
-            $("#login_div").show();
-            $("#find_password_dropdown").hide();
-            });
-
-            $("#sign_up_btn").click(function(event) {
-            /* Act on the event */
-            $("#verify_dropdown").hide();
-            $("#signup_dropdown").show();
-            $("#login_div").hide();
-            $("#find_password_dropdown").hide();
-            });
-            
-            $("#verify").click(function(event) {
-            /* Act on the event */
-            $("#login_div").hide();
-            $("#verify_dropdown").show();
-            $("#signup_dropdown").hide();
-            $("#find_password_dropdown").hide();
-            });
-
-
-            $("#login_btn").click(function() {
-            if($("#login_check").is(':checked')){
-            alert('hello');
-            }
-            jQuery.ajax({
-            url: '/auth/login',
-            type: 'POST',
-            dataType:'json',
-            data: {
-            'info_email':$("#info_email_login").val(),
-            'user_password':$("#password_login").val(),
-            'code':$("#code_login").val()
-            },
-            success: function(data, textStatus, xhr) {
-            // result = data.parseJSON();
-            if(data['code']==200){
-            $("#message").append('<p class="bg-success">登录成功</p>');
-            }
-            else{
-            $("#message").append('<p class="bg-danger">'+data['content']+'</p>');
-            }
-            },
-            error: function(xhr, textStatus, errorThrown) {
-            $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
-            }
-            });
-            });
-            });
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
 </script>
 </html>

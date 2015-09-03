@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
-
-
-
 DB_HOST = '123.57.221.18'
 DB_USER = 'fitgouser'
 DB_PWD = 'fitgo2015'
 
 
 #084358
-DB_NAME = 'test'
+DB_NAME = 'fitgo'
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
