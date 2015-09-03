@@ -59,144 +59,269 @@
                     </div>
                 </nav>
             </div>
-    <div class='login_signup'>
-        <div id="signup_dropdown">
-            <a href="#" class="dropdown-close"><span >CLOSE</span></a>
-            <div class="container">
-                <div class="login-header">
-                    <h3>Sign Up For Free</h3>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <div class="form-group">
-                            <input type="text" name="username" id="name_signup" class="form-control" placeholder="Your Real name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="student_card" id="student_card_signup" class="form-control" placeholder="Your Student Card Number">
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" name="student_id" id="student_id_signup" class="form-control" placeholder="Your Student ID">
-                        </div>
-                        
-                        <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="verify_dropdown">
-            <div class="row">
-                <div class="form-group col-sm-4">
-                    <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
-                </div>
-                
-                
-                <div class="form-group col-sm-4">
-                    <input type="password" name="password" id="password_signup" class="form-control" placeholder="Password">
-                </div>
-                
-                <div class="form-group col-sm-4 ">
-                    <input type="password" name="password_confirm" class="form-control" placeholder="Password Again">
-                </div>
-                <div class="col-sm-offset-4 col-sm-4">
-                    
-                    <button  class="btn btn-danger btn-lg btn-block">Sign Up</button>
-                </div>
-            </div>
-        </div>
-        <div id="login_div">
-            <a href="#" class="dropdown-close"><span >CLOSE</span></a>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-4">
+            <div class='login_signup'>
+                <div id="signup_dropdown">
+                    <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+                    <div class="container">
                         <div class="login-header">
-                            <h3>LOGIN</h3>
+                            <h3>Sign Up For Free</h3>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
-                            </label>
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <div class="form-group">
+                                     <div class="for_label">
+                                        <label for="name_signup" class="control_label glyphicon glyphicon-user">
+                                        </label>
+                                        <input type="text" name="username" id="name_signup" class="form-control" placeholder="Your Real name">
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="for_label">
+                                        <label for="student_card_signup" class="control_label glyphicon glyphicon-blackboard">
+                                        </label>
+                                         <input type="text" name="student_card" id="student_card_signup" class="form-control" placeholder="Your Student Card Number">
+                                    </div>
+                                   
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="for_label">
+                                        <label for="student_id_signup" class="control_label glyphicon glyphicon-credit-card">
+                                        </label>
+                                         <input type="text" name="student_id" id="student_id_signup" class="form-control" placeholder="Your Student ID">
+                                    </div>
+                                </div>
+
+                                 <div class="form-group">
+                                <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-2 col-sm-offset-4">
-                        <button id="login_btn"  class="btn btn-danger btn-lg btn-block col-sm-2 ">LOGIN</button>
+                </div>
+                <div id="verify_dropdown">
+                    <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+                    <div class="container">
+                        <div class="login-header">
+                            <h3>Sign Up For Free</h3>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4 col-sm-offset-2">
+                                <div class="for_label">
+                                        <label for="info_email_signup" class="control_label glyphicon glyphicon-envelope">
+                                        </label>
+                                         <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
+                                    </div>
+                               
+                            </div>
+                            
+                            
+                            <div class="form-group col-sm-4">
+                                 <div class="for_label">
+                                        <label for="password_signup" class="control_label glyphicon glyphicon-asterisk">
+                                        </label>
+                                    <input type="password" name="password" id="password_signup" class="form-control" placeholder="Password">
+                                    </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-offset-2 col-sm-4 ">
+                                 <div class="for_label">
+                                        <label  class="control_label glyphicon glyphicon-asterisk">
+                                        </label>
+                                            <input type="password" name="password_confirm" class="form-control" placeholder="Password Again">
+                                    </div>
+                            
+                            </div>
+                            <div class="form-group col-sm-4">
+                                
+                                <button  class="btn btn-danger btn-lg btn-block">Sign Up Now!</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
+                </div>
+                 <div id="find_password_dropdown">
+                    <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+                    <div class="container">
+                        <div class="login-header">
+                            <h3>Find Password</h3>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4 col-sm-offset-2">
+                                <div class="for_label">
+                                        <label for="info_email_find_password" class="control_label glyphicon glyphicon-envelope">
+                                        </label>
+                                         <input type="text" name="email" id="info_email_find_password" class="form-control" placeholder="Your Email">
+                                    </div>
+                               
+                            </div>
+                            <div class="form-group">
+                                    <div class="for_label">
+                                        <label for="student_card_find_password" class="control_label glyphicon glyphicon-blackboard">
+                                        </label>
+                                         <input type="text" name="student_card_find_password" id="student_card_find_password" class="form-control" placeholder="Your Student Card Number">
+                                    </div>
+                                   
+                                </div>
+                             <div class="form-group col-sm-4">
+                                
+                                <button  class="btn btn-danger btn-lg btn-block">Check!</button>
+
+                            </div>
+                            <div class="form-group col-sm-4">
+                                 <div class="for_label">
+                                        <label for="password_find_password" class="control_label glyphicon glyphicon-asterisk">
+                                        </label>
+                                    <input type="password" name="password_find_password" id="password_find_password" class="form-control" placeholder="Your New Password">
+                                    </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-offset-2 col-sm-4 ">
+                                 <div class="for_label">
+                                        <label  for="password_confirm_find_password" class="control_label glyphicon glyphicon-asterisk">
+                                        </label>
+                                            <input type="password" name="password_confirm_find_password" id="password_confirm_find_password" class="form-control" placeholder="Password Again">
+                                    </div>
+                            
+                            </div>
+                            <div class="form-group col-sm-4">
+                                
+                                <button  id="find_password_btn" class="btn btn-danger btn-lg btn-block">I can Remember it this time!</button>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <p class="text-right">
-                            <a href="#" class="forgot-password btn btn-link btn-sm ">Forgot Your Password</a>
-                        </p>
+                </div>
+                <div id="login_div">
+                    <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <div class="login-header">
+                                    <h3>LOGIN</h3>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="for_label">
+                                        <label for="info_email_login" class="control_label glyphicon glyphicon-envelope">
+                                        </label>
+                                        <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="for_label">
+                                        <label for="password_login" class="control_label glyphicon glyphicon-asterisk">
+                                        </label>
+                                        <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="for_label">
+                                        <label for="code_login" class="control_label glyphicon glyphicon-comment">
+                                        </label>
+                                        <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-sm-offset-4 col-xs-6">
+                                <button id="login_btn"  class="btn btn-danger btn-lg btn-block col-sm-2 ">LOGIN</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-6"">
+                                <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
+                            </div>
+                            
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <p class="text-right">
+                                    <a href="#" class="forgot-password btn btn-link btn-sm ">Forgot Your Password</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <script>
-    $(document).ready(function() {
+            
+            <script>
+            $(document).ready(function() {
+
+            $(".dropdown_close").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").hide();
+            $("#login_div").hide();
+            $("#find_password_dropdown").hide();
+            });
+                
+            $(".forgot-password").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").hide();
+            $("#login_div").hide();
+            $("#find_password_dropdown").show();
+            });
+
+            $("#login").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").hide();
+            $("#login_div").show();
+            $("#find_password_dropdown").hide();
+            });
+
+            $("#sign_up_btn").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").show();
+            $("#login_div").hide();
+            $("#find_password_dropdown").hide();
+            });
+            
+            $("#verify").click(function(event) {
+            /* Act on the event */
+            $("#login_div").hide();
+            $("#verify_dropdown").show();
+            $("#signup_dropdown").hide();
+            $("#find_password_dropdown").hide();
+            });
 
 
-          $("#login").click(function(event) {
-    /* Act on the event */
-    $("#verify_dropdown").hide();
-    $("#signup_dropdown").hide();
-    $("#login_div").show();
-    });
-    $("#sign_up_btn").click(function(event) {
-    /* Act on the event */
-        $("#verify_dropdown").hide();
-    $("#signup_dropdown").show();
-    $("#login_div").hide();
-    });
-    $("#verify").click(function(event) {
-    /* Act on the event */
-        $("#login_div").hide();
-    $("#verify_dropdown").show();
-    $("#signup_dropdown").hide();
-    });
-    $("#login_btn").click(function() {
-    if($("#login_check").is(':checked')){
-    alert('hello');
-    }
-    jQuery.ajax({
-    url: '/auth/login',
-    type: 'POST',
-    dataType:'json',
-    data: {
-    'info_email':$("#info_email_login").val(),
-    'user_password':$("#password_login").val(),
-    'code':$("#code_login").val()
-    },
-    success: function(data, textStatus, xhr) {
-    // result = data.parseJSON();
-    if(data['code']==200){
-    $("#message").append('<p class="bg-success">登录成功</p>');
-    }
-    else{
-    $("#message").append('<p class="bg-danger">'+data['content']+'</p>');
-    }
-    },
-    error: function(xhr, textStatus, errorThrown) {
-    $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
-    }
-    });
-    });
-    });
-    </script>
-
+            $("#login_btn").click(function() {
+            if($("#login_check").is(':checked')){
+            alert('hello');
+            }
+            jQuery.ajax({
+            url: '/auth/login',
+            type: 'POST',
+            dataType:'json',
+            data: {
+            'info_email':$("#info_email_login").val(),
+            'user_password':$("#password_login").val(),
+            'code':$("#code_login").val()
+            },
+            success: function(data, textStatus, xhr) {
+            // result = data.parseJSON();
+            if(data['code']==200){
+            $("#message").append('<p class="bg-success">登录成功</p>');
+            }
+            else{
+            $("#message").append('<p class="bg-danger">'+data['content']+'</p>');
+            }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+            $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
+            }
+            });
+            });
+            });
+            </script>
             {% block body %}
             {% end %}
             {% module footer() %}

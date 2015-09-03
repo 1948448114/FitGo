@@ -26,7 +26,8 @@ class LoginHandler(BaseHandler):
         else:
             try:
                 #user is right?
-                person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password == user_password).one()
+                print user_password
+                person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password==user_password).one()
                 #yes => set cookie
                 cookie_uuid=uuid.uuid1()
                 self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+86400)
@@ -42,6 +43,6 @@ class LoginHandler(BaseHandler):
             except Exception, e:
                 print e
                 retjson['code'] = 400
-                retjson['code'] = u'用户名或者密码错误'
+                retjson['content'] = u'用户名或者密码错误'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
