@@ -16,8 +16,8 @@ class LoginHandler(BaseHandler):
         
 
     def post(self):
-        info_email,user_password=self.get_argument("info_email","user_password")
-        # user_password=self.get_argument("user_password")
+        info_email=self.get_arguments("info_email")
+        user_password=self.get_argument("user_password")
         code=self.get_argument("code")
         retjson = {'code':200,'content':'ok'}
         if not info_email or not user_password or not code :
@@ -37,8 +37,8 @@ class LoginHandler(BaseHandler):
                     self.db.commit()
                 except:
                     self.sb.rollback()
-                ret=json.dumps({'code':200,'content':'ok'},ensure_ascii=False,indent=2)
-                self.write(ret)
+                    ret=json.dumps({'code':402,'content':'cookie store is wrong'},ensure_ascii=False,indent=2)
+                    self.write(ret)
             except Exception, e:
                 print e
                 retjson['code'] = 400

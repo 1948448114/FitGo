@@ -6,9 +6,9 @@ from Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,CookieCache
 #/auth/logout
 class LogoutHandler(BaseHandler):
-	def delete(self):#用户登出，删除cookie
+    def delete(self):#用户登出，删除cookie
         status = self.get_current_user()
-		if status:
+        if status:
             # cookie = self.db.query(CookieCache).filter(CookieCache.cookie == status.cookie)
             self.db.remove(status)
             try:
