@@ -24,3 +24,9 @@
     color: #555;
     display: block;
 }
+#verify_dropdown{
+    display:none;
+}
+#signup_dropdown{
+    display:none;
+}
