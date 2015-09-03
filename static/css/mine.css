@@ -11,7 +11,7 @@
 }
 
 @font-face{
-	font-family: "SourceSansPro-Semibold";
+	font-family: "SourceSansPro-Black";
 	src:url("/static/fonts/SourceSansPro-Black.ttf");
 }
 
@@ -72,12 +72,13 @@ body{
 }
 .title strong{
 	font-weight: 600;
-	font-family: 'SourceSansPro-Regular';
+	font-family: 'SourceSansPro-Semibold';
 }
 .largetext{
 	font-family: 'SourceSansPro-ExtraLight';
 	margin-top: 30px;
 	margin-bottom: 30px;
+	text-align: center;
 }
 .shadow1{/*
 	min-height: 500px;*/
@@ -106,8 +107,9 @@ body{
 	padding-left: 90px;
 }
 #words h1{
-	font-family: "SourceSansPro-Black";
+	font-family: "SourceSansPro-Semibold";
 	font-size: 60px;
+	font-weight: 500;
 }
 #words p{
 	font-size: 22px;
@@ -129,6 +131,7 @@ body{
 #hs-slider{
 	background: url(/static/images/background2.png) center center no-repeat;
 	background-size: cover;
+	padding-bottom: 40px;
 /*	height: 500px;
 */	
 }
@@ -295,7 +298,8 @@ div{
 	font-family: "SourceSansPro-Regular";
 }
 #blocks-word .h2-font{
-	font-family: "SourceSansPro-Semibold";
+	font-family: "SourceSansPro-Black";
+	font-weight: 200;
 }
 
 

@@ -1,0 +1,43 @@
+@font-face{
+	font-family: "proxima-nova";
+	src:url("/static/fonts/ProximaNova-Light.otf");}
+#myfooter{
+	margin-top: 50px;
+}
+.contact-padding{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.contact-info{
+	text-align: center;
+	font-family: "proxima-nova";
+	color: #4182c7;
+}
+.to-top i{
+	background-color: #343a63;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+.phone{
+	border-left-style: solid;
+	border-right-style: solid;
+	border-width: 1px;
+	border-color: #dadbdb;
+	
+}
+.gray-font{
+	color: #7e8590;
+	font-size: 18px;
+}
+footer{
+	background-color: #343a63;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+#myfooter .align-center {
+	text-align: center;
+}
+#myfooter p{
+	color: #ffffff;
+}
