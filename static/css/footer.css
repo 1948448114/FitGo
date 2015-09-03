@@ -2,7 +2,7 @@
 	font-family: "proxima-nova";
 	src:url("/static/fonts/ProximaNova-Light.otf");}
 #myfooter{
-	margin-top: 50px;
+	/*margin-top: 50px;*/
 }
 .contact-padding{
 	padding-top: 40px;
@@ -13,11 +13,18 @@
 	font-family: "proxima-nova";
 	color: #4182c7;
 }
-.to-top i{
+
+.to-top div{
 	background-color: #343a63;
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
+	text-align: center;
+	margin: auto;
+	position: relative;
+	top:-30px;
+	left: 0;
+	right: 0;
 }
 .phone{
 	border-left-style: solid;
@@ -32,7 +39,7 @@
 }
 footer{
 	background-color: #343a63;
-	padding-top: 50px;
+	padding-top: 0;
 	padding-bottom: 50px;
 }
 #myfooter .align-center {
@@ -40,4 +47,13 @@ footer{
 }
 #myfooter p{
 	color: #ffffff;
+	text-align: center;
+}
+#myfooter h1{
+	text-align: center;
+	color: #ffffff;
+	padding-bottom: 30px;
+}
+#myfooter a{
+	color: #5cc1f0;
 }
