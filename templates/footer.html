@@ -18,8 +18,75 @@
 </nav> -->
 </body>
 <script>
-    $(document).ready(function(){
-       
-        });
+    $(document).ready(function() {
+            $(".dropdown_close").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").hide();
+            $("#login_div").hide();
+            $("#find_password_dropdown").hide();
+            });
+                
+            $(".forgot-password").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").hide();
+            $("#login_div").hide();
+            $("#find_password_dropdown").show();
+            });
+
+            $("#login").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").hide();
+            $("#login_div").show();
+            $("#find_password_dropdown").hide();
+            });
+
+            $("#sign_up_btn").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").show();
+            $("#login_div").hide();
+            $("#find_password_dropdown").hide();
+            });
+            
+            $("#verify").click(function(event) {
+            /* Act on the event */
+            $("#login_div").hide();
+            $("#verify_dropdown").show();
+            $("#signup_dropdown").hide();
+            $("#find_password_dropdown").hide();
+            });
+
+
+            $("#login_btn").click(function() {
+            if($("#login_check").is(':checked')){
+            alert('hello');
+            }
+            jQuery.ajax({
+            url: '/auth/login',
+            type: 'POST',
+            dataType:'json',
+            data: {
+            'info_email':$("#info_email_login").val(),
+            'user_password':$("#password_login").val(),
+            'code':$("#code_login").val()
+            },
+            success: function(data, textStatus, xhr) {
+            // result = data.parseJSON();
+            if(data['code']==200){
+            $("#message").append('<p class="bg-success">登录成功</p>');
+            }
+            else{
+            $("#message").append('<p class="bg-danger">'+data['content']+'</p>');
+            }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+            $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
+            }
+            });
+            });
+            });
 </script>
 </html>
