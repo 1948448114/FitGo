@@ -25,6 +25,7 @@
             $("#signup_dropdown").hide();
             $("#login_div").hide();
             $("#find_password_dropdown").hide();
+            $("#find_password_new_pwd").hide();
             });
                 
             $(".forgot-password").click(function(event) {
@@ -33,8 +34,16 @@
             $("#signup_dropdown").hide();
             $("#login_div").hide();
             $("#find_password_dropdown").show();
-            });
 
+            });
+            $("#check_btn").click(function(event) {
+            /* Act on the event */
+            $("#verify_dropdown").hide();
+            $("#signup_dropdown").hide();
+            $("#login_div").hide();
+            $("#find_password_new_pwd").show();
+
+            });
             $("#login").click(function(event) {
             /* Act on the event */
             $("#verify_dropdown").hide();

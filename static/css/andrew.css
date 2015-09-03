@@ -34,7 +34,9 @@
 .for_label{
        position: relative;
 }
- 
+  .on_left h3{
+    margin-top:0px;
+ }
 .control_label {
     position: absolute;
     top: 9px;
@@ -55,6 +57,10 @@
     display:none;
 }
 #find_password_dropdown{
+      position: relative;
+    display:none;
+}
+#find_password_new_pwd{
     display:none;
 }
 .div_close
@@ -65,5 +71,8 @@
     position: absolute;
     top: 20px;
     right: 50px;
+}
+.no_padding{
+    padding-right: 0px;
 }
     

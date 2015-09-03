@@ -69,7 +69,7 @@
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-4">
                                 <div class="form-group">
-                                     <div class="for_label">
+                                    <div class="for_label">
                                         <label for="name_signup" class="control_label glyphicon glyphicon-user">
                                         </label>
                                         <input type="text" name="username" id="name_signup" class="form-control" placeholder="Your Real name">
@@ -80,21 +80,20 @@
                                     <div class="for_label">
                                         <label for="student_card_signup" class="control_label glyphicon glyphicon-blackboard">
                                         </label>
-                                         <input type="text" name="student_card" id="student_card_signup" class="form-control" placeholder="Your Student Card Number">
+                                        <input type="text" name="student_card" id="student_card_signup" class="form-control" placeholder="Your Student Card Number">
                                     </div>
-                                   
+                                    
                                 </div>
                                 
                                 <div class="form-group">
                                     <div class="for_label">
                                         <label for="student_id_signup" class="control_label glyphicon glyphicon-credit-card">
                                         </label>
-                                         <input type="text" name="student_id" id="student_id_signup" class="form-control" placeholder="Your Student ID">
+                                        <input type="text" name="student_id" id="student_id_signup" class="form-control" placeholder="Your Student ID">
                                     </div>
                                 </div>
-
-                                 <div class="form-group">
-                                <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
+                                <div class="form-group">
+                                    <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
                                 </div>
                             </div>
                         </div>
@@ -109,31 +108,31 @@
                         <div class="row">
                             <div class="form-group col-sm-4 col-sm-offset-2">
                                 <div class="for_label">
-                                        <label for="info_email_signup" class="control_label glyphicon glyphicon-envelope">
-                                        </label>
-                                         <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
-                                    </div>
-                               
+                                    <label for="info_email_signup" class="control_label glyphicon glyphicon-envelope">
+                                    </label>
+                                    <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
+                                </div>
+                                
                             </div>
                             
                             
                             <div class="form-group col-sm-4">
-                                 <div class="for_label">
-                                        <label for="password_signup" class="control_label glyphicon glyphicon-asterisk">
-                                        </label>
+                                <div class="for_label">
+                                    <label for="password_signup" class="control_label glyphicon glyphicon-asterisk">
+                                    </label>
                                     <input type="password" name="password" id="password_signup" class="form-control" placeholder="Password">
-                                    </div>
+                                </div>
                                 
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-sm-offset-2 col-sm-4 ">
-                                 <div class="for_label">
-                                        <label  class="control_label glyphicon glyphicon-asterisk">
-                                        </label>
-                                            <input type="password" name="password_confirm" class="form-control" placeholder="Password Again">
-                                    </div>
-                            
+                                <div class="for_label">
+                                    <label  class="control_label glyphicon glyphicon-asterisk">
+                                    </label>
+                                    <input type="password" name="password_confirm" class="form-control" placeholder="Password Again">
+                                </div>
+                                
                             </div>
                             <div class="form-group col-sm-4">
                                 
@@ -142,55 +141,69 @@
                         </div>
                     </div>
                 </div>
-                 <div id="find_password_dropdown">
+                <div id="find_password_dropdown">
                     <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
                     <div class="container">
                         <div class="login-header">
                             <h3>Find Password</h3>
                         </div>
                         <div class="row">
-                            <div class="form-group col-sm-4 col-sm-offset-2">
-                                <div class="for_label">
+                            <div class="on_left  col-sm-2 col-sm-offset-2 col-dx-6">
+                                <h3>Step 1:</h3>
+                            </div>
+                            <div class="col-sm-4">
+                                
+                                <div class="form-group">
+                                    <div class="for_label">
                                         <label for="info_email_find_password" class="control_label glyphicon glyphicon-envelope">
                                         </label>
-                                         <input type="text" name="email" id="info_email_find_password" class="form-control" placeholder="Your Email">
+                                        <input type="text" name="email" id="info_email_find_password" class="form-control" placeholder="Your Email">
                                     </div>
-                               
+                                    
+                                </div>
                             </div>
-                            <div class="form-group">
-                                    <div class="for_label">
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <div class="form-group">
+                                    <div class="for_label ">
                                         <label for="student_card_find_password" class="control_label glyphicon glyphicon-blackboard">
                                         </label>
-                                         <input type="text" name="student_card_find_password" id="student_card_find_password" class="form-control" placeholder="Your Student Card Number">
+                                        <input type="text" name="student_card_find_password" id="student_card_find_password" class="form-control" placeholder="Your Student Card Number">
                                     </div>
-                                   
+                                    
                                 </div>
-                             <div class="form-group col-sm-4">
-                                
-                                <button  class="btn btn-danger btn-lg btn-block">Check!</button>
-
-                            </div>
-                            <div class="form-group col-sm-4">
-                                 <div class="for_label">
-                                        <label for="password_find_password" class="control_label glyphicon glyphicon-asterisk">
-                                        </label>
-                                    <input type="password" name="password_find_password" id="password_find_password" class="form-control" placeholder="Your New Password">
-                                    </div>
-                                
+                                <div class="form-group">
+                                    <button id="check_btn" class="btn btn-danger btn-lg btn-block">Check!</button>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div id="find_password_new_pwd">
+                    <div class="container">
                         <div class="row">
-                            <div class="form-group col-sm-offset-2 col-sm-4 ">
-                                 <div class="for_label">
+                            <div class="on_left col-sm-2 col-sm-offset-2  col-dx-6">
+                                <h3>Step 2:</h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="for_label">
+                                        <label for="password_find_password" class="control_label glyphicon glyphicon-asterisk">
+                                        </label>
+                                        <input type="password" name="password_find_password" id="password_find_password" class="form-control" placeholder="Your New Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <div class="form-group ">
+                                    <div class="for_label">
                                         <label  for="password_confirm_find_password" class="control_label glyphicon glyphicon-asterisk">
                                         </label>
-                                            <input type="password" name="password_confirm_find_password" id="password_confirm_find_password" class="form-control" placeholder="Password Again">
+                                        <input type="password" name="password_confirm_find_password" id="password_confirm_find_password" class="form-control" placeholder="Password Again">
                                     </div>
-                            
-                            </div>
-                            <div class="form-group col-sm-4">
-                                
-                                <button  id="find_password_btn" class="btn btn-danger btn-lg btn-block">I can Remember it this time!</button>
+                                </div>
+                                <div class="form-group">
+                                    <button  id="find_password_btn" class="btn btn-danger btn-lg btn-block">I can Remember it this time!</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -238,10 +251,11 @@
                             <div class="col-sm-2 col-xs-6">
                                 <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
                             </div>
-                            
-                            <div class="col-sm-4 col-sm-offset-4">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-offset-4" >
                                 <p class="text-right">
-                                    <a href="#" class="forgot-password btn btn-link btn-sm ">Forgot Your Password</a>
+                                    <a href="#" class="forgot-password btn btn-link btn-sm no_padding">Forgot Your Password</a>
                                 </p>
                             </div>
                         </div>
