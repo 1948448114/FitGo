@@ -38,11 +38,11 @@ class LoginHandler(BaseHandler):
                     self.db.commit()
                 except:
                     self.sb.rollback()
-                    ret=json.dumps({'code':402,'content':'cookie store is wrong'},ensure_ascii=False,indent=2)
-                    self.write(ret)
+                    retjson['code'] = 401
+                    retjson['content'] = u'用户名或者密码错误'
             except Exception, e:
                 print e
-                retjson['code'] = 400
+                retjson['code'] = 402
                 retjson['content'] = u'用户名或者密码错误'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
