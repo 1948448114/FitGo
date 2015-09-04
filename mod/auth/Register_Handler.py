@@ -44,7 +44,7 @@ class RegisterHandler(BaseHandler):
                     self.db.commit()
                 except:
                     self.sb.rollback()
-                    ret=json.dumps({'code':402,'content':'cookie store is wrong'},ensure_ascii=False,indent=2)
-                    self.write(ret)
+                    retjson['code'] = 402
+                    retjson['content'] = "Sql store is wrong!Try again!"
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
