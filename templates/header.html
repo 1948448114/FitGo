@@ -8,13 +8,6 @@
         <link rel="stylesheet" href="{{static_url('css/login.css') }}">
         <link rel="stylesheet" href="{{static_url('css/andrew.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/footer.css') }}">
-
-        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-        <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
-        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-        <script src="{{static_url('js/bootstrap.min.js') }}"></script>
-        <script src="{{static_url('js/unslider.min.js')}}"></script>
-        <script src="{{static_url('js/homepage.js')}}"></script>
         {% block header %}
         {% end %}
         <title>FitGo</title>
@@ -56,7 +49,11 @@
                             <li><a class="bar" href="#contact">PLANS</a></li>
                             <li><a class="bar" href="/invite">INVITE</a></li>
                             <li><a class="bar" href="/activity">ACTIVITIES</a></li>
-                            <li id="but"><button id="login" type="button" class="btn btn-default navbar-btn" >LOGIN</button></li>
+                            {% if user %}
+                                <li id="but"><button id="logout" type="button" class="btn btn-default navbar-btn" >LOGOUT</button></li>
+                            {% else %}
+                                <li id="but"><button id="login" type="button" class="btn btn-default navbar-btn" >LOGIN</button></li>
+                            {% end %}
                         </ul>
                         </div><!--/.nav-collapse -->
                     </div>
@@ -103,7 +100,7 @@
                         
                     </div>
                     <div class="row wrong_message">
-                        <div class="alert alert-danger showing">Wrong Email or password.</div>
+                        <div class="alert alert-danger showing" id="verify_message">Wrong Email or password.</div>
                     </div>
                 </div>
                 <div id="verify_dropdown">
@@ -149,7 +146,7 @@
                         
                     </div>
                     <div class="row wrong_message">
-                        <div class="alert alert-danger showing">Wrong Email or password.</div>
+                        <div class="alert alert-danger showing" id="sign_up_message">Wrong Email or password.</div>
                     </div>
                 </div>
                 <div id="find_password_dropdown">
@@ -190,7 +187,7 @@
                         
                     </div>
                     <div class="row">
-                            <div class="alert alert-danger login-message showing">Wrong Email or password.</div>
+                            <div class="alert alert-danger login-message showing" id="find_message">Wrong Email or password.</div>
                         </div>
                 </div>
                 <div id="find_password_new_pwd">
@@ -223,7 +220,7 @@
                         </div>
                     </div>
                     <div class="row wrong_message">
-                        <div class="alert alert-danger showing">Wrong Email or password.</div>
+                        <div class="alert alert-danger showing" id="change_password_message">Wrong Email or password.</div>
                         
                     </div>
                 </div>
@@ -248,7 +245,7 @@
                                     <div class="for_label">
                                         <label for="password_login" class="control_label glyphicon glyphicon-asterisk">
                                         </label>
-                                        <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
+                                        <input type="password" name="password" id="password_login" class="form-control" placeholder="Password(at least six)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -260,7 +257,7 @@
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
+                                        <input type="checkbox" id = "login_check" name="rememberme" value="forever" checked="checked"> Remember Me
                                     </label>
                                 </div>
                             </div>
@@ -280,7 +277,7 @@
                         </div>
                     </div>
                     <div class="row wrong_message">
-                        <div class="alert alert-danger showing">Wrong Email or password.</div>
+                        <div class="alert alert-danger showing" id="login_message">Wrong Email or password.</div>
                     </div>
                     
                 </div>

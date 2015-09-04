@@ -14,7 +14,12 @@ from mod.auth.Login_Handler import LoginHandler
 from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Register_Handler import RegisterHandler
 from mod.auth.Base_Handler import BaseHandler
+
 from mod.index.index import IndexHandler
+
+from mod.activity.ActivityPage_Handler import ActivityPageHandler
+
+from mod.invite.InvitePage_Handler import InvitePageHandler
 
 
 define("port", default=8888, help="run on the given port", type=int)
@@ -28,8 +33,8 @@ class Application(tornado.web.Application):
             (r'/auth/logout', LogoutHandler),
             (r'/auth/register',RegisterHandler),
             (r'/test',TestHandler),
-            (r'/activity',ActivityHandler),
-            (r'/invite',InviteHandler)
+            (r'/activity',ActivityPageHandler),
+            (r'/invite',InvitePageHandler)
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -54,13 +59,6 @@ class BodyHandler(tornado.web.RequestHandler):
 class TestHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('test.html')
-class ActivityHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render('activity.html')
-class InviteHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render('invite.html')
-
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)
