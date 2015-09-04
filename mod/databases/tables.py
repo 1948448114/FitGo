@@ -22,7 +22,7 @@ class UsersCache(Base):
 class CookieCache(Base):
 	__tablename__ = "Cookie"
 
-	_id = Column(Integer,primary_key=True)
+	id = Column(Integer,primary_key=True)
 	uid = Column(VARCHAR(64))
 	cookie = Column(VARCHAR(64))
 class PlansCache(Base):

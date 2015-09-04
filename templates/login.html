@@ -48,91 +48,85 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div id="login_div">
-        <a href="#" class="dropdown-close"><span >CLOSE</span></a>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <div class="login-header">
-                        <h3>LOGIN</h3>
+        <div id="login_div">
+            <a href="#" class="dropdown-close"><span >CLOSE</span></a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="login-header">
+                            <h3>LOGIN</h3>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
+                    <div class="col-sm-2 col-sm-offset-4">
+                        <button id="login_btn"  class="btn btn-danger btn-lg btn-block col-sm-2 ">LOGIN</button>
                     </div>
-                    <div class="form-group">
-                        <input type="password" name="password" id="password_login" class="form-control" placeholder="Password">
+                    <div class="col-sm-2">
+                        <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
                     </div>
-                    <div class="form-group">
-                        <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
+                    
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <p class="text-right">
+                            <a href="#" class="forgot-password btn btn-link btn-sm ">Forgot Your Password</a>
+                        </p>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="rememberme" value="forever" checked="checked"> Remember Me
-                        </label>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-sm-offset-4">
-                    <button id="login_btn"  class="btn btn-danger btn-lg btn-block col-sm-2 ">LOGIN</button>
-                </div>
-                <div class="col-sm-2">
-                    <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
-                </div>
-                
-                <div class="col-sm-4 col-sm-offset-4">
-                    <p class="text-right">
-                        <a href="#" class="forgot-password btn btn-link btn-sm ">Forgot Your Password</a>
-                    </p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script>
-
-
-$(document).ready(function() {
-
-$("#sign_up_btn").click(function(event) {
+    
+    <script>
+    $(document).ready(function() {
+    $("#sign_up_btn").click(function(event) {
     /* Act on the event */
     $("#signup_dropdown").show();
     $("#login_div").hide();
-});
-
-$("#verify").click(function(event) {
+    });
+    $("#verify").click(function(event) {
     /* Act on the event */
     $("#verify_dropdown").show();
     $("#signup_dropdown").hide();
-});
-
-$("#login_btn").click(function() {
-if($("#login_check").is(':checked')){
-alert('hello');
-}
-jQuery.ajax({
-url: '/auth/login',
-type: 'POST',
-dataType:'json',
-data: {
-'info_email':$("#info_email_login").val(),
-'user_password':$("#password_login").val(),
-'code':$("#code_login").val()
-},
-success: function(data, textStatus, xhr) {
-// result = data.parseJSON();
-if(data['code']==200){
-$("#message").append('<p class="bg-success">登录成功</p>');
-}
-else{
-$("#message").append('<p class="bg-danger">'+data['content']+'</p>');
-}
-},
-error: function(xhr, textStatus, errorThrown) {
-$("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
-}
-});
-});
-});
-</script>
+    });
+    $("#login_btn").click(function() {
+    if($("#login_check").is(':checked')){
+    alert('hello');
+    }
+    jQuery.ajax({
+    url: '/auth/login',
+    type: 'POST',
+    dataType:'json',
+    data: {
+    'info_email':$("#info_email_login").val(),
+    'user_password':$("#password_login").val(),
+    'code':$("#code_login").val()
+    },
+    success: function(data, textStatus, xhr) {
+    // result = data.parseJSON();
+    if(data['code']==200){
+    $("#message").append('<p class="bg-success">登录成功</p>');
+    }
+    else{
+    $("#message").append('<p class="bg-danger">'+data['content']+'</p>');
+    }
+    },
+    error: function(xhr, textStatus, errorThrown) {
+    $("#message").append('<p class="bg-danger">网络无法连接T_T</p>');
+    }
+    });
+    });
+    });
+    </script>
 {% end %}
