@@ -27,7 +27,8 @@ class Application(tornado.web.Application):
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
             (r'/auth/register',RegisterHandler),
-            (r'/test',TestHandler)
+            (r'/test',TestHandler),
+            (r'/activity',ActivityHandler)
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -52,6 +53,9 @@ class BodyHandler(tornado.web.RequestHandler):
 class TestHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('test.html')
+class ActivityHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render('activity.html')
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()

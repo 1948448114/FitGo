@@ -1,6 +1,6 @@
 $(function(){
         $('.carousel').carousel({
-    interval: 20000000
+    interval: 2000
     })
     });
 
