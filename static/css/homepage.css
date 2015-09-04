@@ -50,11 +50,10 @@ body{
 	margin-left: 3px;
 	margin-right: 3px;
 }
-#home{
+#menu .bar.home{
 	color:#7f81e7;
-	font-size: 18px;
 }
-.bar{
+#menu .bar{
 	color:#eeeeee;
 	font-size: 18px;
 }
