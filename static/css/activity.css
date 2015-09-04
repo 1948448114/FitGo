@@ -334,7 +334,19 @@ span#time.cd-date{
 .cd-picture4{
 	background-color: #024a1a;
 }
-
+.toright{
+  float: right;
+  width: 45%;
+  padding-top: 20px;
+}
+.toleft{
+    float: left;
+    width: 45%;
+    padding-top: 20px;
+}
+.cd-timeline-content.block-left{
+  float: left;
+}
 
 
 
