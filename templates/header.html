@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="{{static_url('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{static_url('css/homepage.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/login.css') }}">
         <link rel="stylesheet" href="{{static_url('css/andrew.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/footer.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/activity.css') }}">
@@ -61,10 +62,10 @@
                     </div>
                 </nav>
             </div>
-  <div class='login_signup'>
+            <div class='login_signup'>
                 <div id="signup_dropdown">
                     <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
-                    <div class="container">
+                    <div class="container container_login_signup">
                         <div class="login-header">
                             <h3>Sign Up For Free</h3>
                         </div>
@@ -99,11 +100,15 @@
                                 </div>
                             </div>
                         </div>
+                        
+                    </div>
+                    <div class="row wrong_message">
+                        <div class="alert alert-danger showing">Wrong Email or password.</div>
                     </div>
                 </div>
                 <div id="verify_dropdown">
                     <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
-                    <div class="container">
+                    <div class="container container_login_signup">
                         <div class="login-header">
                             <h3>Sign Up For Free</h3>
                         </div>
@@ -141,11 +146,15 @@
                                 <button  class="btn btn-danger btn-lg btn-block">Sign Up Now!</button>
                             </div>
                         </div>
+                        
+                    </div>
+                    <div class="row wrong_message">
+                        <div class="alert alert-danger showing">Wrong Email or password.</div>
                     </div>
                 </div>
                 <div id="find_password_dropdown">
                     <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
-                    <div class="container">
+                    <div class="container container_login_signup">
                         <div class="login-header">
                             <h3>Find Password</h3>
                         </div>
@@ -178,10 +187,14 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
+                    <div class="row">
+                            <div class="alert alert-danger login-message showing">Wrong Email or password.</div>
+                        </div>
                 </div>
                 <div id="find_password_new_pwd">
-                    <div class="container">
+                    <div class="container container_login_signup">
                         <div class="row">
                             <div class="on_left col-sm-2 col-sm-offset-2  col-dx-6">
                                 <h3>Step 2:</h3>
@@ -209,10 +222,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row wrong_message">
+                        <div class="alert alert-danger showing">Wrong Email or password.</div>
+                        
+                    </div>
                 </div>
                 <div id="login_div">
                     <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
-                    <div class="container">
+                    <div class="container container_login_signup">
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-4">
                                 <div class="login-header">
@@ -262,6 +279,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row wrong_message">
+                        <div class="alert alert-danger showing">Wrong Email or password.</div>
+                    </div>
+                    
                 </div>
             </div>
             {% block body %}
