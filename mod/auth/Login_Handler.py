@@ -16,7 +16,7 @@ class LoginHandler(BaseHandler):
         
 
     def post(self):
-        info_email=self.get_arguments("info_email")
+        info_email=self.get_argument("info_email")
         user_password=self.get_argument("user_password")
         code=self.get_argument("code")
         retjson = {'code':200,'content':'ok'}
