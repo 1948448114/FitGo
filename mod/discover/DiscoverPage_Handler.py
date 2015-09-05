@@ -7,4 +7,4 @@ import tornado.gen
 #/discover/discover_page
 class DiscoverPageHandler(tornado.web.RequestHandler):
 	def get(self):#发现主页面
-		self.render('discoverpage.html')
+		self.render('discoverpage.html',user=self.current_user)
