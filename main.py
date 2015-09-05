@@ -16,16 +16,10 @@ from mod.auth.Register_Handler import RegisterHandler
 from mod.auth.Base_Handler import BaseHandler
 
 from mod.index.index import IndexHandler
-<<<<<<< Updated upstream
-
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
-
 from mod.invite.InvitePage_Handler import InvitePageHandler
-
-=======
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 #from mod.discover.CreateState_Handler import CreateStateHandler
->>>>>>> Stashed changes
 
 define("port", default=8888, help="run on the given port", type=int)
 
@@ -38,15 +32,13 @@ class Application(tornado.web.Application):
             (r'/auth/logout', LogoutHandler),
             (r'/auth/register',RegisterHandler),
             (r'/test',TestHandler),
-<<<<<<< Updated upstream
             (r'/activity',ActivityPageHandler),
-            (r'/invite',InvitePageHandler)
-=======
-            (r'/activity',ActivityHandler),
-            (r'/invite',InviteHandler),
+            (r'/invite/user_page',InvitePageHandler),
+            (r'/activity/activity_page',ActivityPageHandler),
+            #(r'/invite',InviteHandler),
             (r'/discover/discover_page',DiscoverPageHandler)
             #(r'/discover/create',CreateStateHandler)
->>>>>>> Stashed changes
+
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
