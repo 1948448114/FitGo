@@ -387,7 +387,7 @@ span#time.cd-date{
   text-decoration: none;
   cursor: default;
 }
-.new-activity{
+#new-activity{
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -398,7 +398,7 @@ span#time.cd-date{
   color: #a2030e;
   padding: 10px;
 }*/
-.control{
+/*.control{
   position: relative;
 }
 .controls label{
@@ -411,7 +411,60 @@ span#time.cd-date{
 .form-control{
   border:1px solid #cccccc;
   border-radius: 4px;
+  width: 60%;
+}*/
+.join{
+  margin-right: 10px;
 }
+/*.activity-title{
+  color: #a2030e;
+}
+#new-activity label{
+  width: 60%;
+}
+*/
+
+.little-right{
+  margin-left: 60px;
+}
+.icon-absolute{
+  position: absolute;
+  left: 25px;
+  top: 10px;
+  font-size: 16px;
+}
+.control-label.label-right{
+  text-align: left;
+  font-size: 20px;
+  color: #a2030e;
+}
+.icon-color{
+  color: #a2030e;
+  font-size: 20px;
+}
+@media only screen and (max-width: 500px) {
+.little-right{
+  margin-left: 0px;
+}
+}
+.form-horizontal{
+  margin-bottom: 50px;
+}
+#new-activity{
+  margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
