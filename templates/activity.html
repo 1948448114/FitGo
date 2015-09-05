@@ -7,8 +7,16 @@
 		<link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
 	</head>
 	<div id="time-row">
+		<div class="new-activity">
+			<div class="control-group">
+				<div class="controls">
+					<label for="myactivity" class="icon-group fa fa-envelope"></label>
+					<input id="myactivity" name="my-act" placeholder="New Activity" tabindex="1" autofocus="autofocus" class="form-control input-medium">
+				</div>
+			</div>
+		</div>
 		<div class="title">
-			<h1>Look at <strong>OUR ACTIVITIES</strong>!</h1>
+			<h1>Look at <strong>Our Activities</strong>!</h1>
 		</div>
 		<section id="cd-timeline" class="cd-container">
 			<div class="cd-timeline-block">
@@ -19,6 +27,7 @@
 					<h2>The Color Run1</h2>
 					<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
 					<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
+					<a class="join"><span class="icon-plus"></span>加入</a>
 					<span class="cd-date" id="time">2015-10-10</span>
 				</div>
 				<div class="toright">
@@ -90,7 +99,7 @@
 		</div>
 	</section>
 	<div class="title">
-		<h1>Do you wanna <strong>join us<strong>?</h1>
+		<h1>Do you wanna <a onclick="toTop()" class="to-top"><strong>Join Us</strong></a>?</h1>
 	</div>
 </div>
 <script type="text/javascript">
