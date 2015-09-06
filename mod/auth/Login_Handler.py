@@ -20,6 +20,7 @@ class LoginHandler(BaseHandler):
         info_email=self.get_argument("info_email")
         user_password=self.get_argument("user_password")
         code=self.get_argument("code")
+        is_remember = self.get_argument('is_remember')
         retjson = {'code':200,'content':'ok'}
         if not info_email or not user_password :
             retjson['code'] = 400
@@ -30,7 +31,10 @@ class LoginHandler(BaseHandler):
                 person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password==user_password).one()
                 #yes => set cookie
                 cookie_uuid=uuid.uuid1()
-                self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+86400)
+                if is_remember :
+                    self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
+                else:
+                    self.set_secure_cookie('username',str(cookie_uuid),expires_days=None)
                 #ok => store
                 status = CookieCache(cookie=cookie_uuid,uid=person.uid)
                 self.db.add(status)

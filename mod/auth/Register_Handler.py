@@ -32,7 +32,7 @@ class RegisterHandler(BaseHandler):
                 self.db.query(UsersCache).filter(UsersCache.uid==arg_uid).update({UsersCache.name:arg_name,UsersCache.password : arg_password})
                
                 cookie_uuid=uuid.uuid1()
-                self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+86400)
+                self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
                 status_cookie = CookieCache(cookie=cookie_uuid,uid=arg_uid)
                 try:
                     self.db.commit()
