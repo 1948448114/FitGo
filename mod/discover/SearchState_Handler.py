@@ -1,5 +1,18 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+
+import tornado.web
+import tornado.gen
+from mod.auth.Base_Handler import BaseHandler
+from ..databases.tables import TopicsCache
 
 #/discover/search/state
-class SearchStateHandler(tornado.web.RequestHandler):
+class SearchStateHandler(BaseHandler):
 	def post(self):#搜索动态
-		pass
+		a_topic_title = self.get_argument('topic_title')
+
+		try:
+			topics = self.db.query(TopicsCache).filter(TopicsCache.topic_title==a_topic_title)
+		except Exception,e:
+			print e
+
