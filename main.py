@@ -14,6 +14,7 @@ from mod.auth.Login_Handler import LoginHandler
 from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
 from mod.auth.Base_Handler import BaseHandler
+from mod.auth.Password_Handler import PasswordHandler
 
 from mod.index.index import IndexHandler
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
@@ -35,6 +36,7 @@ class Application(tornado.web.Application):
             (r'/auth/logout', LogoutHandler),
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
+            (r'/auth/password',PasswordHandler),
             (r'/test',TestHandler),
             (r'/activity',ActivityPageHandler),
             (r'/invite/user_page',InvitePageHandler),

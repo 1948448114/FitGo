@@ -15,6 +15,25 @@ class LoginHandler(BaseHandler):
         else:  
             self.redirect('/')  
         
+    def delete(self):
+        retjson = {'code':200,'content':'ok'}
+        user_cookie=self.current_user
+        if user_cookie :
+            users=self.db.query(UsersCache).filter(UsersCache.uid == user_cookie.uid).one()
+            self.db.delete(user_cookie)
+            self.db.delete(users)
+            try:
+                self.db.commit()
+            except:
+                self.db.rollback()
+                retjson['code'] = 401
+                retjson['content'] = u'Database store is wrong!'
+        else :
+            retjson['code'] = 402
+            retjson['content'] = u'Current_user is False!'
+        ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+        self.write(ret)
+
 
     def post(self):
         info_email=self.get_argument("info_email")
@@ -49,6 +68,5 @@ class LoginHandler(BaseHandler):
                 retjson['code'] = 402
                 retjson['content'] = u'User name or password is wrong!'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-        print ret
         self.write(ret)
 
