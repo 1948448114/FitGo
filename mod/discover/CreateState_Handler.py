@@ -29,5 +29,5 @@ class CreateStateHandler(BaseHandler):
          
 		except Exception,e:
 			print e
-			retjson = {'code':400,'content':'failed to create'}
+			retjson = {'code':400,'content':'failed to create state'}
 		self.write(retjson)

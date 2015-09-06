@@ -27,7 +27,7 @@ class SearchStateHandler(BaseHandler):
 
 		except Exception,e:
 			print e
-			retjson = {'code':400,'content':'failed to search'}
+			retjson = {'code':400,'content':'failed to search state'}
 			self.write(retjson)
 
 

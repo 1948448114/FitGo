@@ -20,6 +20,8 @@ from mod.user.UserInfo_Handler import UserinfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
 from mod.index.index import IndexHandler
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
+from mod.activity.CreateActivity_Handler import CreateActivityHandler
+from mod.activity.SearchActivity_Handler import SearchActivityHandler
 from mod.invite.InvitePage_Handler import InvitePageHandler
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
@@ -43,9 +45,10 @@ class Application(tornado.web.Application):
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
             (r'/test',TestHandler),
-            (r'/activity',ActivityPageHandler),
             (r'/invite/user_page',InvitePageHandler),
-            (r'/activity/activity_page',ActivityPageHandler),
+            (r'/activity',ActivityPageHandler),
+            (r'/activity/create',CreateActivityHandler),
+            (r'/activity/search',SearchActivityHandler),
             (r'/discover/discover_page',DiscoverPageHandler),
             (r'/discover/add',AddFriendHandler),
             (r'/discover/search/friends',SearchFriendHandler),
