@@ -524,7 +524,7 @@ span#time.cd-date{
   border: none;
 }
 .styled-select option{
-  background-color: #ffffff;
+  background-color: #000000;
 }
 option .option-color{
   background-color: #ffffff;
@@ -538,6 +538,9 @@ option .option-color{
 .time-shadow{
 
 }
+#hide-new{
+  cursor: pointer;
+}
 input:readonly{
   background-color: #ffffff;
 }
@@ -546,4 +549,8 @@ input:readonly{
 }
 .toCenter{
   margin-left: 80px;
+}
+.btnsize{
+  padding-left: 30px;
+  padding-right: 30px;
 }
