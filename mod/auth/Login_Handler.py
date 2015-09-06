@@ -31,7 +31,7 @@ class LoginHandler(BaseHandler):
                 person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password==user_password).one()
                 #yes => set cookie
                 cookie_uuid=uuid.uuid1()
-                if is_remember :
+                if is_remember == '1' :
                     self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
                 else:
                     self.set_secure_cookie('username',str(cookie_uuid),expires_days=None)
