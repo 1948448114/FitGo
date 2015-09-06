@@ -13,7 +13,11 @@
  .login_signup button{
    padding: 4px 12px;
  }
+.login_signup{
 
+  background :#ffffff;
+   border-color: #ffffff;
+}
 .container_login_signup{
   padding-bottom: 45px;
   padding-top: 20px;
@@ -70,6 +74,7 @@
 .div_close
 {
     font-size: 25px;
+      z-index:9999;
 
 }
 .dropdown_close{
@@ -99,7 +104,7 @@
     text-align: center;
     left: 0;
     border-radius: 0;
-    z-index: 9999;
+    z-index: 9998;
     transform: translate3d(0,0,0);
     webkit-transform: translate3d(0,0,0);
 

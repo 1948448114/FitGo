@@ -27,7 +27,6 @@ class LoginHandler(BaseHandler):
         else:
             try:
                 #user is right?
-                print user_password
                 person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password==user_password).one()
                 #yes => set cookie
                 cookie_uuid=uuid.uuid1()
@@ -46,5 +45,6 @@ class LoginHandler(BaseHandler):
                 retjson['code'] = 402
                 retjson['content'] = u'User name or password is wrong!'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+        print ret
         self.write(ret)
 
