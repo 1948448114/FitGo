@@ -35,7 +35,7 @@ class Application(tornado.web.Application):
             (r'/body',BodyHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
-            (r'/userinfo',WatchUserHandler),
+            #(r'/userinfo',WatchUserHandler),
             (r'/user/userinfo/(\d+)',UserinfoHandler),
             (r'/user/usertopic/(\d+)',UsertopicHandler),
             (r'/auth/register/verify',VerifyHandler),

@@ -42,10 +42,10 @@ class UsertopicHandler(BaseHandler):
         rejson = {'code':200,'content':'ok'}
 
         content1 = []
-        content={}
+        
         for row in topics:
           
-
+            content={}
             topic_id = row.topic_id
             uid = row.uid
             topic_content = row.topic_content
