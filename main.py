@@ -15,7 +15,7 @@ from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
 from mod.auth.Base_Handler import BaseHandler
 
-from mod.user.Userinfo_Handler import UserinfoHandler
+from mod.user.Userinfo_Handler import UserInfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
 from mod.index.index import IndexHandler
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
