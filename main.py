@@ -19,7 +19,10 @@ from mod.index.index import IndexHandler
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
 from mod.invite.InvitePage_Handler import InvitePageHandler
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
-#from mod.discover.CreateState_Handler import CreateStateHandler
+from mod.discover.CreateState_Handler import CreateStateHandler
+from mod.discover.AddFriend_Handler import AddFriendHandler
+from mod.discover.SearchFriend_Handler import SearchFriendHandler
+from mod.discover.SearchState_Handler import SearchStateHandler
 
 define("port", default=8888, help="run on the given port", type=int)
 
@@ -36,9 +39,11 @@ class Application(tornado.web.Application):
             (r'/activity',ActivityPageHandler),
             (r'/invite/user_page',InvitePageHandler),
             (r'/activity/activity_page',ActivityPageHandler),
-            #(r'/invite',InviteHandler),
-            (r'/discover/discover_page',DiscoverPageHandler)
-            #(r'/discover/create',CreateStateHandler)
+            (r'/discover/discover_page',DiscoverPageHandler),
+            (r'/discover/add',AddFriendHandler),
+            (r'/discover/search/friends',SearchFriendHandler),
+            (r'/discover/create',CreateStateHandler),
+            (r'/discover/search/state',SearchStateHandler)
 
             ]
         settings = dict(
