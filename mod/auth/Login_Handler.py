@@ -7,6 +7,7 @@ from ..databases.tables import UsersCache,CookieCache
 import json
 from time import time
 import uuid
+import re
 class LoginHandler(BaseHandler):
     def get(self):
         if not self.current_user:  
@@ -20,9 +21,9 @@ class LoginHandler(BaseHandler):
         user_password=self.get_argument("user_password")
         code=self.get_argument("code")
         retjson = {'code':200,'content':'ok'}
-        if not info_email or not user_password or not code :
+        if not info_email or not user_password :
             retjson['code'] = 400
-            retjson['content'] = u'参数不能为空哦~'
+            retjson['content'] = u'Arguments are empty'
         else:
             try:
                 #user is right?
@@ -39,10 +40,11 @@ class LoginHandler(BaseHandler):
                 except:
                     self.sb.rollback()
                     retjson['code'] = 401
-                    retjson['content'] = u'用户名或者密码错误'
+                    retjson['content'] = u'Database store is wrong!'
             except Exception, e:
                 print e
                 retjson['code'] = 402
-                retjson['content'] = u'用户名或者密码错误'
+                retjson['content'] = u'User name or password is wrong!'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
+

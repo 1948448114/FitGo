@@ -12,7 +12,7 @@ from mod.databases.db import engine
 from UI_moudles.UI_moudle import *
 from mod.auth.Login_Handler import LoginHandler
 from mod.auth.Logout_Handler import LogoutHandler
-from mod.auth.Register_Handler import RegisterHandler
+from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
 from mod.auth.Base_Handler import BaseHandler
 from mod.index.index import IndexHandler
 
@@ -26,6 +26,7 @@ class Application(tornado.web.Application):
             (r'/body',BodyHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
+            (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/test',TestHandler),
             (r'/activity',ActivityHandler),
