@@ -71,7 +71,7 @@ class VerifyHandler(BaseHandler):
                 self.db.add(status_users)
                 try:
                     self.db.commit()
-                    retjson['uid'] = str(uid_uuid)
+                    retjson['content'] = {'uid':str(uid_uuid),'content':'Verify pass!'}
                 except Exception, e:
                     raise self.db.rollback()
                     retjson['code'] = 401
