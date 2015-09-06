@@ -19,7 +19,7 @@ class RegisterHandler(BaseHandler):
         arg_name=self.get_argument("name")
         arg_password=self.get_argument("password")
         arg_uid=self.get_argument('uid')
-        retjson = {'code':200,'content':'ok'}
+        retjson = {'code':200,'content':'ok','uid' : 'null'}
         if not arg_password or not arg_name or not arg_uid:
             retjson['code'] = 400
             retjson['content'] = u'Arguments is empty~'
@@ -71,8 +71,8 @@ class VerifyHandler(BaseHandler):
                 self.db.add(status_users)
                 try:
                     self.db.commit()
+                    retjson['uid'] = str(uid_uuid)
                 except Exception, e:
-                    print '11111111111'
                     raise self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
