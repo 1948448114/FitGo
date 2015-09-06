@@ -12,7 +12,10 @@ class SearchStateHandler(BaseHandler):
 		a_topic_title = self.get_argument('topic_title')
 
 		try:
-			topics = self.db.query(TopicsCache).filter(TopicsCache.topic_title==a_topic_title)
+			topics = self.db.query(TopicsCache).filter(TopicsCache.topic_title==a_topic_title).all()
+			retjson = {'code':400,'content':''}
 		except Exception,e:
 			print e
+			retjson = {'code':400,'content':'failed to search'}
+
 

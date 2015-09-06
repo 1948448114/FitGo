@@ -64,6 +64,7 @@ class ActCache(Base):
 class TopicsCache(Base):
 	__tablename__ = 'Topics'
 
+	uid = Column(VARCHAR(64))
 	topic_id = Column(Integer,primary_key=True)
 	topic_content = Column(VARCHAR(64))
 	topic_pic = Column(VARCHAR(64))

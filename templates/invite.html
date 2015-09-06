@@ -1,5 +1,6 @@
 {% extends "header.html" %}
 {% block header %}
+        <link rel="stylesheet" href="{{static_url('css/andrew.css') }}">
     <link rel="stylesheet" href="{{static_url('css/fullcalendar.css') }}">
     <link media='print' rel="stylesheet" href="{{static_url('css/fullcalendar.print.css') }}">
     <link rel="stylesheet" href="{{static_url('css/fullcalendar.min.css') }}">
@@ -20,13 +21,20 @@
     eventLimit: true, // allow "more" link when too many events
     
     });
-<<<<<<< HEAD
+
     $(function() {
         $("#menu .home").removeClass("home");
         $($("#menu .bar").get(3)).addClass("home");
     });
+<<<<<<< HEAD
 </script>
 =======
+>>>>>>> origin/master
+=======
+
+    });
+    </script>
+
 >>>>>>> origin/master
     
 {% end %}

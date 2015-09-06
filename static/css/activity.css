@@ -541,5 +541,9 @@ option .option-color{
 input:readonly{
   background-color: #ffffff;
 }
-
-
+#after-show{
+  display: none;
+}
+.toCenter{
+  margin-left: 80px;
+}
