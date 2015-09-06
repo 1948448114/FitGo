@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var uid="";
     $(".dropdown_close").click(function(event) {
         /* Act on the event */
         $("#verify_dropdown").hide();
@@ -41,6 +42,7 @@ $(document).ready(function() {
         $("#login_div").hide();
         $("#find_password_dropdown").hide();
     });
+// 验证
     $("#verify").click(function(event) {
         /* Act on the event */
         jQuery.ajax({
@@ -48,27 +50,60 @@ $(document).ready(function() {
           type: 'POST',
           dataType: 'json',
           data: {
-            'info_email': $("#info_email_login").val(),
-            'student_card':$("#info_email_login").val(),
-            'student_id':$("#info_email_login").val()   
+            'info_email': $("#info_email_signup").val(),
+            'student_card':$("#student_card_signup").val(),
+            'student_id':$("#student_id_signup").val()   
         },
-          complete: function(xhr, textStatus) {
-            //called when complete
-          },
           success: function(data, textStatus, xhr) {
-            //called when successful
+            if(data['code'] == 200){
+                $("#login_div").hide();
+                $("#verify_dropdown").show();
+                $("#signup_dropdown").hide();
+                $("#find_password_dropdown").hide();
+                uid=data['content']['uid'];
+            }
+            else{
+                $("#verify_message").html(data['content']);
+                $("#verify_message").show();
+            }
           },
           error: function(xhr, textStatus, errorThrown) {
             //called when there is an error
+            $("#verify_message").html("Network error!");
           }
         });
         
-        $("#login_div").hide();
-        $("#verify_dropdown").show();
-        $("#signup_dropdown").hide();
-        $("#find_password_dropdown").hide();
+        
     });
 
+//注册
+$("#signup_btn").click(function(event) {
+    jQuery.ajax({
+      url: '/auth/register',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        'uid': uid,
+        'name':$("#name_signup").val(),
+        'password':$("#password_signup").val()
+        },
+      success: function(data, textStatus, xhr) {
+        //called when successful
+        if (data['code'] == 200) {
+            location.href = "/";
+        } else {
+             $("#sign_up_message").html(data['content']);
+             $("#sign_up_message").show();
+        }
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        $("#sign_up_message").html("Network error!");
+      }
+    });
+    
+});
+
+// 登录
     $("#login_btn").click(function() {
         if ($("#password_login").val().length < 6) {
             $("#login_message").html("password is too short");
@@ -97,12 +132,12 @@ $(document).ready(function() {
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                    $("#login_message").html("网络无法连接T_T");
+                    $("#login_message").html("Network error!");
                 }
             });
         }
     });
-
+// 登出
     $("#logout").click(function(event) {
         /* Act on the event */
         jQuery.ajax({

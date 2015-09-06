@@ -16,10 +16,10 @@ class RegisterHandler(BaseHandler):
         else:  
             self.redirect('/') 
     def post(self):
+        retjson = {'code':200,'content':'ok','uid' : 'null'}
         arg_name=self.get_argument("name")
         arg_password=self.get_argument("password")
-        arg_uid=self.get_argument('uid')
-        retjson = {'code':200,'content':'ok','uid' : 'null'}
+        arg_uid=self.get_argument("uid")
         if not arg_password or not arg_name or not arg_uid:
             retjson['code'] = 400
             retjson['content'] = u'Arguments is empty~'
@@ -34,11 +34,11 @@ class RegisterHandler(BaseHandler):
                 cookie_uuid=uuid.uuid1()
                 self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
                 status_cookie = CookieCache(cookie=cookie_uuid,uid=arg_uid)
+                self.db.add(status_cookie)
                 try:
                     self.db.commit()
                 except Exception, e:
-                    print '11111111111'
-                    raise self.db.rollback()
+                    self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
             except NoResultFound:
@@ -73,7 +73,7 @@ class VerifyHandler(BaseHandler):
                     self.db.commit()
                     retjson['content'] = {'uid':str(uid_uuid),'content':'Verify pass!'}
                 except Exception, e:
-                    raise self.db.rollback()
+                    self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
