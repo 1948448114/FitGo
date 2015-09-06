@@ -8,15 +8,12 @@
         <link rel="stylesheet" href="{{static_url('css/login.css') }}">
         <link rel="stylesheet" href="{{static_url('css/andrew.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/footer.css') }}">
-       
-
+        
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
         <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         
         <script src="{{static_url('js/bootstrap.min.js') }}"></script>
-
-
         {% block header %}
         {% end %}
         <title>FitGo</title>
@@ -79,10 +76,11 @@
                             <div class="col-sm-4 col-sm-offset-4">
                                 <div class="form-group">
                                     <div class="for_label">
-                                        <label for="name_signup" class="control_label glyphicon glyphicon-user">
+                                        <label for="info_email_signup" class="control_label glyphicon glyphicon-envelope">
                                         </label>
-                                        <input type="text" name="username" id="name_signup" class="form-control" placeholder="Your Real name">
+                                        <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
                                     </div>
+                                    
                                     
                                 </div>
                                 <div class="form-group">
@@ -121,10 +119,11 @@
                         <div class="row">
                             <div class="form-group col-sm-4 col-sm-offset-2">
                                 <div class="for_label">
-                                    <label for="info_email_signup" class="control_label glyphicon glyphicon-envelope">
+                                    <label for="name_signup" class="control_label glyphicon glyphicon-user">
                                     </label>
-                                    <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
+                                    <input type="text" name="username" id="name_signup" class="form-control" placeholder="Your Real name">
                                 </div>
+                                
                                 
                             </div>
                             
@@ -196,8 +195,8 @@
                         
                     </div>
                     <div class="row">
-                            <div class="alert alert-danger login-message showing" id="find_message">Wrong Email or password.</div>
-                        </div>
+                        <div class="alert alert-danger login-message showing" id="find_message">Wrong Email or password.</div>
+                    </div>
                 </div>
                 <div id="find_password_new_pwd">
                     <div class="container container_login_signup">
