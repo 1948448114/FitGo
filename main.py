@@ -16,6 +16,8 @@ from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
 from mod.auth.Base_Handler import BaseHandler
 from mod.auth.Password_Handler import PasswordHandler
 
+from mod.user.Userinfo_Handler import UserInfoHandler
+from mod.user.Usertopic_Handler import UsertopicHandler
 from mod.index.index import IndexHandler
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
 from mod.invite.InvitePage_Handler import InvitePageHandler
@@ -34,6 +36,9 @@ class Application(tornado.web.Application):
             (r'/body',BodyHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
+            #(r'/userinfo',WatchUserHandler),
+            (r'/user/userinfo/(\d+)',UserinfoHandler),
+            (r'/user/usertopic/(\d+)',UsertopicHandler),
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
@@ -46,7 +51,6 @@ class Application(tornado.web.Application):
             (r'/discover/search/friends',SearchFriendHandler),
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler)
-
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -69,9 +73,11 @@ class Application(tornado.web.Application):
 class BodyHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('body.html')
+
 class TestHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('test.html')
+        
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)

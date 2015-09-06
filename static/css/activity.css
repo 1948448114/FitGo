@@ -513,17 +513,37 @@ span#time.cd-date{
 }
 .styled-select{
    background: #ffffff;
-   border: 1px solid #ccc;
    height: 34px;
-   -webkit-appearance: none;
+   appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
    color: #858282;
+   border: solid 1px #ccc;
+}
+.styled-select.form-control{
+  border: none;
 }
 .styled-select option{
   background-color: #ffffff;
 }
+option .option-color{
+  background-color: #ffffff;
+}
+#new-activity input{
+  border: none;
+}
+#new-activity textarea{
+  border: none;
+}
+.time-shadow{
 
-
-
-
-
-
+}
+input:readonly{
+  background-color: #ffffff;
+}
+#after-show{
+  display: none;
+}
+.toCenter{
+  margin-left: 80px;
+}
