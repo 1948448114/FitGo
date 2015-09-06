@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+<!-- <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
     <div class="container">
         <div class="navbar-bottom">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navfooter" aria-expanded="false" aria-controls="navbar">
@@ -15,14 +15,41 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
+<section class="contact-info">
+    <div class="container contact-container">
+        <div class="row">
+            <div class="col-md-4 border-right contact-padding">
+                <h2>Address</h2>
+                <img src="https://jcd.pl/data/themes/jcd/img/point.png" class="contact-icon inline">
+                <span href="https://www.google.pl/maps/place/Lektykarska+20,+Warszawa" class="f18  gray-font">南京市·东南大学九龙湖校区</span>
+            </div>
+            <div class="col-md-4 phone contact-padding">
+                <h2 class="f36">Telephone</h2>
+                <img src="https://jcd.pl/data/themes/jcd/img/phone.png" class="contact-icon inline">
+                <span class="gray-font">025 025 025</span>
+            </div>
+            <div class="col-md-4 border-left contact-padding">
+                <h2 class="f36">Email</h2>
+                <img src="https://jcd.pl/data/themes/jcd/img/mail.png" class="contact-icon inline">
+                <a href="mailto:2336413616@qq.com">lalala@foxmail.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div id="myfooter" class="container align-center">
+        <a onclick="toTop()" class="to-top"><div><img src="https://jcd.pl/data/themes/jcd/img/arrowtop.png" style="margin-top:10px;"></div></a>
+        <h1>Let's talk!</h1>
+        <p>
+            We are availabel Monday and Friday,business hours Eastern time.
+            <a href="mailto:2336413616@qq.com"> lalala@foxmail.com </a> |Nanjing Jiulonghu <a href="http://www.seu.edu.cn">SEU</a>
+        </p>
+    </div>
+</footer>
+        <script src="{{static_url('js/unslider.min.js')}}"></script>
+        <script src="{{static_url('js/homepage.js')}}"></script>
+        <script src="{{static_url('js/footer.js')}}"></script>
+
 </body>
-<script>
-    $(document).ready(function(){
-        $("#login").click(function(event) {
-            /* Act on the event */
-            location.href="/auth/login"
-        });
-        });
-</script>
 </html>

@@ -1,0 +1,117 @@
+{% extends "header.html" %}
+{% block header %}
+        <link rel="stylesheet" href="{{static_url('css/andrew.css') }}">
+    <link rel="stylesheet" href="{{static_url('css/fullcalendar.css') }}">
+    <link media='print' rel="stylesheet" href="{{static_url('css/fullcalendar.print.css') }}">
+    <link rel="stylesheet" href="{{static_url('css/fullcalendar.min.css') }}">
+    <script src="{{static_url('js/moment.min.js') }}"></script>
+    <script src="{{static_url('js/fullcalendar.js') }}"></script>
+    <script src="{{static_url('js/fullcalendar.min.js') }}"></script>
+    
+    <script>
+    $(document).ready(function() {
+    
+    $('#calendar').fullCalendar({
+    header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'month,agendaWeek'
+    },
+    editable: true,
+    eventLimit: true, // allow "more" link when too many events
+    
+    });
+
+    $(function() {
+        $("#menu .home").removeClass("home");
+        $($("#menu .bar").get(3)).addClass("home");
+    });
+
+    });
+    </script>
+
+    
+{% end %}
+{% block body %}
+    <div id="invite">
+        <div class="title">
+            <div>
+                <p class="largetext">
+                    LIFE IS SHORT, HAVE A
+                    <strong>BETTER RUN</strong>
+                    .
+                </p>
+            </div>
+        </div>
+        <div class='container'>
+            <div class='row'>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">#</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Tag">
+                        <span class="input-group-addon">#</span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn-group" id="fit_location">
+                        <button type="button" class="btn btn-default">Location</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="#">钢铁大菊花</a></li>
+
+                            
+                            <li><a href="#">桃园</a></li>
+                            <li><a href="#">梅园</a></li>
+                            <li><a href="#">橘园</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Unlimited</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn-group" id="fit_item">
+                        <button type="button" class="btn btn-default">Fit Item</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Run</a></li>
+                            <li><a href="#">Press-up</a></li>
+                            <li><a href="#">Table Tennis</a></li>
+                            <li><a href="#">Swimming</a></li>
+                            <li><a href="#">Badminton</a></li>
+                            <li><a href="#">Cycling</a></li>
+                            <li><a href="#">Tennis</a></li>
+                            <li><a href="#">Other</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Unlimited</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn-group" id="gender">
+                        <button type="button" class="btn btn-default">Gender</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Female</a></li>
+                            <li><a href="#">Male</a></li>
+                            <li><a href="#">Other</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Unlimited</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class='container'>
+                <div id='calendar'></div>
+            </div>
+        </div>
+    {% end %}

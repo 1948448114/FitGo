@@ -1,124 +1,219 @@
 {% extends "header.html" %}
 {% block header %}
-<script src="{{static_url('js/unslider.min.js')}}"></script>
-<style type="text/css">
-.banner { 
-    position: relative;
-    width: 100%;
-    overflow: auto;
-
-    font-size: 18px;
-    line-height: 24px;
-    text-align: center;
-
-    color: rgba(255,255,255,.6);
-    text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);
-
-    background: #5b4d3d;
-    box-shadow: 0 1px 2px rgba(0,0,0,.25); }
-.banner ul { 
-        list-style: none;
-        width: 300%;
-         }
-.banner li{
-    background-size:100% 100%;
-}
-.banner ul li { 
-        display: block;
-        float: left;
-        width: 33%;
-        min-height: 350px;
-
-        -o-background-size: 100% 100%;
-        -ms-background-size: 100% 100%;
-        -moz-background-size: 100% 100%;
-        -webkit-background-size: 100% 100%;
-        background-size: 100% 100%;
-
-        box-shadow: inset 0 -3px 6px rgba(0,0,0,.1); 
-    }
-.banner .dots {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 20px;
-        color:red;
-    }
-.banner .dots li {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin: 0 4px;
-
-            text-indent: -999em;
-
-            border: 2px solid #fff;
-            border-radius: 6px;
-
-            cursor: pointer;
-            opacity: .4;
-
-            -webkit-transition: background .5s, opacity .5s;
-            -moz-transition: background .5s, opacity .5s;
-            transition: background .5s, opacity .5s;
-        }
-.banner .dots li.active {
-                background: #fff;
-                opacity: 1;
-            }
-.banner .arrows {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        color: #fff;
-    }
-.banner .arrow {
-            display: inline;
-            padding-left: 10px;
-            cursor: pointer;
-        }
-</style>
 {% end %}
-
 {% block body %}
-<div class="banner">
-    <ul>
-        
-        <li style="background-image: url('static/images/show1.jpg');">
-                    <div class="inner">
-                        <p>1</p>
+    <!-- 广告语 -->
+    <div id="hs-slider">
+        <div id="content" class="container">
+            <div class="row">
+                <div class="title">
+                    <div>
+                        <p class="largetext">
+                            MAKE
+                            <strong>YOUR FITNESS</strong>
+                            NOT ALONE
+                        </p>
                     </div>
-                </li>
-
-                <li style="background-image: url('static/images/show2.jpg');">
-                    <div class="inner">
-                        <p>2</p>
+                </div>
+                
+                <!--            <div id="slider" class="cover">
+                    <div class="flexider" id="flexider1">
+                        <div class="flex-viewpoint" style="overflow:hidden; positon:relative;">
+                            <div class="banner">
+                                <ul class="slider-image">
+                                    <li  style="width:1140px;float:left;display:block;">
+                                        <div class="inner">
+                                            <div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 slide-text">
+                                                <img src="/static/images/try2.png">                      </div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 container-line highcharts-container" id="pic">
+                                                    
+                                                    <img src="/static/images/try2.png">
+                                                    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li  style="width:1140px;float:left;display:block;">
+                                            <div class="inner">
+                                                <div>
+                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 slide-text">
+                                                        
+                                                        <img src="/static/images/try2.png">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 container-line highcharts-container" id="pic">
+                                                        <img src="/static/images/try2.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li  style="width:1140px;float:left;display:block;">
+                                            <div class="inner">
+                                                <div>
+                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 slide-text">
+                                                        <img src="/static/images/try2.png">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 container-line highcharts-container" id="pic">
+                                                        <img src="/static/images/try2.png">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="unslider-arrow prev">Previous slide</a>
+                                    <a href="#" class="unslider-arrow next">Next slide</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- 轮播遮罩 -->
+                    <div class="shadow">
+                        <div class="shadow1">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                                </ol>
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 words-container">
+                                            <div class="show-words" id="words">
+                                                <h1>HAVE A BETTER RUN</h1>
+                                                <p><strong>Life is short,have a BETTER RUN.</strong></p>
+                                                <p>lalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalala</p>
+                                            </div>
+                                        </div>
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 highcharts-container">
+                                            <div class="show-images">
+                                                <img src="/static/images/show1.jpg" alt="...">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-caption">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 highcharts-container">
+                                            <div class="show-words" id="words">
+                                                <h1>HAVE A BETTER RUN</h1>
+                                                <p><strong>Life is short,have a BETTER RUN.</strong></p>
+                                                <p>lalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalala</p>
+                                            </div>
+                                        </div>
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 highcharts-container">
+                                            <div class="show-images">
+                                                <img src="/static/images/show2.jpg" alt="...">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-caption">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="item ">
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 highcharts-container">
+                                            <div class="show-words" id="words">
+                                                <h1>HAVE A BETTER RUN</h1>
+                                                <p><strong>Life is short,have a BETTER RUN.</strong></p>
+                                                <p>lalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalala</p>
+                                            </div>
+                                        </div>
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 highcharts-container">
+                                            <div class="show-images">
+                                                <img src="/static/images/show3.jpg" alt="...">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-caption">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="item ">
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 highcharts-container">
+                                            <div class="show-words" id="words">
+                                                <h1>HAVE A BETTER RUN</h1>
+                                                <p><strong>Life is short,have a BETTER RUN.</strong></p>
+                                                <p>lalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalalalalalalalalalalalallalalalalalalalalalala</p>
+                                            </div>
+                                        </div>
+                                        <div class="show col-lg-6 col-md-12 col-sm-12 col-xs-12 highcharts-container">
+                                            <div class="show-images">
+                                                <img src="/static/images/show4.jpg" alt="...">
+                                            </div>
+                                            <div class="carousel-caption">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Controls -->
+                                <a class="none-shadow left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="none-shadow right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </li>
-
-                <li style="background-image: url('static/images/show3.jpg');">
-                    <div class="inner">
-                        <p>3</p>
+                    <!-- 主页动态块 -->
+                    <div class="none-padding" >
+                        <div class="row hs-boxes" id="blocks-word">
+                            <div class="col-lg-6 col-xs-12">
+                                <div class="box purple">
+                                    <p class="box-title h2 h2-font">STATE</p>
+                                    <p class="box-text hidden-xs">Do you want to use Highcharts for a personal website, a school site or a non-profit organisation? Then you don't need our permission, just go on!</p>
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                
+                                <div class="box pink">
+                                    <p class="box-title h2 h2-font">INVITE</p>
+                                    <p class="box-text hidden-xs">Based on native browser technologies, no plugins needed</p>
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                
+                                <div class="box blue">
+                                    <p class="box-title h2 h2-font">ACTIVITY</p>
+                                    <p class="box-text hidden-xs">Fork us on GitHub and participate in tech discussions</p>
+                                </div>
+                                
+                            </div>
+                            <div class="clearfix visible-sm visible-md visible-lg"></div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                
+                                <div class="box blue">
+                                    <p class="box-title h2 h2-font">STATE</p>
+                                    <p class="box-text hidden-xs">With modern browsers including mobile, tablets and old IE back to IE6</p>
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                
+                                <div class="box gray">
+                                    <p class="box-title h2 h2-font">INVITE</p>
+                                    <p class="box-text hidden-xs">Add, remove and modify series and points or modify axes</p>
+                                </div>
+                                
+                            </div>
+                            <div class="clearfix visible-sm visible-md"></div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                
+                                <div class="box purple">
+                                    <p class="box-title h2 h2-font">STATE</p>
+                                    <p class="box-text hidden-xs">Highcharts supports line, spline, area, areaspline, column, bar, pie, scatter, angular gauges, arearange, areasplinerange, columnrange and polar chart</p>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
-                </li>
-    </ul>
-</div>
-<a href="#" class="unslider-arrow prev">Previous slide</a>
-<a href="#" class="unslider-arrow next">Next slide</a>
-<script>
-    $(function(){
-        $('.banner').unslider({arrows: true,
-            delay:1000,
-            keys: true,
-            fluid: true,
-            dots: true
-        });
-        $('.unslider-arrow').click(function() {
-        var fn = this.className.split(' ')[1];
-
-        //  Either do unslider.data('unslider').next() or .prev() depending on the className
-        unslider.data('unslider')[fn]();
-        });
-    });
-</script>
-{% end %}
+                </div>
+            </div>
+        </div>
+    {% end %}

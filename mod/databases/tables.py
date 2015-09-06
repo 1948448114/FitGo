@@ -7,10 +7,10 @@ from db import engine,Base
 class UsersCache(Base):
 	__tablename__ = 'Users'
 
-	uid = Column(Integer,primary_key=True)
-	name = Column(VARCHAR(64),nullable=False)
-	student_card = Column(VARCHAR(64),nullable=False)
-	student_id = Column(Integer,nullable=False)
+	uid = Column(VARCHAR(64),primary_key=True)
+	name = Column(VARCHAR(64),nullable=True)
+	student_card = Column(VARCHAR(64),nullable=True)
+	student_id = Column(VARCHAR(64),nullable=True)
 	gender = Column(VARCHAR(64))
 	user_name = Column(VARCHAR(64))
 	school = Column(VARCHAR(64))
@@ -19,12 +19,17 @@ class UsersCache(Base):
 	info_email = Column(VARCHAR(64))
 	info_phone = Column(VARCHAR(64))
 	portrait = Column(VARCHAR(64))
+class CookieCache(Base):
+	__tablename__ = "Cookie"
 
+	id = Column(Integer,primary_key=True)
+	uid = Column(VARCHAR(64))
+	cookie = Column(VARCHAR(64))
 class PlansCache(Base):
 	__tablename__ = 'Plans'
 
 	plan_id = Column(Integer,primary_key=True)
-	uid = Column(Integer)
+	uid = Column(VARCHAR(64))
 	create_time = Column(VARCHAR(64),nullable=False)
 	start_time = Column(VARCHAR(64))
 	end_time = Column(VARCHAR(64))
@@ -36,7 +41,7 @@ class PlansCache(Base):
 class User_tagCache(Base):
 	__tablename__ = 'User_tag'
 
-	uid = Column(Integer,primary_key=True)
+	uid = Column(VARCHAR(64),primary_key=True)
 	user_enjoyment = Column(VARCHAR(64))
 	user_join_times = Column(Integer)
 	user_score = Column(VARCHAR(64))
@@ -46,7 +51,7 @@ class ActCache(Base):
 	__tablename__ = 'Act'
 
 	act_id = Column(Integer,primary_key=True)
-	uid = Column(Integer)
+	uid = Column(VARCHAR(64))
 	start_time = Column(VARCHAR(64))
 	end_time = Column(VARCHAR(64))
 	act_style = Column(VARCHAR(64))
@@ -59,6 +64,7 @@ class ActCache(Base):
 class TopicsCache(Base):
 	__tablename__ = 'Topics'
 
+	uid = Column(VARCHAR(64))
 	topic_id = Column(Integer,primary_key=True)
 	uid = Column(Integer)
 	topic_content = Column(VARCHAR(64))

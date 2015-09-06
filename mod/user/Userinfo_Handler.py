@@ -87,26 +87,4 @@ class UserinfoHandler(BaseHandler):
         ret = json.dumps(rejson,ensure_ascii = False, indent = 2)
 
         self.write(ret)
-		
-
-
-        # json = "{uid:"+str(uid)+",name:"+str(name)+",student_card:"+str(student_card)+",student_id:"+str(student_id)+",gender:"+str(gender)+",user_name:"+str(user_name)+",school:"+str(school)+",campus:"+str(campus)+",info_email:"+str(info_email)+",info_phone:"+str(info_phone)+",portrait:"+str(portrait)+",user_enjoyment:"+str(user_enjoyment)+",user_join_times:"+str(user_join_times)+",user_score:"+str(user_score)+",user_join_event:"+str(user_join_event)+"}"
-
-        # json = "{totalPorperty:" + dt1.Rows[0]["totalPorperty"].ToString() + ",root:" + json + "}"
-
-        
-        # self.write(json) 
-
-
-		 
-
-
-
-	 	# self.render("index.html", json=person)
-
-
-
-
-
-
-
+    

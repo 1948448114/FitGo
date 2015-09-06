@@ -34,7 +34,8 @@ nosetests.xml
 .project
 .pydevproject
 
-databases/db.py
+/mod/databases/db.py
 
 # IDEA
 *.idea
+mod/databases/db.py
