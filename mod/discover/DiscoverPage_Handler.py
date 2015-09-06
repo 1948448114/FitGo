@@ -3,8 +3,9 @@
 
 import tornado.web
 import tornado.gen
+from mod.auth.Base_Handler import BaseHandler
 
 #/discover/discover_page
-class DiscoverPageHandler(tornado.web.RequestHandler):
+class DiscoverPageHandler(BaseHandler):
 	def get(self):#发现主页面
 		self.render('discoverpage.html',user=self.current_user)
