@@ -7,13 +7,15 @@ from ..databases.tables import UsersCache,CookieCache
 #/auth/logout
 class LogoutHandler(BaseHandler):
     def delete(self):#用户登出，删除cookie
-        status = self.get_current_user()
+        status = self.current_user
+        print status.cookie
         if status:
-            # cookie = self.db.query(CookieCache).filter(CookieCache.cookie == status.cookie)
-            self.db.remove(status)
+            # cookie = self.db.query(CookieCache).filter(CookieCache.uid == status.uid).all()
+            self.db.delete(status)
             try:
-                slef.db.commit()
-            except:
+                self.db.commit()
+            except Exception,e:
+                print e
                 self.db.rollback()
         else:
             pass

@@ -82,4 +82,23 @@ $(document).ready(function() {
             });
         }
     });
+
+    $("#logout").click(function(event) {
+        /* Act on the event */
+        jQuery.ajax({
+          url: '/auth/logout',
+          method: 'DELETE',
+          complete: function(xhr, textStatus) {
+            //called when complete
+          },
+          success: function(data, textStatus, xhr) {
+            location.href="/";
+            //called when successful
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            //called when there is an error
+          }
+        });
+        
+    });
 });
