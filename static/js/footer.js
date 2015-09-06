@@ -43,6 +43,26 @@ $(document).ready(function() {
     });
     $("#verify").click(function(event) {
         /* Act on the event */
+        jQuery.ajax({
+          url: '/auth/register/verify',
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            'info_email': $("#info_email_login").val(),
+            'student_card':$("#info_email_login").val(),
+            'student_id':$("#info_email_login").val()   
+        },
+          complete: function(xhr, textStatus) {
+            //called when complete
+          },
+          success: function(data, textStatus, xhr) {
+            //called when successful
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            //called when there is an error
+          }
+        });
+        
         $("#login_div").hide();
         $("#verify_dropdown").show();
         $("#signup_dropdown").hide();
