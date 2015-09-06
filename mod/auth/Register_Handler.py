@@ -16,8 +16,8 @@ class RegisterHandler(BaseHandler):
         else:  
             self.redirect('/') 
     def post(self):
-        retjson = {'code':200,'content':'ok','uid' : 'null'}
-        arg_name=self.get_argument("name")
+        retjson = {'code':200,'content':'ok','uid' : 'null'} # define a dict
+        arg_name=self.get_argument("name")#get 
         arg_password=self.get_argument("password")
         arg_uid=self.get_argument("uid")
         if not arg_password or not arg_name or not arg_uid:
@@ -28,13 +28,15 @@ class RegisterHandler(BaseHandler):
             retjson['content'] = u'Your password is too short'
         else:
             try:
-                #user has exit?
-                self.db.query(UsersCache).filter(UsersCache.uid==arg_uid).update({UsersCache.name:arg_name,UsersCache.password : arg_password})
-               
+                #store password and name
+                t1=self.db.query(UsersCache).filter(UsersCache.uid==arg_uid) #UserCache object
+                t1.update({UsersCache.name:arg_name,UsersCache.password : arg_password})
+                #create cookie and store
                 cookie_uuid=uuid.uuid1()
                 self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
                 status_cookie = CookieCache(cookie=cookie_uuid,uid=arg_uid)
                 self.db.add(status_cookie)
+                #commit to sql
                 try:
                     self.db.commit()
                 except Exception, e:
@@ -44,6 +46,7 @@ class RegisterHandler(BaseHandler):
             except NoResultFound:
                 retjson['code'] = 402
                 retjson['content'] = "Sql store is wrong!Try again!"
+        #format json
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
 

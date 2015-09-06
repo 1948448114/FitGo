@@ -41,7 +41,7 @@ class LoginHandler(BaseHandler):
                 try:
                     self.db.commit()
                 except:
-                    self.sb.rollback()
+                    self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
             except Exception, e:

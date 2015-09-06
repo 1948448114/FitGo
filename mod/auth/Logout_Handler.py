@@ -8,9 +8,7 @@ from ..databases.tables import UsersCache,CookieCache
 class LogoutHandler(BaseHandler):
     def delete(self):#用户登出，删除cookie
         status = self.current_user
-        print status.cookie
         if status:
-            # cookie = self.db.query(CookieCache).filter(CookieCache.uid == status.uid).all()
             self.db.delete(status)
             try:
                 self.db.commit()

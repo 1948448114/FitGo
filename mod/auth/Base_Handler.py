@@ -16,7 +16,6 @@ class BaseHandler(tornado.web.RequestHandler):
         if name:
             try:
                 status = self.db.query(CookieCache).filter(CookieCache.cookie == name).one()
-                # user = self.db.query(UsersCache).filter(UsersCache.uid == status.uid).one()
                 return status
             except NoResultFound:
                 return False
