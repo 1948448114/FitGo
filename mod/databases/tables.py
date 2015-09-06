@@ -10,7 +10,7 @@ class UsersCache(Base):
 	uid = Column(VARCHAR(64),primary_key=True)
 	name = Column(VARCHAR(64),nullable=True)
 	student_card = Column(VARCHAR(64),nullable=True)
-	student_id = Column(Integer,nullable=True)
+	student_id = Column(VARCHAR(64),nullable=True)
 	gender = Column(VARCHAR(64))
 	user_name = Column(VARCHAR(64))
 	school = Column(VARCHAR(64))

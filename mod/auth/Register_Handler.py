@@ -38,7 +38,6 @@ class RegisterHandler(BaseHandler):
                 try:
                     self.db.commit()
                 except Exception, e:
-                    print '11111111111'
                     self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
@@ -46,7 +45,6 @@ class RegisterHandler(BaseHandler):
                 retjson['code'] = 402
                 retjson['content'] = "Sql store is wrong!Try again!"
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-        print str(ret)
         self.write(ret)
 
 
@@ -75,7 +73,7 @@ class VerifyHandler(BaseHandler):
                     self.db.commit()
                     retjson['content'] = {'uid':str(uid_uuid),'content':'Verify pass!'}
                 except Exception, e:
-                    raise self.db.rollback()
+                    self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
