@@ -1,3 +1,9 @@
+@font-face{
+  font-family: "proxima-nova-regular";
+  src:url("/static/fonts/ProximaNova-Regular.otf");}
+@font-face{
+  font-family: "proxima-nova-semibold";
+  src:url("/static/fonts/ProximaNova-Semibold.otf");}
 #time-row{
 	font-family: "Microsoft Yahei";
 }
@@ -429,7 +435,7 @@ span#time.cd-date{
 }
 .icon-absolute{
   position: absolute;
-  left: 25px;
+  left: 15px;
   top: 10px;
   font-size: 16px;
 }
@@ -437,6 +443,7 @@ span#time.cd-date{
   text-align: left;
   font-size: 20px;
   color: #a2030e;
+  padding-bottom: 2px;
 }
 .icon-color{
   color: #a2030e;
@@ -447,24 +454,73 @@ span#time.cd-date{
   margin-left: 0px;
 }
 }
-.form-horizontal{
-  margin-bottom: 50px;
-}
 #new-activity{
   margin-top: 50px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+/*.time-right{
+  padding-left: 75px;
+}
+.time-left{
+  padding-right: 65px;
+}*/
+.calendar-absolute1{
+  position: absolute;
+  left: 30px;
+  font-size: 15px;
+  top: 10px;
+}
+.calendar-absolute2{
+  position: absolute;
+  left: 30px;
+  font-size: 15px;
+  top: 10px;
+}
+#act-time label{
+  font-size: 15px;
+  color: #a2030e;
+}
+#new-act label{
+  font-size: 20px;
+  color: #a2030e;
+}
+.location-absolute{
+  position: absolute;
+  left: 30px;
+  font-size: 15px;
+  top: 10px;
+}
+.detail-absolute{
+  font-size: 20px;
+  top: 10px;
+  position: absolute;
+  left: 28px;
+}
+.col-sm-6.no-padding{
+  padding-left: 0;
+}
+#submit-btn button{
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: "proxima-nova-semibold",sans-serif;
+  font-size:15px;
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+#submit-btn button:hover{
+  background-color: #292e6f;
+  border-color: #292e6f;
+}
+.styled-select{
+   background: #ffffff;
+   border: 1px solid #ccc;
+   height: 34px;
+   -webkit-appearance: none;
+   color: #858282;
+}
+.styled-select option{
+  background-color: #ffffff;
+}
 
 
 
