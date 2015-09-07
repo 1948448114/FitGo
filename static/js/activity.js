@@ -8,16 +8,16 @@ $(document).ready(function() {
         $($("#menu .bar").get(4)).addClass("home");
         $('#Start-Time').datepicker('hide');
         $('#Start-Time').datepicker({
-            format: 'mm-dd-yyyy'
+            format: 'yyyy-mm-dd'
         });
 
         $('#End-Time').datepicker('hide');
         $('#End-Time').datepicker({
-            format: 'mm-dd-yyyy'
+            format: 'yyyy-mm-dd'
         });
         $('#Start-Time-Search').datepicker('hide');
         $('#Start-Time-Search').datepicker({
-            format: 'mm-dd-yyyy'
+            format: 'yyyy-mm-dd'
         });
         $('#below').click(function(event) {
             $('#after-show').hide('slow/400/fast');

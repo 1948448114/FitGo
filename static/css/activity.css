@@ -596,8 +596,23 @@ input:readonly{
   color: #a2030e;
   cursor: pointer;
 }
-
-
+#time-row{
+  margin-top: 50px;
+}
+.wrongSubmit{
+  border-radius: 0px;
+  margin-top: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.wrongSubmit p{
+  font-size: 15px;
+  text-align: center;
+  padding: 5px;
+}
+.form-control.textareaMargin{
+  margin-bottom: 0;
+}
 
 
 

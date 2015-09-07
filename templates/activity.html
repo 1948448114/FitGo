@@ -94,23 +94,13 @@
 							</select>
 						</div>
 					</div>
-					<!-- 					<div >
-						<section class="main clearfix">
-							<div class="fleft">
-								<select id="cd-dropdown" name="cd-dropdown" class="cd-select">
-											<option value="-1" selected>Choose your favorite animal</option>
-											<option value="1" class="icon-monkey">Monkey</option>
-											<option value="2" class="icon-bear">Bear</option>
-											<option value="3" class="icon-squirrel">Squirrel</option>
-											<option value="4" class="icon-elephant">Elephant</option>
-								</select>
-							</div>
-						</section>
-					</div> -->
 					<div class="row">
 						<div class="form-group col-sm-6">
 							<span class="detail-absolute icon-edit"></span>
-							<textarea placeholder="Details" id="activity_detail" class="form-control" rows="10"></textarea>
+							<textarea placeholder="Details" id="activity_detail" class="form-control textareaMargin" rows="10"></textarea>
+							<div id="actAlert" class="alert alert-danger wrongSubmit">
+								<p>Something is wrong!</p>
+							</div>
 						</div>
 						<div class="col-sm-1" id="submit-btn">
 							<button onclick="submitAct()" type="submit" class="btn btn-default">SUBMIT</button>
