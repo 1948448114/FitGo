@@ -14,7 +14,7 @@ class SearchStateHandler(BaseHandler):
 
 		try:
 			topics = self.db.query(TopicsCache).filter(TopicsCache.topic_title==a_topic_title).all()
-			retjson = {'code':400,'content':'ok'}
+			retjson = {'code':200,'content':'ok'}
 			content1 = []
 			for n in topics:
 				content = {}

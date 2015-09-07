@@ -19,7 +19,7 @@ class CreateStateHandler(BaseHandler):
 		try:
 			topics = TopicsCache(uid=user_id,topic_title=a_topic_title,topic_content=a_topic_content,topic_pic=a_topic_pic)
 			self.db.add(topics)
-			retjson = {'code':400,'content':'ok'}
+			retjson = {'code':200,'content':'ok'}
 			try:
 				self.db.commit()
 			except:
