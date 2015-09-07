@@ -397,7 +397,6 @@ span#time.cd-date{
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
 }
 /*.label-font{
   font-size: 20px;
@@ -453,9 +452,6 @@ span#time.cd-date{
 .little-right{
   margin-left: 0px;
 }
-}
-#new-activity{
-  margin-top: 50px;
 }
 /*.time-right{
   padding-left: 75px;
@@ -524,11 +520,10 @@ span#time.cd-date{
   border: none;
 }
 .styled-select option{
-  background-color: #ffffff;
+  background-color: rgba(255,255,255,.2);
+
 }
-option .option-color{
-  background-color: #ffffff;
-}
+
 #new-activity input{
   border: none;
 }
@@ -538,12 +533,89 @@ option .option-color{
 .time-shadow{
 
 }
+#hide-new{
+  cursor: pointer;
+}
 input:readonly{
   background-color: #ffffff;
 }
 #after-show{
   display: none;
 }
+.confirmSearch{
+  display: none;
+}
 .toCenter{
   margin-left: 80px;
 }
+.btnsize{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.title strong{
+  cursor: pointer;
+}
+.join{
+  cursor: pointer;
+}
+.col-sm-2.no-padding{
+  padding-left: 0;
+}
+.absolute-map{
+  position: absolute;
+  left: 15px;
+  top:10px;
+  font-size: 15px;
+}
+.absolute-date{
+  position: absolute;
+  top: 10px;
+  font-size: 15px;
+  left: 25px;
+}
+.absolute-info{
+  position: absolute;
+  font-size: 20px;
+  top: 8px;
+  left: 22px;
+}
+.btn-search{
+  font-size: 20px;
+}
+.actSearch{
+  padding: 5px;
+  border:none;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+.searchClass{
+  display: none;
+}
+.confirmSearch label{
+  font-size: 20px;
+  color: #a2030e;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
