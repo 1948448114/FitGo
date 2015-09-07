@@ -38,16 +38,8 @@ $(document).ready(function() {
         $("#toSearch").click(function(event) {
         	$('#toSearch').hide();
         	$('#searchText').show('slow/400/fast');
+            $('.confirmSearch').show('slow/400/fast');
         });
-        // $('#below').click(function(event) {
-        //    $('#searchText').hide(); 
-        //    $('#toSearch').show();
-        // });
-        $("div:not(.specialFliter)")
-            $('.confirmSearch').show('slow/200/fast');
-        });
-
-        // $("div:not(.specialFliter)")
     };
 
     init();
