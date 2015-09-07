@@ -554,3 +554,9 @@ input:readonly{
   padding-left: 30px;
   padding-right: 30px;
 }
+.title strong{
+  cursor: pointer;
+}
+.join{
+  cursor: pointer;
+}
