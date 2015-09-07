@@ -1,15 +1,18 @@
 $(document).ready(function() {
-
+    var uuid = {{user.uuid}};
+    alert('{{user.uuid}}' );
     function init() {
         $('#hide-new').click(function(event) {
-            $("#after-show").toggle('slow/400000000/fast');
+            $("#after-show").toggle('slow/4000/fast');
         });
+
         $("#menu .home").removeClass("home");
         $($("#menu .bar").get(4)).addClass("home");
         $('#Start-Time').datepicker('hide');
         $('#Start-Time').datepicker({
             format: 'mm-dd-yyyy'
         });
+
         $('#End-Time').datepicker('hide');
         $('#End-Time').datepicker({
             format: 'mm-dd-yyyy'
@@ -23,38 +26,38 @@ $(document).ready(function() {
 });
 
 
-function submitAct() {
-    alert($("#options").val());
-    jQuery.ajax({
-      url: '/activity/create',
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        'uid': {{user.uid}},
-        'activity_title':$("#newActivity").val(),
-        'start_time':$("#Start-Time").val(),
-        'end_time':$("#End-Time").val(),
-        'location':$("#options").val(),
-        'details':$("#activity_detail").val()
-  },
-      complete: function(xhr, textStatus) {
-      },
-      success: function(data, textStatus, xhr) {
-        alert(data)
-      },
-      error: function(xhr, textStatus, errorThrown) {
-      }
-    });
+// function submitAct() {
+//     alert($("#options").val());
+//     jQuery.ajax({
+//       url: '/activity/create',
+//       type: 'POST',
+//       dataType: 'json',
+//       data: {
+//         'uid': {{user.uid}},
+//         'activity_title':$("#newActivity").val(),
+//         'start_time':$("#Start-Time").val(),
+//         'end_time':$("#End-Time").val(),
+//         'location':$("#options").val(),
+//         'details':$("#activity_detail").val()
+//   },
+//       complete: function(xhr, textStatus) {
+//       },
+//       success: function(data, textStatus, xhr) {
+//         alert(data)
+//       },
+//       error: function(xhr, textStatus, errorThrown) {
+//       }
+//     });
     
-    $("#after-show").hide('slow/400/fast');
-};
+//     $("#after-show").hide('slow/400/fast');
+// };
 
-function toNew() {
-    $('#after-show').show();
-    $("body").animate({
-        scrollTop: 0
-    }, 500);
-};
+// function toNew() {
+//     $('#after-show').show();
+//     $("body").animate({
+//         scrollTop: 0
+//     }, 500);
+// };
 
 
 // var flag=1;
