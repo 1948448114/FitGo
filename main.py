@@ -50,7 +50,7 @@ class Application(tornado.web.Application):
             (r'/test',TestHandler),
             (r'/invite/user_page',InvitePageHandler),
             (r'/activity',ActivityPageHandler),
-            (r'/activity/create',CreateActivityHandler),
+            (r'/activity/create/([\S]+)',CreateActivityHandler),
             (r'/activity/search',SearchActivityHandler),
             (r'/activity/add',AddActivityHandler),
             (r'/discover/discover_page',DiscoverPageHandler),
