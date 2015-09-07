@@ -19,7 +19,7 @@ class CreateActivityHandler(BaseHandler):
 			activity = ActCache(uid=user_id,activity_title=a_activity_title,\
 				start_time=a_start_time,end_time=a_end_time,location=a_location,details=a_details)
 			self.db.add(activity)
-			retjson = {'code':400,'content':'ok'}
+			retjson = {'code':200,'content':'ok'}
 			try:
 				self.db.commit()
 			except:
