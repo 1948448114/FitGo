@@ -36,42 +36,98 @@ $(document).ready(function() {
             $('#toSearch').show();
         });
         $("#toSearch").click(function(event) {
-        	$('#toSearch').hide();
-        	$('#searchText').show('slow/400/fast');
+            $('#toSearch').hide();
+            $('#searchText').show('slow/400/fast');
             $('.confirmSearch').show('slow/400/fast');
         });
-        $('#alertPaopao').popover(options);
+
+         $('#alertPaopao').popover(options);
+        $("#alertPaopao").click(function(event) {
+            if (!$("#uid").attr('value')) {
+                $('#alertPaopao').attr("data-content", "Login First!");
+                // $('#alertPaopao').popover(options);
+            } else if ($("#newActivity").val().length < 1 || $("#Start-Time").val().length < 1 || $("#End-Time").val().length < 1 || $("#options").val().length < 1 || $("#activity_detail").val().length < 1) {
+                $('#alertPaopao').attr("data-content", "Invalid input");
+                $('#alertPaopao').popover(options);
+            } else {
+                $.ajax({
+                    url: '/activity/create',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'uid': $("#uid").attr('value'),
+                        'act_title': $("#newActivity").val(),
+                        'start_time': $("#Start-Time").val(),
+                        'end_time': $("#End-Time").val(),
+                        'location': $("#options").val(),
+                        'details': $("#activity_detail").val()
+                    },
+                    success: function(data, textStatus, xhr) {
+                        if (data['code'] == 200) {
+                            $('#alertPaopao').attr("data-title", "Success");
+                            $('#alertPaopao').attr("data-content", "^~^");
+                            $('#alertPaopao').popover(options);
+                            // setInterval(function(){$("#after-show").hide('slow/400/fast');},1000);
+                        } else {
+                            $('#alertPaopao').attr("data-content", data['content']);
+                            $('#alertPaopao').popover(options);
+                        }
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        $('#alertPaopao').attr("data-content", "Network Error!");
+                        $('#alertPaopao').popover(options);
+                    }
+                });
+            }
+
+        });
+
+        // $('#alertPaopao').attr("data-content", "Login First!");
+       
     };
 
     init();
 });
 
-
 function submitAct() {
-    $.ajax({
-      url: '/activity/create',
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        'uid':$("#uid").attr('value'),
-        'act_title':$("#newActivity").val(),
-        'start_time':$("#Start-Time").val(),
-        'end_time':$("#End-Time").val(),
-        'location':$("#options").val(),
-        'details':$("#activity_detail").val()
-  },
-      success: function(data, textStatus, xhr) {
-        if(data['code']==200){
-            $("#after-show").hide('slow/400/fast');
-        }
-        else{
-            
-        }
-      },
-      error: function(xhr, textStatus, errorThrown) {
-      }
-    });
-    
+    if(!$("#uid").attr('value')){
+         $('#alertPaopao').attr("data-content", "Login First!");
+         $('#alertPaopao').popover(options);
+    }
+    else if ($("#newActivity").val().length < 1 || $("#Start-Time").val().length<1 || $("#End-Time").val().length<1 || $("#options").val().length<1 || $("#activity_detail").val().length<1) {
+        $('#alertPaopao').attr("data-content", "Invalid input");
+        $('#alertPaopao').popover(options);
+    } 
+    else {
+        $.ajax({
+            url: '/activity/create',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                'uid': $("#uid").attr('value'),
+                'act_title': $("#newActivity").val(),
+                'start_time': $("#Start-Time").val(),
+                'end_time': $("#End-Time").val(),
+                'location': $("#options").val(),
+                'details': $("#activity_detail").val()
+            },
+            success: function(data, textStatus, xhr) {
+                if (data['code'] == 200) {
+                    $('#alertPaopao').attr("data-title", "Success");
+                    $('#alertPaopao').attr("data-content", "^~^");
+                    $('#alertPaopao').popover(options);
+                    // setInterval(function(){$("#after-show").hide('slow/400/fast');},1000);
+                } else {
+                    $('#alertPaopao').attr("data-content", data['content']);
+                    $('#alertPaopao').popover(options);
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                $('#alertPaopao').attr("data-content", "Network Error!");
+                $('#alertPaopao').popover(options);
+            }
+        });
+    }
     
 };
 
