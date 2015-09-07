@@ -15,19 +15,21 @@ class CreateStateHandler(BaseHandler):
 		a_topic_title = self.get_argument('topic_title')
 		a_topic_content = self.get_argument('topic_content')
 		a_topic_pic = self.get_argument('topic_pic')
-		
-		try:
-			topics = TopicsCache(uid=user_id,topic_title=a_topic_title,topic_content=a_topic_content,topic_pic=a_topic_pic)
-			self.db.add(topics)
-			retjson = {'code':200,'content':'ok'}
+		if a_topic_title and a_topic_content:
+
 			try:
-				self.db.commit()
-			except:
-				self.db.rollback()
-				retjson['code'] = 401
-				retjson['content'] = u'Database store is wrong!'
-         
-		except Exception,e:
-			print e
-			retjson = {'code':400,'content':'failed to create state'}
+				topics = TopicsCache(uid=user_id,topic_title=a_topic_title,topic_content=a_topic_content,topic_pic=a_topic_pic)
+				self.db.add(topics)
+				retjson = {'code':200,'content':'ok'}
+				try:
+					self.db.commit()
+				except:
+					self.db.rollback()
+					retjson['code'] = 401
+					retjson['content'] = u'Database store is wrong!'
+			except Exc_eption,e:
+				print e
+				retjson = {'code':400,'content':'failed to create state'}
+		else:
+			retjson = {'code':400,'content':'have null parameter '}
 		self.write(retjson)
