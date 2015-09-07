@@ -546,6 +546,9 @@ input:readonly{
 #after-show{
   display: none;
 }
+.confirmSearch{
+  display: none;
+}
 .toCenter{
   margin-left: 80px;
 }
@@ -592,7 +595,15 @@ input:readonly{
 .searchClass{
   display: none;
 }
+<<<<<<< Updated upstream
 
+=======
+.confirmSearch label{
+  font-size: 20px;
+  color: #a2030e;
+  cursor: pointer;
+}
+>>>>>>> Stashed changes
 
 
 

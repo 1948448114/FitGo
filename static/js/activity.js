@@ -21,6 +21,19 @@ $(document).ready(function() {
         });
         $('#below').click(function(event) {
             $('#after-show').hide('slow/400/fast');
+            $('#searchText').hide();
+            $('.confirmSearch').hide();
+            $('#toSearch').show();
+        });
+        $('#menu').click(function(event) {
+            $('#searchText').hide();
+            $('.confirmSearch').hide();
+            $('#toSearch').show();
+        });
+        $('#new-act').click(function(event) {
+            $('#searchText').hide();
+            $('.confirmSearch').hide();
+            $('#toSearch').show();
         });
         $("#toSearch").click(function(event) {
         	$('#toSearch').hide();
@@ -31,6 +44,10 @@ $(document).ready(function() {
         //    $('#toSearch').show();
         // });
         $("div:not(.specialFliter)")
+            $('.confirmSearch').show('slow/200/fast');
+        });
+
+        // $("div:not(.specialFliter)")
     };
 
     init();
