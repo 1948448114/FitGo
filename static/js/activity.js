@@ -1,8 +1,4 @@
 $(document).ready(function() {
-<<<<<<< HEAD
-   
-=======
->>>>>>> origin/master
     function init() {
         $('#hide-new').click(function(event) {
             $("#after-show").toggle('slow/4000/fast');
@@ -42,28 +38,31 @@ $(document).ready(function() {
 
 
 function submitAct() {
-    alert($("#options").val());
-    jQuery.ajax({
-      url: '/activity/create/{{user.uid}}',
+    $.ajax({
+      url: '/activity/create',
       type: 'POST',
       dataType: 'json',
       data: {
-        'activity_title':$("#newActivity").val(),
+        'uid':$("#uid").attr('value'),
+        'act_title':$("#newActivity").val(),
         'start_time':$("#Start-Time").val(),
         'end_time':$("#End-Time").val(),
         'location':$("#options").val(),
         'details':$("#activity_detail").val()
   },
-      complete: function(xhr, textStatus) {
-      },
       success: function(data, textStatus, xhr) {
-        alert(data)
+        if(data['code']==200){
+            $("#after-show").hide('slow/400/fast');
+        }
+        else{
+            
+        }
       },
       error: function(xhr, textStatus, errorThrown) {
       }
     });
     
-    $("#after-show").hide('slow/400/fast');
+    
 };
 
 // function toNew() {
