@@ -7,8 +7,8 @@ from mod.auth.Base_Handler import BaseHandler
 from ..databases.tables import ActCache
 #/activity/create
 class CreateActivityHandler(BaseHandler):
-	def post(self):#发起活动
-		user_id = self.get_argument("uid")
+	def post(self,uid):#发起活动
+		user_id = uid
 		a_act_title = self.get_argument("act_title")
 		a_start_time = self.get_argument("start_time")
 		a_end_time = self.get_argument("end_time")
