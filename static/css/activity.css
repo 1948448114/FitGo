@@ -397,7 +397,6 @@ span#time.cd-date{
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
 }
 /*.label-font{
   font-size: 20px;
@@ -453,9 +452,6 @@ span#time.cd-date{
 .little-right{
   margin-left: 0px;
 }
-}
-#new-activity{
-  margin-top: 50px;
 }
 /*.time-right{
   padding-left: 75px;
@@ -546,6 +542,9 @@ input:readonly{
 #after-show{
   display: none;
 }
+.confirmSearch{
+  display: none;
+}
 .toCenter{
   margin-left: 80px;
 }
@@ -592,11 +591,40 @@ input:readonly{
 .searchClass{
   display: none;
 }
-
-
-
-
-
+.confirmSearch label{
+  font-size: 20px;
+  color: #a2030e;
+  cursor: pointer;
+}
+#time-row{
+  margin-top: 50px;
+}
+.wrongSubmit{
+  border-radius: 0px;
+  margin-top: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.wrongSubmit p{
+  font-size: 15px;
+  text-align: center;
+  padding: 5px;
+}
+.form-control.textareaMargin{
+  margin-bottom: 0;
+}
+.btn-blacl{
+  background-color: #000000;
+}
+.btn-danger.btn-mine{
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-danger.btn-mine:hover{
+  background-color: #d9534f;
+  border-color:#d9534f;
+  color: #ffffff;
+}
 
 
 
