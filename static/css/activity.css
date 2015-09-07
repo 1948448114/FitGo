@@ -574,6 +574,12 @@ input:readonly{
   font-size: 15px;
   left: 25px;
 }
+.absolute-info{
+  position: absolute;
+  font-size: 20px;
+  top: 8px;
+  left: 22px;
+}
 .btn-search{
   font-size: 20px;
 }
@@ -583,8 +589,9 @@ input:readonly{
   background-color: #ffffff;
   border-radius: 4px;
 }
-
-
+.searchClass{
+  display: none;
+}
 
 
 

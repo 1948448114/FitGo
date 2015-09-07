@@ -36,11 +36,17 @@
 					</div>
 					<div class="form-group col-sm-2 time-right">
 						<span class="icon-calendar absolute-date"></span>
-						<input type="text" class="form-control time-shadow" id="Start-Time" placeholder="Start Time" readOnly>
+						<input type="text" class="form-control time-shadow" id="Start-Time-Search" placeholder="Start Time" readOnly>
 					</div>
-					<div class="form-group col-sm-2 time-right">
+					<div id="specialFliter" class="form-group col-sm-2 time-right">
 						<!-- <span class="icon-calendar absolute-date"></span> -->
-						<button class="actSearch" onclick="toSearch()" type="button"><span class="icon-search btn-search"></span></button>
+						<div id="searchText" class="searchClass">
+						<span class="icon-info-sign absolute-info"></span>
+						<input type="text"  class="form-control" placeholder="Title">
+						</div>
+						<!-- <span class="icon-calendar absolute-date"></span> -->
+						<button class="actSearch" id="toSearch" type="button"><span class="icon-search btn-search"></span></button>
+
 					</div>
 				</div>
 				<div class="row" id="new-act">

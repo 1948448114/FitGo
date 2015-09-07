@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    var uuid = {{user.uuid}};
-    alert('{{user.uuid}}' );
+   
     function init() {
         $('#hide-new').click(function(event) {
             $("#after-show").toggle('slow/4000/fast');
@@ -17,9 +16,22 @@ $(document).ready(function() {
         $('#End-Time').datepicker({
             format: 'mm-dd-yyyy'
         });
+        $('#Start-Time-Search').datepicker('hide');
+        $('#Start-Time-Search').datepicker({
+            format: 'mm-dd-yyyy'
+        });
         $('#below').click(function(event) {
             $('#after-show').hide('slow/400/fast');
         });
+        $("#toSearch").click(function(event) {
+        	$('#toSearch').hide();
+        	$('#searchText').show('slow/400/fast');
+        });
+        // $('#below').click(function(event) {
+        //    $('#searchText').hide(); 
+        //    $('#toSearch').show();
+        // });
+        $("div:not(.specialFliter)")
     };
 
     init();
