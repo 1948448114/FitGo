@@ -524,11 +524,10 @@ span#time.cd-date{
   border: none;
 }
 .styled-select option{
-  background-color: #000000;
+  background-color: rgba(255,255,255,.2);
+
 }
-option .option-color{
-  background-color: #ffffff;
-}
+
 #new-activity input{
   border: none;
 }
@@ -560,3 +559,52 @@ input:readonly{
 .join{
   cursor: pointer;
 }
+.col-sm-2.no-padding{
+  padding-left: 0;
+}
+.absolute-map{
+  position: absolute;
+  left: 15px;
+  top:10px;
+  font-size: 15px;
+}
+.absolute-date{
+  position: absolute;
+  top: 10px;
+  font-size: 15px;
+  left: 25px;
+}
+.btn-search{
+  font-size: 20px;
+}
+.actSearch{
+  padding: 5px;
+  border:none;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

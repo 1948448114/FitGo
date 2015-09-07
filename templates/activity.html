@@ -3,7 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/activity.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/datepicker.css') }}">
-<!-- 	<link rel="stylesheet" type="text/css" href="{{static_url('css/style1.css')}}" >
+	<!-- 	<link rel="stylesheet" type="text/css" href="{{static_url('css/style1.css')}}" >
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/demo.css')}}" >
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/icons.css')}}" >
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/common.css')}}" > -->
@@ -12,10 +12,41 @@
 	<div id="time-row">
 		<div id="new-activity">
 			<div class="toCenter">
+				<div class="row" id="searche-act">
+					<div class="form-group col-sm-2 no-padding">
+						<span class="icon-map-marker absolute-map"></span>
+						<select class="form-control styled-select">
+							<option class="option-color">Location</option>
+							<option class="option-color">梅园操场</option>
+							<option class="option-color">桃园操场</option>
+							<option class="option-color">桔园操场</option>
+							<option class="option-color">梅园宿舍</option>
+							<option class="option-color">桃园宿舍</option>
+							<option class="option-color">桔园宿舍</option>
+							<option class="option-color">东门</option>
+							<option class="option-color">钢铁大菊花</option>
+							<option class="option-color">网球场</option>
+							<option class="option-color">桃园篮球场</option>
+							<option class="option-color">图书馆</option>
+							<option class="option-color">大活</option>
+							<option class="option-color">焦廷标馆</option>
+							<option class="option-color">教学楼</option>
+							<option class="option-color">不限</option>
+						</select>
+					</div>
+					<div class="form-group col-sm-2 time-right">
+						<span class="icon-calendar absolute-date"></span>
+						<input type="text" class="form-control time-shadow" id="Start-Time" placeholder="Start Time" readOnly>
+					</div>
+					<div class="form-group col-sm-2 time-right">
+						<!-- <span class="icon-calendar absolute-date"></span> -->
+						<button class="actSearch" onclick="toSearch()" type="button"><span class="icon-search btn-search"></span></button>
+					</div>
+				</div>
 				<div class="row" id="new-act">
 					<div class="form-group col-sm-6 no-padding">
 						<span class="icon-absolute icon-bullhorn"></span>
-						<input type="email" class="form-control" id="newActivity" placeholder="My Title">
+						<input type="text" class="form-control" id="newActivity" placeholder="My Title">
 					</div>
 					<div class="form-group col-sm-2 time-left">
 						<label for="newActivity" id="hide-new"><span class="icon-pencil"></span>发起活动</label>
@@ -51,21 +82,22 @@
 								<option class="option-color">大活</option>
 								<option class="option-color">焦廷标馆</option>
 								<option class="option-color">教学楼</option>
+								<option class="option-color">不限</option>
 							</select>
 						</div>
 					</div>
 					<!-- 					<div >
-							<section class="main clearfix">
-									<div class="fleft">
-											<select id="cd-dropdown" name="cd-dropdown" class="cd-select">
-													<option value="-1" selected>Choose your favorite animal</option>
-													<option value="1" class="icon-monkey">Monkey</option>
-													<option value="2" class="icon-bear">Bear</option>
-													<option value="3" class="icon-squirrel">Squirrel</option>
-													<option value="4" class="icon-elephant">Elephant</option>
-											</select>
-									</div>
-							</section>
+						<section class="main clearfix">
+							<div class="fleft">
+								<select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+											<option value="-1" selected>Choose your favorite animal</option>
+											<option value="1" class="icon-monkey">Monkey</option>
+											<option value="2" class="icon-bear">Bear</option>
+											<option value="3" class="icon-squirrel">Squirrel</option>
+											<option value="4" class="icon-elephant">Elephant</option>
+								</select>
+							</div>
+						</section>
 					</div> -->
 					<div class="row">
 						<div class="form-group col-sm-6">
@@ -177,5 +209,4 @@
 	</div>
 	<script type="text/javascript" src="{{static_url('js/bootstrap-datepicker.js')}}"></script>
 	<script type="text/javascript" src="{{static_url('js/activity.js')}}"></script>
-
 	{%end%}
