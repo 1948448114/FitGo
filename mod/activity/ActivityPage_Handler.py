@@ -7,5 +7,4 @@ from ..auth.Base_Handler import BaseHandler
 class ActivityPageHandler(BaseHandler):
     def get(self):
         self.render('activity.html', user=self.current_user)
-    def post(self):
-    	pass
+

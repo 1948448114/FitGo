@@ -19,10 +19,14 @@ from mod.auth.Password_Handler import PasswordHandler
 from mod.user.UserInfo_Handler import UserinfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
 from mod.index.index import IndexHandler
+
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
 from mod.activity.CreateActivity_Handler import CreateActivityHandler
 from mod.activity.SearchActivity_Handler import SearchActivityHandler
+from mod.activity.AddActivity_Handler import AddActivityHandler
+
 from mod.invite.InvitePage_Handler import InvitePageHandler
+
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
 from mod.discover.AddFriend_Handler import AddFriendHandler
@@ -49,6 +53,7 @@ class Application(tornado.web.Application):
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),
             (r'/activity/search',SearchActivityHandler),
+            (r'/activity/add',AddActivityHandler),
             (r'/discover/discover_page',DiscoverPageHandler),
             (r'/discover/add',AddFriendHandler),
             (r'/discover/search/friends',SearchFriendHandler),
@@ -60,12 +65,13 @@ class Application(tornado.web.Application):
             template_path=os.path.join(os.path.dirname(__file__), 'templates'),
             auth_path=os.path.join(os.path.dirname(__file__),'auth'),
             discover_path=os.path.join(os.path.dirname(__file__),'discover'),
+            activity_path=os.path.join(os.path.dirname(__file__),'activity'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
             ui_modules={'header':HeaderMoudle,'footer':FooterMoudle},
             # xsrf_cookies=True,
             login_url="/auth/login",
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
-            debug=True,
+            debug=True
             # "lohin_url":"/auth/LoginHandler"
             
         )

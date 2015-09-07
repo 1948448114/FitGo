@@ -9,15 +9,15 @@ from ..databases.tables import ActCache
 class CreateActivityHandler(BaseHandler):
 	def post(self):#发起活动
 		user_id = self.get_argument("uid")
-		a_activity_title = self.get_argument("activity_title")
+		a_act_title = self.get_argument("act_title")
 		a_start_time = self.get_argument("start_time")
 		a_end_time = self.get_argument("end_time")
 		a_location = self.get_argument("location")
 		a_details = self.get_argument("details")
 
 		try:
-			activity = ActCache(uid=user_id,activity_title=a_activity_title,\
-				start_time=a_start_time,end_time=a_end_time,location=a_location,details=a_details)
+			activity = ActCache(uid=user_id,act_title=a_act_title,\
+				start_time=a_start_time,end_time=a_end_time,act_location=a_location,act_detail=a_details)
 			self.db.add(activity)
 			retjson = {'code':200,'content':'ok'}
 			try:

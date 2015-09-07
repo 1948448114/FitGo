@@ -6,7 +6,7 @@ import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
 from ..databases.tables import ActCache
 #/activity/search/
-class SearchActivityHandler(tornado.web.RequestHandler):
+class SearchActivityHandler(BaseHandler):
 	def post(self):#搜索活动
 		user_id = self.get_argument("uid")
 		a_act_title = self.get_argument("act_title")
@@ -16,7 +16,7 @@ class SearchActivityHandler(tornado.web.RequestHandler):
 
 		try:
 			activitys = self.db.query(ActCache).filter(ActCache.act_title==a_act_title).all()
-			retjson = {'code':400,'content':'ok'}
+			retjson = {'code':200,'content':'ok'}
 			content1 = []
 			for n in activitys:
 				content = {}
@@ -25,7 +25,7 @@ class SearchActivityHandler(tornado.web.RequestHandler):
 				content['act_title'] = n.act_title
 				content['start_time'] = n.start_time
 				content['end_time'] = n.end_time
-				content['location'] = n.location
+				content['act_location'] = n.location
 				content['details'] = n.details
 				content['join_people'] = n.join_people
 				content1.append(content)
