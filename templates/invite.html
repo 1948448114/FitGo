@@ -5,31 +5,49 @@
     <link media='print' rel="stylesheet" href="{{static_url('css/fullcalendar.print.css') }}">
     <link rel="stylesheet" href="{{static_url('css/fullcalendar.min.css') }}">
     <script src="{{static_url('js/moment.min.js') }}"></script>
-    <script src="{{static_url('js/fullcalendar.js') }}"></script>
     <script src="{{static_url('js/fullcalendar.min.js') }}"></script>
     
     <script>
     $(document).ready(function() {
-    
+
+
+
     $('#calendar').fullCalendar({
     header: {
     left: 'prev,next today',
     center: 'title',
     right: 'month,agendaWeek'
     },
+    firstDay:1,
     editable: true,
-    eventLimit: true, // allow "more" link when too many events
+    eventLimit: true, 
+    weekMode: "liquid",
+
+ 
+     minTime:"05:00:00",
+     slotEventOverlap:false,
+    
+    // allow "more" link when too many events
     
     });
+ 
+
+
 
     $(function() {
         $("#menu .home").removeClass("home");
         $($("#menu .bar").get(3)).addClass("home");
     });
+<<<<<<< HEAD
+</script>
+=======
+>>>>>>> origin/master
+=======
 
     });
     </script>
 
+>>>>>>> origin/master
     
 {% end %}
 {% block body %}
@@ -45,7 +63,7 @@
         </div>
         <div class='container'>
             <div class='row'>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-sm-offset-2">
                     <div class="input-group">
                         <span class="input-group-addon">#</span>
                         <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Tag">

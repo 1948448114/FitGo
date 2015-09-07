@@ -14,20 +14,20 @@ class SearchStateHandler(BaseHandler):
 
 		try:
 			topics = self.db.query(TopicsCache).filter(TopicsCache.topic_title==a_topic_title).all()
-			# topics_count = self.db.query(func.count(topics))
-			print topics_count,topics[0].uid,topics[1].uid
-			print "======"
-			# retjson = {'code':400,'content':topics[0].uid}
-			retjson = {'code':400,'content':''}#{'uid':'','topic_id':''}
-			# for n in topics:
-			# 	print n
-			retjson.content.push({'uid':topics[0].uid,"topic_id":topics[0].topic_id})
-
+			retjson = {'code':200,'content':'ok'}
+			content1 = []
+			for n in topics:
+				content = {}
+				content['uid'] = n.uid
+				content['topic_id'] = n.topic_id
+				content1.append(content)
+			retjson['content'] = content1
+			print retjson
 			self.write(retjson)
 
 		except Exception,e:
 			print e
-			retjson = {'code':400,'content':'failed to search'}
+			retjson = {'code':400,'content':'failed to search state'}
 			self.write(retjson)
 
 

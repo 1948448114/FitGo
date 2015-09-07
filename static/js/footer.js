@@ -78,6 +78,15 @@ $(document).ready(function() {
 
 //注册
 $("#signup_btn").click(function(event) {
+    if($("#password_signup").val().length<6){
+        $("#sign_up_message").html("password is too short");
+        $("#sign_up_message").show();
+    }
+    else if($("#password_signup").val()!=$("#password_confirm").val()){
+        $("#sign_up_message").html("Confirm password is not the same as password");
+        $("#sign_up_message").show();
+    }
+    else{
     jQuery.ajax({
       url: '/auth/register',
       type: 'POST',
@@ -100,6 +109,7 @@ $("#signup_btn").click(function(event) {
         $("#sign_up_message").html("Network error!");
       }
     });
+}
     
 });
 
