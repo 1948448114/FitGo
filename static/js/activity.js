@@ -40,6 +40,7 @@ $(document).ready(function() {
         	$('#searchText').show('slow/400/fast');
             $('.confirmSearch').show('slow/400/fast');
         });
+        $('#alertPaopao').popover(options);
     };
 
     init();

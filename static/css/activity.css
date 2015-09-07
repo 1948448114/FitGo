@@ -613,9 +613,18 @@ input:readonly{
 .form-control.textareaMargin{
   margin-bottom: 0;
 }
-
-
-
+.btn-blacl{
+  background-color: #000000;
+}
+.btn-danger.btn-mine{
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-danger.btn-mine:hover{
+  background-color: #d9534f;
+  border-color:#d9534f;
+  color: #ffffff;
+}
 
 
 
