@@ -6,6 +6,8 @@ import tornado.ioloop
 import tornado.web
 import os
 from tornado.options import define, options
+import pymongo
+from pymongo import MongoClient
 
 from sqlalchemy.orm import scoped_session, sessionmaker
 from mod.databases.db import engine
@@ -23,6 +25,7 @@ from mod.user.UserPage_Handler import UserPageHandler
 from mod.plans.Lookplans_Handler import LookplansHandler
 from mod.plans.Star_Handler import StarHandler
 from mod.plans.Plans_Handler import PlansHandler
+from mod.plans.CompleteInfoHandler import CompleteInfoHandler
 
 
 from mod.index.index import IndexHandler
@@ -37,6 +40,9 @@ from mod.invite.Invite_Handler import InviteHandler
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
 from mod.discover.AddFriend_Handler import AddFriendHandler
+from mod.discover.AllFriends_Handler import AllFriendsHandler
+
+from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
 from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
 
@@ -66,10 +72,18 @@ class Application(tornado.web.Application):
             (r'/activity/search',SearchActivityHandler),
             (r'/activity/add',AddActivityHandler),
             (r'/discover/discover_page',DiscoverPageHandler),
-            (r'/discover/add',AddFriendHandler),
+            # add friend
+            (r'/discover/add/(\d+)',AddFriendHandler),
+            # delete friend
+            (r'/discover/delete/(\d+)',DeleteFriendHandler),
+            # look all friends
+            (r'/discover/allfriends',AllFriendsHandler),
+
             (r'/discover/search/friends',SearchFriendHandler),
             (r'/discover/create',CreateStateHandler),
-            (r'/discover/search/state',SearchStateHandler)
+            (r'/discover/search/state',SearchStateHandler),
+            (r'/plans',PlansHandler),
+            (r'/plans/Info',CompleteInfoHandler)
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -86,6 +100,12 @@ class Application(tornado.web.Application):
             # "lohin_url":"/auth/LoginHandler"
             
         )
+
+        conn = MongoClient('localhost', 27017)
+        self.Mongodb = conn["fitgo"]
+        #conn = pymongo.Connection("123.57.221.18", 27017)
+        #self.db = conn["fitgo"]
+
         tornado.web.Application.__init__(self, handlers, **settings)
         self.db = scoped_session(sessionmaker(bind=engine,
                                               autocommit=False, autoflush=True,

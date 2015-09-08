@@ -19,13 +19,16 @@ class CreateStateHandler(BaseHandler):
 		try:
 			topics = TopicsCache(uid=user_id,topic_title=a_topic_title,topic_content=a_topic_content,topic_pic=a_topic_pic)
 			self.db.add(topics)
-			retjson = {'code':400,'content':'ok'}
-			try:
-				self.db.commit()
-			except:
-				self.db.rollback()
-				retjson['code'] = 401
-				retjson['content'] = u'Database store is wrong!'
+			retjson = {'code':200,'content':'ok'}
+			if a_topic_title and a_topic_content:
+				try:
+					self.db.commit()
+				except:
+					self.db.rollback()
+					retjson['code'] = 401
+					retjson['content'] = u'Database store is wrong!'
+			else:
+				retjson = {'code':400,'content':'have null parameter '}
          
 		except Exception,e:
 			print e
