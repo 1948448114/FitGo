@@ -41,15 +41,16 @@ $(document).ready(function() {
             $('.confirmSearch').show('slow/400/fast');
         });
 
-         $('#alertPaopao').popover(options);
         $("#alertPaopao").click(function(event) {
             if (!$("#uid").attr('value')) {
                 $('#alertPaopao').attr("data-content", "Login First!");
+                $('#alertPaopao').popover('show');
                 // $('#alertPaopao').popover(options);
             } else if ($("#newActivity").val().length < 1 || $("#Start-Time").val().length < 1 || $("#End-Time").val().length < 1 || $("#options").val().length < 1 || $("#activity_detail").val().length < 1) {
                 $('#alertPaopao').attr("data-content", "Invalid input");
-                $('#alertPaopao').popover(options);
+                $('#alertPaopao').popover('show');
             } else {
+
                 $.ajax({
                     url: '/activity/create',
                     type: 'POST',
@@ -64,23 +65,23 @@ $(document).ready(function() {
                     },
                     success: function(data, textStatus, xhr) {
                         if (data['code'] == 200) {
-                            $('#alertPaopao').attr("data-title", "Success");
-                            $('#alertPaopao').attr("data-content", "^~^");
-                            $('#alertPaopao').popover(options);
-                            // setInterval(function(){$("#after-show").hide('slow/400/fast');},1000);
+                            $('#alertPaopao').attr("data-content", "Success!");
+                            $('#alertPaopao').popover('show');
+                            setTimeout(function(){$("#after-show").hide('slow/400/fast');},1000);
                         } else {
                             $('#alertPaopao').attr("data-content", data['content']);
-                            $('#alertPaopao').popover(options);
+                            $('#alertPaopao').popover('show');
                         }
                     },
                     error: function(xhr, textStatus, errorThrown) {
                         $('#alertPaopao').attr("data-content", "Network Error!");
-                        $('#alertPaopao').popover(options);
+                        $('#alertPaopao').popover('show');
                     }
                 });
             }
 
         });
+        // $('#alertPaopao').popover(options);
 
         // $('#alertPaopao').attr("data-content", "Login First!");
        
