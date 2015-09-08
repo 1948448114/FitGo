@@ -55,5 +55,3 @@ class SearchStateHandler(BaseHandler):
 			retjson = {'code':400,'content':'topic_title is null'}
 			self.write(retjson)
 
-
-
