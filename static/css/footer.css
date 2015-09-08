@@ -25,6 +25,7 @@
 	top:-30px;
 	left: 0;
 	right: 0;
+	cursor: pointer;
 }
 .phone{
 	border-left-style: solid;
@@ -57,3 +58,4 @@ footer{
 #myfooter a{
 	color: #5cc1f0;
 }
+.con

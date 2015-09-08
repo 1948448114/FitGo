@@ -36,7 +36,7 @@ class PlansCache(Base):
 	fit_location = Column(VARCHAR(64))
 	fit_item = Column(VARCHAR(64))
 	remark = Column(VARCHAR(64))
-	grader = Column(VARCHAR(64))
+	grader = Column(Integer)
 
 class User_tagCache(Base):
 	__tablename__ = 'User_tag'
@@ -52,13 +52,12 @@ class ActCache(Base):
 
 	act_id = Column(Integer,primary_key=True)
 	uid = Column(VARCHAR(64))
+	create_time = Column(VARCHAR(64))
+	act_title = Column(VARCHAR(64))
 	start_time = Column(VARCHAR(64))
 	end_time = Column(VARCHAR(64))
-	act_style = Column(VARCHAR(64))
-	act_people_num = Column(Integer)
+	act_location = Column(VARCHAR(64))
 	act_detail = Column(VARCHAR(64))
-	act_address = Column(VARCHAR(64))
-	act_join_way = Column(VARCHAR(64))
 	act_join_uid = Column(Integer)
 
 class TopicsCache(Base):
@@ -66,7 +65,7 @@ class TopicsCache(Base):
 
 	uid = Column(VARCHAR(64))
 	topic_id = Column(Integer,primary_key=True)
-	uid = Column(Integer)
+
 	topic_content = Column(VARCHAR(64))
 	topic_pic = Column(VARCHAR(64))
 	topic_title = Column(VARCHAR(64))

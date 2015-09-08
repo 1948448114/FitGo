@@ -157,6 +157,9 @@ $("#signup_btn").click(function(event) {
             //called when complete
           },
           success: function(data, textStatus, xhr) {
+            var date = new Date(); 
+            date.setTime(date.getTime() - 10000); 
+            document.cookie = "username=null; expires=" + date.toGMTString();
             location.href="/";
             //called when successful
           },

@@ -9,6 +9,10 @@ import uuid
 import re
 from time import time
 import json
+from tornado.httpclient import HTTPRequest, AsyncHTTPClient
+import urllib
+import traceback
+
 class RegisterHandler(BaseHandler):
     def get(self):
         if not self.current_user:  
@@ -52,6 +56,9 @@ class RegisterHandler(BaseHandler):
 
 
 class VerifyHandler(BaseHandler):
+
+    @tornado.web.asynchronous
+    @tornado.gen.engine
     def post(self):
         retjson = {'code':200,'content':'ok'}
         arg_info_email=self.get_argument('info_email')
@@ -65,19 +72,69 @@ class VerifyHandler(BaseHandler):
             retjson['content'] = u'Your email format is wrong'
         else :
             try:
-                person = self.db.query(UsersCache).filter(UsersCache.student_card==arg_student_card).one()
-                retjson['code'] = 401
-                retjson['content'] = u'user %s has exited!' % (person.student_card)
-            except NoResultFound :
-                uid_uuid = uuid.uuid5(uuid.NAMESPACE_DNS,str(arg_info_email))
-                status_users = UsersCache(student_card = arg_student_card,student_id = arg_student_id,uid = uid_uuid,info_email = arg_info_email)
-                self.db.add(status_users)
+                client = AsyncHTTPClient()
+                login_url = 'http://xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action'
+                login_value = {
+                                'queryStudentId':arg_student_card,
+                                'queryAcademicYear':'15-16-1'
+
+                }
+                request = HTTPRequest(
+                                        login_url,
+                                        method='POST',
+                                        body = urllib.urlencode(login_value),
+                                        request_timeout = 5                                        
+                                        )
+
+                response = yield tornado.gen.Task(client.fetch, request)
+                page = response.body
+                xuehao=re.compile('学号:([A-Z,0-9]+)').findall(page)
+                yikatong=re.compile('一卡通号:([A-Z,0-9]+)').findall(page)
+                if response.headers :
+                    if arg_student_card == yikatong[0] and arg_student_id == xuehao[0] :
+                        retjson['content'] = 'right'
+                    else :
+                        print arg_student_card
+                        retjson['code'] = 404
+                        retjson['content'] = u'Your student_card or id not right'
+                        ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+                        self.write(ret)
+                        self.finish()
+                        return
+                else :
+                    retjson['code'] = 404
+                    retjson['content'] = u'Your student_card or id not found'
+                    ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+                    self.write(ret)
+                    self.finish()
+                    return
+
+            except Exception, e:
+                print e
+                retjson['code'] = 404
+                retjson['content'] = u'search card and id failed '
+                ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+                self.write(ret)
+                self.finish()
+                return
+            if retjson['content'] == 'right':
                 try:
-                    self.db.commit()
-                    retjson['content'] = {'uid':str(uid_uuid),'content':'Verify pass!'}
-                except Exception, e:
-                    self.db.rollback()
+                    person = self.db.query(UsersCache).filter(UsersCache.student_card==arg_student_card).one()
                     retjson['code'] = 401
-                    retjson['content'] = u'Database store is wrong!'
+                    retjson['content'] = u'user %s has exited!' % (person.student_card)
+                except NoResultFound :
+                    uid_uuid = uuid.uuid5(uuid.NAMESPACE_DNS,str(arg_info_email))
+                    status_users = UsersCache(student_card = arg_student_card,student_id = arg_student_id,uid = uid_uuid,info_email = arg_info_email)
+                    self.db.add(status_users)
+                    try:
+                        self.db.commit()
+                        retjson['content'] = {'uid':str(uid_uuid),'content':'Verify pass!'}
+                    except Exception, e:
+                        self.db.rollback()
+                        retjson['code'] = 401
+                        retjson['content'] = u'Database store is wrong!'
+            else :
+                pass
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
+        self.finish()
