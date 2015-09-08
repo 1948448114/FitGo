@@ -11,7 +11,7 @@ from pymongo import MongoClient
 
 from ..databases.tables import UsersCache,CookieCache
 #/discover/add
-class AddFriendHandler(BaseHandler):
+class AllFriendsHandler(BaseHandler):
     @property
     def db(self):
         return self.application.db
@@ -25,18 +25,16 @@ class AddFriendHandler(BaseHandler):
     def on_finish(self):
         self.db.close()
 
-    def post (self,user_id):
+    def post (self):
   		retjson = {'code':200,'content':'ok'}
   		# uid
   		user_cookie = self.current_user
   		uid = user_cookie.uid
-  		# follow uid
-  		follow = user_id
+
 
   		try:
-  			self.Mongodb.friend_follow.insert({
-  				"uid":str(uid),
-  				"follow":str(follow)
+  			retjson['content']=self.Mongodb.friend_follow.find({
+  				"uid":str(uid)
   				})
   			
   		except Exception, e:
@@ -46,3 +44,5 @@ class AddFriendHandler(BaseHandler):
   		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
   		self.write(ret) 
 
+
+  
