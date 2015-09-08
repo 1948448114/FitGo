@@ -11,10 +11,14 @@
 	color:#a2030e;
 
 }
+
+
 .title strong{
 	font-family: "SourceSansPro-Regular"
 }
-
+.search_invite a:hover{
+	text-decoration:blink;
+}
 #calendar {
 		max-width: 700px;
 		margin: 0 auto;

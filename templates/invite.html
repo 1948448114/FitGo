@@ -2,15 +2,19 @@
 {% block header %}
     <link rel="stylesheet" href="{{static_url('css/andrew.css') }}">
     <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{static_url('css/fullcalendar.css') }}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/bootstrap-datetimepicker.min.css') }}">
+    <script src="{{static_url('js/bootstrap-datetimepicker.js') }}"></script>
+
+    <link rel="stylesheet" href="{{static_url('css/timeline.css') }}">
+    <script src="{{static_url('js/timeline.js') }}"></script>
+<!-- 
     <link media='print' rel="stylesheet" href="{{static_url('css/fullcalendar.print.css') }}">
     <link rel="stylesheet" href="{{static_url('css/fullcalendar.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{static_url('css/bootstrap-datetimepicker.min.css') }}">
-    
-    <script src="{{static_url('js/bootstrap-datetimepicker.js') }}"></script>
     <script src="{{static_url('js/moment.min.js') }}"></script>
     <script src="{{static_url('js/fullcalendar.min.js') }}"></script>
-    
+     -->
     <script>
     $(document).ready(function() {
     $("#invite_new").click(function(event) {
@@ -36,19 +40,19 @@
     });
 
 
-    $('#calendar').fullCalendar({
-    header: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'month,agendaWeek'
-    },
-    firstDay:1,
-    editable: true,
-    eventLimit: true,
-    weekMode: "liquid",
-    minTime:"05:00:00",
-    slotEventOverlap:false,
-    });
+    // $('#calendar').fullCalendar({
+    // header: {
+    // left: 'prev,next today',
+    // center: 'title',
+    // right: 'month,agendaWeek'
+    // },
+    // firstDay:1,
+    // editable: true,
+    // eventLimit: true,
+    // weekMode: "liquid",
+    // minTime:"05:00:00",
+    // slotEventOverlap:false,
+    // });
     
     
     
@@ -70,6 +74,8 @@
     autoclose: true,
     todayBtn: true,
     todayHighlight:true
+   
+
     });
     $("#search_invite_time").datetimepicker({
     format: 'yyyy-mm-dd',
@@ -97,7 +103,7 @@
         <div class="title" >
 
             <div>
-                <p class="largetext" name="invite_title">
+                <p class="largetext" id="invite_title">
                     Life is short. Have a
                     <strong>Better Run</strong>
                     .
@@ -221,12 +227,14 @@
                     <div class="col-sm-4">
                    <div class="row">
                     <div class="col-sm-12" id="invite_png">
-                        <img src="/static/images/2.png">
+                        <img src="/static/images/invite/2.png">
                     </div> 
                     </div>
                     <div class="row">
                     <div class="col-sm-6 col-sm-offset-2" id="submit_invite_btn">
-                        <button onclick="submit_invite_Act()" type="submit" class="btn btn-default">SUBMIT</button>
+                        <a href="#">
+                        <button  type="submit" class="btn btn-default">SUBMIT</button>
+                    </a>
                     </div>
                     </div>
                     </div>
@@ -240,8 +248,13 @@
                         <div class="input-group have_icon search_invite_group">
                             <span class="icon   icon-desktop"></span>
                             <input type="text" class="form-control" aria-label="Search" id="search_invite_tag" placeholder="Search...">
-                            <span class="input-group-addon btn" id="search_btn">Go!</span>
-                            <span class="input-group-addon btn btn-danger" id="search_more_btn">More Detail Search</span>
+                    
+                        
+                   <span class="input-group-addon btn" id="search_btn" ><a href="#invite_title">Go! </a></span> 
+            
+             
+                            <span class="input-group-addon btn btn-danger" id="search_more_btn"><a href="#invite_title">More Detail Search   </a></span>
+                            
                         </div>
                     </div>
                     
@@ -326,8 +339,107 @@
         
     </div>
 </div>
-<div class='container'>
-    <div id='calendar'></div>
-</div>
+    <div class="container_timeline container">
+        <ul id="timeline" class="timeline">
+            <li class="active">
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top1.jpg" alt="">
+                    <span>10:00</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>lalala</h3>
+                    <p>lalalalalala</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top2.jpg" />
+                    <span>7:30</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>llllsls</h3>
+                    <p>lslslsls</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top3.jpg" />
+                    <span>7:00</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>ldldlddl</h3>
+                    <p>ldldldldl</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top4.jpg" />
+                    <span>21:30</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>qwqwqwq</h3>
+                    <p>qwqwqwq</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top5.jpg" />
+                    <span>20:00</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>sadasdasd</h3>
+                    <p>adasdsadsad</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top6.jpg" />
+                    <span>18:40</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>dfsdfsdfds</h3>
+                    <p>sdfdsfsdfdsf</p>
+                </div>
+            </li>
+            
+        
+        </ul>
+    </div>
 </div>
 {% end %}
