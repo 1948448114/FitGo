@@ -18,6 +18,7 @@ from Base_Handler import BaseHandler
 
 class UserPageHandler(BaseHandler):
     """docstring for WatchUser_handler"""
+    # change userinfo
 
     @property
     def db(self):
