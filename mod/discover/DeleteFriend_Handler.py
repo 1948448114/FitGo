@@ -11,7 +11,7 @@ from pymongo import MongoClient
 
 from ..databases.tables import UsersCache,CookieCache
 #/discover/add
-class AddFriendHandler(BaseHandler):
+class DeleteFriendHandler(BaseHandler):
     @property
     def db(self):
         return self.application.db
@@ -34,7 +34,7 @@ class AddFriendHandler(BaseHandler):
   		follow = user_id
 
   		try:
-  			self.Mongodb.friend_follow.insert({
+  			self.Mongodb.friend_follow.remove({
   				"uid":str(uid),
   				"follow":str(follow)
   				})
@@ -46,3 +46,5 @@ class AddFriendHandler(BaseHandler):
   		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
   		self.write(ret) 
 
+
+   
