@@ -625,9 +625,18 @@ input:readonly{
   border-color:#d9534f;
   color: #ffffff;
 }
-
-
-
+.frontSearch{
+  font-size: 18px;
+  color: #a2030e;
+}
+.form-group.frontSearch{
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.frontSearch label{
+  margin-bottom: 0px;
+}
 
 
 

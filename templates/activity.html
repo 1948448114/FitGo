@@ -7,8 +7,11 @@
 {% block body %}
 	<div id="time-row">
 		<div id="new-activity">
-			<div class="toCenter">
+			<div class="toCenter">	
 				<div class="row" id="searche-act">
+					<div class="form-group col-sm-1 frontSearch">
+						<label>搜索活动<span class="icon-arrow-right"></span></label>
+					</div>
 					<div class="form-group col-sm-2 no-padding">
 						<span class="icon-map-marker absolute-map"></span>
 						<select class="form-control styled-select">
@@ -34,7 +37,8 @@
 						<span class="icon-calendar absolute-date"></span>
 						<input type="text" class="form-control time-shadow" id="Start-Time-Search" placeholder="Start Time" readOnly>
 					</div>
-					<div id="specialFliter" class="form-group col-sm-2 time-right">
+					<div id="specialFliter">
+					<div class="form-group col-sm-2 time-right">
 						<!-- <span class="icon-calendar absolute-date"></span> -->
 						<div id="searchText" class="searchClass">
 						<span class=" icon-magic absolute-info"></span>
@@ -47,6 +51,8 @@
 						<label for="searchActivity" ><span class="icon-ok"></span>开始搜索</label>
 					</div>
 				</div>
+				</div>
+			<div id="wholeNew">
 				<div class="row" id="new-act">
 					<div class="form-group col-sm-6 no-padding">
 						<span class="icon-absolute icon-bullhorn"></span>
@@ -106,6 +112,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 			<!-- 标题 -->
 			<div id="below">

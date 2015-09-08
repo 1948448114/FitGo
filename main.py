@@ -30,6 +30,7 @@ from mod.discover.AddFriend_Handler import AddFriendHandler
 from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
 from mod.plans.Plans_Handler import PlansHandler
+from mod.plans.CompleteInfoHandler import CompleteInfoHandler
 define("port", default=8888, help="run on the given port", type=int)
 
 class Application(tornado.web.Application):
@@ -55,7 +56,8 @@ class Application(tornado.web.Application):
             (r'/discover/search/friends',SearchFriendHandler),
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
-            (r'/plans',PlansHandler)
+            (r'/plans',PlansHandler),
+            (r'/plans/Info',CompleteInfoHandler)
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",

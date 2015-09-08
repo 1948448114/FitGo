@@ -21,19 +21,6 @@ $(document).ready(function() {
         });
         $('#below').click(function(event) {
             $('#after-show').hide('slow/400/fast');
-            $('#searchText').hide();
-            $('.confirmSearch').hide();
-            $('#toSearch').show();
-        });
-        $('#menu').click(function(event) {
-            $('#searchText').hide();
-            $('.confirmSearch').hide();
-            $('#toSearch').show();
-        });
-        $('#new-act').click(function(event) {
-            $('#searchText').hide();
-            $('.confirmSearch').hide();
-            $('#toSearch').show();
         });
         $("#toSearch").click(function(event) {
             $('#toSearch').hide();
@@ -81,6 +68,29 @@ $(document).ready(function() {
             }
 
         });
+            $('#specialFliter').mouseout(function(event) {
+                $('body').bind('click', function(event) {
+                    $('#searchText').hide();
+                    $('.confirmSearch').hide();
+                    $('#toSearch').show();
+                    // $('#after-show').hide();
+                });
+            });
+            $('#specialFliter').mouseover(function(event) {
+                $('body').unbind('click');
+            });
+            // $('#wholeNew').mouseout(function(event)){
+            //     $('body').bind('click',function(event)){
+            //         $('#after-show').show();
+            //     }
+            // }
+            // $('#wholeNew').mouseover(function(event)){
+            //     $('body').unbind('click');
+            // }
+            // $('#after-show').mouseover(function(event)){
+            //     $('body').unbind('click');
+            // }
+        
 
         // $('#alertPaopao').attr("data-content", "Login First!");
        
@@ -130,40 +140,3 @@ function submitAct() {
     }
     
 };
-
-// function toNew() {
-//     $('#after-show').show();
-//     $("body").animate({
-//         scrollTop: 0
-//     }, 500);
-// };
-
-
-// var flag=1;
-// $('#hide-new').click(function(event) {
-// if(flag%2==1){
-// $('#after-show').show('slow/400/fast');
-// flag++;
-// }
-// else{
-// $('#after-show').hide('slow/400/fast');
-// flag++;
-// }
-// });
-
-
-// $('#hide-new').click(function(event) {
-// 	'#hide'
-// 	if($flag!=1){
-// 		$('#after-show').hide('slow/400/fast');
-// 		$('#hide-new').removeClass('showthis');
-// 	}
-// 	else{
-// 		$('#after-show').show('slow/400/fast');
-// 		$('#hide-new').addClass('showthis');
-// 	}
-// });
-
-
-
-// });

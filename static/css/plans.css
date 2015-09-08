@@ -1,0 +1,44 @@
+.container.moreMargin{
+	margin-top: 50px;
+}
+.alignCenter{
+	height:auto;
+	max-width: 100%;
+	display: block;
+	margin:auto;
+}
+.fontStyle h3{
+	color: #85da5c;
+}
+.fontStyle a{
+	cursor: pointer;
+}
+.inputText{
+	height: 100%;
+	width: 85%;
+	background-color: #f7f7f7;
+	border: 1px solid #f7f7f7;
+	border-radius: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.inputTextarea{
+	height: 100%;
+	width: 95%;
+	background-color: #f7f7f7;
+	border: 1px solid #f7f7f7;
+	border-radius: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+input:focus{
+	outline:none;
+    border:#85da5c 1px solid;
+    background-color: #fff;
+/*    box-shadow: 0 0 8px rgba(133, 218, 92, 1);
+*/}
+textarea:focus{
+	outline:none;
+    border:#85da5c 1px solid;
+    background-color: #fff;
+}

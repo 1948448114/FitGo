@@ -1,0 +1,58 @@
+{% extends "header.html" %}
+{% block header %}
+	<link rel="stylesheet" type="text/css" href="{{static_url('css/plans.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
+{% end %}
+{% block body %}
+	<div class="container moreMargin">
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-4 form-group">
+				<img src="/static/images/pic.svg">
+			</div>
+			<div class="col-sm-6 form-group">
+				<h3>Your name</h3>
+				<a><span class="icon-camera"></span>修改头像</a><br>
+				<a><span class="icon-key"></span>修改密码</a>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<label>昵称</label>
+				<input type="text" id="user_name" class="inputText" placeholder="Username">
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<label>性别</label>
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">男
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">女
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">๑乛◡乛๑其他
+				</label>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<label>学校</label>
+				<input type="text" id="school" class="inputText" placeholder="School">
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<label>校区</label>
+				<input type="text" id="campus" class="inputText" placeholder="Campus">
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<label>邮箱</label>
+				<input type="email" id="info_email" class="inputText" placeholder="Email">
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<label>手机</label>
+				<input type="text" id="info_phone" class="inputText" placeholder="Phone">
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<!-- 				<label class="signatureMargin">签名</label>
+				-->				<textarea placeholder="Signature(no more than 20 words)" id="signature" class="inputTextarea" rows="2"></textarea>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<button></button>
+			</div>
+		</div>
+	</div>
+{% end %}
