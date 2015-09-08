@@ -9,7 +9,7 @@ from ..databases.tables import UsersCache,User_tagCache
 #/discover/search/friends
 class SearchFriendHandler(BaseHandler):
 	def post(self):#搜索好友
-		a_username = self.get_argument('username')
+		a_username = self.get_argument('user_name')
 		a_name = self.get_argument('name')
 		a_campus = self.get_argument('campus')
 		a_school = self.get_argument('school')
@@ -19,11 +19,16 @@ class SearchFriendHandler(BaseHandler):
 		a_user_score = self.get_argument('user_score')
 		a_user_join_event = self.get_argument('user_join_event')
 
+		print a_username
+		retjson = {'code':200,'content':'ok'}
 		try:
-			person = self.db.query(UsersCache).filter(UsersCache.user_name==a_username)
+			person1 = self.db.query(UsersCache).filter(UsersCache.user_name==a_username)
+
+
 		except Exception,e:
 			print e
-
+			retjson = {'code':400,'content':'failed to search friend'}
+		self.write(retjson)
 
 
 		
