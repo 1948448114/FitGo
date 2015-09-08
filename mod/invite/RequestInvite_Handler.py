@@ -1,5 +1,5 @@
 
 #/invite/request
-class RequestInviteHandler(tornado.web.RequestHandler):
+class RequestInviteHandler(BaseHandler):
 	def post(self):#发送请求
 		pass

@@ -38,6 +38,19 @@ class PlansCache(Base):
 	remark = Column(VARCHAR(64))
 	grader = Column(VARCHAR(64))
 
+class InviteCache(Base):
+	__tablename__ = 'Invite'
+
+	_id = Column(VARCHAR(64),primary_key = True)
+	uid = Column(VARCHAR(64));
+	start_time = Column(VARCHAR(64));
+	duration = Column(VARCHAR(64));
+	create_time = Column(VARCHAR(64));
+	fit_location = Column(VARCHAR(64));
+	fit_item = Column(VARCHAR(64));
+	user_tag = Column(VARCHAR(64));
+	gender = Column(VARCHAR(64));
+	remark = Column(VARCHAR(64));
 class User_tagCache(Base):
 	__tablename__ = 'User_tag'
 
