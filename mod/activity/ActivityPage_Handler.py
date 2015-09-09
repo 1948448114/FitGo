@@ -6,6 +6,7 @@ from ..auth.Base_Handler import BaseHandler
 from ..databases.tables import ActCache
 from time import mktime,strptime,strftime,time,localtime
 from sqlalchemy.orm.exc import NoResultFound
+from AddActivity_Handler import AddActivityHandler
 import json,string
 #/activity/activity_page
 class ActivityPageHandler(BaseHandler):
@@ -18,6 +19,7 @@ class ActivityPageHandler(BaseHandler):
             act = self.db.query(ActCache).filter(ActCache.create_time>nowtime-86400).order_by(ActCache.act_id.desc())
             all_content = []
             for i in act:
+                join_id = AddActivityHandler().get()
                 contentTemp = {
                     'id':i.act_id,
                     'uid':i.uid,
@@ -27,7 +29,7 @@ class ActivityPageHandler(BaseHandler):
                     'end':i.end_time,
                     'location':i.act_location,
                     'detail':i.act_detail,
-                    'join_uid':i.act_join_uid
+                    'join_uid':AddActivityHandler().get()['content']
                 }
                 all_content.append(contentTemp)
             retjson['content'] = all_content

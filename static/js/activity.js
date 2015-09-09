@@ -5,7 +5,7 @@ function refresh(){
       data: {'length': 'value1'},
       success: function(data, textStatus, xhr) {
             divContent = $("#cd-timeline");
-            divContent.append(data);
+            divContent.html(data);
     },
       error: function(xhr, textStatus, errorThrown) {
         $("#error_message_content").val("Network Error!");
@@ -71,6 +71,7 @@ $(document).ready(function() {
                         if (data['code'] == 200) {
                             $('#alertPaopao').attr("data-content", "Success!");
                             $('#alertPaopao').popover('show');
+                            refresh();
                             setTimeout(function(){$("#after-show").hide('slow/400/fast');},1000);
                         } else {
                             $('#alertPaopao').attr("data-content", data['content']);
