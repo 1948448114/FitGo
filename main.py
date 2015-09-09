@@ -37,6 +37,8 @@ from mod.activity.AddActivity_Handler import AddActivityHandler
 
 from mod.invite.InvitePage_Handler import InvitePageHandler
 from mod.invite.Invite_Handler import InviteHandler
+from mod.invite.SearchInvite_Handler import SearchInviteHandler
+
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
 from mod.discover.AddFriend_Handler import AddFriendHandler
@@ -67,6 +69,7 @@ class Application(tornado.web.Application):
             (r'/test',TestHandler),
             (r'/invite/user_page',InvitePageHandler),
             (r'/invite',InviteHandler),
+            (r'/invite/search'),
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),
             (r'/activity/search',SearchActivityHandler),
