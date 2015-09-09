@@ -15,15 +15,19 @@ class SearchActivityHandler(BaseHandler):
 
 		try:
 			if a_act_title:
-				string = string + 'act_title like \'%%%s%%\'' % a_act_title
+				string = string + 'act_title like \'%%%s%%\'' % a_act_title + ' and '
 			if a_start_time:
-				string = string + 'start_time=\'%s\'' % a_start_time
+				string = string + 'start_time=\'%s\'' % a_start_time + ' and '
 			if a_location:
-				string = string + 'user_name=\'%s\'' % a_username
+				string = string + 'user_name=\'%s\'' % a_username + ' and '
 
 			if string.strip()=='':
 				retjson = {'code':400,'content':'all parameters are null'}
 			else:
+				length0 = len(string)
+				length = length0 - 5
+				string = string[0:length]
+				print "select * from Act where %s;" % string
 				activitys = self.db.execute("select * from Act where %s;" % string).fetchall()
 				if activitys:
 					retjson = {'code':200,'content':'ok'}

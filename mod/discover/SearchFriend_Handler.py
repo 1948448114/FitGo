@@ -36,12 +36,17 @@ class SearchFriendHandler(BaseHandler):
 			if a_user_join_event:
 				string = string + 'user_join_event=\'%s\'' % a_user_join_event  + ' and '
 			if a_user_score:
-				string = string + 'user_score=\'%s\'' % a_user_score
-			print string
+				string = string + 'user_score=\'%s\'' % a_user_score + ' and '
+
+
 			print "select * from Users where %s;" % string
+
 			if string.strip()=='':
 				retjson = {'code':400,'content':'all parameters are null'}
 			else:
+				length0 = len(string)
+				length = length0 - 5
+				string = string[0:length]
 				persons = self.db.execute("select * from Users where %s;" % string).fetchall()
 				if persons:
 					retjson = {'code':200,'content':'ok'}
