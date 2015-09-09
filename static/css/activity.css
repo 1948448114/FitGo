@@ -649,7 +649,7 @@ input:readonly{
   left: 350px;
   width:500px;
   position: relative;
-  /*display:none;*/
+  display:none;
 }
 
 .alert-dismissable .close{
