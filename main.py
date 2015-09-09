@@ -21,6 +21,7 @@ from mod.auth.Password_Handler import PasswordHandler
 from mod.user.UserInfo_Handler import UserinfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
 from mod.user.UserPage_Handler import UserPageHandler
+from mod.user.UploadPortrait_Handler import UploadPortraitHandler
 
 from mod.plans.Lookplans_Handler import LookplansHandler
 from mod.plans.Star_Handler import StarHandler
@@ -47,6 +48,7 @@ from mod.discover.AllFriends_Handler import AllFriendsHandler
 from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
 from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
+from mod.discover.UploadPic_Handler import UploadPicHandler
 
 define("port", default=8888, help="run on the given port", type=int)
 
@@ -85,7 +87,9 @@ class Application(tornado.web.Application):
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
             (r'/plans',PlansHandler),
-            (r'/plans/Info',CompleteInfoHandler)
+            (r'/plans/Info',CompleteInfoHandler),
+            (r'/user/userinfo/portrait',UploadPortraitHandler),
+            (r'/discover/create/state/pic',UploadPicHandler)
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
