@@ -9,3 +9,4 @@ from ..databases.tables import ActCache
 class AddActivityHandler(BaseHandler):
 	def post(self):#参加活动
 		pass
+

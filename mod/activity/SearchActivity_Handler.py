@@ -48,5 +48,6 @@ class SearchActivityHandler(BaseHandler):
 				else:
 					retjson = {'code':400,'content':'not match activity'}
 		except Exception, e:
+			print e
 			retjson = {'code':400,'content':'failed to search activity'}
 		self.write(retjson)
