@@ -69,7 +69,7 @@ class Application(tornado.web.Application):
             (r'/test',TestHandler),
             (r'/invite/user_page',InvitePageHandler),
             (r'/invite',InviteHandler),
-            (r'/invite/search'),
+            (r'/invite/search',SearchInviteHandler),
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),
             (r'/activity/search',SearchActivityHandler),
@@ -81,7 +81,6 @@ class Application(tornado.web.Application):
             (r'/discover/delete/(\d+)',DeleteFriendHandler),
             # look all friends
             (r'/discover/allfriends',AllFriendsHandler),
-
             (r'/discover/search/friends',SearchFriendHandler),
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
@@ -109,7 +108,7 @@ class Application(tornado.web.Application):
         #conn = pymongo.Connection("123.57.221.18", 27017)
         #self.db = conn["fitgo"]
 
-        tornado.web.Application.__init__(self, handlers, **settings)
+        tornado.web.Application.__init__(self, handlers,**settings)
         self.db = scoped_session(sessionmaker(bind=engine,
                                               autocommit=False, autoflush=True,
                                               expire_on_commit=False))

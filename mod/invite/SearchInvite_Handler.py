@@ -1,22 +1,47 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-import tornado.web
-import tornado.gen
+# import tornado.web
+# import tornado.gen
 from ..auth.Base_Handler import BaseHandler
 from ..databases.tables import InviteCache
 import json,time
 #/invite/search/
 class SearchInviteHandler(BaseHandler):
 	def post(self):#搜索匹配者
-		arg_start_time = self.get_argument("start_time")
-		arg_fit_location = self.get_argument("fit_location")
-		arg_fit_item = self.get_argument("fit_item")
-		arg_user_tag = self.get_argument("user_tag")
-		arg_gender = self.get_argument("gender")
+		# t=time.time()
+		retjson = {'code':200,'content':'ok'}
+
+		sql = "select * from Invite where"
+		string =""
+		keys=('start_time','fit_location','fit_item','user_tag','gender')
+		args=dict.fromkeys(keys)
+		for key in args :
+			args[key]=self.get_argument(key)
+			if key == 'start_time' and key:
+				string=string+' and start_time >= %s' % args['start_time']
+			elif key == 'gender' and key:
+				string=string+' and gender = \'%s\'' % args['gender']
+			elif key:
+				string=string+' and '+key+' like \'%'+args[key]+'%\''
+		sql=sql+string[4:]+";"
+		print sql
 		try:
-			users=self.db.query(InviteCache).filter(InviteCache.start_time == arg_start_time).one()
-			for u in users :
-				print u
-			print users
+			invitations=self.db.execute(sql).fetchall()[0:40]
+			content1 = []
+			for i in invitations:
+				content = {}
+				content['uid'] = i.uid
+				content['start_time'] = i.start_time
+				content['duration'] = i.duration
+				content['create_time'] = i.create_time
+				content['fit_location'] = i.fit_location
+				content['fit_item'] = i.fit_item
+				content['user_tag'] = i.user_tag
+				content['gender'] = i.gender
+				content['remark'] = i.remark
+				content1.append(content)
+			retjson['content'] = content1
 		except Exception, e:
-			print e
+			retjson['code'] = 401
+			retjson['content'] = u'Nothing found!Please try other conditions'
+		self.write(retjson)
