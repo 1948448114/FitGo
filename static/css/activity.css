@@ -625,7 +625,6 @@ input:readonly{
   border-color:#d9534f;
   color: #ffffff;
 }
-<<<<<<< HEAD
 .frontSearch{
   font-size: 18px;
   color: #a2030e;
@@ -638,17 +637,24 @@ input:readonly{
 .frontSearch label{
   margin-bottom: 0px;
 }
-=======
 
 #Start-Time-Search,#Start-Time,#End-Time{
     background-color: #fff;
   border:none;
 }
 
->>>>>>> origin/master
 
+#error_message{
+  text-align: center;
+  left: 350px;
+  width:500px;
+  position: relative;
+  /*display:none;*/
+}
 
-
+.alert-dismissable .close{
+  right: 10px;
+}
 
 
 

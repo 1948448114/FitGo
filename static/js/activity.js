@@ -1,3 +1,31 @@
+function refresh(){
+    jQuery.ajax({
+      url: '/activity',
+      type: 'POST',
+      dataType: 'json',
+      data: {'length': 'value1'},
+      success: function(data, textStatus, xhr) {
+        if(data['code']=200){
+            data_length = data['content'].length;
+            divContent = $("#cd-timeline");
+            for(var item=0;item<data_length;item++){
+                var content=""
+                divContent.append("")
+            }
+        }
+        else{
+            $("#error_message_content").val(data['content']);
+            $("#error_message").show("slow");
+        }
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        $("#error_message_content").val("Network Error!")
+        $("#error_message").show("slow");
+      }
+    });
+    
+}
+
 $(document).ready(function() {
     function init() {
         $('#hide-new').click(function(event) {
@@ -96,6 +124,5 @@ $(document).ready(function() {
         // $('#alertPaopao').attr("data-content", "Login First!");
        
     };
-
     init();
 });
