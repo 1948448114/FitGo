@@ -1,6 +1,6 @@
 {% if ret["code"]==200 %}
     {% for item in ret['content'] %}
-        <div class="cd-timeline-block" id="{{item['id']}}">
+    <div class="cd-timeline-block">
     <div class="cd-timeline-img cd-picture">
         <span id="icon" class="icon-bell-alt"></span>
     </div>
@@ -8,14 +8,12 @@
         <h2>{{item['title']}}</h2>
         <p>{{item['detail']}}</p>
         <a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
-        <a class="join"><span class="icon-plus"></span>加入</a>
+        <!-- <input type="hidden" id="act_id" value="{{item['id']}}"> -->
+        <a class="join" value="{{item['id']}}"><span class="icon-plus"></span>加入</a>
         <span class="cd-date" id="time">{{item['create_time']}}</span>
     </div>
-    <div class="toright">
-        <h2>Swimmmmm!</h2>
-        <p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-            lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-        lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
+    <div class="toright" id={{item['id']}}>
+       {% module act_join_people(item['join_uid']) %}
     </div>
 </div>
     {% end %}

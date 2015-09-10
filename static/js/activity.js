@@ -1,3 +1,59 @@
+function refrshJoin(act_id){
+    jQuery.ajax({
+      url: '/activity/add',
+      type: 'GET',
+      data: {'act_id': act_id},
+      success: function(data, textStatus, xhr) {
+        $("#"+act_id).html(data);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        alert(xhr);
+        alert(textStatus);
+        alert(errorThrown);
+        $("#"+act_id).html("Error!");
+      }
+    });
+};
+
+function addJoin(){
+    // alert("hello1");
+    $(".join").click(function(event) {
+        /* Act on the event */
+        var act_id = $(this).attr('value');
+        jQuery.ajax({
+                  url: '/activity/add',
+                  type: 'POST',
+                  dataType: 'json',
+                  data: {
+                    'uid': $("#uid").attr('value'),
+                    'act_id':act_id
+                        },
+                  success: function(data, textStatus, xhr) {
+                    refrshJoin(act_id);
+                  },
+                  error: function(xhr, textStatus, errorThrown) {
+                  }
+                });
+
+    });
+    // $("#108").bind("click",function(){
+    //     alert('hello');
+    // });
+    // $(".join").each(function(index, el) {
+    //     alert('hello1')
+    //      $(this).on("click",function(){
+    //          alert("hello");
+    //      });
+
+    // });
+//     $("a[class='join']").click(function(event) {
+//         /* Act on the event */
+//         // alert("hello"+$(this).attr('id'));
+//         alert("hello");
+//     });
+};
+
+
 function refresh(){
     jQuery.ajax({
       url: '/activity',
@@ -6,6 +62,7 @@ function refresh(){
       success: function(data, textStatus, xhr) {
             divContent = $("#cd-timeline");
             divContent.html(data);
+            addJoin();
     },
       error: function(xhr, textStatus, errorThrown) {
         $("#error_message_content").val("Network Error!");
@@ -15,6 +72,8 @@ function refresh(){
     
 }
 
+
+function test(){alert("heklo");}
 $(document).ready(function() {
     function init() {
         $('#hide-new').click(function(event) {
@@ -116,4 +175,5 @@ $(document).ready(function() {
     };
     init();
     refresh();
+    addJoin();
 });
