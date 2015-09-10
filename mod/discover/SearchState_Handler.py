@@ -16,9 +16,9 @@ class SearchStateHandler(BaseHandler):
 			try:
 				# print a_topic_title,type(a_topic_title),type(a)
 				# print '0000000'
-				# print "select * from Topics where topic_title like \'%%s\';" % a
+				print "select * from Topics where topic_title like \'%%%s%%\';" % a
 				
-				topics = self.db.execute("select * from Topics where topic_title like '%"+a_topic_title+"%';").fetchall()
+				topics = self.db.execute("select * from Topics where topic_title like \'%%%s%%\';" % a_topic_title).fetchall()
 				# topics = self.db.execute("select * from Topics where topic_title like '%';").all()
 				# print '3333333',topics,type(topics)
 				# top = self.db.execute("select * from Topics where topic_title like '%球.decode()%';")
