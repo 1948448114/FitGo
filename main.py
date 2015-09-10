@@ -38,6 +38,9 @@ from mod.activity.AddActivity_Handler import AddActivityHandler
 from mod.invite.InvitePage_Handler import InvitePageHandler
 from mod.invite.Invite_Handler import InviteHandler
 from mod.invite.SearchInvite_Handler import SearchInviteHandler
+from mod.invite.RequestInvite_Handler import RequestInviteHandler
+from mod.invite.RespondInvite_Handler import RespondInviteHandler
+
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
@@ -70,6 +73,8 @@ class Application(tornado.web.Application):
             (r'/invite/user_page',InvitePageHandler),
             (r'/invite',InviteHandler),
             (r'/invite/search',SearchInviteHandler),
+            (r'/invite/request',RequestInviteHandler),
+            (r'/invite/respond',RespondInviteHandler),
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),
             (r'/activity/search',SearchActivityHandler),

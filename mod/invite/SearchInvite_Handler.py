@@ -39,6 +39,7 @@ class SearchInviteHandler(BaseHandler):
 				content['user_tag'] = i.user_tag
 				content['gender'] = i.gender
 				content['remark'] = i.remark
+				content['_id'] = i._id
 				content1.append(content)
 			retjson['content'] = content1
 		except Exception, e:
