@@ -5,38 +5,29 @@ import tornado.gen
 import tornado.web
 import tornado.gen
 import json
-
+from sqlalchemy.orm.exc import NoResultFound
 from ..databases.tables import UsersCache 
 from ..databases.tables import User_tagCache
-
-from Base_Handler import BaseHandler
+from ..auth.Base_Handler import BaseHandler
 
 
 
 class UserinfoHandler(BaseHandler):
-    """docstring for WatchUser_handler"""
-
-    @property
-    def db(self):
-        return self.application.db
-
-
-    def on_finish(self):
-        self.db.close()
-
-
+    """获取个人信息"""
     def get(self):
-        
         self.render("userinfo.html",user = self.current_user)
 
     def post(self,user_id):
         # 获取id
         # uid = self.get_argument('id')
+        retjson = {'code':200,'content':'ok'}
+        try:
+            person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
+        except NoResultFound:
+            retjson['code'] = 400
+            retjson['content'] = 'No User!'
+
         uid = user_id
-
-        person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
-
-        
         
         uid = person.uid
         name = person.name
@@ -51,7 +42,6 @@ class UserinfoHandler(BaseHandler):
         info_phone = person.info_phone
         portrait = person.portrait
 
-
         tags = self.db.query(User_tagCache).filter(User_tagCache.uid == uid).one()
 
         user_enjoyment = tags.user_enjoyment
@@ -59,16 +49,11 @@ class UserinfoHandler(BaseHandler):
         user_score = tags.user_score
         user_join_event = tags.user_join_event
 
-        rejson = {'code':200,'content':'ok'}
-
+        
         content = {'uid':'100'}
-
         content['uid'] = str(uid)
-
         content['name'] = str(name)
-
         content['student_card'] = str(student_card)
-
         content['student_id'] = str(student_id)
         content['gender'] = str(gender)
         content['user_name'] = str(user_name)
@@ -83,9 +68,7 @@ class UserinfoHandler(BaseHandler):
         content['user_join_event'] = str(user_join_event)
       
 
-        rejson['content'] = content
-
-        ret = json.dumps(rejson,ensure_ascii = False, indent = 2)
-
+        retjson['content'] = content
+        ret = json.dumps(retjson,ensure_ascii = False, indent = 2)
         self.write(ret)
     
