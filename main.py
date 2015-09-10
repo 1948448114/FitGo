@@ -107,7 +107,8 @@ class Application(tornado.web.Application):
                         'header':HeaderMoudle,
                         'footer':FooterMoudle,
                         'act_join_people':act_join_peopleMoudle,
-                        'plan_item':plan_itemMoudle
+                        'plan_item':plan_itemMoudle,
+                        'discover_state':DiscoverStateMoudle
                         },
 
             # xsrf_cookies=True,

@@ -2,9 +2,12 @@
 {% block header %}
     <link rel="stylesheet" href="{{static_url('css/discover.css') }}">
     <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{static_url('css/discover_component.css') }}">
+    <link rel="stylesheet" href="{{static_url('css/discover_default.css') }}">
     <link rel="stylesheet" href="{{static_url('css/pfold.css') }}">
     <script src="{{static_url('js/discover.js') }}"></script>
     <script src="{{static_url('js/jquery.pfold.js') }}"></script>
+    <script src="{{static_url('js/discover_timeline.js') }}"></script>
     <script type="text/javascript">
     $(function() {
     // say we want to have only one item opened at one moment
@@ -68,12 +71,15 @@
     /* Act on the event */
     $(".create_state").show('slow/400/fast');
     });
-
     $("#submit_state_btn").click(function(event) {
     /* Act on the event */
     $(".create_state").hide('slow/400/fast');
     });
     
+    });
+    $(function() {
+    $("#menu .home").removeClass("home");
+    $($("#menu .bar").get(1)).addClass("home");
     });
     </script>
 {% end %}
@@ -96,7 +102,6 @@
                     </p>
                 </div>
             </div>
-
             <div class='row create_state' >
                 <div class="col-sm-5 col-sm-offset-2">
                     <div class="row create_state">
@@ -126,7 +131,62 @@
                     </div>
                 </div>
             </div>
+            
         </div>
-        
-        
-        {%end%}
+    </div>
+    <div class="container">
+        <div class="main">
+            <ul class="cbp_tmtimeline">
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-10 18:30">
+                    <span>4/10/13</span>
+                    <span>18:30</span>
+                    </time>
+                    <div class="cbp_tmicon cbp_tmicon-phone">
+                    </div>
+                    <div class="cbp_tmlabel">
+                        <h2>Ricebean black-eyed pea</h2>
+                        <p>Winter</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-11T12:04">
+                    <span>4/11/13</span>
+                    <span>12:04</span>
+                    </time>
+                    <div class="cbp_tmicon cbp_tmicon-screen"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Greens radish arugula</h2>
+                        <p>Caulie.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-17 12:11">
+                        <span>4/17/13</span>
+                         <span>12:11</span>
+                     </time>
+                    <div class="cbp_tmicon cbp_tmicon-screen"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Greens radish arugula</h2>
+                        <p>Caulie</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-18 09:56">
+                        <span>4/18/13</span> 
+                        <span>09:56</span>
+                    </time>
+                    <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Sprout garlic kohlrabi</h2>
+                        <p>
+                                Parsnip lotus root celery yarrow seakale tomato         
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+            
+{%end%}
