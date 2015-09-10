@@ -218,7 +218,7 @@ textarea:focus{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
-#yesShow{
+.yesShow{
 	display: none;
 }
 .restbtn{
@@ -240,11 +240,30 @@ textarea:focus{
 	outline: none;
 	color: #fff;
 }
-
-
-
-
-
+.planButton{
+	margin-left: 20px;
+}
+.allMargin{
+	margin-top: 20px;
+}
+.btn-plan{
+	background-color: #000;
+	border-radius: 0px;
+	color: #fff;
+	font-size: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.btn-plan:hover{
+	background-color: #343a63;
+	color: #fff;
+}
+.btn-plan:focus{
+	outline: none;
+	color: #fff;
+}
 
 
 

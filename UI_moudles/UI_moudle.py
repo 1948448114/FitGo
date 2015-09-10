@@ -16,5 +16,8 @@ class activity_itemMoudle(tornado.web.UIModule):
 class act_join_peopleMoudle(tornado.web.UIModule):
     def render(self,content):
         return self.render_string('act_join_people.html',content=content)
+class plan_itemMoudle(tornado.web.UIModule):
+	def render(self,content1,content2):
+		return self.render_string('plan_items.html',content=content1,content2=content2)
 
 

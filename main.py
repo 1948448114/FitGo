@@ -93,7 +93,12 @@ class Application(tornado.web.Application):
             discover_path=os.path.join(os.path.dirname(__file__),'discover'),
             activity_path=os.path.join(os.path.dirname(__file__),'activity'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
-            ui_modules={'header':HeaderMoudle,'footer':FooterMoudle,'act_join_people':act_join_peopleMoudle},
+            ui_modules={
+                        'header':HeaderMoudle,
+                        'footer':FooterMoudle,
+                        'act_join_people':act_join_peopleMoudle,
+                        'plan_item':plan_itemMoudle
+                        },
             # xsrf_cookies=True,
             login_url="/auth/login",
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
