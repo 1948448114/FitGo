@@ -4,13 +4,6 @@ DB_USER = 'fitgouser'
 DB_PWD = 'fitgo2015'
 DB_NAME = 'fitgo'
 
-
-# # -*- coding: utf-8 -*-
-# DB_HOST = '127.0.0.1'
-# DB_USER = 'root'
-# DB_PWD = ''
-# DB_NAME = 'fitgo'
-
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base() #create Base lei

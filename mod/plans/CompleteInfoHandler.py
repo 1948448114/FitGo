@@ -4,9 +4,7 @@
 import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
-from ..databases.tables import ActCache
-#/activity/add
-class AddActivityHandler(BaseHandler):
-	def post(self):#参加活动
-		pass
 
+class CompleteInfoHandler(BaseHandler):
+	def get(self):
+		self.render('completeInfo.html',user=self.current_user)
