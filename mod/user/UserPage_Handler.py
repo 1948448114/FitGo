@@ -37,7 +37,7 @@ class UserPageHandler(BaseHandler):
             signature = self.get_argument('signature') 
             # self.write(campus+info_email+info_phone+portrait+user_name)
 
-            if not gender or not name or not school or not campus or not info_phone:
+            if not gender or not name or not school or not campus or not info_phone :
                 retjson['code'] = 400
                 retjson['content'] = u'Arguments is empty'
             # elif re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", info_email) == None :

@@ -20,7 +20,16 @@ class UserinfoHandler(BaseHandler):
     def post(self,user_id):
         # 获取id
         # uid = self.get_argument('id')
-        retjson = {'code':200,'content':'ok','info':'','tag':''}
+        retjson = {'code':200,'content':'ok',
+                                    'info':'',
+                                    'tag':
+                                    {
+                                        'user_enjoyment':[],
+                                        'user_join_times':[],
+                                        'user_score':[],
+                                        'user_join_event':[]
+                                        }
+                    }
         try:
             person = self.db.query(UsersCache).filter(UsersCache.uid == user_id).one()
             retjson['info'] = {
@@ -51,7 +60,13 @@ class UserinfoHandler(BaseHandler):
                         temptag.append(i)
                 retjson['tag']['user_enjoyment'] = temptag
             except NoResultFound:
-                retjson['tag'] = []
+                user = User_tagCache(uid=person.uid)
+                self.db.add(user)
+                try:
+                    self.db.commit()
+                except:
+                    retjson['code'] = 401
+                    retjson['content'] = 'system error'
         except NoResultFound:
             retjson['code'] = 400
             retjson['content'] = 'No User!'

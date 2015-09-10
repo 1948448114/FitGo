@@ -112,7 +112,7 @@ function showInformation() {
 				for(var i=0;i<data['tag']['user_enjoyment'].length;i++){
 					$("#tagArea").append('<span class="tag">'+data['tag']['user_enjoyment'][i]+'<span onclick="closeTag(event)" class="icon-remove" style="font-size:10px;color:#343a63"></span></span>');
 				}
-			}
+				}
 				$("#tagArea").append('<input type="text" placeholder class="inputTag" onkeydown="moreTags(event)" >');
 			} else {
 				$("#infoTip").html(data['content']);
