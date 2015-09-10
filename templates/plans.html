@@ -2,8 +2,6 @@
 {% block header %}
     <link rel="stylesheet" type="text/css" href="{{static_url('css/plans.css')}}">
     <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{static_url('css/daterangepicker-bs3.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{static_url('css/component.css')}}">
     <!-- <link rel="stylesheet" type="text/css" href="{{static_url('css/default.css')}}"> -->
 {% end %}
 {% block body %}
@@ -70,23 +68,19 @@
                 {% module plan_item(6,6) %}
                 {% module plan_item(7,7) %}
             </div>
+        </div>       
         </div>
-        <div class="myMain">
-            <ul class="cbp_tmtimeline">
-                <li>
-                    <time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>
-                        4/11/13</span> <span>12:04</span></time>
-                        <div class="cbp_tmicon cbp_tmicon-screen"></div>
-                        <div class="cbp_tmlabel">
-                            <h2>Greens radish arugula</h2>
-                            <p>Caulie.</p>
-                        </div>
-                    </li>
-                </ul>
+        <div class="container">
+            <div class="row myrow">
+                <div class="col-sm-1">
+                    <div class="color-all"></div>
+                </div>
+                <div class="col-sm-11">
+                    <div class="color-even"></div>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="{{static_url('js/plans.js')}}"></script>
         <script type="text/javascript" src="{{static_url('js/moment.min.js')}}"></script>
         <script type="text/javascript" src="{{static_url('js/daterangepicker.js')}}"></script>
-        <script type="text/javascript" src="{{static_url('js/modernizr.custom.js')}}"></script>
     {% end %}

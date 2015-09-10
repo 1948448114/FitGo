@@ -190,4 +190,11 @@
 		margin: -55px 5px 0 0px;
 	}	
 }
-
+.color-all{
+	background-color: #000;
+	min-width: 10px;
+}
+.color-even{
+	background-color: #fff;
+	min-width: #000;
+}
