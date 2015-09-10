@@ -10,7 +10,7 @@
 				<img src="/static/images/pic.svg">
 			</div>
 			<div class="col-sm-6 form-group name infoName">
-				<h3>Your name</h3>
+				<h3 id="yourname">Your name</h3>
 				<div class="margin-por">
 					<a id="changePor"><span class="icon-camera"></span>修改头像</a><br>
 				</div>
@@ -39,13 +39,13 @@
 			<div class="col-sm-4 col-sm-offset-4 form-group">
 				<label>性别</label>
 				<label class="radio-inline">
-					<input type="radio" name="gender" id="male" value="option1">男
+					<input type="radio" name="gender" id="male" value="male">男
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="gender" id="female" value="option2">女
+					<input type="radio" name="gender" id="female" value="female">女
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="gender" id="other" value="option3">๑乛◡乛๑其他
+					<input type="radio" name="gender" id="other" value="other">๑乛◡乛๑其他
 				</label>
 			</div>
 			<div class="col-sm-4 col-sm-offset-4 form-group">
@@ -62,9 +62,10 @@
 			</div>
 			<div class="col-sm-4 col-sm-offset-4 form-group">
 				<label>兴趣</label>
-				<div class="bootstrap-tagsinput">
-				<span class="tag">jogging<span onclick="closeTag(event)" class="icon-remove" style="font-size:10px;color:#343a63"></span></span>
-				<input type="text" placeholder class="inputTag" onkeydown="moreTags(event)" >
+				<div class="bootstrap-tagsinput" id="tagArea">
+					<!-- <div id="tagArea"></div> -->
+				<!-- <span class="tag">jogging<span onclick="closeTag(event)" class="icon-remove" style="font-size:10px;color:#343a63"></span></span> -->
+				<!-- <input type="text" placeholder class="inputTag" onkeydown="moreTags(event)" > -->
 				</div>
 			</div>
 			<div class="col-sm-4 col-sm-offset-4 form-group">
@@ -81,6 +82,9 @@
 					<div id="infoTip" class="tipBox">Success!</div>				
 			</div>
 		</div>
+		{% if user %}
+				<input type="hidden" id="uid" value="{{user.uid}}">
+		{% end %}
 	</div>
 <script type="text/javascript" src="{{static_url('js/infochange.js')}}"></script>
 {% end %}

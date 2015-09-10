@@ -60,9 +60,9 @@ class Application(tornado.web.Application):
             (r'/plans/plans/(\d+)',PlansHandler),
             (r'/plans/star/(\d+)',StarHandler),
 
-            (r'/user/userinfo/(\d+)',UserinfoHandler),
+            (r'/user/userinfo/([\S]+)',UserinfoHandler),
             (r'/user/usertopic/(\d+)',UsertopicHandler),
-            (r'/user/userpage/(\d+)',UserPageHandler),
+            (r'/user/userpage/([\S]+)',UserPageHandler),
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),

@@ -20,55 +20,41 @@ class UserinfoHandler(BaseHandler):
     def post(self,user_id):
         # 获取id
         # uid = self.get_argument('id')
-        retjson = {'code':200,'content':'ok'}
+        retjson = {'code':200,'content':'ok','info':'','tag':''}
         try:
-            person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
+            person = self.db.query(UsersCache).filter(UsersCache.uid == user_id).one()
+            retjson['info'] = {
+                                    'name':person.name,
+                                    'student_card':person.student_card,
+                                    'student_id':person.student_id,
+                                    'gender':person.gender,
+                                    'school':person.school,
+                                    'campus':person.campus,
+                                    'info_email':person.info_email,
+                                    'info_phone':person.info_phone,
+                                    'portrait':person.portrait,
+                                    'signature':person.signature
+                                    }
+                                
+            try:
+                tags = self.db.query(User_tagCache).filter(User_tagCache.uid == person.uid).one()
+                retjson['tag'] = {
+                                    'user_enjoyment':tags.user_enjoyment,
+                                    'user_join_times':tags.user_join_times,
+                                    'user_score':tags.user_score,
+                                    'user_join_event':tags.user_join_event
+                                }
+                temptag = []
+                if tags.user_enjoyment:
+                    tag = tags.user_enjoyment.split(',')
+                    for i in tag:
+                        temptag.append(i)
+                retjson['tag']['user_enjoyment'] = temptag
+            except NoResultFound:
+                retjson['tag'] = []
         except NoResultFound:
             retjson['code'] = 400
             retjson['content'] = 'No User!'
-
-        uid = user_id
-        
-        uid = person.uid
-        name = person.name
-        student_card = person.student_card
-        student_id = person.student_id
-        gender = person.gender
-        user_name = person.user_name
-        school = person.school
-        campus = person.campus
-        password = person.password
-        info_email = person.info_email
-        info_phone = person.info_phone
-        portrait = person.portrait
-
-        tags = self.db.query(User_tagCache).filter(User_tagCache.uid == uid).one()
-
-        user_enjoyment = tags.user_enjoyment
-        user_join_times = tags.user_join_times
-        user_score = tags.user_score
-        user_join_event = tags.user_join_event
-
-        
-        content = {'uid':'100'}
-        content['uid'] = str(uid)
-        content['name'] = str(name)
-        content['student_card'] = str(student_card)
-        content['student_id'] = str(student_id)
-        content['gender'] = str(gender)
-        content['user_name'] = str(user_name)
-        content['school'] = str(school)
-        content['campus'] = str(campus)
-        content['info_email'] = str(info_email)
-        content['info_phone'] = str(info_phone)
-        content['portrait'] = str(portrait)
-        content['user_enjoyment'] = str(user_enjoyment)
-        content['user_join_times'] = str(user_join_times)
-        content['user_score'] = str(user_score)
-        content['user_join_event'] = str(user_join_event)
-      
-
-        retjson['content'] = content
         ret = json.dumps(retjson,ensure_ascii = False, indent = 2)
         self.write(ret)
     
