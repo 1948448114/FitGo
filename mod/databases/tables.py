@@ -90,7 +90,7 @@ class TopicsCache(Base):
 
 	uid = Column(VARCHAR(64))
 	topic_id = Column(Integer,primary_key=True)
-
+	topic_time = Column(VARCHAR(64))
 	topic_content = Column(VARCHAR(64))
 	topic_pic = Column(VARCHAR(64))
 	topic_title = Column(VARCHAR(64))
