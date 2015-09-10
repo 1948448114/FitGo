@@ -93,7 +93,7 @@ class Application(tornado.web.Application):
             discover_path=os.path.join(os.path.dirname(__file__),'discover'),
             activity_path=os.path.join(os.path.dirname(__file__),'activity'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
-            ui_modules={'header':HeaderMoudle,'footer':FooterMoudle},
+            ui_modules={'header':HeaderMoudle,'footer':FooterMoudle,'act_join_people':act_join_peopleMoudle},
             # xsrf_cookies=True,
             login_url="/auth/login",
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
@@ -102,8 +102,9 @@ class Application(tornado.web.Application):
             
         )
 
-        conn = MongoClient('localhost', 27017)
+        conn = MongoClient('123.57.221.18', 27017)
         self.Mongodb = conn["fitgo"]
+        self.Mongodb.authenticate('fitgoUser','fitgo2015')
         #conn = pymongo.Connection("123.57.221.18", 27017)
         #self.db = conn["fitgo"]
 

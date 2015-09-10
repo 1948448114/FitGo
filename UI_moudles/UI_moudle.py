@@ -10,5 +10,11 @@ class HeaderMoudle(tornado.web.UIModule):
 class FooterMoudle(tornado.web.UIModule):
     def render(self):
         return self.render_string('footer.html')
+class activity_itemMoudle(tornado.web.UIModule):
+    def render(self,content):
+        return self.render_string('activity_item.html',content=content)
+class act_join_peopleMoudle(tornado.web.UIModule):
+    def render(self,content):
+        return self.render_string('act_join_people.html',content=content)
 
 

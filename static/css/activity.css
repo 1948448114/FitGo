@@ -639,15 +639,23 @@ input:readonly{
   margin-bottom: 0px;
 }
 
-
 #Start-Time-Search,#Start-Time,#End-Time{
     background-color: #fff;
   border:none;
 }
 
 
+#error_message{
+  text-align: center;
+  left: 350px;
+  width:500px;
+  position: relative;
+  display:none;
+}
 
-
+.alert-dismissable .close{
+  right: 10px;
+}
 
 
 
