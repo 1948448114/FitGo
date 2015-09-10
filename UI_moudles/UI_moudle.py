@@ -11,4 +11,6 @@ class FooterMoudle(tornado.web.UIModule):
     def render(self):
         return self.render_string('footer.html')
 
-
+class DiscoverStateMoudle(tornado.web.UIModule):
+    def render(self,content):
+        return self.render_string('discover_state.html',content=content)
