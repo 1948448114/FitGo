@@ -9,7 +9,7 @@ from ..databases.tables import UsersCache
 from ..databases.tables import User_tagCache
 
 
-from Base_Handler import BaseHandler
+from ..auth.Base_Handler import BaseHandler
 
 
 class UsertopicHandler(BaseHandler):

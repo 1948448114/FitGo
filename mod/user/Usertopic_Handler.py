@@ -12,6 +12,7 @@ from ..databases.tables import TopicsCache
 from Base_Handler import BaseHandler
 
 
+
 class UsertopicHandler(BaseHandler):
     """docstring for WatchUser_handler"""
 
