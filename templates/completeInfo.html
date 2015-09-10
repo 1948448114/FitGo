@@ -29,7 +29,7 @@
 					<button id="confirmPassword" class="btn planbtn">Confirm</button>
 				</div>
 				<div class="col-sm-4 col-sm-offset-4 form-group ">
-					<div class="tipBox">Success!</div>				
+					<div id="passwordTip" class="tipBox">Success!</div>				
 				</div>
 			</div>
 			<div class="col-sm-4 col-sm-offset-4 form-group">
@@ -58,7 +58,7 @@
 			</div>
 			<div class="col-sm-4 col-sm-offset-4 form-group">
 				<label>邮箱</label>
-				<input type="email" id="info_email" class="inputText" placeholder="Email">
+				<input type="email" id="info_email" class="inputText" placeholder="Email" readOnly>
 			</div>
 			<div class="col-sm-4 col-sm-offset-4 form-group">
 				<label>兴趣</label>
@@ -74,12 +74,13 @@
 			<div class="col-sm-4 col-sm-offset-4 form-group">
 							<textarea placeholder="Signature(no more than 20 words)" id="signature" class="inputTextarea" rows="2"></textarea>
 			</div>
-			
-			<div class="col-sm-4 col-sm-offset-4 form-group">
+			<div class="col-sm-4 col-sm-offset-4 form-group confirmMargin">
 				<button id="submitInfo" class="btn planbtn">Submit</button>
 			</div>
-			
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+					<div id="infoTip" class="tipBox">Success!</div>				
+			</div>
 		</div>
 	</div>
-<script type="text/javascript" src="{{static_url('js/plans.js')}}"></script>
+<script type="text/javascript" src="{{static_url('js/infochange.js')}}"></script>
 {% end %}

@@ -87,6 +87,13 @@ textarea:focus{
 .form-group.confirmMargin{
 	margin-bottom: 0px;
 }
+#info_email{
+	cursor: not-allowed;
+}
+#info_email:focus{
+	background-color: #f7f7f7;
+	border-color: #f7f7f7;
+}
 .tipBox{
 	background-color: #f2dede;
 	color:#a94442;
@@ -97,7 +104,6 @@ textarea:focus{
 	width: 5em;
 	border: none;
 	background-color: #f7f7f7;
-
 }
 .inputTag:focus{
 	border: none;
