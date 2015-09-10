@@ -1,18 +1,20 @@
 $(document).ready(function() {
 	function init() {
 		$("#infoTip").hide();
+		$("#passwordTip").hide();
 		$('#changeKey').click(function(event) {
 			$('#changePassword').toggle();
 		});
-		$('.planbtn').click(function(event) {
-			$('#changePassword').hide('slow/400/fast');
-		});
+		// $('.planbtn').click(function(event) {
+		// 	$('#changePassword').hide('slow/400/fast');
+		// });
 		$("#menu .home").removeClass("home");
 		$($("#menu .bar").get(2)).addClass("home");
 	}
 	init();
 	showInformation();
 	changeInformation();
+	changePassword();
 });
 
 function moreTags(event) {
@@ -29,6 +31,7 @@ function closeTag(event) {
 }
 
 
+// 更改个人信息
 function changeInformation() {
 	var uid = $("#uid").attr('value');
 	$("#submitInfo").click(function(event) {
@@ -57,7 +60,8 @@ function changeInformation() {
 			success: function(data, textStatus, xhr) {
 				//called when successful
 				if (data['code'] == 200) {
-					$("#infoTip").html("Change Success!");
+					// $("#infoTip").attr('class','alert alert-success');
+					$("#infoTip").html("Change Successful!");
 					$("#infoTip").show();
 					showInformation();
 					setTimeout(function() {
@@ -81,8 +85,10 @@ function changeInformation() {
 		// }
 	});
 
-}
+};
 
+
+//获取，展示个人信息
 function showInformation() {
 	var uid = $("#uid").attr('value');
 	jQuery.ajax({
@@ -117,4 +123,47 @@ function showInformation() {
 		}
 	});
 
-}
+};
+
+
+//更改密码
+function changePassword(){
+	$("#confirmPassword").click(function(event) {
+		/* Act on the event */
+		var oldPassword=$("#old_password").val();
+		var newpassword=$("#new_password").val();
+		if(oldPassword.length<6 || newpassword.length<6){
+			$("#passwordTip").html('password is too short!');
+			$("#passwordTip").show();
+		}
+		else{
+			jQuery.ajax({
+			  url: '/auth/password',
+			  type: 'PUT',
+			  dataType: 'json',
+			  data: {
+			  	'old_password':oldPassword,
+			  	'new_password':newpassword
+			  },
+			  success: function(data, textStatus, xhr) {
+			  	if(data['code']==200){
+			  		$("#passwordTip").html('Change Successful!');
+					$("#passwordTip").show();
+					setTimeout(function() {
+					$("#changePassword").hide();},1000);
+			  	}
+			  	else{
+			  		$("#passwordTip").html(data['content']);
+					$("#passwordTip").show();
+			  	}
+			  },
+			  error: function(xhr, textStatus, errorThrown) {
+			  	alert(errorThrown);
+			    $("#passwordTip").html('Network Error!');
+				$("#passwordTip").show();
+			  }
+			});
+			
+		}
+	});
+};
