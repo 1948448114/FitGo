@@ -25,7 +25,7 @@ class RespondInviteHandler(BaseHandler):
 			retjson['content'] = u'Database store _id is wrong!'
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)
-	def post(self):#get all 请求
+	def get(self):#get all 请求
 		arg_uid = self.current_user.uid
 		retjson = {'code':200,'content':'ok'}
 		try:

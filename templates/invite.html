@@ -13,8 +13,6 @@
     <script src="{{static_url('js/moment.min.js') }}"></script>
     <script src="{{static_url('js/fullcalendar.min.js') }}"></script>
     -->
-    
-    
 {% end %}
 {% block body %}
     <div id="invite">
@@ -145,20 +143,28 @@
                             </div>
                             
                         </div>
+
                     </div>
                     <div class="col-sm-4">
                         <div class="row">
                             <div class="col-sm-12" id="invite_png">
                                 <img src="/static/images/invite/2.png">
                             </div>
+                            <div class="col-sm-8 wrong_message">
+                        <div class="alert alert-danger showing" id="create_invite_information_message">Wrong information.</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-2" id="submit_invite_btn">
                                     <button  type="submit" id="NewButton" class="btn btn-default">SUBMIT</button>
+
+                        
                             </div>
                         </div>
+                       
+                    </div>
                     </div>
                 </div>
+
             </div>
             <div class='container search_invite '>
                 <div class='row'>
@@ -250,6 +256,7 @@
                         
                     </div>
                 </div>
+                
             </div>
             
             
@@ -261,6 +268,12 @@
 </div>
 <div class="container_timeline container">
     <ul id="timeline" class="timeline">
+        
+       <!-- <li class="wrong_message" >
+            <div class="content" id="wrong_message">
+                <h3>Wrong information.</h3>
+            </div>
+        </li>
         <li class="active">
             <div class="check">
                 <b class="spring"></b>
@@ -356,7 +369,7 @@
                 <h3>dfsdfsdfds</h3>
                 <p>sdfdsfsdfdsf</p>
             </div>
-        </li>
+        </li> -->
         
         
     </ul>

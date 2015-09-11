@@ -8,6 +8,8 @@ from time import mktime,strptime,strftime,time,localtime
 from sqlalchemy.orm.exc import NoResultFound
 from ActivityController import getJoinUid
 import json,string
+from config import icon
+import random
 #/activity/activity_page
 class ActivityPageHandler(BaseHandler):
     def get(self):
@@ -35,5 +37,9 @@ class ActivityPageHandler(BaseHandler):
         except NoResultFound:
             retjson['code'] = 402
             retjson['content'] = 'No fresh content'
-        self.render('activity_item.html',ret=retjson)
+        num = []
+        length = len(retjson['content'])
+        for i in range(length):
+            num.append(random.randint(0, 4))
+        self.render('activity_item.html',ret=retjson,icon=icon,num=num)
         # self.write(json.dumps(retjson,ensure_ascii=False, indent=2))
