@@ -21,6 +21,7 @@ from mod.auth.Password_Handler import PasswordHandler
 from mod.user.UserInfo_Handler import UserinfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
 from mod.user.UserPage_Handler import UserPageHandler
+from mod.user.UploadPortrait_Handler import UploadPortraitHandler
 
 from mod.plans.Lookplans_Handler import LookplansHandler
 from mod.plans.Star_Handler import StarHandler
@@ -36,6 +37,11 @@ from mod.activity.SearchActivity_Handler import SearchActivityHandler
 from mod.activity.AddActivity_Handler import AddActivityHandler
 
 from mod.invite.InvitePage_Handler import InvitePageHandler
+from mod.invite.Invite_Handler import InviteHandler
+from mod.invite.SearchInvite_Handler import SearchInviteHandler
+from mod.invite.RequestInvite_Handler import RequestInviteHandler
+from mod.invite.RespondInvite_Handler import RespondInviteHandler
+
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
@@ -45,6 +51,7 @@ from mod.discover.AllFriends_Handler import AllFriendsHandler
 from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
 from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
+from mod.discover.UploadPic_Handler import UploadPicHandler
 
 define("port", default=8888, help="run on the given port", type=int)
 
@@ -55,11 +62,9 @@ class Application(tornado.web.Application):
             (r'/body',BodyHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
-
             (r'/plans/lookplans/(\d+)',LookplansHandler),
             (r'/plans/plans/(\d+)',PlansHandler),
             (r'/plans/star/(\d+)',StarHandler),
-
             (r'/user/userinfo/([\S]+)',UserinfoHandler),
             (r'/user/usertopic/(\d+)',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),
@@ -68,6 +73,10 @@ class Application(tornado.web.Application):
             (r'/auth/password',PasswordHandler),
             (r'/test',TestHandler),
             (r'/invite/user_page',InvitePageHandler),
+            (r'/invite',InviteHandler),
+            (r'/invite/search',SearchInviteHandler),
+            (r'/invite/request',RequestInviteHandler),
+            (r'/invite/respond',RespondInviteHandler),
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),
             (r'/activity/search',SearchActivityHandler),
@@ -79,12 +88,13 @@ class Application(tornado.web.Application):
             (r'/discover/delete/(\d+)',DeleteFriendHandler),
             # look all friends
             (r'/discover/allfriends',AllFriendsHandler),
-
             (r'/discover/search/friends',SearchFriendHandler),
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
             (r'/plans',PlansHandler),
-            (r'/plans/Info',CompleteInfoHandler)
+            (r'/plans/Info',CompleteInfoHandler),
+            (r'/user/userinfo/portrait',UploadPortraitHandler),
+            (r'/discover/create/state/pic',UploadPicHandler)
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -97,8 +107,10 @@ class Application(tornado.web.Application):
                         'header':HeaderMoudle,
                         'footer':FooterMoudle,
                         'act_join_people':act_join_peopleMoudle,
-                        'plan_item':plan_itemMoudle
+                        'plan_item':plan_itemMoudle,
+                        'discover_state':DiscoverStateMoudle
                         },
+
             # xsrf_cookies=True,
             login_url="/auth/login",
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
@@ -113,7 +125,7 @@ class Application(tornado.web.Application):
         #conn = pymongo.Connection("123.57.221.18", 27017)
         #self.db = conn["fitgo"]
 
-        tornado.web.Application.__init__(self, handlers, **settings)
+        tornado.web.Application.__init__(self, handlers,**settings)
         self.db = scoped_session(sessionmaker(bind=engine,
                                               autocommit=False, autoflush=True,
                                               expire_on_commit=False))

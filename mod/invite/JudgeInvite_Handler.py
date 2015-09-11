@@ -1,5 +1,5 @@
 
 #/invite/judge
-class JudgeInviteHandler(tornado.web.RequestHandler):
+class JudgeInviteHandler(BaseHandler):
 	def posts(self):#健身评分
 		pass

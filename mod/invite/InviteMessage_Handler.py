@@ -1,5 +1,4 @@
-
 #/invite/message
-class InviteMessageHandler(tornado.web.RequestHandler):
+class InviteMessageHandler(BaseHandler):
 	def get(self):#请求消息
 		pass

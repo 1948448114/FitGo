@@ -20,4 +20,6 @@ class plan_itemMoudle(tornado.web.UIModule):
 	def render(self,content1,content2):
 		return self.render_string('plan_items.html',content=content1,content2=content2)
 
-
+class DiscoverStateMoudle(tornado.web.UIModule):
+    def render(self,content):
+        return self.render_string('discover_state.html',content=content)

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from sqlalchemy import Column, String, Integer, VARCHAR,ForeignKey
+from sqlalchemy.orm import relationship,backref
 from db import engine,Base
 
 class UsersCache(Base):
@@ -38,6 +39,30 @@ class PlansCache(Base):
 	remark = Column(VARCHAR(64))
 	grader = Column(Integer)
 
+class InviteCache(Base):
+	__tablename__ = 'Invite'
+
+	_id = Column(Integer,primary_key = True)
+	uid = Column(VARCHAR(64))
+	start_time = Column(VARCHAR(64))
+	duration = Column(VARCHAR(64))
+	create_time = Column(VARCHAR(64))
+	fit_location = Column(VARCHAR(64))
+	fit_item = Column(VARCHAR(64))
+	user_tag = Column(VARCHAR(64))
+	gender = Column(VARCHAR(64))
+	remark = Column(VARCHAR(64))
+class Invite_relation(Base):
+	__tablename__ = 'Invite_relation'
+
+	id = Column(Integer,primary_key = True)
+	uid_request = Column(VARCHAR(64))
+	uid_respond = Column(VARCHAR(64))
+	state = Column(VARCHAR(8)) 
+	grade = Column(VARCHAR(64))
+	_id = Column(Integer,ForeignKey('Invite'))
+	relationship('Invite',backref='Invite_relation')
+
 class User_tagCache(Base):
 	__tablename__ = 'User_tag'
 
@@ -65,7 +90,7 @@ class TopicsCache(Base):
 
 	uid = Column(VARCHAR(64))
 	topic_id = Column(Integer,primary_key=True)
-
+	topic_time = Column(VARCHAR(64))
 	topic_content = Column(VARCHAR(64))
 	topic_pic = Column(VARCHAR(64))
 	topic_title = Column(VARCHAR(64))
