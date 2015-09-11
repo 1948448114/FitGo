@@ -46,3 +46,4 @@ class SearchInviteHandler(BaseHandler):
 			retjson['code'] = 401
 			retjson['content'] = u'Nothing found!Please try other conditions'
 		self.write(retjson)
+		self.render("invite_item.html",ret=retjson)
