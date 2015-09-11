@@ -1,0 +1,29 @@
+{% if ret["code"] == 200 %}
+	{% for item in ret["content"] %}
+		<li>
+            <div class="check">
+                <b class="spring"></b>
+                <s></s>
+                <b class="line"></b>
+            </div>
+            <div class="thumb">
+                <img src="/static/images/invite/top2.jpg" />
+                <span>{{item['start_time']}}</span>
+            </div>
+            <div class="content">
+                <b></b>
+                <h3>{{item['fit_item']}}</h3>
+				<p>{{item['user_tag']}}</p>
+            </div>
+        </li>
+	{% end %}	
+{% else %}
+	<li class="wrong_message" >
+           
+            <div class="content">
+                <b></b>
+                <h3>Wrong information.</h3>
+                <p>cannot find</p>
+            </div>
+        </li>
+{% end %}

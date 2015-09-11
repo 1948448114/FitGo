@@ -75,9 +75,9 @@ class Application(tornado.web.Application):
             (r'/plans/lookplans/(\d+)',LookplansHandler),
             (r'/plans/plans/(\d+)',PlansHandler),
             (r'/plans/star/(\d+)',StarHandler),
-            (r'/user/userinfo/(\d+)',UserinfoHandler),
+            (r'/user/userinfo/([\S]+)',UserinfoHandler),
             (r'/user/usertopic/(\d+)',UsertopicHandler),
-            (r'/user/userpage/(\d+)',UserPageHandler),
+            (r'/user/userpage/([\S]+)',UserPageHandler),
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
@@ -116,10 +116,14 @@ class Application(tornado.web.Application):
             discover_path=os.path.join(os.path.dirname(__file__),'discover'),
             activity_path=os.path.join(os.path.dirname(__file__),'activity'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
-            ui_modules={'header':HeaderMoudle,
-            'footer':FooterMoudle,
-            'discover_state':DiscoverStateMoudle
-            },
+            ui_modules={
+                        'header':HeaderMoudle,
+                        'footer':FooterMoudle,
+                        'act_join_people':act_join_peopleMoudle,
+                        'plan_item':plan_itemMoudle,
+                        'discover_state':DiscoverStateMoudle
+                        },
+
             # xsrf_cookies=True,
             login_url="/auth/login",
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
@@ -128,8 +132,9 @@ class Application(tornado.web.Application):
             
         )
 
-        conn = MongoClient('localhost', 27017)
+        conn = MongoClient('123.57.221.18', 27017)
         self.Mongodb = conn["fitgo"]
+        self.Mongodb.authenticate('fitgoUser','fitgo2015')
         #conn = pymongo.Connection("123.57.221.18", 27017)
         #self.db = conn["fitgo"]
 

@@ -94,5 +94,6 @@ class TopicsCache(Base):
 	topic_time = Column(VARCHAR(64))
 	topic_content = Column(VARCHAR(64))
 	topic_pic = Column(VARCHAR(64))
+	pic_shape = Column(VARCHAR(64))
 	topic_title = Column(VARCHAR(64))
 	topic_starers = Column(Integer)

@@ -11,6 +11,8 @@ class BaseHandler(tornado.web.RequestHandler):
         return self.application.db
     def on_finish(self):
         self.db.close()
+    def Mongodb(self):
+        return self.application.Mongodb
     def get_current_user(self):
         name = self.get_secure_cookie("username")
         if name:

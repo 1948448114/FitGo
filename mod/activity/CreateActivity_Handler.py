@@ -7,8 +7,18 @@ from mod.auth.Base_Handler import BaseHandler
 from ..databases.tables import ActCache
 import traceback
 import time
+import json
 #/activity/create
 class CreateActivityHandler(BaseHandler):
+	"""
+	post函数：
+		功能：
+			用户发起活动
+		参数：
+			活动所需参数
+		返回：
+			发起活动状态表示是否成功插入
+	"""
 	def post(self):#发起活动
 		retjson = {'code':200,'content':'ok'}
 		try:
@@ -21,7 +31,7 @@ class CreateActivityHandler(BaseHandler):
 			if a_act_title and a_start_time and a_end_time and a_location and a_details:
 				try:
 					activity = ActCache(uid=user_id,act_title=a_act_title,\
-						start_time=a_start_time,end_time=a_end_time,act_location=a_location,act_detail=a_details,create_time=time.strftime("%Y-%m-%d"))
+						start_time=a_start_time,end_time=a_end_time,act_location=a_location,act_detail=a_details,create_time=int(time.time()))
 					self.db.add(activity)
 					try:
 						self.db.commit()
@@ -41,4 +51,4 @@ class CreateActivityHandler(BaseHandler):
 			print traceback.print_exc()
 			retjson['code'] = 400
 			retjson['content'] = 'Parameter Lack'
-		self.write(retjson)
+		self.write(json.dumps(retjson,ensure_ascii=False, indent=2))

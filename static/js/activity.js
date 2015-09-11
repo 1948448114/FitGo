@@ -1,3 +1,79 @@
+function refrshJoin(act_id){
+    jQuery.ajax({
+      url: '/activity/add',
+      type: 'GET',
+      data: {'act_id': act_id},
+      success: function(data, textStatus, xhr) {
+        $("#"+act_id).html(data);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        alert(xhr);
+        alert(textStatus);
+        alert(errorThrown);
+        $("#"+act_id).html("Error!");
+      }
+    });
+};
+
+function addJoin(){
+    // alert("hello1");
+    $(".join").click(function(event) {
+        /* Act on the event */
+        var act_id = $(this).attr('value');
+        jQuery.ajax({
+                  url: '/activity/add',
+                  type: 'POST',
+                  dataType: 'json',
+                  data: {
+                    'uid': $("#uid").attr('value'),
+                    'act_id':act_id
+                        },
+                  success: function(data, textStatus, xhr) {
+                    refrshJoin(act_id);
+                  },
+                  error: function(xhr, textStatus, errorThrown) {
+                  }
+                });
+
+    });
+    // $("#108").bind("click",function(){
+    //     alert('hello');
+    // });
+    // $(".join").each(function(index, el) {
+    //     alert('hello1')
+    //      $(this).on("click",function(){
+    //          alert("hello");
+    //      });
+
+    // });
+//     $("a[class='join']").click(function(event) {
+//         /* Act on the event */
+//         // alert("hello"+$(this).attr('id'));
+//         alert("hello");
+//     });
+};
+
+
+function refresh(){
+    jQuery.ajax({
+      url: '/activity',
+      type: 'POST',
+      data: {'length': 'value1'},
+      success: function(data, textStatus, xhr) {
+            divContent = $("#cd-timeline");
+            divContent.html(data);
+            addJoin();
+    },
+      error: function(xhr, textStatus, errorThrown) {
+        $("#error_message_content").val("Network Error!");
+        $("#error_message").show("slow");
+      }
+    });
+    
+}
+
+
+function test(){alert("heklo");}
 $(document).ready(function() {
     function init() {
         $('#hide-new').click(function(event) {
@@ -54,6 +130,7 @@ $(document).ready(function() {
                         if (data['code'] == 200) {
                             $('#alertPaopao').attr("data-content", "Success!");
                             $('#alertPaopao').popover('show');
+                            refresh();
                             setTimeout(function(){$("#after-show").hide('slow/400/fast');},1000);
                         } else {
                             $('#alertPaopao').attr("data-content", data['content']);
@@ -96,6 +173,7 @@ $(document).ready(function() {
         // $('#alertPaopao').attr("data-content", "Login First!");
        
     };
-
     init();
+    refresh();
+    addJoin();
 });

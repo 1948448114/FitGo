@@ -4,7 +4,7 @@ import tornado.ioloop
 import tornado.web
 import shutil
 import os
-from Base_Handler import BaseHandler
+from ..auth.Base_Handler import BaseHandler
  
 class UploadPortraitHandler(BaseHandler):
     def get(self):
@@ -23,6 +23,5 @@ class UploadPortraitHandler(BaseHandler):
                     up.write(meta['body'])
         else:
             retjson = {'code':400,'content':'failed to upload portrait'}
-
         self.write(retjson)
  
