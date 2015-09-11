@@ -1,18 +1,27 @@
-<div class="cd-timeline-block" id="{{content['id']}}">
+{% if ret["code"]==200 %}
+    {% for item in ret['content'] %}
+    <div class="cd-timeline-block">
     <div class="cd-timeline-img cd-picture">
         <span id="icon" class="icon-bell-alt"></span>
     </div>
     <div class="cd-timeline-content block-left">
-        <h2>{{content['title']}}</h2>
-        <p>{{content['detail']}}</p>
+        <h2>{{item['title']}}</h2>
+        <p>{{item['detail']}}</p>
         <a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
-        <a class="join"><span class="icon-plus"></span>加入</a>
-        <span class="cd-date" id="time">{{content['create_time']}}</span>
+        <!-- <input type="hidden" id="act_id" value="{{item['id']}}"> -->
+        <a class="join" value="{{item['id']}}"><span class="icon-plus"></span>加入</a>
+        <span class="cd-date" id="time">{{item['create_time']}}</span>
     </div>
-    <div class="toright">
-        <h2>Swimmmmm!</h2>
-        <p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-            lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-        lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
+    <div class="toright" id={{item['id']}}>
+       {% module act_join_people(item['join_uid']) %}
     </div>
 </div>
+    {% end %}
+{% else %}
+<div class="alert alert-danger alert-dismissable" id="error_message">
+    <button type="button" class="close"  data-dismiss="alert" aria-hidden="true">
+                              &times;
+    </button>
+    <div id="error_message_content">{{ret['content']}}</div>
+</div>
+{% end %}

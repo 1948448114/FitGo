@@ -20,7 +20,7 @@ class RegisterHandler(BaseHandler):
         else:  
             self.redirect('/') 
     def post(self):
-        retjson = {'code':200,'content':'ok','uid' : 'null'} # define a dict
+        retjson = {'code':200,'content':'ok'} # define a dict
         arg_name=self.get_argument("name")#get 
         arg_password=self.get_argument("password")
         arg_uid=self.get_argument("uid")

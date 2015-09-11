@@ -4,6 +4,7 @@ import tornado.web
 import tornado.gen
 from Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,CookieCache
+from sqlalchemy.orm.exc import NoResultFound
 import json
 from time import time
 import uuid
@@ -16,8 +17,9 @@ class PasswordHandler(BaseHandler):
 		user_cookie = self.current_user
 		retjson = {"code":200,"content":""}
 		try:
-			usr1=self.db.query(UsersCache).filter(UsersCache.uid==user_cookie.uid,UsersCache.password==old_passwd)
-			print usr1.update({UsersCache.password:new_passwd})
+			usr1=self.db.query(UsersCache).filter(UsersCache.uid==user_cookie.uid,UsersCache.password==old_passwd).one()
+			usr1.password = new_passwd
+			self.db.add(usr1)
 			retjson['content'] = "passwd update ok!"
 			try:
 				self.db.commit()
@@ -25,7 +27,7 @@ class PasswordHandler(BaseHandler):
 				self.db.rollback()
 				retjson['code'] = 400
 				retjson['content'] = 'store data wrong!Try again'
-		except Exception, e:
+		except NoResultFound:
 			retjson['code'] = 400
 			retjson['content'] = 'Please check your old password'
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)

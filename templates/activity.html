@@ -3,80 +3,18 @@
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/activity.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{static_url('css/datepicker.css') }}">
-{%end%}
-{% block body %}
-	<div id="time-row">
-		<div id="new-activity">
-			<div class="toCenter">	
-				<div class="row" id="searche-act">
-					<div class="form-group col-sm-1 frontSearch">
-						<label>搜索活动<span class="icon-arrow-right"></span></label>
-					</div>
-					<div class="form-group col-sm-2 no-padding">
-						<span class="icon-map-marker absolute-map"></span>
-						<select class="form-control styled-select">
-							<option class="option-color">Location</option>
-							<option class="option-color">梅园操场</option>
-							<option class="option-color">桃园操场</option>
-							<option class="option-color">桔园操场</option>
-							<option class="option-color">梅园宿舍</option>
-							<option class="option-color">桃园宿舍</option>
-							<option class="option-color">桔园宿舍</option>
-							<option class="option-color">东门</option>
-							<option class="option-color">钢铁大菊花</option>
-							<option class="option-color">网球场</option>
-							<option class="option-color">桃园篮球场</option>
-							<option class="option-color">图书馆</option>
-							<option class="option-color">大活</option>
-							<option class="option-color">焦廷标馆</option>
-							<option class="option-color">教学楼</option>
-							<option class="option-color">不限</option>
-						</select>
-					</div>
-					<div class="form-group col-sm-2 time-right">
-						<span class="icon-calendar absolute-date"></span>
-						<input type="text" class="form-control time-shadow" id="Start-Time-Search" placeholder="Start Time" readOnly>
-					</div>
-					<div id="specialFliter">
-					<div class="form-group col-sm-2 time-right">
-						<!-- <span class="icon-calendar absolute-date"></span> -->
-						<div id="searchText" class="searchClass">
-						<span class=" icon-magic absolute-info"></span>
-						<input type="text"  class="form-control" placeholder="Title">
+	{%end%}
+	{% block body %}
+		<div id="time-row">
+			<div id="new-activity">
+				<div class="toCenter">
+					<div class="row" id="searche-act">
+						<div class="form-group col-sm-1 frontSearch">
+							<label>搜索活动<span class="icon-arrow-right"></span></label>
 						</div>
-						<!-- <span class="icon-calendar absolute-date"></span> -->
-						<button class="actSearch" id="toSearch" type="button"><span class="icon-search btn-search"></span></button>
-					</div>
-					<div class="form-group col-sm-2 confirmSearch">
-						<label for="searchActivity" ><span class="icon-ok"></span>开始搜索</label>
-					</div>
-				</div>
-				</div>
-			<div id="wholeNew">
-				<div class="row" id="new-act">
-					<div class="form-group col-sm-6 no-padding">
-						<span class="icon-absolute icon-bullhorn"></span>
-						<input type="text" class="form-control" id="newActivity" placeholder="My Title">
-					</div>
-					<div class="form-group col-sm-2 time-left">
-						<label for="newActivity" id="hide-new"><span class="icon-pencil"></span>发起活动</label>
-					</div>
-				</div>
-				<div class="row" id="after-show">
-					<div class="row" id="act-time">
-						<div class="form-group col-sm-3 time-right">
-							<span class="calendar-absolute1 icon-calendar"></span>
-							<input type="text" class="form-control time-shadow" id="Start-Time" placeholder="Start Time" readOnly>
-						</div>
-						<div class="form-group col-sm-3 time-left">
-							<span class="calendar-absolute2 icon-calendar"></span>
-							<input type="text" class="form-control time-shadow" id="End-Time" placeholder="End Time"readOnly>
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-sm-6">
-							<span class="location-absolute icon-map-marker"></span>
-							<select class="form-control styled-select" id="options">
+						<div class="form-group col-sm-2 no-padding">
+							<span class="icon-map-marker absolute-map"></span>
+							<select class="form-control styled-select">
 								<option class="option-color">Location</option>
 								<option class="option-color">梅园操场</option>
 								<option class="option-color">桃园操场</option>
@@ -95,136 +33,190 @@
 								<option class="option-color">不限</option>
 							</select>
 						</div>
+						<div class="form-group col-sm-2 time-right">
+							<span class="icon-calendar absolute-date"></span>
+							<input type="text" class="form-control time-shadow" id="Start-Time-Search" placeholder="Start Time" readOnly>
+						</div>
+						<div id="specialFliter">
+							<div class="form-group col-sm-2 time-right">
+								<!-- <span class="icon-calendar absolute-date"></span> -->
+								<div id="searchText" class="searchClass">
+									<span class=" icon-magic absolute-info"></span>
+									<input type="text"  class="form-control" placeholder="Title">
+								</div>
+								<!-- <span class="icon-calendar absolute-date"></span> -->
+								<button class="actSearch" id="toSearch" type="button"><span class="icon-search btn-search"></span></button>
+							</div>
+							<div class="form-group col-sm-2 confirmSearch">
+								<label for="searchActivity" ><span class="icon-ok"></span>开始搜索</label>
+							</div>
+						</div>
 					</div>
-					<div class="row">
-						<div class="form-group col-sm-6">
-							<span class="detail-absolute icon-edit"></span>
-							<textarea placeholder="Details" id="activity_detail" class="form-control textareaMargin" rows="10"></textarea>
-							<!-- <div id="actAlert" class="alert alert-danger wrongSubmit">
-								<p>Something is wrong!</p>
-							</div> -->
+					<div id="wholeNew">
+						<div class="row" id="new-act">
+							<div class="form-group col-sm-6 no-padding">
+								<span class="icon-absolute icon-bullhorn"></span>
+								<input type="text" class="form-control" id="newActivity" placeholder="My Title">
+							</div>
+							<div class="form-group col-sm-2 time-left">
+								<label for="newActivity" id="hide-new"><span class="icon-pencil"></span>发起活动</label>
+							</div>
 						</div>
-						<div class="col-sm-1" id="submit-btn">
-							<a tabindex="0" class="btn btn-lg btn-danger btn-mine" role="button" data-toggle="popover" data-trigger="click" title="" data-placement="bottom" data-content="" id="alertPaopao">SUBMIT</a>
-						</div>
-						<div class="col-sm-3" id="youji">
-							<img src="/static/images/1.png">
+						<div class="row" id="after-show">
+							<div class="row" id="act-time">
+								<div class="form-group col-sm-3 time-right">
+									<span class="calendar-absolute1 icon-calendar"></span>
+									<input type="text" class="form-control time-shadow" id="Start-Time" placeholder="Start Time" readOnly>
+								</div>
+								<div class="form-group col-sm-3 time-left">
+									<span class="calendar-absolute2 icon-calendar"></span>
+									<input type="text" class="form-control time-shadow" id="End-Time" placeholder="End Time"readOnly>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<span class="location-absolute icon-map-marker"></span>
+									<select class="form-control styled-select" id="options">
+										<option class="option-color">Location</option>
+										<option class="option-color">梅园操场</option>
+										<option class="option-color">桃园操场</option>
+										<option class="option-color">桔园操场</option>
+										<option class="option-color">梅园宿舍</option>
+										<option class="option-color">桃园宿舍</option>
+										<option class="option-color">桔园宿舍</option>
+										<option class="option-color">东门</option>
+										<option class="option-color">钢铁大菊花</option>
+										<option class="option-color">网球场</option>
+										<option class="option-color">桃园篮球场</option>
+										<option class="option-color">图书馆</option>
+										<option class="option-color">大活</option>
+										<option class="option-color">焦廷标馆</option>
+										<option class="option-color">教学楼</option>
+										<option class="option-color">不限</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<span class="detail-absolute icon-edit"></span>
+									<textarea placeholder="Details" id="activity_detail" class="form-control textareaMargin" rows="10"></textarea>
+									<!-- <div id="actAlert" class="alert alert-danger wrongSubmit">
+											<p>Something is wrong!</p>
+									</div> -->
+								</div>
+								<div class="col-sm-1" id="submit-btn">
+									<a tabindex="0" class="btn btn-lg btn-danger btn-mine" role="button" data-toggle="popover" data-trigger="click" title="" data-placement="bottom" data-content="" id="alertPaopao">SUBMIT</a>
+								</div>
+								<div class="col-sm-3" id="youji">
+									<img src="/static/images/1.png">
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+				<!-- 标题 -->
+				<div id="below">
+					<div class="title">
+						<h1>Look at <strong>Our Activities</strong>!</h1>
+					</div>
+					<div class="alert alert-danger alert-dismissable" id="error_message">
+							<button type="button" class="close"  data-dismiss="alert" aria-hidden="true">
+							&times;
+							</button>
+							<div id="error_message_content"></div>
+					</div>
+					<section id="cd-timeline" class="cd-container">
+						<!-- <div class="cd-timeline-block">
+							<div class="cd-timeline-img cd-picture">
+								<span id="icon" class="icon-bell-alt"></span>
+							</div>
+							<div class="cd-timeline-content block-left">
+								<h2>The Color Run1</h2>
+								<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
+								<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
+								<a class="join"><span class="icon-plus"></span>加入</a>
+								<span class="cd-date" id="time">2015-10-10</span>
+							</div>
+							<div class="toright">
+								<h2>Swimmmmm!</h2>
+								<p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
+									lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
+								lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
+							</div>
+						</div>
+						<div class="cd-timeline-block">
+							<div class="cd-timeline-img cd-picture1">
+								<span id="icon" class=" icon-eye-open"></span>
+							</div>
+							<div class="cd-timeline-content block-left">
+								<h2>The Color Run1</h2>
+								<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
+								<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
+								<a class="join"><span class="icon-plus left-icon"></span>加入</a>
+								<span class="cd-date" id="time">2015-10-10</span>
+							</div>
+							<div class="toleft">
+								<h2>Hiking!</h2>
+								<p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
+									lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
+								lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
+							</div>
+						</div>
+						<div class="cd-timeline-block">
+							<div class="cd-timeline-img cd-picture2">
+								<span id="icon" class="icon-flag"></span>
+							</div>
+							<div class="cd-timeline-content block-left">
+								<h2>The Color Run3</h2>
+								<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
+								<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
+								<a class="join"><span class="icon-plus"></span>加入</a>
+								<span class="cd-date" id="time">2015-10-10</span>
+							</div>
+						</div>			<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-movie">
+							<img src="img/cd-icon-movie.svg" alt="Movie">
+						</div>
+						<div class="cd-timeline-block">
+							<div class="cd-timeline-img cd-picture3">
+								<span id="icon" class="icon-trophy"></span>
+							</div>
+							<div class="cd-timeline-content block-left">
+								<h2>The Color Run4</h2>
+								<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
+								<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
+								<a class="join"><span class="icon-plus"></span>加入</a>
+								<span class="cd-date" id="time">2015-10-10</span>
+							</div>
+							<div class="toleft">
+								<h2>Cycling!</h2>
+								<p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
+									lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
+								lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
+							</div>
+						</div>
+					</div>
+					<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-picture4">
+							<span id="icon" class="icon-leaf"></span>
+						</div>
+						<div class="cd-timeline-content block-left">
+							<h2>The Color Run</h2>
+							<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
+							<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
+							<a class="join"><span class="icon-plus"></span>加入</a>
+							<span class="cd-date" id="time">2015-10-10</span>
+						</div>
+					</div> -->
+				</section>
 			</div>
+			<div class="title">
+				<h1>Do you wanna <a onclick="toNew()" class="to-top"><strong>Join Us</strong></a>?</h1>
 			</div>
-			<!-- 标题 -->
-			<div id="below">
-				<div class="title">
-					<h1>Look at <strong>Our Activities</strong>!</h1>
-				</div>
-				
-
-				<section id="cd-timeline" class="cd-container">
-					{% if ret["code"]==200 %}
-						{% for item in ret['content'] %}
-							{% module activity_item(item) %}
-						{% end %}
-					{% else %}
-						<div class="alert alert-danger alert-dismissable" id="error_message">
-						   <button type="button" class="close"  data-dismiss="alert" aria-hidden="true">
-						      &times;
-						   </button>
-						   <div id="error_message_content">{{ret['content']}}</div>
-						</div>
-					{% end %}
-					<div class="cd-timeline-block">
-						<div class="cd-timeline-img cd-picture">
-							<span id="icon" class="icon-bell-alt"></span>
-						</div>
-						<div class="cd-timeline-content block-left">
-							<h2>The Color Run1</h2>
-							<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
-							<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
-							<a class="join"><span class="icon-plus"></span>加入</a>
-							<span class="cd-date" id="time">2015-10-10</span>
-						</div>
-						<div class="toright">
-							<h2>Swimmmmm!</h2>
-							<p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-								lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-							lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
-						</div>
-					</div>
-					<div class="cd-timeline-block">
-						<div class="cd-timeline-img cd-picture1">
-							<span id="icon" class=" icon-eye-open"></span>
-						</div>
-						<div class="cd-timeline-content block-left">
-							<h2>The Color Run1</h2>
-							<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
-							<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
-							<a class="join"><span class="icon-plus left-icon"></span>加入</a>
-							<span class="cd-date" id="time">2015-10-10</span>
-						</div>
-						<div class="toleft">
-							<h2>Hiking!</h2>
-							<p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-								lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-							lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
-						</div>
-					</div>
-					<div class="cd-timeline-block">
-						<div class="cd-timeline-img cd-picture2">
-							<span id="icon" class="icon-flag"></span>
-						</div>
-						<div class="cd-timeline-content block-left">
-							<h2>The Color Run3</h2>
-							<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
-							<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
-							<a class="join"><span class="icon-plus"></span>加入</a>
-							<span class="cd-date" id="time">2015-10-10</span>
-						</div>
-					</div>			<div class="cd-timeline-block">
-					<div class="cd-timeline-img cd-movie">
-						<img src="img/cd-icon-movie.svg" alt="Movie">
-					</div>
-					<div class="cd-timeline-block">
-						<div class="cd-timeline-img cd-picture3">
-							<span id="icon" class="icon-trophy"></span>
-						</div>
-						<div class="cd-timeline-content block-left">
-							<h2>The Color Run4</h2>
-							<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
-							<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
-							<a class="join"><span class="icon-plus"></span>加入</a>
-							<span class="cd-date" id="time">2015-10-10</span>
-						</div>
-						<div class="toleft">
-							<h2>Cycling!</h2>
-							<p>lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-								lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala
-							lalalallalalalalalalallalalalalalalallalalalalalalallalalalalalalallalalala</p>
-						</div>
-					</div>
-				</div>
-				<div class="cd-timeline-block">
-					<div class="cd-timeline-img cd-picture4">
-						<span id="icon" class="icon-leaf"></span>
-					</div>
-					<div class="cd-timeline-content block-left">
-						<h2>The Color Run</h2>
-						<p>与追求速度不同，在The Color Run活动中，彩色跑者得到的是一种前所未有的跑步体验。距离为5公里的The Color Run不计时，跑者每一公里都将经过一个色彩站，从头到脚都会被抛洒上不同的颜色。冲过终点线后，欢乐并没有停止。在终点舞台区将开始一场更加壮观的色彩派对，届时大家会一起把手中的彩色粉向空中抛洒，每个人都会像调色板一样色彩缤纷，这快乐又神奇的时刻将深深印在每个人的脑海里。相信我们，这将是你所见过最棒的5公里跑完成后的派对！</p>
-						<a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
-						<a class="join"><span class="icon-plus"></span>加入</a>
-						<span class="cd-date" id="time">2015-10-10</span>
-					</div>
-				</div>
-			</section>
+			{% if user %}
+				<input type="hidden" id="uid" value="{{user.uid}}">
+			{% end %}
 		</div>
-		<div class="title">
-			<h1>Do you wanna <a onclick="toNew()" class="to-top"><strong>Join Us</strong></a>?</h1>
-		</div>
-		{% if user %}
-			<input type="hidden" id="uid" value="{{user.uid}}">
-		{% end %}
-	</div>
-	<script type="text/javascript" src="{{static_url('js/bootstrap-datepicker.js')}}"></script>
-	<script type="text/javascript" src="{{static_url('js/activity.js')}}"></script>
-	{%end%}
+		<script type="text/javascript" src="{{static_url('js/bootstrap-datepicker.js')}}"></script>
+		<script type="text/javascript" src="{{static_url('js/activity.js')}}"></script>
+		{%end%}

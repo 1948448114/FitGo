@@ -10,6 +10,15 @@ import time
 import json
 #/activity/create
 class CreateActivityHandler(BaseHandler):
+	"""
+	post函数：
+		功能：
+			用户发起活动
+		参数：
+			活动所需参数
+		返回：
+			发起活动状态表示是否成功插入
+	"""
 	def post(self):#发起活动
 		retjson = {'code':200,'content':'ok'}
 		try:
