@@ -9,6 +9,13 @@ $(document).ready(function(){
                   }, function(start, end, label) {
                     console.log(start.toISOString(), end.toISOString(), label);
                   });
+         $('#reservationtime1').daterangepicker({
+                    timePicker: true,
+                    timePickerIncrement: 30,
+                    format: 'MM/DD/YYYY h:mm A'
+                  }, function(start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                  });
         $('.restButton').each(function(index, el) {
         	$(this).bind('click',function(){
 	        	var activeTab = $(event.target).val();
@@ -31,6 +38,10 @@ $(document).ready(function(){
         });
         $('#btnPaopao').click(function(event) {
         	$('#btnPaopao').popover('show');
+        });
+        $("#firstTab").click(function(event) {
+        	event.preventDefault();
+  			$(this).tab('show');
         });
 }
 		init();

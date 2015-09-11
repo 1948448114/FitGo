@@ -264,6 +264,125 @@ textarea:focus{
 	outline: none;
 	color: #fff;
 }
+#tab1:hover,#tab2:hover,#tab3:hover{
+	background-color: #fff;
+	color: #000;
+
+}
+#tab1:focus,#tab2:focus,#tab3:focus{
+	background-color: #fff;
+	color: #85da5c;
+	font-weight: 600;
+}
+.tab-pane a{
+	text-decoration: none;
+	color: #7e7ef6;
+	font-weight: 500;
+}
+.tab-pane a:hover{
+	color: #6699FF;
+}
+.tab-pane p{
+	color:#2a215f;
+}
+.tab-pane.tabBC1{
+	width: 60%;
+	background-color: #f2ffec;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 5px;
+}
+.tab-pane.tabBC2{
+	width: 60%;
+	background-color: #f2ffec;/*eefefe*/
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 5px;
+}
+.tab-pane.tabBC3{
+	width: 60%;
+	background-color: #f2ffec;/*ffffe4*/
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 5px;
+}
+.fontSize span{
+	font-size:10px;
+}
+.protect{
+	width: 90%;
+	margin: auto;
+}
+.yesShow input{
+	background-color: #fff;
+}
+.none-oxygenSelect1{
+	appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   border-radius: 0px;
+   padding-left: 5px;
+   padding-right: 20px;
+   border: 1px solid #fff; 
+   background-color: #fff;
+}
+.none-oxygenSelect1:focus{
+	outline:none;
+    border:#85da5c 1px solid;
+    background-color: #fff;
+}
+.number2,.userInput2{
+	appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   border-radius: 0px;
+   padding-left: 5px;
+   padding-right: 20px;
+   border: 1px solid #fff; 
+   background-color: #fff;
+   padding-top: 2px;
+   padding-bottom: 2px;
+}
+.number2:focus,.userInput2:focus{
+	outline:none;
+    border:#85da5c 1px solid;
+    background-color: #fff;
+}
+.oneRow{
+	margin-top: 20px;
+}
+.line1{
+	margin-bottom: 15px;
+}
+.userInput3{
+	appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   border-radius: 0px;
+   padding-left: 5px;
+   padding-right: 20px;
+   border: 1px solid #fff; 
+   background-color: #fff;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   width: 85%;
+}
+.userInput3-more{
+	appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   border-radius: 0px;
+   padding-left: 5px;
+   padding-right: 20px;
+   border: 1px solid #fff; 
+   background-color: #fff;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   width: 98%;
+}
+.tabBelow input,select{
+	cursor: not-allowed;
+}
 
 
 
