@@ -23,23 +23,22 @@ class InviteHandler(BaseHandler):
 		if not arg_uid or not arg_user_tag or not arg_start_time :
 			retjson['code'] = 400
 			retjson['content'] = 'Some arguments are empty'
-			self.finish()
-			return
-		try:
-			status = InviteCache(uid=arg_uid,start_time=arg_start_time,duration=arg_duration,\
-				create_time=arg_create_time,fit_location=arg_fit_location,fit_item=arg_fit_item,\
-				user_tag=arg_user_tag,gender=arg_gender,remark=arg_remark)
-			self.db.add(status)
+		else:
 			try:
-				self.db.commit()
-			except Exception,e:
+				status = InviteCache(uid=arg_uid,start_time=arg_start_time,duration=arg_duration,\
+					create_time=arg_create_time,fit_location=arg_fit_location,fit_item=arg_fit_item,\
+					user_tag=arg_user_tag,gender=arg_gender,remark=arg_remark)
+				self.db.add(status)
+				try:
+					self.db.commit()
+				except Exception,e:
+					self.db.rollback()
+					retjson['code'] = 401
+					retjson['content'] = u'Database store is wrong!'
+
+			except Exception, e:
 				self.db.rollback()
 				retjson['code'] = 401
-				retjson['content'] = u'Database store is wrong!'
-
-		except Exception, e:
-			self.db.rollback()
-			retjson['code'] = 401
-			retjson['content'] = u'Something bad in database!'
+				retjson['content'] = u'Something bad in database!'
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)
