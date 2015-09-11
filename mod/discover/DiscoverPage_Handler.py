@@ -86,8 +86,9 @@ class DiscoverPageHandler(BaseHandler):
         ]
 		self.render('discoverpage.html',user=self.current_user,content=content)
 	def post(self):
+		times = self.get_argument("times")#刷新次数［0,1，2，。。。。］
 		try:
-			topics = self.db.query(TopicsCache).order_by(TopicsCache.topic_time.desc())[0:12]
+			topics = self.db.query(TopicsCache).order_by(TopicsCache.topic_time.desc())[12*times:12*times+11]
 			if topics:
 				retjson = {'code':200,'content':'success to query state'}
 				content1 = []
@@ -98,6 +99,7 @@ class DiscoverPageHandler(BaseHandler):
 					content['topic_time'] = n.topic_time
 					content['topic_content'] = n.topic_content
 					content['topic_pic '] = n.topic_pic
+					content['pic_shape'] = n.pic_shape
 					content['topic_title '] = n.topic_title
 					content['topic_starers'] = n.topic_starers 
 					content1.append(content)
