@@ -43,6 +43,9 @@ from mod.invite.RequestInvite_Handler import RequestInviteHandler
 from mod.invite.RespondInvite_Handler import RespondInviteHandler
 
 
+from mod.recom.RecomUser_Handler import RecomUserHandler
+from mod.recom.Count_Handler import CountHandler
+
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
 from mod.discover.AddFriend_Handler import AddFriendHandler
@@ -52,6 +55,13 @@ from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
 from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
 from mod.discover.UploadPic_Handler import UploadPicHandler
+# from mod.discover.RecomUser_Handler import RecomUserHandler
+# from mod.recommend.RecomUser_Handler import RecomUserHandler
+
+# from mod.recommend.RecomUser_Handler import RecomPicHandler
+
+
+
 
 define("port", default=8888, help="run on the given port", type=int)
 
@@ -94,7 +104,10 @@ class Application(tornado.web.Application):
             (r'/plans',PlansHandler),
             (r'/plans/Info',CompleteInfoHandler),
             (r'/user/userinfo/portrait',UploadPortraitHandler),
-            (r'/discover/create/state/pic',UploadPicHandler)
+            (r'/discover/create/state/pic',UploadPicHandler),
+
+            (r'/recom/recomuser',RecomUserHandler),
+
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
