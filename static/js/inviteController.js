@@ -1,8 +1,9 @@
 $(document).ready(function() {
     // init();
+    search();
     NewInvitation();
     $("#create_invite_information_message").hide();
-    $(".wrong_message").hide();
+    // $(".wrong_message").hide();
     $("#search_btn").click(function(event) {
         search();
     });
@@ -24,7 +25,6 @@ function NewInvitation(){
         var start_time=$("#create_invite_start_time").val();
         var tag = $("#create_invite_tag").val();
         var moreInfo = $("#create_invite_more").val();
-        console.log(moreInfo);
         jQuery.ajax({
           url: '/invite',
           type: 'POST',
@@ -39,12 +39,15 @@ function NewInvitation(){
                 'remark':moreInfo
           },
           success: function(data, textStatus, xhr) {
+            console.log(data['code'])
             if(data['code']==200){
+                console.log(data['code']);
                 $("#create_invite_information_message").attr('class','alert alert-success showing');
                 $("#create_invite_information_message").html('Success');
                 $("#create_invite_information_message").show();
                 setTimeout(function() {
                     $("#create_invite_information_message").hide();
+                    $("#create_new_invite").hide();
                     },1000);
             }else{
                 $("#create_invite_information_message").html(data['content']);
@@ -73,7 +76,6 @@ function search(){
     jQuery.ajax({
       url: '/invite/search',
       type: 'POST',
-      dataType: 'json',
       data: {
            'start_time':start_time,
            'fit_location':fit_location,
@@ -82,9 +84,10 @@ function search(){
            'gender':gender
       },
       success: function(data, textStatus, xhr) {
-        
+        $("#timeline").html(data);
       },
       error: function(xhr, textStatus, errorThrown) {
+        $("#timeline").html('<li class="wrong_message" ><div class="content" id="wrong_message"><h3>Network Error!</h3></div></li>');
       }
     });
     
