@@ -58,11 +58,15 @@
     $("#invite_more_detail").show('slow/400/fast');
     $("#create_new_invite").hide();
     });
-    $("#submit_invite_btn").click(function(event) {
-    /* Act on the event */
-    $(".invite_block").show();
-    $("#create_new_invite").hide('slow/400/fast') ;
-    });
+
+    
+    // $("#submit_invite_btn").click(function(event) {
+    // /* Act on the event */
+    // $(".invite_block").show();
+    // $("#create_new_invite").hide('slow/400/fast') ;
+    // });
+
+
     // $('#calendar').fullCalendar({
     // header: {
     // left: 'prev,next today',

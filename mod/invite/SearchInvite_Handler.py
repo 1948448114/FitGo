@@ -17,11 +17,11 @@ class SearchInviteHandler(BaseHandler):
 		args=dict.fromkeys(keys)
 		for key in args :
 			args[key]=self.get_argument(key)
-			if key == 'start_time' and key:
+			if key == 'start_time' and args[key]:
 				string=string+' and start_time >= %s' % args['start_time']
-			elif key == 'gender' and key:
+			elif key == 'gender' and args[key]:
 				string=string+' and gender = \'%s\'' % args['gender']
-			elif key:
+			elif args[key]:
 				string=string+' and '+key+' like \'%'+args[key]+'%\''
 		sql=sql+string[4:]+";"
 		print sql
@@ -45,4 +45,5 @@ class SearchInviteHandler(BaseHandler):
 		except Exception, e:
 			retjson['code'] = 401
 			retjson['content'] = u'Nothing found!Please try other conditions'
-		self.write(retjson)
+		# self.write(retjson)
+		self.render("invite_item.html",ret=retjson)
