@@ -10,13 +10,22 @@ $(document).ready(function(){
     plan['content']['1'] = '2';
     console.log(JSON.stringify(plan));
 	function init(){
+		$('#to-make').click(function(event) {
+			$("html,body").animate({scrollTop:$("#newPlan").offset().top},500);
+		});
+		$('#to-plans').click(function(event) {
+			$("html,body").animate({scrollTop:$("#myplans").offset().top},800);
+		});
+		$('#to-states').click(function(event) {
+			$("html,body").animate({scrollTop:$("#mystates").offset().top},800);
+		});
+		$(".tabFocus a").click(function(event) {
+			$('.a-active').removeClass('a-active');
+			$(event.target).addClass('a-active');
+		});
 		$("#menu .home").removeClass("home");
         $($("#menu .bar").get(2)).addClass("home");
-        $('#reservationtime').daterangepicker({
-                    timePicker: true,
-                    timePickerIncrement: 30,
-                    format: 'MM/DD/YYYY h:mm A'
-                  }, function(start, end, label) {
+        $('#reservation').daterangepicker(null, function(start, end, label) {
                     console.log(start.toISOString(), end.toISOString(), label);
                   });
          $('#reservationtime1').daterangepicker({
@@ -59,8 +68,6 @@ $(document).ready(function(){
 		init();
         newPlan();
 });
-
-
 function newPlan(){
     $("#btnPaopao").click(function(event) {
         jQuery.ajax({

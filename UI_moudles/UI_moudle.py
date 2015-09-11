@@ -25,3 +25,6 @@ class Plan_showMoudle(tornado.web.UIModule):
 class DiscoverStateMoudle(tornado.web.UIModule):
     def render(self,content):
         return self.render_string('discover_state.html',content=content)
+# class TestLalaMoudle(tornado.web.UIModule):
+#     def render(self,content):
+#         return self.render_string('testlala.html',content=content)

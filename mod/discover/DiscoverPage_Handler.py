@@ -9,7 +9,7 @@ from ..databases.tables import TopicsCache
 #/discover/discover_page
 class DiscoverPageHandler(BaseHandler):
 	def get(self):#发现主页面
-		content=[
+		content=[	
 					{'square':'',
 					'state_img':'1',
 			       'id':'1',

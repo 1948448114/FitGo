@@ -108,6 +108,7 @@ class Application(tornado.web.Application):
                         'plan_item':plan_itemMoudle,
                         'discover_state':DiscoverStateMoudle,
                         'plan_show_item':Plan_showMoudle
+                        # 'testlala':TestLalaMoudle
                         },
 
             # xsrf_cookies=True,

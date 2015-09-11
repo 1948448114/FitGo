@@ -289,7 +289,7 @@ textarea:focus{
 	width: 60%;
 	background-color: #f2ffec;
 	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 40px;
 	padding-left: 5px;
 }
 .tab-pane.tabBC2{
@@ -383,12 +383,37 @@ textarea:focus{
 .tabBelow input,select{
 	cursor: not-allowed;
 }
-
-
-
-
-
-
+.tabBC1{
+	margin-bottom: 20px;
+}
+.a-active{
+	color: #85da5c;
+	font-weight: 600;
+}
+.form-control.timeInput{
+	appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   border-radius: 0px;
+   padding-left: 5px;
+   padding-right: 20px;
+   border: 1px solid #f7f7f7; 
+   background-color: #f7f7f7;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   width: 85%;
+}
+.form-control.timeInput:focus{
+	outline:none;
+    border:#85da5c 1px solid;
+    background-color: #fff;
+}
+.planMargin{
+	margin-top: 50px;
+}
+.nextMargin{
+	margin-bottom: 30px;
+}
 
 
 
