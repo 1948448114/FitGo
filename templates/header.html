@@ -282,12 +282,14 @@
                                 <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101246437" data-redirecturi="http://fitgo.wang" charset="utf-8"></script>
                                     <span id="qqLoginBtn"></span>
                                     <script type="text/javascript">
-                                    var cbLoginFun = function(oInfo, oOpts){
-                                        alert(oInfo.nickname); // 昵称
-                                        alert(oOpts.btnId);    // 点击登录的按钮Id
-                                        };
-                                    QC.Login({btnId:"qqLoginBtn"}, cbLoginFun);
-                                </script>
+                                        QC.Login({
+                                            btnId:"qqLoginBtn"    //插入按钮的节点id
+                                            },cbLoginFun);
+                                        var cbLoginFun = function(oInfo, oOpts){
+                                            alert(oInfo.nickname); // 昵称
+                                            alert(oOpts.btnId);    // 点击登录的按钮Id
+                                            };
+                                    </script>
                             </div>
                         </div >
                         <div class="row">
