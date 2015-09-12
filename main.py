@@ -109,7 +109,7 @@ class Application(tornado.web.Application):
                         'act_join_people':act_join_peopleMoudle,
                         'plan_item':plan_itemMoudle,
                         'discover_state':DiscoverStateMoudle,
-                        'discover_friend':DiscoverFriendMoudle
+                        'discover_friend':DiscoverFriendMoudle,
                         'plan_show_item':Plan_show_itemMoudle,
                         'plan_show':Plan_showMoudle
                         },

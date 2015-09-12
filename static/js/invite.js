@@ -58,31 +58,7 @@
     $("#invite_more_detail").show('slow/400/fast');
     $("#create_new_invite").hide();
     });
-
-    
-    // $("#submit_invite_btn").click(function(event) {
-    // /* Act on the event */
-    // $(".invite_block").show();
-    // $("#create_new_invite").hide('slow/400/fast') ;
-    // });
-
-
-    // $('#calendar').fullCalendar({
-    // header: {
-    // left: 'prev,next today',
-    // center: 'title',
-    // right: 'month,agendaWeek'
-    // },
-    // firstDay:1,
-    // editable: true,
-    // eventLimit: true,
-    // weekMode: "liquid",
-    // minTime:"05:00:00",
-    // slotEventOverlap:false,
-    // });
-    
-    
-    
+ 
     
     $("#search_invite_start_time").datetimepicker({
     
