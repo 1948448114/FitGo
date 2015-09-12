@@ -16,13 +16,6 @@
         {% block header %}
         {% end %}
         <title>FitGo</title>
-                    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101246437" data-redirecturi="http://127.0.0.1:8888" charset="utf-8"></script>
-                    <span id="qqLoginBtn"></span>
-                    <script type="text/javascript">
-                    QC.Login({
-                    btnId:"qqLoginBtn"    //插入按钮的节点id
-                    });
-                    </script>
         <style type="text/css">
         /*#footera {
         margin-top: 10px;
@@ -280,7 +273,17 @@
                             <div class="col-sm-2 col-xs-6">
                                 <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
                             </div>
-                        </div>
+                            <div class="col-sm-2 col-sm-offset-4 col-xs-6">
+
+                                <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101246437" data-redirecturi="http://127.0.0.1:8888" charset="utf-8"></script>
+                                    <span id="qqLoginBtn"></span>
+                                    <script type="text/javascript">
+                                    QC.Login({
+                                    btnId:"qqLoginBtn"    //插入按钮的节点id
+                                });
+                                </script>
+                            </div>
+                        </div >
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-4" >
                                 <p class="text-right">
