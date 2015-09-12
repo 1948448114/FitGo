@@ -305,57 +305,57 @@
                                              alert('QQ登录 注销成功');
                                        }
                                     );
-                                    //从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
-                                    var paras = {};
+                                    // //从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
+                                    // var paras = {};
 
-                                    //用JS SDK调用OpenAPI
-                                    QC.api("get_user_info", paras)
-                                        //指定接口访问成功的接收函数，s为成功返回Response对象
-                                        .success(function(s){
-                                            var openid = ''
-                                            if(QC.Login.check()){//如果已登录
-                                                QC.Login.getMe(function(openId, accessToken){
-                                                    openid = openId
-                                                alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
-                                            });
-                                            //这里可以调用自己的保存接口
-                                            //...
+                                    // //用JS SDK调用OpenAPI
+                                    // QC.api("get_user_info", paras)
+                                    //     //指定接口访问成功的接收函数，s为成功返回Response对象
+                                    //     .success(function(s){
+                                    //         var openid = ''
+                                    //         if(QC.Login.check()){//如果已登录
+                                    //             QC.Login.getMe(function(openId, accessToken){
+                                    //                 openid = openId
+                                    //             alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
+                                    //         });
+                                    //         //这里可以调用自己的保存接口
+                                    //         //...
                                     
-                                            //成功回调，通过s.data获取OpenAPI的返回数据
-                                            alert("获取用户信息成功！当前用户昵称为："+s.data.nickname);
-                                            var name = s.data.nickname;
-                                            var gender = s.data.gender;
-                                            var pic_url = s.data.figureurl_1;
-                                            jQuery.ajax({
-                                              url: '/auth/qq',
-                                              type: 'POST',
-                                              dataType: 'json',
-                                              data: {'openid': openId,
-                                                    'name':name,
-                                                    'gender':gender,
-                                                    'portrait':pic_url},
-                                              success: function(data, textStatus, xhr) {
-                                                //called when successful
-                                                alert(data);
-                                              },
-                                              error: function(xhr, textStatus, errorThrown) {
-                                                //called when there is an error
-                                              }
-                                            });
+                                    //         //成功回调，通过s.data获取OpenAPI的返回数据
+                                    //         alert("获取用户信息成功！当前用户昵称为："+s.data.nickname);
+                                    //         var name = s.data.nickname;
+                                    //         var gender = s.data.gender;
+                                    //         var pic_url = s.data.figureurl_1;
+                                    //         jQuery.ajax({
+                                    //           url: '/auth/qq',
+                                    //           type: 'POST',
+                                    //           dataType: 'json',
+                                    //           data: {'openid': openId,
+                                    //                 'name':name,
+                                    //                 'gender':gender,
+                                    //                 'portrait':pic_url},
+                                    //           success: function(data, textStatus, xhr) {
+                                    //             //called when successful
+                                    //             alert(data);
+                                    //           },
+                                    //           error: function(xhr, textStatus, errorThrown) {
+                                    //             //called when there is an error
+                                    //           }
+                                    //         });
                                             
-                                            console.log(name)
+                                    //         console.log(name)
 
-                                        })
-                                        //指定接口访问失败的接收函数，f为失败返回Response对象
-                                        .error(function(f){
-                                            //失败回调
-                                            alert("获取用户信息失败！");
-                                        })
-                                        //指定接口完成请求后的接收函数，c为完成请求返回Response对象
-                                        .complete(function(c){
-                                            //完成请求回调
-                                            alert("获取用户信息完成！");
-                                        });
+                                    //     })
+                                    //     //指定接口访问失败的接收函数，f为失败返回Response对象
+                                    //     .error(function(f){
+                                    //         //失败回调
+                                    //         alert("获取用户信息失败！");
+                                    //     })
+                                    //     //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+                                    //     .complete(function(c){
+                                    //         //完成请求回调
+                                    //         alert("获取用户信息完成！");
+                                    //     });
                                     </script>
                             </div>
                         </div >
