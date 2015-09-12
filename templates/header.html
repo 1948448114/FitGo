@@ -33,6 +33,10 @@
         </style>
     </head>
     <body>
+        <div>
+            <script type="text/javascript"src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true"></script>
+
+        </div>
         <div id="menu">
             <nav id="navigation" class="navbar navbar-default" role="navigation">
                 <div class="container">
@@ -278,9 +282,11 @@
                                 <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101246437" data-redirecturi="http://fitgo.wang" charset="utf-8"></script>
                                     <span id="qqLoginBtn"></span>
                                     <script type="text/javascript">
-                                    QC.Login({
-                                    btnId:"qqLoginBtn"    //插入按钮的节点id
-                                });
+                                    var cbLoginFun = function(oInfo, oOpts){
+                                        alert(oInfo.nickname); // 昵称
+                                        alert(oOpts.btnId);    // 点击登录的按钮Id
+                                        };
+                                    QC.Login({btnId:"qqLoginBtn"}, cbLoginFun);
                                 </script>
                             </div>
                         </div >
