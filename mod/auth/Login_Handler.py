@@ -3,11 +3,14 @@
 import tornado.web
 import tornado.gen
 from Base_Handler import BaseHandler
-from ..databases.tables import UsersCache,CookieCache
+from ..databases.tables import UsersCache,CookieCache,PlansCache
 import json
 from time import time
 import uuid
 import re
+import math
+
+
 class LoginHandler(BaseHandler):
     def get(self):
         if not self.current_user:  
@@ -34,7 +37,6 @@ class LoginHandler(BaseHandler):
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
 
-
     def post(self):
         info_email=self.get_argument("info_email")
         user_password=self.get_argument("user_password")
@@ -59,6 +61,8 @@ class LoginHandler(BaseHandler):
                 self.db.add(status)
                 try:
                     self.db.commit()
+                    self.count(person.uid)
+
                 except:
                     self.db.rollback()
                     retjson['code'] = 401
@@ -67,6 +71,107 @@ class LoginHandler(BaseHandler):
                 print e
                 retjson['code'] = 402
                 retjson['content'] = u'User name or password is wrong!'
+        
+        # self.count(person.uid)
+
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
+        print(str(retjson['code']))
+
+
+
+    def count(self,user_id):
+      uid = user_id
+      cos = 0
+      x0 = 10
+      y0 = 0
+      x1 = 0
+      y1 = 10
+      plan = self.db.query(PlansCache).filter(PlansCache.uid == uid).first()
+      # fit_item = str((plan.fit_item).encode('UTF-8'))
+      # self.write(fit_item)
+      fit_item = (plan.fit_item).encode('UTF-8')
+      if fit_item == u'拳击':
+        x1 = 10
+        y1 = 0
+      elif fit_item == '滑板':
+        x1 = 9
+        y1 = 1
+
+      elif fit_item == '立卧撑':
+        x1 = 8
+        y1 = 2
+      elif fit_item == '杠铃' or fit_item == '平板支撑':
+        x1 = 7
+        y1 = 3
+      elif fit_item == '游泳':
+        x1 = 6
+        y1 = 4
+
+      elif fit_item == '足球' or fit_item == '篮球':
+        x1 = 5
+        y1 = 5
+      elif fit_item == '引体向上':
+        x1 = 4
+        y1 = 6
+      elif fit_item == '羽毛球':
+        x1 = 3
+        y1 = 7
+      elif fit_item == '自行车':
+        x1 = 2
+        y1 = 8
+      elif fit_item == '舞蹈':
+        x1 = 1
+        y1 = 9
+      elif fit_item == '健身操':
+        x1 = 0
+        y1 = 10
+      elif fit_item == '乒乓球':
+        x1 = -1
+        y1 = 9
+      elif fit_item == '瑜伽':
+        x1 = -2
+        y1 = 8
+
+      elif fit_item == '快走':
+        x1 = -3
+        y1 = 7
+      elif fit_item == '俯卧撑' or fit_item == '双杠曲臂撑':
+        x1 = -4
+        y1 = 6
+      elif fit_item == '慢跑':
+        x1 = -5
+        y1 = 5
+
+      elif fit_item == '仰卧举腿':
+        x1 = -6
+        y1 = 4
+      elif fit_item == '徒手深蹲':
+        x1 = -7
+        y1 = 3
+
+      elif fit_item == '哑铃':
+        x1 = -8
+        y1 = 2
+
+      elif fit_item == '慢跑':
+        x1 = -9
+        y1 = 1
+      elif fit_item == '太极拳':
+        x1 = -10
+        y1 = 0      
+      else:
+        x1 = 0
+        y1 = 10
+
+      print -3/1
+      print x1
+      print y1
+      if x1 == 0 and y1 == 10:
+        cos = 0;
+      else:
+        cos = (x0*x1 + y0*y1)/(math.sqrt(abs(x0*x0+y0*x0))*math.sqrt(abs(x1*x1+y1*x1)))
+      t1 = self.db.query(UsersCache).filter(UsersCache.uid == uid)
+      t1.update({UsersCache.cos:cos})            
+      self.db.commit()
 

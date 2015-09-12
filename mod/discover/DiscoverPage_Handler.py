@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
@@ -98,25 +99,26 @@ class DiscoverPageHandler(BaseHandler):
         ]
 		self.render('discoverpage.html',user=self.current_user,content=content)
 	def post(self):
-		try:
-			topics = self.db.query(TopicsCache).order_by(TopicsCache.topic_time.desc())[0:12]
-			if topics:
-				retjson = {'code':200,'content':'success to query state'}
-				content1 = []
-				for n in topics:
-					content = {}
-					content['uid'] = n.uid
-					content['topics_id'] = n.topics_id
-					content['topic_time'] = n.topic_time
-					content['topic_content'] = n.topic_content
-					content['topic_pic '] = n.topic_pic
-					content['topic_title '] = n.topic_title
-					content['topic_starers'] = n.topic_starers 
-					content1.append(content)
-				retjson['content'] = content1
-			else:
-				retjson = {'code':400,'content':'have no state'}
-		except Exception,e:
-			print e
-			retjson = {'code':400,'content':'failed to query state'}
-		self.write(retjson)
+		times = self.get_argument("times")#刷新次数［0,1，2，。。。。］
+        try:
+            topics = self.db.query(TopicsCache).order_by(TopicsCache.topic_time.desc())[12*times:12*times+11]
+            if topics:
+                retjson = {'code':200,'content':'success to query state'}
+                content1 = []
+                for n in topics:
+                    content = {}
+                    content['uid'] = n.uid
+                    content['topics_id'] = n.topics_id
+                    content['topic_time'] = n.topic_time
+                    content['topic_content'] = n.topic_content
+                    content['topic_pic '] = n.topic_pic
+                    content['pic_shape'] = n.pic_shape
+                    content['topic_title '] = n.topic_title
+                    content['topic_starers'] = n.topic_starers 
+                    content1.append(content)
+                retjson['content'] = content1
+            else:
+                retjson = {'code':400,'content':'have no state'}
+        except Exception,e:
+            print e
+            retjson = {'code':400,'content':'failed to query state'}
