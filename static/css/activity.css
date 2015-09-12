@@ -453,12 +453,9 @@ span#time.cd-date{
   margin-left: 0px;
 }
 }
-/*.time-right{
-  padding-left: 75px;
+.time-right{
+  margin-left: 10px;
 }
-.time-left{
-  padding-right: 65px;
-}*/
 .calendar-absolute1{
   position: absolute;
   left: 30px;
@@ -482,7 +479,7 @@ span#time.cd-date{
 .location-absolute{
   position: absolute;
   left: 30px;
-  font-size: 15px;
+  font-size: 20px;
   top: 10px;
 }
 .detail-absolute{
@@ -530,8 +527,8 @@ span#time.cd-date{
 #new-activity textarea{
   border: none;
 }
-.time-shadow{
-
+.form-control.time-shadow{
+  background-color: #fff;
 }
 #hide-new{
   cursor: pointer;
@@ -656,7 +653,9 @@ input:readonly{
 .alert-dismissable .close{
   right: 10px;
 }
-
+.timelong{
+  width: 80%;
+}
 
 
 

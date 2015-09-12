@@ -164,6 +164,8 @@ textarea:focus{
    padding-right: 20px;
    border: 1px solid #f7f7f7; 
    background-color: #f7f7f7;
+   padding-top: 2px;
+   padding-bottom: 2px;
 }
 .none-oxygenSelect:focus{
 	outline:none;
@@ -202,6 +204,8 @@ textarea:focus{
    padding-right: 20px;
    border: 1px solid #f7f7f7; 
    background-color: #f7f7f7;
+   padding-top: 2px;
+   padding-bottom: 2px;
 }
 .number1:focus{
 	outline:none;
@@ -274,12 +278,12 @@ textarea:focus{
 	color: #85da5c;
 	font-weight: 600;
 }
-.tab-pane a{
+.chuo a{
 	text-decoration: none;
 	color: #7e7ef6;
 	font-weight: 500;
 }
-.tab-pane a:hover{
+.chuo a:hover{
 	color: #6699FF;
 }
 .tab-pane p{
@@ -331,7 +335,7 @@ textarea:focus{
     border:#85da5c 1px solid;
     background-color: #fff;
 }
-.number2,.userInput2{
+.userInput2{
 	appearance:none;
    -moz-appearance:none;
    -webkit-appearance:none;
@@ -342,6 +346,20 @@ textarea:focus{
    background-color: #fff;
    padding-top: 2px;
    padding-bottom: 2px;
+   width: 20%;
+}
+.number2{
+	appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   border-radius: 0px;
+   padding-left: 5px;
+   padding-right: 20px;
+   border: 1px solid #fff; 
+   background-color: #fff;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   width: 10%;
 }
 .number2:focus,.userInput2:focus{
 	outline:none;
@@ -380,9 +398,9 @@ textarea:focus{
    padding-bottom: 2px;
    width: 98%;
 }
-.tabBelow input,select{
+/*.tabBelow input,select{
 	cursor: not-allowed;
-}
+}*/
 .tabBC1{
 	margin-bottom: 20px;
 }
@@ -409,6 +427,9 @@ textarea:focus{
     background-color: #fff;
 }
 .planMargin{
+	margin-top: 240px;
+}
+.stateMargin{
 	margin-top: 50px;
 }
 .nextMargin{
