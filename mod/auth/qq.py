@@ -1,6 +1,5 @@
-# 1 openid  （uid）name gender portrait 
-# 2 openid（uid）cookie
-# 3 ret［］200
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 from Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,CookieCache
 import json
