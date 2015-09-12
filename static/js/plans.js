@@ -80,6 +80,7 @@ $(document).ready(function() {
                 success: function(data, textStatus, xhr) {
                     //called when successful
                     if (data['code'] == 200) {
+                        $("#btnPaopao").attr('data-content','Success');
                         $("#btnPaopao").popover('show');
                     } else {
                         $("#btnPaopao").attr('data-content', data['content']);
