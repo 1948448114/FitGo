@@ -1,12 +1,20 @@
 {% if ret["code"]==200 %}
-    {% if len(ret['content'])<1 %}
-        <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close"  data-dismiss="alert" aria-hidden="true">
-                                      &times;
-            </button>
-            <div id="error_message_content">当前没有活动哦~快来加入吧~</div>
+    {% if len(ret['content']) < 1 %}
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture1">
+                <span id="icon" class="icon-bell-alt"></span>
+            </div>
+            <div class="cd-timeline-content block-left">
+                <h2>No Activity now!</h2>
+                <p>猛戳"发起活动"~Create one!</p>
+                <span class="cd-date" id="time"></span>
+            </div>
+            <div class="toright" >
+                
+            </div>
         </div>
     {% else %}
+
             {% for item in range(len(ret['content'])) %}
             <div class="cd-timeline-block">
             <div class="cd-timeline-img cd-picture{{item%2+1}}">

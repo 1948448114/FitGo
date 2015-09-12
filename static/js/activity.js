@@ -1,6 +1,6 @@
 function toNew(){
-    $('after-show').show('slow/400/fast');
-    $('body').slideUp(slow/400/fast);
+    $('#after-show').show('slow/400/fast');
+    $('html, body').animate({scrollTop:0}, 'slow');
 }
 function refrshJoin(act_id){
     jQuery.ajax({
@@ -40,21 +40,6 @@ function addJoin(){
                 });
 
     });
-    // $("#108").bind("click",function(){
-    //     alert('hello');
-    // });
-    // $(".join").each(function(index, el) {
-    //     alert('hello1')
-    //      $(this).on("click",function(){
-    //          alert("hello");
-    //      });
-
-    // });
-//     $("a[class='join']").click(function(event) {
-//         /* Act on the event */
-//         // alert("hello"+$(this).attr('id'));
-//         alert("hello");
-//     });
 };
 
 
@@ -135,7 +120,8 @@ $(document).ready(function() {
                             $('#alertPaopao').attr("data-content", "Success!");
                             $('#alertPaopao').popover('show');
                             refresh();
-                            setTimeout(function(){$("#after-show").hide('slow/400/fast');},1000);
+                            setTimeout(function(){$("#after-show").hide('slow/400/fast');},500);
+                             $("#wholeNew :input").not(":button, :submit, :reset, :hidden").val("").removeAttr("checked").remove("selected");
                         } else {
                             $('#alertPaopao').attr("data-content", data['content']);
                             $('#alertPaopao').popover('show');
@@ -160,22 +146,6 @@ $(document).ready(function() {
             $('#specialFliter').mouseover(function(event) {
                 $('body').unbind('click');
             });
-            // $('#wholeNew').mouseout(function(event)){
-            //     $('body').bind('click',function(event)){
-            //         $('#after-show').show();
-            //     }
-            // }
-            // $('#wholeNew').mouseover(function(event)){
-            //     $('body').unbind('click');
-            // }
-            // $('#after-show').mouseover(function(event)){
-            //     $('body').unbind('click');
-            // }
-        
-
-
-        // $('#alertPaopao').attr("data-content", "Login First!");
-       
     };
     init();
     refresh();
