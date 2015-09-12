@@ -44,7 +44,7 @@ from mod.invite.RespondInvite_Handler import RespondInviteHandler
 
 
 from mod.recom.RecomUser_Handler import RecomUserHandler
-from mod.recom.Count_Handler import CountHandler
+# from mod.recom.Count_Handler import CountHandler
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
