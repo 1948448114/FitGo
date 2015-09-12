@@ -17,6 +17,7 @@ from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
 from mod.auth.Base_Handler import BaseHandler
 from mod.auth.Password_Handler import PasswordHandler
+from mod.auth.qq import qqHandler
 
 from mod.user.UserInfo_Handler import UserinfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
@@ -107,6 +108,7 @@ class Application(tornado.web.Application):
             (r'/discover/create/state/pic',UploadPicHandler),
 
             (r'/recom/recomuser',RecomUserHandler),
+            (r'/auth/qq',qqHandler),
 
             ]
         settings = dict(
