@@ -23,3 +23,7 @@ class plan_itemMoudle(tornado.web.UIModule):
 class DiscoverStateMoudle(tornado.web.UIModule):
     def render(self,content):
         return self.render_string('discover_state.html',content=content)
+        
+class DiscoverFriendMoudle(tornado.web.UIModule):
+    def render(self,content):
+        return self.render_string('discover_friend.html',content=content)

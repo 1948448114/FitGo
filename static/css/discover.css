@@ -41,10 +41,6 @@
 .discover_state .icon-cancel:before{ content: '\2715'; }
 
 
-/*.discover_state .grid {
-    width: 460px;
-    margin: 30px auto;
-}*/
 
 body {
     font-size: 100%;
@@ -66,6 +62,16 @@ body {
   width: 280px;
     margin: 20px auto;
 }
+.friend_item,.friend_item img
+{
+width: 90px; 
+  height: 90px; 
+}
+.container_friend{
+   width: 330px;
+    margin: 20px auto;
+}
+
 }
 @media (min-width: 992px){
 .discover_state .uc-container {
@@ -80,6 +86,15 @@ body {
 }
 .grid {
   width: 720px;
+    margin: 20px auto;
+}
+.friend_item,.friend_item img
+{
+width: 120px; 
+  height: 120px; 
+}
+.container_friend{
+   width: 700px;
     margin: 20px auto;
 }
 }
@@ -98,6 +113,15 @@ body {
     width: 880px;
     margin: 20px auto;
 }
+.friend_item,.friend_item img
+{
+width: 150px; 
+  height: 150px; 
+}
+.container_friend{
+   width: 850px;
+    margin: 20px auto;
+}
  }
 .discover_state .uc-container {
     float: left;
@@ -111,7 +135,7 @@ body {
 .discover_state .uc-front {
     background: #7f81e7 ;
 }
-.latest_state img{
+.discover_state img{
   width: 100%;
 }
 .discover_state .icon-eye {
@@ -170,7 +194,7 @@ body {
 .discover_state .icon_link{
     width: 30px;
     height: 30px;
-    background: rgba(127,129,231,0.9);
+    background: rgba(255,51,153,0.9);
     color: rgba(255,255,255,1);
     position: absolute;
     right: 10px;
@@ -181,6 +205,22 @@ body {
     border-radius: 50%;
     text-indent: 1px;
     text-decoration: none;
+}
+.discover_state .icon-plus{
+  top: 45px;
+  background: rgba(127,129,231,0.9);
+}
+.icon-spinner {
+  position: absolute;
+  top:35px;
+  font-size: 60px;
+  font-weight: 900;
+  color: rgba(127,129,231,0.5);
+  right:30px;
+}
+a:hover{
+    text-decoration: none;
+    color:rgba(127,129,231,1);
 }
 
 .discover_state .icon-cancel {
@@ -206,7 +246,7 @@ body {
 {
   position: relative;
 }
-#create_state_detail,#create_state_title{
+.find_friend input,#create_state_detail,#create_state_title{
   border:none;
 }
 .icon {
@@ -217,7 +257,13 @@ body {
     z-index: 999;
     color: #333;
 }
-.create_state{
+#find_friend_btn{
+  font-size: 16px;
+      color: #fff;
+        background: #7f81e7;
+    border-color: #7f81e7;
+}
+.find_friend,.create_state{
   font-size: 20px;
     padding-left: 2px;
    margin: 10px auto;
@@ -242,8 +288,24 @@ body {
   color:#a2030e;
 font-weight:200; 
 }
+#add_photo{
+      font-size: 22px;
+}
 
-
+.filePrew { 
+display: block; 
+position: absolute; 
+top: 0; 
+left: 0; 
+width: 200px; 
+height: 39px; 
+font-size: 100px; /* 增大不同浏览器的可点击区域 */ 
+opacity: 0; /* 实现的关键点 */ 
+filter:alpha(opacity=0);/* 兼容IE */ 
+} 
+.wrong_message .showing{
+  bottom: auto;
+}
 #find_btn,#share_btn{
   font-family: "SourceSansPro-Regular";
   font-weight:200; 
@@ -254,7 +316,97 @@ font-weight:200;
 {
    font-size: 22px;
    padding: 5px 20px;
+   margin-top: 10px;
 }
-.create_state{
+.find_friend,.create_state{
+  display: none;
+}
+.create_state .have_icon .icon-camera{
+position: absolute;
+  left: auto;
+  right:0px;
+}
+#warp{
+  display: none;
+  margin:30px 30px;
+}
+
+.friend_item
+{
+  margin:10px; 
+  float: left; 
+  border: 6px solid #ccc;
+}
+
+.friend_cover
+{
+  background-color: rgb(235,137,112); 
+  text-align: center; 
+ }
+.container_friend
+{
+   border:solid 1px #ddd; 
+    background:powderblue; 
+   display: none;
+  }
+
+.friend_cover h2
+{
+  font-size:36px; 
+  text-align: center; 
+  color: #FFF; 
+  border-bottom: 1px dashed #fff;
+  margin:0px 20px; 
+  padding:10px;
+}
+.friend_cover p
+{
+  font-size:14px; 
+  text-align: center; 
+  color: #FFF; 
+  margin:0px 10px; 
+  padding: 10px; 
+  color: #438199;
+}
+.friend_cover button
+{
+  font-family: "arial"; 
+  font-size:16px; 
+  color: white;  
+  background-color: #7f81e7; 
+  border:none; 
+  border-radius: 10px; 
+  padding:4px 10px; 
+}
+
+.search_state_group{
+  margin-bottom: 20px;
+}
+.search_state a:hover{
+  text-decoration:blink;
+}
+.search_state{
+  font-size: 20px;
+  padding-left: 2px;
+  border: none;
+      color: #a2030e;
+}
+ #search_state_tag
+ {
+      border-top-left-radius:4px;
+    border-bottom-left-radius: 4px;
+
+ }
+#search_state_btn,#search_state_tag{
+  height: 36px;
+  margin: 0px;
+   font-size: 15px;
+}
+#search_state_btn:hover {
+    color: #fff;
+    background-color: #7f81e7;
+    border-color: #7f81e7;
+}
+#search_state_list{
   display: none;
 }
