@@ -76,8 +76,10 @@ class PlansHandler(BaseHandler):
      def post(self):
         retjson = {'code':200,'content':'ok'}
         planJson = self.get_argument('plan')
+        plan = json.loads(planJson)
+        plan['uid'] = self.current_user.uid
         try:
-            self.Mongodb().Plan.insert(json.loads(planJson))
+            self.Mongodb().Plan.insert(plan)
         except Exception,e:
             print e
             retjson['code'] = 400

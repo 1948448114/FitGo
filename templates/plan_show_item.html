@@ -1,8 +1,7 @@
-<div role="tabpanel" class="tab-pane fade" id="{{content['content'][0]['_id']}}{{content_id}}">
+<div role="tabpanel" class="tab-pane fade" id="{{content['_id']}}{{content_id}}">
     <div class="form-in-line line">
         <div class="yesShow_below">
-
-            {% if  content['content'][0].has_key(content_id) %}
+            {% if str(content_id) in content['content'].keys() %}
                 <div class="form-inline oneRow">
                     <div class="col-sm-10  line1">
                         <label>有氧运动</label>

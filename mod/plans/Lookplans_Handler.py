@@ -28,9 +28,11 @@ class LookplansHandler(BaseHandler):
                 retjson['content'] = 'Parameter Lack'
             else:
                 try:
-                    plan = self.Mongodb().Plan.find_one()
+                    plan = self.Mongodb().Plan.find({'uid':uid})
                     content = []
                     for i in plan:
+                        _id = i['_id']
+                        i['_id'] = str(_id)
                         content.append(i)
                     retjson['content'] = content
                 except:

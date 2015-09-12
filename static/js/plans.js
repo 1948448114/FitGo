@@ -104,7 +104,24 @@ $(document).ready(function(){
 
     init();
     newPlan();
+    getPlan()
 });
+
+
+function getPlan(){
+    jQuery.ajax({
+      url: '/plans/detail',
+      type: 'GET',
+      success: function(data, textStatus, xhr) {
+        $("#myTab_plan_show").html(data);
+        console.log('here')
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        //called when there is an error
+      }
+    });
+    
+}
 
 
 
