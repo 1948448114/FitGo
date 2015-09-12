@@ -87,6 +87,7 @@ $(document).ready(function(){
                     if (data['code'] == 200) {
                         $("#btnPaopao").attr('data-content','Success');
                         $("#btnPaopao").popover('show');
+                        getPlan();
                     } else {
                         $("#btnPaopao").attr('data-content', data['content']);
                         $("#btnPaopao").popover('show');
@@ -104,7 +105,7 @@ $(document).ready(function(){
 
     init();
     newPlan();
-    getPlan()
+    getPlan();
 });
 
 
@@ -114,14 +115,13 @@ function getPlan(){
       type: 'GET',
       success: function(data, textStatus, xhr) {
         $("#myTab_plan_show").html(data);
-        console.log('here')
       },
       error: function(xhr, textStatus, errorThrown) {
-        //called when there is an error
+        
       }
     });
     
-}
+};
 
 
 
