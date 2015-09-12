@@ -13,90 +13,78 @@ from ..databases.tables import PlansCache
 from ..databases.tables import UsersCache
 
 from ..auth.Base_Handler import BaseHandler
+import json
 
 
 class PlansHandler(BaseHandler):
-    # """docstring for WatchUser_handler"""
+     """
+     get函数：
+        展示plan主页面
+     post函数:
+        发表plan
 
-    # @property
-    # def db(self):
-    #     return self.application.db
+    plan的json格式:
+        {
+            '_id':'',
+            'content':{
+                'target':'',
+                'signature':'',
+                'start_time':'',
+                'end_time':'',
+                '1':{
+                    'selectValue':[],
+                    'inputValue':[]
+                },
+                '2':{
+                    'selectValue':[],
+                    'inputValue':[]
+                },
+                '3':{
+                    'selectValue':[],
+                    'inputValue':[]
+                },
+                '4':{
+                    'selectValue':[],
+                    'inputValue':[]
+                },
+                '5':{
+                    'selectValue':[],
+                    'inputValue':[]
+                },
+                '6':{
+                    'selectValue':[],
+                    'inputValue':[]
+                },
+                '7':{
+                    'selectValue':[],
+                    'inputValue':[]
+                }
+            },
+            'star':{
+                {uid}:{name}
+                ...
+            }
+        }
 
+    其中，selectValue共11个,其中0,1,2是有氧运动三个选择框,3,4,5,6是无氧运动,7,8,9,10是拉伸运动
+          inputValue共9个，分别对应有氧，无氧以及拉伸运动的用户自定义输入
+     """
 
-    # def on_finish(self):
-    #     self.db.close()
-
-    # def get(self,user_id):
-    #     self.render("plans.html",user = self.current_user)
-    def get(self):
+     def get(self):
         self.render("plans.html", user=self.current_user)
 
-    # """docstring for WatchUser_handler"""
-
-    # @property
-    # def db(self):
-    #     return self.application.db
-
-
-    # def on_finish(self):
-    #     self.db.close()
-
-    # def get(self,user_id):
-    #     self.render("plans.html",user = self.current_user)
-
-
-
-
-    def post(self,user_id):
-        # 获取id
-        # uid = self.get_argument('id')
-
+     def post(self):
         retjson = {'code':200,'content':'ok'}
-
-        uid = user_id
-        plan_id = self.get_argument('plan_id')
-        create_time = self.get_argument('create_time') 
-        start_time = self.get_argument('start_time') 
-        end_time = self.get_argument('end_time') 
-        fit_location = self.get_argument('fit_location') 
-
-        fit_item = self.get_argument('fit_item') 
-        remark = self.get_argument('remark') 
-        grader = self.get_argument('grader') 
-
-      
-        # self.write(uid+plan_id+create_time+fit_item+grader)
-
-        if not uid or not create_time or not start_time or not end_time or not fit_location or not fit_item or not remark or not grader:
+        planJson = self.get_argument('plan')
+        plan = json.loads(planJson)
+        plan['uid'] = self.current_user.uid
+        try:
+            self.Mongodb().Plan.insert(plan)
+        except Exception,e:
+            print e
             retjson['code'] = 400
-            retjson['content'] = u'Arguments is empty'
-
-        else:
-            try:
-
-                status_plans = PlansCache(uid = uid,plan_id = plan_id,create_time = create_time,start_time = start_time,end_time = end_time,fit_location = fit_location,fit_item = fit_item,remark = remark,grader = grader)
-                self.db.add(status_plans)
-                   #              status_users = UsersCache(student_card = arg_student_card,student_id = arg_student_id,uid = uid_uuid,info_email = arg_info_email)
-            	# status_plans = PlansCache(uid = uid,plan_id = plan_id,create_time = create_time,start_time = start_time,end_time = end_time,fit_location = fit_location,fit_item = fit_item,remark = remark,grader = grader)
-            	# self.db.add(status_plans)
-            	   #              status_users = UsersCache(student_card = arg_student_card,student_id = arg_student_id,uid = uid_uuid,info_email = arg_info_email)
-
-                # self.db.add(status_users)
-
-                try:
-                    self.db.commit()
-                    
-                except Exception, e:
-                    self.db.rollback()
-                    retjson['code'] = 401
-                    retjson['content'] = u'Database store is wrong!'
-
-
-            except Exception, e:
-                retjson['code'] = 402
-                retjson['content'] = "Sql store is wrong!Try again!"
-
-        #format json
+            retjson['content'] = 'New Plan Error!'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
+
 
