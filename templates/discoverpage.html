@@ -2,9 +2,14 @@
 {% block header %}
     <link rel="stylesheet" href="{{static_url('css/discover.css') }}">
     <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
+
     <script src="{{static_url('js/discover-state.js') }}"></script>
     <script src="{{static_url('js/discover-friend.js') }}"></script>
      <script src="{{static_url('js/discover.js') }}"></script>
+
+    
+<script src="{{static_url('js/discoverController.js') }}"></script>
+
 
 {% end %}
 {% block body %}
@@ -16,11 +21,64 @@
                     </a>
                 </div>
                 <div id="discover_state_all" class="grid clearfix">
-                    {% for i in content %}
-                        {% module discover_state(i) %}
-                    {% end %}
                     
                     
+
+
+
+                <div class="uc-container ">
+    <div class="uc-initial-content">
+        <img src="/static/images/discover/3.jpg" alt="image" />
+        <span class="icon-eye"></span>
+    </div>
+    <div class="uc-final-content">
+        <img src="/static/images/discover/3.jpg" alt="image-discover"/>
+        <div class="state_title">
+            <h4>lalal</h4> by
+
+            <a href="/plans" >7addcccc-d76e-5ccb-a3f4-a8b1c9af1889</a>
+            <a class="icon_link icon-heart-empty" id="like_1"></a>
+            <a class="icon_link icon-plus">+</a>
+            <p>lala</p>
+        </div>
+        <span class="icon-cancel"></span>
+    </div>
+</div>
+<div class="uc-container uc-container_square">
+    <div class="uc-initial-content">
+        <img src="/static/images/discover/4.jpg" alt="image" />
+        <span class="icon-eye"></span>
+    </div>
+    <div class="uc-final-content">
+        <img src="/static/images/discover/4.jpg" alt="image-discover"/>
+        <div class="state_title">
+            <h4>lalal</h4> by
+
+            <a href="/plans" >7addcccc-d76e-5ccb-a3f4-a8b1c9af1889</a>
+            <a class="icon_link icon-heart-empty" id="like_11"></a>
+            <a class="icon_link icon-plus">+</a>
+            <p>lala</p>
+        </div>
+        <span class="icon-cancel"></span>
+    </div>
+</div>
+<div class="uc-container ">
+    <div class="uc-initial-content">
+        <img src="/static/images/discover/7.jpg" alt="image" />
+        <span class="icon-eye"></span>
+    </div>
+    <div class="uc-final-content">
+        <img src="/static/images/discover/7.jpg" alt="image-discover"/>
+        <div class="state_title">
+            <h4>lalal</h4> by
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -153,9 +211,7 @@
        <div class="discover_state" id="friend_state">
             <div class="row">
                 <div id="discover_state_friend" class="grid clearfix">
-                    {% for i in content %}
-                        {% module discover_state(i) %}
-                    {% end %}
+                   
                 </div>
             </div>
         </div>
@@ -164,9 +220,7 @@
        <div class="discover_state" id="search_state_list">
             <div class="row">
                 <div id="discover_state_list" class="grid clearfix">
-                    {% for i in content %}
-                        {% module discover_state(i) %}
-                    {% end %}
+                    
                 </div>
             </div>
         </div>
@@ -207,5 +261,7 @@
                 </span>
             </div> -->
         </div>
-    </div>    
+    </div>  
+
+
     {%end%}

@@ -13,8 +13,17 @@
             <div class="content">
                 <b></b>
                 <h3>{{item['user_tag']}}</h3>
-				<p>{{item['user_tag']}}</p>
+                <h3>{{item['fit_item']}}</h3>
             </div>
         </li>
 	{% end %}	
+{% else %}
+	<li class="wrong_message" >
+           
+            <div class="content">
+                <b></b>
+                <h3>Wrong information.</h3>
+                <p>cannot find</p>
+            </div>
+        </li>
 {% end %}

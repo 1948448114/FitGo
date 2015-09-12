@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, String, Integer, VARCHAR,ForeignKey
+from sqlalchemy import Column, String, Integer, VARCHAR,ForeignKey, Float 
 from sqlalchemy.orm import relationship,backref
 from db import engine,Base
 
@@ -20,6 +20,7 @@ class UsersCache(Base):
 	info_email = Column(VARCHAR(64))
 	info_phone = Column(VARCHAR(64))
 	portrait = Column(VARCHAR(64))
+	cos = Column(Float)
 class CookieCache(Base):
 	__tablename__ = "Cookie"
 
@@ -93,5 +94,6 @@ class TopicsCache(Base):
 	topic_time = Column(VARCHAR(64))
 	topic_content = Column(VARCHAR(64))
 	topic_pic = Column(VARCHAR(64))
+	pic_shape = Column(VARCHAR(64))
 	topic_title = Column(VARCHAR(64))
 	topic_starers = Column(Integer)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="uc-container {{content['square']}}">
     <div class="uc-initial-content">
         <img src="/static/images/discover/{{content['state_img']}}.jpg"  alt="image" />
@@ -11,7 +12,28 @@
             <a class="icon_link icon-heart-empty"></a>
             <a class="icon_link  icon-plus">+</a>
             <p>{{content['state_detail']}}</p>
+=======
+{% if content['code']==200 %}
+    {% for item in content['content'] %}
+        <div class="uc-container {{item['pic_shape']}}">
+            <div class="uc-initial-content">
+                <img src="{{item['topic_pic']}}" alt="image" />
+                <span class="icon-eye"></span>
+            </div>
+            <div class="uc-final-content">
+                <img src="{{item['topic_pic']}}"  alt="image-discover"/>
+                <div class="state_title">
+                    <h4>{{item['topic_title']}}</h4> by
+                    <a href="/plans" >{{item['uid']}}</a>
+                    <a class="icon_link icon-heart-empty" id="like_{{item['topics_id']}}"></a>
+                    <a class="icon_link  icon-plus">+</a>
+                    <p>{{item['topic_content']}}</p>
+                </div>
+                <span class="icon-cancel"></span>
+            </div>
+>>>>>>> origin/Front-end
         </div>
-        <span class="icon-cancel"></span>
-    </div>
-</div>
+    {% end %}
+{% else %}
+
+{% end %}
