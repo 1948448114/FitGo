@@ -1,3 +1,7 @@
+function toNew(){
+    $('after-show').show('slow/400/fast');
+    $('body').slideUp(slow/400/fast);
+}
 function refrshJoin(act_id){
     jQuery.ajax({
       url: '/activity/add',

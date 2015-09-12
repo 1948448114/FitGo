@@ -27,6 +27,7 @@ from mod.user.UploadPortrait_Handler import UploadPortraitHandler
 
 from mod.plans.Plans_Handler import PlansHandler
 from mod.plans.CompleteInfoHandler import CompleteInfoHandler
+from mod.plans.Lookplans_Handler import LookplansHandler
 
 
 from mod.index.index import IndexHandler
@@ -92,7 +93,8 @@ class Application(tornado.web.Application):
             (r'/discover/create/state/pic',UploadPicHandler),
             
             (r'/plans',PlansHandler),
-            (r'/plans/Info',CompleteInfoHandler)
+            (r'/plans/Info',CompleteInfoHandler),
+            (r'/plans/detail',LookplansHandler)
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -107,8 +109,8 @@ class Application(tornado.web.Application):
                         'act_join_people':act_join_peopleMoudle,
                         'plan_item':plan_itemMoudle,
                         'discover_state':DiscoverStateMoudle,
-                        'plan_show_item':Plan_showMoudle
-                        # 'testlala':TestLalaMoudle
+                        'plan_show_item':Plan_show_itemMoudle,
+                        'plan_show':Plan_showMoudle
                         },
 
             # xsrf_cookies=True,

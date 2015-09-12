@@ -19,16 +19,16 @@ class LookplansHandler(BaseHandler):
     get函数：
         根据用户id，返回该用户所有plan
     """
-    def get():
+    def get(self):
         retjson = {'code':200,'content':'ok'}
         try:
-            uid = self.get_argument('uid')
+            uid = self.current_user.uid
             if not uid:
                 retjson['code'] = 400
                 retjson['content'] = 'Parameter Lack'
             else:
                 try:
-                    plan = self.Mongodb().Plan.find({'uid':uid})
+                    plan = self.Mongodb().Plan.find_one()
                     content = []
                     for i in plan:
                         content.append(i)
@@ -40,7 +40,8 @@ class LookplansHandler(BaseHandler):
             retjson['code'] = 400
             retjson['content'] = 'Parameter Lack'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-        self.write(ret)
+        print retjson
+        self.render('plan_show.html',content=retjson)
 
 
 
