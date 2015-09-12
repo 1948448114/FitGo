@@ -25,7 +25,7 @@ function getAllState(){
       data: {
         'times': times},
       success: function(data, textStatus, xhr) {
-        console.log("two");
+        console.log(data);
         $("#discover_state_all").html(data);
 
         other();

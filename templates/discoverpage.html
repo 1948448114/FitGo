@@ -2,15 +2,10 @@
 {% block header %}
     <link rel="stylesheet" href="{{static_url('css/discover.css') }}">
     <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
-
     <script src="{{static_url('js/discover-state.js') }}"></script>
     <script src="{{static_url('js/discover-friend.js') }}"></script>
-     <script src="{{static_url('js/discover.js') }}"></script>
-
     
-<script src="{{static_url('js/discoverController.js') }}"></script>
-
-
+    <script src="{{static_url('js/discoverController.js') }}"></script>
 {% end %}
 {% block body %}
     <div class="container">
@@ -21,64 +16,7 @@
                     </a>
                 </div>
                 <div id="discover_state_all" class="grid clearfix">
-                    
-                    
-
-
-
-                <div class="uc-container ">
-    <div class="uc-initial-content">
-        <img src="/static/images/discover/3.jpg" alt="image" />
-        <span class="icon-eye"></span>
-    </div>
-    <div class="uc-final-content">
-        <img src="/static/images/discover/3.jpg" alt="image-discover"/>
-        <div class="state_title">
-            <h4>lalal</h4> by
-
-            <a href="/plans" >7addcccc-d76e-5ccb-a3f4-a8b1c9af1889</a>
-            <a class="icon_link icon-heart-empty" id="like_1"></a>
-            <a class="icon_link icon-plus">+</a>
-            <p>lala</p>
-        </div>
-        <span class="icon-cancel"></span>
-    </div>
-</div>
-<div class="uc-container uc-container_square">
-    <div class="uc-initial-content">
-        <img src="/static/images/discover/4.jpg" alt="image" />
-        <span class="icon-eye"></span>
-    </div>
-    <div class="uc-final-content">
-        <img src="/static/images/discover/4.jpg" alt="image-discover"/>
-        <div class="state_title">
-            <h4>lalal</h4> by
-
-            <a href="/plans" >7addcccc-d76e-5ccb-a3f4-a8b1c9af1889</a>
-            <a class="icon_link icon-heart-empty" id="like_11"></a>
-            <a class="icon_link icon-plus">+</a>
-            <p>lala</p>
-        </div>
-        <span class="icon-cancel"></span>
-    </div>
-</div>
-<div class="uc-container ">
-    <div class="uc-initial-content">
-        <img src="/static/images/discover/7.jpg" alt="image" />
-        <span class="icon-eye"></span>
-    </div>
-    <div class="uc-final-content">
-        <img src="/static/images/discover/7.jpg" alt="image-discover"/>
-        <div class="state_title">
-            <h4>lalal</h4> by
-
-
-
-
-
-
-
-
+                    <div>hello</div>
                 </div>
             </div>
         </div>
@@ -93,17 +31,16 @@
         </div>
     </div>
     <div class="container search_state">
-    <div class='row'>
+        <div class='row'>
             <div class="col-sm-6 col-sm-offset-3">
-                        <div class="input-group have_icon search_state_group">
-                            <span class="icon icon-search"></span>
-                            <input type="text" class="form-control" aria-label="Search" id="search_state_tag" placeholder="Search State...">
-                            <span class="input-group-addon btn" id="search_state_btn" ><a href="#search_state_list">Go! </a></span>
-                            </div>
-                        </div>
-                             </div>
-                        </div>
-
+                <div class="input-group have_icon search_state_group">
+                    <span class="icon icon-search"></span>
+                    <input type="text" class="form-control" aria-label="Search" id="search_state_tag" placeholder="Search State...">
+                    <span class="input-group-addon btn" id="search_state_btn" ><a href="#search_state_list">Go! </a></span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row find_friend">
             <div class="col-sm-3 col-sm-offset-1">
@@ -208,16 +145,16 @@
     
     
     <div class="container">
-       <div class="discover_state" id="friend_state">
+        <div class="discover_state" id="friend_state">
             <div class="row">
                 <div id="discover_state_friend" class="grid clearfix">
-                   
+                    
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-       <div class="discover_state" id="search_state_list">
+        <div class="discover_state" id="search_state_list">
             <div class="row">
                 <div id="discover_state_list" class="grid clearfix">
                     
@@ -227,19 +164,18 @@
     </div>
     <div class="container">
         <div class="container_friend">
-
             <div id="friend_item1" class="friend_item">
                 <img id="friend_img1" src="/static/images/discover/1.jpg">
                 <span id="cover1" class="friend_cover">
-                    <a hre="/plans"><h2>拉拉</h2>  </a>  
+                    <a hre="/plans"><h2>拉拉</h2>  </a>
                     <p>天线哒哒B</p>
                     <button id="add_friend">Add Friend</button>
                 </span>
             </div>
-          <!--   <div id="friend_item2" class="friend_item">
+            <!--   <div id="friend_item2" class="friend_item">
                 <img id="friend_img2" src="/static/images/discover/2.jpg">
                 <span id="cover2" class="friend_cover">
-                    <h2>迪西</h2>    
+                    <h2>迪西</h2>
                     <p>天线哒哒B</p>
                     <button id="add_friend">Add Friend</button>
                 </span>
@@ -247,7 +183,7 @@
             <div id="friend_item3" class="friend_item">
                 <img id="friend_img3" src="/static/images/discover/3.jpg">
                 <span id="cover3" class="friend_cover">
-                    <h2>阿波</h2>    
+                    <h2>阿波</h2>
                     <p>天线哒哒B</p>
                     <button id="add_friend">Add Friend</button>
                 </span>
@@ -255,13 +191,11 @@
             <div id="friend_item4" class="friend_item">
                 <img id="friend_img4" src="/static/images/discover/4.jpg">
                 <span id="cover4" class="friend_cover">
-                    <h2>丁丁</h2>    
+                    <h2>丁丁</h2>
                     <p>天线哒哒B</p>
                     <button id="add_friend">Add Friend</button>
                 </span>
             </div> -->
         </div>
-    </div>  
-
-
+    </div>
     {%end%}
