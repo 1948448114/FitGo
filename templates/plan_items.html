@@ -2,11 +2,11 @@
                     <div class="form-in-line line">
                                 <div class="col-sm-10 allMargin radio{{content}}" id="orest">
                                     <label>今天要休息吗?</label>
-                                    <input type="radio" name="ifrest" id="yes" value="agree"> 要_(・ω・｣ ∠)_
-                                    <input type="radio" name="ifrest" id="no" value="disagree"> 不要(づ￣ 3￣)づ
+                                    <input type="radio" name="ifrest{{content}}" class="selectOption" id="yes" value="agree"> 要_(・ω・｣ ∠)_
+                                    <input type="radio" name="ifrest{{content}}" class="selectOption" id="no" value="disagree"> 不要(づ￣ 3￣)づ
                                     <button  value="{{content2}}" class="restbtn btn restButton">确定</button>
                                 </div>
-                            <div class="yesShow">
+                            <div class="yesShow{{content}}">
                                 <div class="form-inline">
                                     <div class="col-sm-10  line">
                                         <label>有氧运动</label>

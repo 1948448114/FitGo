@@ -31,40 +31,33 @@ class PlansHandler(BaseHandler):
                 'signature':'',
                 'start_time':'',
                 'end_time':'',
-                'Mon':{
-                    'oxygen':'',
-                    'noxygen':'',
-                    'lashen':''
+                '1':{
+                    'selectValue':[],
+                    'inputValue':[]
                 },
-                'Tue':{
-                    'oxygen':'',
-                    'noxygen':'',
-                    'lashen':''
+                '2':{
+                    'selectValue':[],
+                    'inputValue':[]
                 },
-                'Wed':{
-                    'oxygen':'',
-                    'noxygen':'',
-                    'lashen':''
+                '3':{
+                    'selectValue':[],
+                    'inputValue':[]
                 },
-                'Thu':{
-                    'oxygen':'',
-                    'noxygen':'',
-                    'lashen':''
+                '4':{
+                    'selectValue':[],
+                    'inputValue':[]
                 },
-                'Fri':{
-                    'oxygen':'',
-                    'noxygen':'',
-                    'lashen':''
+                '5':{
+                    'selectValue':[],
+                    'inputValue':[]
                 },
-                'Sat':{
-                    'oxygen':'',
-                    'noxygen':'',
-                    'lashen':''
+                '6':{
+                    'selectValue':[],
+                    'inputValue':[]
                 },
-                'Sun':{
-                    'oxygen':'',
-                    'noxygen':'',
-                    'lashen':''
+                '7':{
+                    'selectValue':[],
+                    'inputValue':[]
                 }
             },
             'star':{
@@ -72,6 +65,9 @@ class PlansHandler(BaseHandler):
                 ...
             }
         }
+
+    其中，selectValue共11个,其中0,1,2是有氧运动三个选择框,3,4,5,6是无氧运动,7,8,9,10是拉伸运动
+          inputValue共三个，分别对应有氧，无氧以及拉伸运动的用户自定义输入
      """
 
      def get(self):
