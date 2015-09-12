@@ -3,7 +3,7 @@
 import tornado.web
 import tornado.gen
 from Base_Handler import BaseHandler
-from ..databases.tables import UsersCache,CookieCache,PlansCache
+from ..databases.tables import UsersCache,CookieCache,PlansCache,ActCache
 import json
 from time import time
 import uuid
@@ -172,6 +172,9 @@ class LoginHandler(BaseHandler):
       else:
         cos = (x0*x1 + y0*y1)/(math.sqrt(abs(x0*x0+y0*x0))*math.sqrt(abs(x1*x1+y1*x1)))
       t1 = self.db.query(UsersCache).filter(UsersCache.uid == uid)
-      t1.update({UsersCache.cos:cos})            
+      t1.update({UsersCache.cos:cos})
+
+      t2 = self.db.query(ActCache).filter(ActCache.uid == uid)
+      t2.update({ActCache.cos:cos})                   
       self.db.commit()
 
