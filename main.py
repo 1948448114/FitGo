@@ -28,7 +28,7 @@ from mod.user.UploadPortrait_Handler import UploadPortraitHandler
 from mod.plans.Plans_Handler import PlansHandler
 from mod.plans.CompleteInfoHandler import CompleteInfoHandler
 from mod.plans.Lookplans_Handler import LookplansHandler
-
+from mod.plans.ChangePorHandler import ChangePorHandler
 
 from mod.index.index import IndexHandler
 
@@ -105,6 +105,7 @@ class Application(tornado.web.Application):
             (r'/plans',PlansHandler),
             (r'/plans/Info',CompleteInfoHandler),
             (r'/plans/detail',LookplansHandler),
+            (r'/plans/Info/changePor',ChangePorHandler),
             (r'/recom/recomuser',RecomUserHandler),
 
             ]
