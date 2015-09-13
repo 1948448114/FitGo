@@ -4,7 +4,7 @@
 import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
-from ..databases.tables import UsersCache,User_tagCache
+from ..databases.tables import UsersCache,User_tagCache,TopicsCa
 
 #/discover/search/friends
 class SearchFriendHandler(BaseHandler):
@@ -26,11 +26,11 @@ class SearchFriendHandler(BaseHandler):
 			if a_gender:
 				string = string + 'gender=\'%s\'' % a_gender + ' and '
 			if a_user_enjoyment:
-				stirng = string + 'user_enjoyment like \'%%%s%%\'' % a_user_enjoyment + ' and '
+				stirng = string + '(uid) in (select uid from User_tag.user_enjoyment like \'%%%s%%\')' % a_user_enjoyment + ' and '
 
 
 			print "select * from Users where %s;" % string
-
+			
 			if string.strip()=='':
 				retjson = {'code':400,'content':'all parameters are null'}
 			else:
