@@ -1,10 +1,8 @@
 {% if ret["code"] == 200 %}
 	{% for item in ret["content"] %}
-		<li>
+		<li class="active">
             <div class="check">
-                <b class="spring"></b>
                 <s></s>
-                <b class="line"></b>
             </div>
             <div class="thumb">
                 <img src="/static/images/invite/top2.jpg" />
@@ -12,8 +10,10 @@
             </div>
             <div class="content">
                 <b></b>
-                <h3>{{item['user_tag']}}</h3>
                 <h3>{{item['fit_item']}}</h3>
+                <h4>{{item['user_tag']}}</h4>
+                <p>remark<p>
+                    <button class="btn btn-danger confirm_invite">约！</button>
             </div>
         </li>
 	{% end %}	

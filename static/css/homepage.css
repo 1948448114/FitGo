@@ -12,22 +12,7 @@ html{
 	font-size: 14px;
 	font-family: "microsoft yahei";
 }
-@media screen and (max-width: 1200px) {
-html{ font-size: 14px; }
-#logo{
-width:80%;
-}
-#toTopbtn{
-width: 60%;
-}
-#different a{
-	padding-top: 5px;
-	padding-bottom: 10px;
-}
-}
-
-
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) and  (min-width: 991px) {
 html{ font-size: 14px; }
 #logo{
 width:80%;
@@ -42,9 +27,31 @@ width: 60%;
 #words{
 padding-left: 0px;
 }
-#words {
-	padding-top: 50px;
-	padding-bottom: 50px;
+.showup {
+	padding-top: 150px;
+	padding-bottom:150px;
+}
+}
+
+
+@media screen and (max-width: 992px) and  (min-width: 767px){
+html{ font-size: 14px; }
+#logo{
+width:80%;
+}
+#toTopbtn{
+width: 60%;
+}
+#different a{
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#words{
+padding-left: 0px;
+}
+.showup {
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
 
