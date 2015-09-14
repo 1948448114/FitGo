@@ -98,11 +98,14 @@ $(document).ready(function() {
                 $('#alertPaopao').attr("data-content", "Login First!");
                 $('#alertPaopao').popover('show');
                 // $('#alertPaopao').popover(options);
-            } else if ($("#newActivity").val().length < 1 || $("#Start-Time").val().length < 1 || $("#End-Time").val().length < 1 || $("#options").val().length < 1 || $("#activity_detail").val().length < 1) {
+            } else if ($("#newActivity").val().length < 1 || $("#options").val().length < 1 || $("#activity_detail").val().length < 1) {
                 $('#alertPaopao').attr("data-content", "Invalid input");
                 $('#alertPaopao').popover('show');
             } else {
-
+                var all_time = $("#reservation-start").val().split(' ')
+                var start_time = all_time[0];
+                var end_time=all_time[2];
+                console.log(start_time+end_time);
                 $.ajax({
                     url: '/activity/create',
                     type: 'POST',
@@ -110,8 +113,8 @@ $(document).ready(function() {
                     data: {
                         'uid': $("#uid").attr('value'),
                         'act_title': $("#newActivity").val(),
-                        'start_time': $("#Start-Time").val(),
-                        'end_time': $("#End-Time").val(),
+                        'start_time': start_time,
+                        'end_time': end_time,
                         'location': $("#options").val(),
                         'details': $("#activity_detail").val()
                     },
