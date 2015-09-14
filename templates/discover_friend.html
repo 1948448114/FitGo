@@ -1,0 +1,14 @@
+{% if content['code']==200 %}
+    {% for item in content['content'] %}
+        <div id="{{item['uid']}}" class="friend_item">
+            <img  src="{{item['portrait']}}">
+            <span class="friend_cover">
+                <h2>{{item['name']}}</h2>
+                <p>{{item['signature']}}</p>
+                <button id="add_friend">Add Friend</button>
+            </span>
+        </div>
+    {% end %}
+{% else %}
+    <p>{{content['content']}}</p>
+{% end %}

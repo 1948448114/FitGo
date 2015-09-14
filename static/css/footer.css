@@ -1,12 +1,8 @@
-@font-face{
-	font-family: "proxima-nova";
-	src:url("/static/fonts/ProximaNova-Light.otf");}
-#myfooter{
-	/*margin-top: 50px;*/
-}
 .contact-padding{
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	padding-right: .5rem;
+	padding-left: .5rem;
 }
 .contact-info{
 	text-align: center;
@@ -16,13 +12,13 @@
 
 .to-top div{
 	background-color: #343a63;
-	width: 80px;
-	height: 80px;
+	width: 5rem;
+	height: 5rem;
 	border-radius: 50%;
 	text-align: center;
 	margin: auto;
 	position: relative;
-	top:-30px;
+	top:-1.875rem;
 	left: 0;
 	right: 0;
 	cursor: pointer;
@@ -36,12 +32,12 @@
 }
 .gray-font{
 	color: #7e8590;
-	font-size: 18px;
+	font-size: 1rem;
 }
 footer{
 	background-color: #343a63;
 	padding-top: 0;
-	padding-bottom: 50px;
+	padding-bottom: 3rem;
 }
 #myfooter .align-center {
 	text-align: center;
@@ -53,9 +49,16 @@ footer{
 #myfooter h1{
 	text-align: center;
 	color: #ffffff;
-	padding-bottom: 30px;
+	margin-top: 0px;
+	font-size: 2rem;
 }
 #myfooter a{
 	color: #7f81e7;
 }
-.con
+.larger-icon{
+	font-size:1.25rem;
+}
+.forh2{
+	text-align: center;
+	font-size:2rem;
+}

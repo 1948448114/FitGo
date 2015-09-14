@@ -12,6 +12,8 @@ from pymongo import MongoClient
 from sqlalchemy.orm import scoped_session, sessionmaker
 from mod.databases.db import engine
 from UI_moudles.UI_moudle import *
+
+
 from mod.auth.Login_Handler import LoginHandler
 from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
@@ -23,11 +25,11 @@ from mod.user.Usertopic_Handler import UsertopicHandler
 from mod.user.UserPage_Handler import UserPageHandler
 from mod.user.UploadPortrait_Handler import UploadPortraitHandler
 
-from mod.plans.Lookplans_Handler import LookplansHandler
-from mod.plans.Star_Handler import StarHandler
 from mod.plans.Plans_Handler import PlansHandler
 from mod.plans.CompleteInfoHandler import CompleteInfoHandler
-
+from mod.plans.Lookplans_Handler import LookplansHandler
+from mod.plans.ChangePorHandler import ChangePorHandler
+from mod.plans.ForOthersHandler import ForOthersHandler
 
 from mod.index.index import IndexHandler
 
@@ -44,7 +46,8 @@ from mod.invite.RespondInvite_Handler import RespondInviteHandler
 
 
 from mod.recom.RecomUser_Handler import RecomUserHandler
-# from mod.recom.Count_Handler import CountHandler
+
+from mod.recom.RecomActivity_Handler import RecomActivityHandler
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
@@ -72,42 +75,42 @@ class Application(tornado.web.Application):
             (r'/body',BodyHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
-            (r'/plans/lookplans/(\d+)',LookplansHandler),
-            (r'/plans/plans/(\d+)',PlansHandler),
-            (r'/plans/star/(\d+)',StarHandler),
-            (r'/user/userinfo/([\S]+)',UserinfoHandler),
-            (r'/user/usertopic/(\d+)',UsertopicHandler),
-            (r'/user/userpage/([\S]+)',UserPageHandler),
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
-            (r'/test',TestHandler),
+            
+            (r'/user/usertopic/(\d+)',UsertopicHandler),
+            (r'/user/userpage/([\S]+)',UserPageHandler),
+            (r'/user/userinfo/([\S]+)',UserinfoHandler),
+            (r'/user/userinfo/portrait',UploadPortraitHandler),
+
             (r'/invite/user_page',InvitePageHandler),
             (r'/invite',InviteHandler),
             (r'/invite/search',SearchInviteHandler),
             (r'/invite/request',RequestInviteHandler),
             (r'/invite/respond',RespondInviteHandler),
+
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),
             (r'/activity/search',SearchActivityHandler),
             (r'/activity/add',AddActivityHandler),
+
             (r'/discover/discover_page',DiscoverPageHandler),
-            # add friend
             (r'/discover/add/(\d+)',AddFriendHandler),
-            # delete friend
             (r'/discover/delete/(\d+)',DeleteFriendHandler),
-            # look all friends
             (r'/discover/allfriends',AllFriendsHandler),
             (r'/discover/search/friends',SearchFriendHandler),
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
+            (r'/discover/create/state/pic',UploadPicHandler),
+            
             (r'/plans',PlansHandler),
             (r'/plans/Info',CompleteInfoHandler),
-            (r'/user/userinfo/portrait',UploadPortraitHandler),
-            (r'/discover/create/state/pic',UploadPicHandler),
-
+            (r'/plans/detail',LookplansHandler),
+            (r'/plans/Info/changePor',ChangePorHandler),
+            (r'/plans/forothers',ForOthersHandler),
             (r'/recom/recomuser',RecomUserHandler),
-
+            (r'/recom/recomactivity',RecomActivityHandler),
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
@@ -121,7 +124,10 @@ class Application(tornado.web.Application):
                         'footer':FooterMoudle,
                         'act_join_people':act_join_peopleMoudle,
                         'plan_item':plan_itemMoudle,
-                        'discover_state':DiscoverStateMoudle
+                        'discover_state':DiscoverStateMoudle,
+                        'discover_friend':DiscoverFriendMoudle,
+                        'plan_show_item':Plan_show_itemMoudle,
+                        'plan_show':Plan_showMoudle
                         },
 
             # xsrf_cookies=True,

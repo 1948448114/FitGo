@@ -14,8 +14,7 @@ class InviteHandler(BaseHandler):
 			arg_uid = self.current_user.uid
 			arg_start_time = self.get_argument("start_time")
 			arg_duration = self.get_argument("duration")
-			arg_create_time = time.time()
-			# arg_create_time = self.get_argument("create_time")#arg_create_time = time.time()
+			arg_create_time = int(time.time())
 			arg_fit_location = self.get_argument("fit_location")
 			arg_fit_item = self.get_argument("fit_item")
 			arg_user_tag = self.get_argument("user_tag")
