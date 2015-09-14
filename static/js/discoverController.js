@@ -11,15 +11,8 @@ $(document).ready(function() {
 
     getAllState();
     newState();
-    // $("#submit_state_btn").click(function(event) {
-    //     /* Act on the event */
-    //     $(".create_state").hide();
-    //     $(".find_friend").hide();
-    //     $("#friend_state").show();
-    //     $(".container_friend").hide();
-    //     $("#search_state_list").hide();
-    //     window.location.reload();
-    // });
+    searchState();
+    serachFriend();
     
 });
 
@@ -100,6 +93,73 @@ function statePost(title,detail,pic_URL){
     
 }
 
+function searchState(){
+    $("#search_state_btn").click(function(event) {
+        /* Act on the event */
+        var search_title = $("#search_state_tag").val();
+        console.log(search_title)
+        if(search_title.length<1){
+            $("#search_state_tag").val("You must input something");
+        }
+        else{
+            jQuery.ajax({
+              url: '/discover/search/state',
+              type: 'POST',
+              data: {'topic_title': search_title},
+              success: function(data, textStatus, xhr) {
+                $("#discover_state_list").html(data);
+                other();
+                $("#search_state_list").show();
+                $(".create_state").hide();
+                $(".container_friend").hide();
+                $(".find_friend").hide();
+                $("#friend_state").hide();
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                $("#discover_state_list").html('Network Error!');
+              }
+            });
+            
+        }
+    });
+}
+
+
+function serachFriend(){
+    var gender=$("#gender").val();
+    if(gender=="Gender"){
+        gender="";
+    }
+    $("#find_friend_btn").click(function(event) {
+        /* Act on the event */
+        jQuery.ajax({
+          url: '/discover/search/friends',
+          type: 'POST',
+          data: {
+              'name':$("#search_username").val(),
+              'gender':gender,
+              'campus':$("#search_campus").val(),
+              'school':$("#search_school").val(),
+              'user_enjoyment':$("#search_user_tag").val()
+          },
+          success: function(data, textStatus, xhr) {
+            console.log("here")
+            $("#serach_friend_list").html(data);
+            friend_list_js()
+            $(".container_friend").show();
+            $(".create_state").hide();
+            $(".find_friend").hide();
+            $("#search_state_list").hide();
+            $("#friend_state").hide();
+              },
+          error: function(xhr, textStatus, errorThrown) {
+            $("#serach_friend_list").html('Network Error!');
+          }
+        });
+        
+    });
+}
+
 function getAllState(){
     jQuery.ajax({
       url: '/discover/discover_page',
@@ -110,8 +170,8 @@ function getAllState(){
         // console.log(data);
         $("#discover_state_all").html(data);
 
-        other();
-        friendtState();
+        // other();
+        // friendtState();
         AllStatezhan();
         times=times+1;
 
@@ -272,7 +332,7 @@ function other() {
         });
     });
 };
-$(function() {
+function friend_list_js() {
 
     var a = new sHover("friend_item", "friend_cover");
     a.set({
@@ -280,7 +340,7 @@ $(function() {
         opacityChange: true,
         opacity: 80
     });
-});
+};
 $(function() {
     $(".icon-camera").click(function(event) {
         /* Act on the event */
@@ -301,21 +361,6 @@ $(function() {
         $("#friend_state").hide();
         $("#search_state_list").hide();
     });
-
-
-    $("#find_friend_btn").click(function(event) {
-        /* Act on the event */
-        $(".create_state").hide();
-        $(".find_friend").hide();
-        $(".container_friend").show();
-        $("#search_state_list").hide();
-        $("#friend_state").hide();
-    });
-
-
-    
-
-
     $("#find_btn").click(function(event) {
         /* Act on the event */
         $(".find_friend").show('slow/400/fast');
@@ -324,18 +369,6 @@ $(function() {
         $("#search_state_list").hide();
         $(".create_state").hide();
     });
-
-
-    $("#search_state_btn").click(function(event) {
-        /* Act on the event */
-        $("#search_state_list").show();
-        $(".create_state").hide();
-        $(".container_friend").hide();
-        $(".find_friend").hide();
-        $("#friend_state").hide();
-    });
-
-
 
     $(".icon-spinner").click(function(event) {
         /* Act on the event */
