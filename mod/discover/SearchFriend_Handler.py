@@ -5,6 +5,7 @@ import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,User_tagCache
+import json
 
 #/discover/search/friends
 class SearchFriendHandler(BaseHandler):
@@ -14,6 +15,7 @@ class SearchFriendHandler(BaseHandler):
 		a_campus = self.get_argument('campus')
 		a_school = self.get_argument('school')
 		a_user_enjoyment = self.get_argument('user_enjoyment')
+		print a_user_enjoyment
 
 		string = ''
 		try:
@@ -26,8 +28,8 @@ class SearchFriendHandler(BaseHandler):
 			if a_gender:
 				string = string + 'gender=\'%s\'' % a_gender + ' and '
 			if a_user_enjoyment:
-				stirng = string + '(uid) in (select uid from User_tag.user_enjoyment like \'%%%s%%\')' % a_user_enjoyment + ' and '
-
+				string = string + 'uid in (select uid from User_tag where User_tag.user_enjoyment like \'%%%s%%\')' % a_user_enjoyment + ' and '
+		
 
 			print "select * from Users where %s;" % string
 			
@@ -56,7 +58,8 @@ class SearchFriendHandler(BaseHandler):
 		except Exception,e:
 			print e
 			retjson = {'code':400,'content':'failed to search friend'}
-		self.write(retjson)
+		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+		self.write(ret)
 
 
 		

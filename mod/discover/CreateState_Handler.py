@@ -41,4 +41,5 @@ class CreateStateHandler(BaseHandler):
 		except Exception,e:
 			print e;
 			retjson = {'code':400,'content':'no parameter'}
-		self.write(retjson)
+		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+		self.write(ret)
