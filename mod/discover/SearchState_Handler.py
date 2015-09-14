@@ -3,7 +3,7 @@
 
 import tornado.web
 import tornado.gen
-from mod.auth.Base_Handler import BaseHandler
+from mod.auth.Base_Handler import BaseHandler,UsersCache
 from ..databases.tables import TopicsCache
 from time import mktime,strptime,strftime,time,localtime
 import json,string
@@ -16,7 +16,6 @@ class SearchStateHandler(BaseHandler):
 		a = a_topic_title
 		if a_topic_title:
 			try:
-
 				print "select * from Topics where topic_title like \'%%%s%%\';" % a
 				
 				topics = self.db.execute("select * from Topics where topic_title like \'%%%s%%\';" % a_topic_title).fetchall()
@@ -28,7 +27,9 @@ class SearchStateHandler(BaseHandler):
 					for n in topics:
 						content = {}
 						content['uid'] = n.uid
-						content['topic_id'] = n.topic_id
+						user = self.db.query(UsersCache).filter(UsersCache.uid == n.uid).one()
+						content['name'] = user.name
+						content['topics_id'] = n.topic_id
 						content['topic_title'] = n.topic_title
 						content['topic_content'] = n.topic_content
 						content['topic_pic'] = n.topic_pic
@@ -36,7 +37,7 @@ class SearchStateHandler(BaseHandler):
 						content['topic_starers'] = n.topic_starers
 						content1.append(content)
 					retjson['content'] = content1
-					print retjson
+					# print retjson
 				else:
 					retjson = {'code':400,'content':'not match topics_title'}
 			except Exception,e:
@@ -45,5 +46,6 @@ class SearchStateHandler(BaseHandler):
 		else:
 			retjson = {'code':400,'content':'topic_title is null'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-		print ret
-		self.write(ret)
+		# print ret
+
+		self.render('discover_state.html',content=retjson)

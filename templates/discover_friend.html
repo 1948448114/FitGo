@@ -1,8 +1,14 @@
-<div id="{{content['friendid']}}" class="friend_item">
-    <img id="{{content['friend_img_id']}}" src="{{content['friend_img']}}.jpg">
-    <span id="{{content['friend_cover']}}" class="friend_cover">
-        <h2>{{content['friend_name']}}</h2>
-        <p>{{content['friend_signature']}}</p>
-        <button id="add_friend">Add Friend</button>
-    </span>
-</div>
+{% if content['code']==200 %}
+    {% for item in content['content'] %}
+        <div id="{{item['uid']}}" class="friend_item">
+            <img  src="{{item['portrait']}}">
+            <span class="friend_cover">
+                <h2>{{item['name']}}</h2>
+                <p>{{item['signature']}}</p>
+                <button id="add_friend">Add Friend</button>
+            </span>
+        </div>
+    {% end %}
+{% else %}
+    <p>{{content['content']}}</p>
+{% end %}

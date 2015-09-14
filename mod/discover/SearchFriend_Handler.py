@@ -15,7 +15,6 @@ class SearchFriendHandler(BaseHandler):
 		a_campus = self.get_argument('campus')
 		a_school = self.get_argument('school')
 		a_user_enjoyment = self.get_argument('user_enjoyment')
-		print a_user_enjoyment
 
 		string = ''
 		try:
@@ -59,7 +58,7 @@ class SearchFriendHandler(BaseHandler):
 			print e
 			retjson = {'code':400,'content':'failed to search friend'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-		self.write(ret)
-
+		print retjson
+		self.render('discover_friend.html',content=retjson)
 
 		
