@@ -2,49 +2,47 @@
 	font-family: "SourceSansPro-ExtraLight";
 	src:url("/static/fonts/SourceSansPro-ExtraLight.ttf");}
 @font-face{
+	font-family: "proxima-nova";
+	src:url("/static/fonts/ProximaNova-Light.otf");}
+@font-face{
 	font-family: "SourceSansPro-Regular";
 	src:url("/static/fonts/SourceSansPro-Regular.ttf");
 }
-@font-face{
-	font-family: "SourceSansPro-Semibold";
-	src:url("/static/fonts/SourceSansPro-Semibold.ttf");
-}
-
-@font-face{
-	font-family: "SourceSansPro-Black";
-	src:url("/static/fonts/SourceSansPro-Black.ttf");
+html{  
+  font-size: 16px; 
+  font-family: "microsoft yahei"; 
+}  
+@media (max-width: 900px) {  
+html{ font-size: 14px; }  
+}  
+@media (max-width: 420px) {  
+html{ font-size: 12px; }  
 }
 
 body{
-	font-family: 'SourceSansPro-Semibold','SourceSansPro-Regular',sans-serif,'Microsoft YaHei';
-	font-size: 17px;
+	font-family:'SourceSansPro-Regular',"proxima-nova",'Microsoft YaHei',sans-serif;
+	font-size: 1rem;
 }
 #navigation{
 	background:#140d3f; 
 	margin-bottom: 0px;
 	border: 0px;
 }
-/*#menu a{
-	color:#eeeaea;
-	font-size: 18px;
-}*/
+
 #menu nav{
 	padding-bottom: 10px;
 	padding-top: 10px;
 }
 #different a:hover{
-/*	color:#afef7f;
-*/	color: #afef7f;
-	
+	color: #afef7f;
 }
 #logo a{
 	margin-bottom: 3px;
 }
 #menu button{
 	color:#eeeeee;
-	font-size: 18px;
-/*	font-weight:bold; 
-*/	border-radius: 0px;
+	font-size: 1.2rem;
+	border-radius: 0px;
 	background-color: #140d3f;
 	margin-top: 3px;
 	margin-left: 3px;
@@ -55,40 +53,34 @@ body{
 }
 #menu .bar{
 	color:#eeeeee;
-	font-size: 18px;
+	font-size: 1.2rem;
 }
 #menu button:hover{
 	color:#7f81e7;
 	border-color: #666665;
 }
-/*#content p{
-	font-family: 'SourceSansPro-ExtraLight';
-}*/
 #hs-slider .largetext{
-	font-size: 60px;
+	font-size: 4rem;
 	font-weight:200; 
 
 }
-.title strong{
+.largetext strong{
 	font-weight: 600;
-	font-family: 'SourceSansPro-Semibold';
 }
 .largetext{
 	font-family: 'SourceSansPro-ExtraLight';
 	margin-top: 30px;
 	margin-bottom: 30px;
 	text-align: center;
+	font-weight: 100;
 }
-.shadow1{/*
-	min-height: 500px;*/
+.shadow1{
 	background-color: rgba(238,234,234,.6);
 }
 .item{
   text-align: center;  
 }
-/*.item >img{
-  display: inline !important;
-}*/
+
 .show{
 	padding-top: 40px;
 	padding-bottom: 60px;
@@ -99,23 +91,18 @@ body{
 .show-words{
 	text-align: left;
 	word-wrap: break-word;
-/*	word-break:break-all;*/
 }
 #words{
 	line-height: 26px;
 	padding-left: 90px;
 }
 #words h1{
-	font-family: "SourceSansPro-Semibold";
-	font-size: 60px;
+	font-size: 4rem;
 	font-weight: 500;
 }
 #words p{
-	font-size: 22px;
+	font-size: 1.5rem;
 	font-family: "SourceSansPro-ExtraLight";
-}
-#words strong{
-	font-family: "SourceSansPro-Regular";
 }
 .arrow-right{
 	padding-top: 
@@ -131,8 +118,6 @@ body{
 	background: url(/static/images/background2.png) center center no-repeat;
 	background-size: cover;
 	padding-bottom: 40px;
-/*	height: 500px;
-*/	
 }
 .flexider{
 	background: rgba(238,234,234,.6);
@@ -161,15 +146,12 @@ body{
     width: 100%;
     overflow: auto;
 
-    font-size: 18px;
+    font-size: 1.2rem;
     line-height: 24px;
     text-align: center;
 
     color: rgba(255,255,255,.6);
     text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);}
-
- /*   background: #5b4d3d;
- /*   box-shadow: 0 1px 2px rgba(0,0,0,.25); }*/
 .banner ul { 
         list-style: none;
         width: 300%;
@@ -245,7 +227,7 @@ div{
 	text-align:-webkit-match-parent;
 }
 .inner h1{
-	font-size: 60px;
+	font-size: 4rem;
 	line-height: 62px;
 	margin-top: 0;
 	margin-bottom: 15px;
@@ -294,10 +276,9 @@ div{
 	padding-left: 0px;
 }
 #blocks-word p{
-	font-family: "SourceSansPro-Regular";
+	font-weight: 900;
 }
 #blocks-word .h2-font{
-	font-family: "SourceSansPro-Black";
 	font-weight: 200;
 }
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
@@ -43,7 +42,7 @@ class DiscoverPageHandler(BaseHandler):
                 print e
                 retjson = {'code':400,'content':'failed to query state'}
             self.write(retjson)
-                self.render('discover_state.html',content=retjson)
+            self.render('discover_state.html',content=retjson)
         except Exception,e:
             print traceback.print_exc()
             print str(e)
