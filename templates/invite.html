@@ -2,8 +2,7 @@
 {% block header %}
     <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{static_url('css/bootstrap-datetimepicker.min.css') }}">
-   <link rel="stylesheet" href="{{static_url('css/invite.css') }}">
-   
+    <link rel="stylesheet" href="{{static_url('css/invite.css') }}">
     <script src="{{static_url('js/bootstrap-datetimepicker.js') }}"></script>
     <script src="{{static_url('js/invite.js') }}"></script>
 {% end %}
@@ -14,21 +13,19 @@
                 <img src="/static/images/invite.jpg"id="invite_pic">
             </div>
         </div>
-        <div class="title" >
-            <div>
-                <p class="largetext" id="invite_title">
-                    Life is short. Have a
-                    <strong>Better Run</strong>
-                    .
-                </p>
-            </div>
+        <div >
+            <p class="largetext" id="invite_title">
+                Life is short. Have a
+                <strong>Better Run</strong>
+                .
+            </p>
         </div>
         <div class="container create_invite">
             <div class="row">
                 
                 <div class="form-group" id="invite_new_btn"  >
                     <a href="#invite_title">
-                        <label id="invite_new" ><span class=" icon-user"></span>New Invitation</label>
+                        <label id="invite_new" ><span class=" icon-user"></span>"约健身"</label>
                     </a>
                 </div>
             </div>
@@ -36,7 +33,7 @@
                 <div class="row" >
                     <div class="col-sm-6 col-sm-offset-2">
                         <div class="row" >
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 col-xs-6">
                                 <span class="create_invite">Where:</span>
                                 <div class="have_icon">
                                     <span class="icon  icon-map-marker"></span>
@@ -59,7 +56,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 col-xs-6">
                                 <span class="create_invite">What:</span>
                                 <div class="have_icon">
                                     <span class="icon  icon-lightbulb"></span>
@@ -77,7 +74,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 col-xs-6">
                                 <span class="create_invite">Who:</span>
                                 <div class="have_icon">
                                     <span class="icon  icon-group"></span>
@@ -90,11 +87,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
-                        </div>
-                        <div class='row' >
-                            
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 col-xs-6">
                                 <span class="create_invite">When:</span>
                                 <div class="have_icon">
                                     <span class="icon  icon-calendar"></span>
@@ -102,7 +95,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 col-xs-6">
                                 <span class="create_invite">How long:</span>
                                 <div class="have_icon">
                                     <span class="icon   icon-time"></span>
@@ -117,47 +110,44 @@
                                 </div>
                             </div>
                             
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 col-xs-6">
                                 <span class="create_invite">Which:</span>
                                 <div class="have_icon">
                                     <span class="icon   icon-tag"></span>
-                                    <input type="text" class="form-control" id="create_invite_tag" placeholder="Add a tag">
+                                    <input type="text" class="form-control" id="create_invite_tag" placeholder="加个标签">
                                 </div>
                             </div>
                             
                         </div>
                         <div class='row' >
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 col-xs-12">
                                 <span class="create_invite creat">(づ￣ 3￣)づ</span>
                                 <div class="have_icon">
                                     <span class="icon   icon-comments"></span>
-                                    <input type="text" class="form-control" id="create_invite_more" placeholder="Request More...">
+                                    <input type="text" class="form-control" id="create_invite_more" placeholder="快说~还有什么更多要求。。。">
                                 </div>
                             </div>
                             
                         </div>
-
                     </div>
                     <div class="col-sm-4">
                         <div class="row">
-                            <div class="col-sm-12" id="invite_png">
+                            <div class="col-sm-12 " id="invite_png">
                                 <img src="/static/images/invite/2.png">
                             </div>
                             <div class="col-sm-8 wrong_message">
-                        <div class="alert alert-danger showing" id="create_invite_information_message">Wrong information.</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-sm-offset-2" id="submit_invite_btn">
-                                    <button  type="submit" id="NewButton" class="btn btn-default">SUBMIT</button>
-
-                        
+                                <div class="alert alert-danger showing" id="create_invite_information_message">Wrong information.</div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-2" id="submit_invite_btn">
+                                    <button  type="submit" id="NewButton" class="btn btn-default">发表请求</button>
+                                    
+                                </div>
+                            </div>
+                            
                         </div>
-                       
-                    </div>
                     </div>
                 </div>
-
             </div>
             <div class='container search_invite '>
                 <div class='row'>
@@ -166,13 +156,13 @@
                     <div class="col-sm-8 ">
                         <div class="input-group have_icon search_invite_group">
                             <span class="icon   icon-search"></span>
-                            <input type="text" class="form-control" aria-label="Search" id="search_invite_tag" placeholder="Search...">
+                            <input type="text" class="form-control" aria-label="Search" id="search_invite_tag" placeholder="搜搜别人的约健身请求~">
                             
                             
                             <span class="input-group-addon btn" id="search_btn" ><a href="#invite_title">Go! </a></span>
                             
                             
-                            <span class="input-group-addon btn btn-danger" id="search_more_btn"><a href="#invite_title">More Detail Search   </a></span>
+                            <span class="input-group-addon btn btn-danger" id="search_more_btn"><a href="#invite_title">高级搜索</a></span>
                             
                         </div>
                     </div>
@@ -245,128 +235,124 @@
                                 <input  size="16" type="text" readonly class="form-control" id="search_invite_start_time"placeholder="Start time">
                             </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
-                
             </div>
-            
-            
         </div>
-        
-        
-        
     </div>
 </div>
-<div class="container_timeline">
-    <ul id="timeline" class="timeline">
-        
-       <!-- <li class="wrong_message" >
-            <div class="content" id="wrong_message">
-                <h3>Wrong information.</h3>
-            </div>
-        </li>
-        <li class="active">
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top1.jpg" alt="">
-                <span>10:00</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>lalala</h3>
-                <p>lalalalalala</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top2.jpg" />
-                <span>7:30</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>llllsls</h3>
-                <p>lslslsls</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top3.jpg" />
-                <span>7:00</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>ldldlddl</h3>
-                <p>ldldldldl</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top4.jpg" />
-                <span>21:30</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>qwqwqwq</h3>
-                <p>qwqwqwq</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top5.jpg" />
-                <span>20:00</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>sadasdasd</h3>
-                <p>adasdsadsad</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top6.jpg" />
-                <span>18:40</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>dfsdfsdfds</h3>
-                <p>sdfdsfsdfdsf</p>
-            </div>
-        </li> -->
-        
-        
-    </ul>
+    <div class="list_name container">
+    <div class="list_p">
+        <p>健身</p>
+        <p>请求</p>
+        <p>列表</p>
+    </div>
 </div>
-</div>
+    <div class="container_timeline">
+        <ul id="timeline" class="timeline">
+            <!-- <li class="wrong_message" >
+                <div class="content" id="wrong_message">
+                    <h3>Wrong information.</h3>
+                </div>
+            </li>
+            <li class="active">
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top1.jpg" alt="">
+                    <span>10:00</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>lalala</h3>
+                    <p>lalalalalala</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top2.jpg" />
+                    <span>7:30</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>llllsls</h3>
+                    <p>lslslsls</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top3.jpg" />
+                    <span>7:00</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>ldldlddl</h3>
+                    <p>ldldldldl</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top4.jpg" />
+                    <span>21:30</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>qwqwqwq</h3>
+                    <p>qwqwqwq</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top5.jpg" />
+                    <span>20:00</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>sadasdasd</h3>
+                    <p>adasdsadsad</p>
+                </div>
+            </li>
+            <li>
+                <div class="check">
+                    <b class="spring"></b>
+                    <s></s>
+                    <b class="line"></b>
+                </div>
+                <div class="thumb">
+                    <img src="/static/images/invite/top6.jpg" />
+                    <span>18:40</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>dfsdfsdfds</h3>
+                    <p>sdfdsfsdfdsf</p>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+
 <script src="{{static_url('js/inviteController.js') }}"></script>
 {% end %}

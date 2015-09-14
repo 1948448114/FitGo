@@ -30,45 +30,45 @@ $(document).ready(function() {
     var uid="";
     $(".dropdown_close").click(function(event) {
         /* Act on the event */
-        $("#verify_dropdown").hide('slow/400/fast');
-        $("#signup_dropdown").hide('slow/400/fast');
-        $("#login_div").hide('slow/400/fast');
-        $("#find_password_dropdown").hide('slow/400/fast');
-        $("#find_password_new_pwd").hide('slow/400/fast');
+        $("#verify_dropdown").hide();
+        $("#signup_dropdown").hide();
+        $("#login_div").hide();
+        $("#find_password_dropdown").hide();
+        $("#find_password_new_pwd").hide();
     });
     $(".forgot-password").click(function(event) {
         /* Act on the event */
-        $("#verify_dropdown").hide('slow/400/fast');
-        $("#signup_dropdown").hide('slow/400/fast');
-        $("#login_div").hide('slow/400/fast');
-        $("#find_password_dropdown").show('slow/400/fast');
+        $("#verify_dropdown").hide();
+        $("#signup_dropdown").hide();
+        $("#login_div").hide();
+        $("#find_password_dropdown").fadeIn(slow);
     });
     $("#check_btn").click(function(event) {
         /* Act on the event */
-        $("#verify_dropdown").hide('slow/400/fast');
-        $("#signup_dropdown").hide('slow/400/fast');
-        $("#login_div").hide('slow/400/fast');
-        $("#find_password_new_pwd").show('slow/400/fast');
+        $("#verify_dropdown").hide();
+        $("#signup_dropdown").hide();
+        $("#login_div").hide();
+        $("#find_password_new_pwd").fadeIn();
     });
     $("#login").click(function(event) {
         /* Act on the event */
-        $("#verify_dropdown").hide('slow/400/fast');
-        $("#signup_dropdown").hide('slow/400/fast');
-        $("#login_div").show('slow/400/fast');
-        $("#find_password_dropdown").hide('slow/400/fast');
-        $("#find_password_new_pwd").hide('slow/400/fast');
-        $("#login_message").hide('slow/400/fast');
-        $("#sign_up_message").hide('slow/400/fast');
-        $("#change_password_message").hide('slow/400/fast');
-        $("#find_message").hide('slow/400/fast');
-        $("#verify_message").hide('slow/400/fast');
+        $("#verify_dropdown").hide();
+        $("#signup_dropdown").hide();
+        $("#login_div").fadeIn();
+        $("#find_password_dropdown").hide();
+        $("#find_password_new_pwd").hide();
+        $("#login_message").hide();
+        $("#sign_up_message").hide();
+        $("#change_password_message").hide();
+        $("#find_message").hide();
+        $("#verify_message").hide();
     });
     $("#sign_up_btn").click(function(event) {
         /* Act on the event */
-        $("#verify_dropdown").hide('slow/400/fast');
-        $("#signup_dropdown").show('slow/400/fast');
-        $("#login_div").hide('slow/400/fast');
-        $("#find_password_dropdown").hide('slow/400/fast');
+        $("#verify_dropdown").hide();
+        $("#signup_dropdown").fadeIn();
+        $("#login_div").hide();
+        $("#find_password_dropdown").hide();
     });
 // 验证
     $("#verify").click(function(event) {
@@ -85,14 +85,14 @@ $(document).ready(function() {
           success: function(data, textStatus, xhr) {
             if(data['code'] == 200){
                 $("#login_div").hide();
-                $("#verify_dropdown").show();
+                $("#verify_dropdown").fadeIn();
                 $("#signup_dropdown").hide();
                 $("#find_password_dropdown").hide();
                 uid=data['content']['uid'];
             }
             else{
                 $("#verify_message").html(data['content']);
-                $("#verify_message").show();
+                $("#verify_message").fadeIn();
             }
           },
           error: function(xhr, textStatus, errorThrown) {
@@ -108,11 +108,11 @@ $(document).ready(function() {
 $("#signup_btn").click(function(event) {
     if($("#password_signup").val().length<6){
         $("#sign_up_message").html("password is too short");
-        $("#sign_up_message").show();
+        $("#sign_up_message").fadeIn();
     }
     else if($("#password_signup").val()!=$("#password_confirm").val()){
         $("#sign_up_message").html("Confirm password is not the same as password");
-        $("#sign_up_message").show();
+        $("#sign_up_message").fadeIn();
     }
     else{
     jQuery.ajax({
@@ -130,7 +130,7 @@ $("#signup_btn").click(function(event) {
             location.href = "/";
         } else {
              $("#sign_up_message").html(data['content']);
-             $("#sign_up_message").show();
+             $("#sign_up_message").fadeIn();
         }
       },
       error: function(xhr, textStatus, errorThrown) {
@@ -145,7 +145,7 @@ $("#signup_btn").click(function(event) {
     $("#login_btn").click(function() {
         if ($("#password_login").val().length < 6) {
             $("#login_message").html("password is too short");
-            $("#login_message").show();
+            $("#login_message").fadeIn();
         } else {
             var is_remember = 0;
             if ($("#login_check").is(':checked')) {
@@ -166,7 +166,7 @@ $("#signup_btn").click(function(event) {
                         location.href = "/";
                     } else {
                         $("#login_message").html(data['content']);
-                        $("#login_message").show();
+                        $("#login_message").fadeIn();
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
