@@ -5,6 +5,7 @@ import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,User_tagCache
+import json
 
 #/discover/search/friends
 class SearchFriendHandler(BaseHandler):
@@ -57,7 +58,8 @@ class SearchFriendHandler(BaseHandler):
 		except Exception,e:
 			print e
 			retjson = {'code':400,'content':'failed to search friend'}
-		self.write(retjson)
+		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+		self.write(ret)
 
 
 		

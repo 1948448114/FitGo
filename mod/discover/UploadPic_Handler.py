@@ -23,6 +23,7 @@ class UploadPicHandler(BaseHandler):
                 with open(filepath,'wb') as up:      #有些文件需要已二进制的形式存储，实际中可以更改
                     up.write(meta['body'])
             retjson['content'] = filepath
+            print filepath
         else:
             retjson = {'code':400,'content':'failed to upload picture'}
 

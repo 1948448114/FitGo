@@ -5,6 +5,7 @@ import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
 from ..databases.tables import ActCache
+import json
 #/activity/search/
 class SearchActivityHandler(BaseHandler):
 	def post(self):#搜索活动
@@ -50,4 +51,5 @@ class SearchActivityHandler(BaseHandler):
 		except Exception, e:
 			print e
 			retjson = {'code':400,'content':'failed to search activity'}
-		self.write(retjson)
+		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+		self.write(ret)

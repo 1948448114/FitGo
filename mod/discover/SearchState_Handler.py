@@ -5,6 +5,8 @@ import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
 from ..databases.tables import TopicsCache
+from time import mktime,strptime,strftime,time,localtime
+import json,string
 # from sqlalchemy import func
 
 #/discover/search/state
@@ -30,6 +32,8 @@ class SearchStateHandler(BaseHandler):
 						content['topic_title'] = n.topic_title
 						content['topic_content'] = n.topic_content
 						content['topic_pic'] = n.topic_pic
+						content['pic_shape'] = n.pic_shape
+						content['topic_time'] = strftime("%Y-%m-%d",localtime(string.atoi(n.topic_time)))
 						content['topic_starers'] = n.topic_starers
 						content1.append(content)
 					retjson['content'] = content1
@@ -44,4 +48,5 @@ class SearchStateHandler(BaseHandler):
 				self.write(retjson)
 		else:
 			retjson = {'code':400,'content':'topic_title is null'}
-			self.write(retjson)
+		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+		self.write(ret)
