@@ -26,6 +26,7 @@ class UploadPicHandler(BaseHandler):
                 sha1obj.update(meta['body'])
                 hash = sha1obj.hexdigest()
                 filepath = upload_path +'/'+ sha1obj.hexdigest() + '.' + houzhui
+                print filepath
                 with open(filepath,'wb') as up:      #有些文件需要已二进制的形式存储，实际中可以更改
                     up.write(meta['body'])
 
