@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-# import tornado.web
-# import tornado.gen
+import tornado.web
+import tornado.gen
 from ..auth.Base_Handler import BaseHandler
 from ..databases.tables import InviteCache
 import json,time,string
 #/invite/search/
 class SearchInviteHandler(BaseHandler):
+	# @tornado.web.authenticated
 	def post(self):#搜索匹配者
 		# t=time.time()
 		retjson = {'code':200,'content':'ok'}
