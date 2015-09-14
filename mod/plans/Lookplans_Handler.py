@@ -42,7 +42,7 @@ class LookplansHandler(BaseHandler):
             retjson['code'] = 400
             retjson['content'] = 'Parameter Lack'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-        print retjson
+        # print retjson
         self.render('plan_show.html',content=retjson)
 
 
