@@ -15,7 +15,7 @@ class UploadPicHandler(BaseHandler):
  
     def post(self):
         # upload_path=os.path.join(os.path.dirname('mod'),'static/picture')  #文件的暂存路径
-        upload_path = 'static/picture'
+        upload_path = '/static/picture'
         file_metas=self.request.files['file']    #提取表单中‘name’为‘file’的文件元数据
         if file_metas:
             retjson = {'code':200,'content':'picture upload success!'}
