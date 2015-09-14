@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
+import tornado.web
 from ..auth.Base_Handler import BaseHandler
 from ..databases.tables import InviteCache,Invite_relation
 import json,time
 #/invite/request
 class RequestInviteHandler(BaseHandler):
+	# @tornado.web.authenticated
 	def post(self):#发送请求
 		arg_uid_request = self.current_user.uid
 		arg_uid_respond = self.get_argument('uid')

@@ -4,6 +4,7 @@
 import tornado.web
 import tornado.gen
 import json
+import time
 from ..databases.tables import TopicsCache
 from mod.auth.Base_Handler import BaseHandler
 import time
@@ -16,11 +17,12 @@ class CreateStateHandler(BaseHandler):
 			a_topic_content = self.get_argument('topic_content')
 			a_topic_pic = self.get_argument('topic_pic')
 			a_topic_time = int(time.time())
+			# a_topic_time = self.get_argument('topic_time')
 			retjson = {'code':200,'content':'ok'}
 			print user_id,a_topic_title
 			try:
 				topics = TopicsCache(uid=user_id,topic_title=a_topic_title,\
-					topic_content=a_topic_content,topic_pic=a_topic_pic,topic_time=a_topic_time)
+					topic_content=a_topic_content,topic_pic=a_topic_pic,topic_time=int(time.time()))
 				self.db.add(topics)
 				
 				if a_topic_title and a_topic_content:

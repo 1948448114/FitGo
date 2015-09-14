@@ -41,7 +41,6 @@ class DiscoverPageHandler(BaseHandler):
             except Exception,e:
                 print e
                 retjson = {'code':400,'content':'failed to query state'}
-            # self.write(retjson)
             self.render('discover_state.html',content=retjson)
         except Exception,e:
             print traceback.print_exc()

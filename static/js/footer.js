@@ -1,11 +1,11 @@
 $(document).ready(function() {
                 if($("meta[name=toTop]").attr("content")=="true"){
-                $("<div id='toTop'><img src='/static/images/top1.png'></div>").appendTo('body');
+                $("<div id='toTop'><img id='toTopbtn' src='/static/images/top1.png'></div>").appendTo('body');
                 $("#toTop").css({
                     width: '50px',
                     height: '50px',
                     bottom:'10px',
-                    right:'15px',
+                    right:'10px',
                     position:'fixed',
                     cursor:'pointer',
                     zIndex:'999999',
@@ -28,6 +28,24 @@ $(document).ready(function() {
                             });
                 }
     var uid="";
+
+    // var user_state = $("#user_state").val();
+    // var current_url = window.location.pathname;
+    // console.log(user_state);
+    // console.log(current_url);
+    // if(user_state&&current_url!="/"){
+    //     $("#verify_dropdown").hide();
+    //     $("#signup_dropdown").hide();
+    //     $("#login_div").show();
+    //     $("#find_password_dropdown").hide();
+    //     $("#find_password_new_pwd").hide();
+    //     $("#login_message").hide();
+    //     $("#sign_up_message").hide();
+    //     $("#change_password_message").hide();
+    //     $("#find_message").hide();
+    //     $("#verify_message").hide();
+    // }
+
     $(".dropdown_close").click(function(event) {
         /* Act on the event */
         $("#verify_dropdown").hide();
@@ -41,7 +59,7 @@ $(document).ready(function() {
         $("#verify_dropdown").hide();
         $("#signup_dropdown").hide();
         $("#login_div").hide();
-        $("#find_password_dropdown").fadeIn(slow);
+        $("#find_password_dropdown").fadeIn();
     });
     $("#check_btn").click(function(event) {
         /* Act on the event */
