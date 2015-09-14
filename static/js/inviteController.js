@@ -85,6 +85,7 @@ function search(){
       },
       success: function(data, textStatus, xhr) {
         $("#timeline").html(data);
+        item_click();
       },
       error: function(xhr, textStatus, errorThrown) {
         $("#timeline").html('<li class="wrong_message" ><div class="content" id="wrong_message"><h3>Network Error!</h3></div></li>');
