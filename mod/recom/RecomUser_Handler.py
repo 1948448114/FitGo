@@ -11,8 +11,13 @@ import json
 from pymongo import MongoClient
 
 from ..databases.tables import UsersCache,CookieCache
-#/discover/add
+# 
+   # 推荐用户  你值得拥有。。。。。。传给你你要的可爱妹纸的id 性别 还有可能的配对率
+# 
+
 class RecomUserHandler(BaseHandler):
+
+
     @property
     def db(self):
         return self.application.db
@@ -32,8 +37,8 @@ class RecomUserHandler(BaseHandler):
       # uid
       user_cookie = self.current_user
       uid = user_cookie.uid
-
-      person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
+      # uid = 1
+      person = self.db.query(UsersCache).filter(UsersCache.uid == uid).first()
       # self.write(str(person.cos))
       cos = float(person.cos)
       users = self.db.query(UsersCache).filter((UsersCache.cos-cos)>-0.9, (UsersCache.cos-cos) < 0.9 ).all()
@@ -49,10 +54,18 @@ class RecomUserHandler(BaseHandler):
         if user.uid !=uid :
           content['uid'] = str(user.uid)
           content['xiangsidu'] = str(100*(1-abs(user.cos-cos)))+"%"
+          if user.name is None:
+            content['name'] = str((user.name))
+          else:
+            content['name'] = str((user.name).encode('utf-8'))
+          if user.signature is None:
+            content['signature'] = str((user.signature))
+          else:
+            content['signature'] = str((user.signature).encode('utf-8'))
           
-          content['name'] = str((user.name).encode('utf-8'))
-          content['signature'] = str((user.signature).encode('utf-8'))
+
           content['portrait'] = str(user.portrait)
+
           content1.append(content)
 
 

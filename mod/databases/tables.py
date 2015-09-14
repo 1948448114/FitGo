@@ -85,7 +85,7 @@ class ActCache(Base):
 	act_location = Column(VARCHAR(64))
 	act_detail = Column(VARCHAR(64))
 	act_join_uid = Column(Integer)
-
+	cos = Column(Float)
 class TopicsCache(Base):
 	__tablename__ = 'Topics'
 
