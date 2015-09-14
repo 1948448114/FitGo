@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
+import tornado.web
+import tornado.gen
 from ..auth.Base_Handler import BaseHandler
 from ..databases.tables import InviteCache,Invite_relation
 import json,time
 import traceback
 #/invite/respond
 class RespondInviteHandler(BaseHandler):
+	# @tornado.web.authenticated
 	def put(self):
 		retjson = {'code':200,'content':'ok'}
 		try:
@@ -28,6 +31,7 @@ class RespondInviteHandler(BaseHandler):
 			retjson = {'code':400,'content':'no parameters'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)
+	# @tornado.web.authenticated
 	def get(self):#get all 请求
 		retjson = {'code':200,'content':'ok'}
 		try:

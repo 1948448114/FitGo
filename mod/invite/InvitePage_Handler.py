@@ -5,5 +5,6 @@ import tornado.gen
 from ..auth.Base_Handler import BaseHandler
 #/invite/user_page
 class InvitePageHandler(BaseHandler):
+	# @tornado.web.authenticated
 	def get(self):#约健身主页
 		self.render('invite.html', user=self.current_user)

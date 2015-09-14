@@ -4,7 +4,7 @@
 import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
-from ..databases.tables import TopicsCache
+from ..databases.tables import TopicsCache,UsersCache
 
 #/discover/discover_page
 class DiscoverPageHandler(BaseHandler):
@@ -87,20 +87,25 @@ class DiscoverPageHandler(BaseHandler):
 		self.render('discoverpage.html',user=self.current_user,content=content)
 	def post(self):
 		times = self.get_argument("times")#刷新次数［0,1，2，。。。。］
+		start = int(times)*11
+		end = start + 11
 		try:
-			topics = self.db.query(TopicsCache).order_by(TopicsCache.topic_time.desc())[12*times:12*times+11]
+			topics = self.db.query(TopicsCache).order_by((TopicsCache.topic_time+0).desc())[start:end]#topic_time参数格式未解决
+			print type(TopicsCache.topic_time)
 			if topics:
 				retjson = {'code':200,'content':'success to query state'}
 				content1 = []
 				for n in topics:
 					content = {}
 					content['uid'] = n.uid
-					content['topics_id'] = n.topics_id
+					user = self.db.query(UsersCache).filter(UsersCache.uid==n.uid).one()
+					content['name'] = user.name
+					content['topics_id'] = n.topic_id
 					content['topic_time'] = n.topic_time
 					content['topic_content'] = n.topic_content
-					content['topic_pic '] = n.topic_pic
+					content['topic_pic'] = n.topic_pic
 					content['pic_shape'] = n.pic_shape
-					content['topic_title '] = n.topic_title
+					content['topic_title'] = n.topic_title
 					content['topic_starers'] = n.topic_starers 
 					content1.append(content)
 				retjson['content'] = content1

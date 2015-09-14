@@ -7,6 +7,7 @@ from ..databases.tables import InviteCache,Invite_relation
 import json,time
 #/invite
 class InviteHandler(BaseHandler):
+	# @tornado.web.authenticated
 	def post(self):#发布健身
 		retjson = {'code':200,'content':'ok'}
 		try:
