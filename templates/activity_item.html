@@ -18,14 +18,14 @@
             {% for item in range(len(ret['content'])) %}
             <div class="cd-timeline-block">
             <div class="cd-timeline-img cd-picture{{item%2+1}}">
-                <span id="icon" class="icon-{{icon[num[item]]}}"></span>
+                <span id="icon" class="icon-{{icon[num[item]]}} icon-size"></span>
             </div>
             <div class="cd-timeline-content block-left">
                 <h2>{{ret['content'][item]['title']}}</h2>
                 <p>{{ret['content'][item]['detail']}}</p>
                 <a href="http://www.thecolorrun.com.cn/" class="cd-read-more" target="_blank">阅读全文</a>
                 <a class="join" value="{{ret['content'][item]['id']}}"><span class="icon-plus"></span>加入</a>
-                <span class="cd-date" id="time">{{ret['content'][item]['create_time']}}</span>
+                <span class="cd-date time-size" id="time">{{ret['content'][item]['create_time']}}</span>
             </div>
             <div class="toright" id={{ret['content'][item]['id']}}>
                {% module act_join_people(ret['content'][item]['join_uid']) %}
