@@ -9,26 +9,11 @@ font-family: "SourceSansPro-Regular";
 src:url("/static/fonts/SourceSansPro-Regular.ttf");
 }
 html{
-font-family: "microsoft yahei";
+	font-size: 14px;
+	font-family: "microsoft yahei";
 }
-@media (min-width: 320px) {
-html{ font-size: 8px; }
-#logo{
-width:70%;
-}
-#toTopbtn{
-width: 60%;
-}
-#different a{
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-}
-
-
-
-@media (min-width: 375px) {
-html{ font-size: 10px; }
+@media (max-width: 1200px) {
+html{ font-size: 14px; }
 #logo{
 width:80%;
 }
@@ -39,11 +24,27 @@ width: 60%;
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
+
 }
 
 
-
-@media (min-width: 768px) {
+@media (max-width: 992px) {
+html{ font-size: 14px; }
+#logo{
+width:80%;
+}
+#toTopbtn{
+width: 60%;
+}
+#different a{
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#words{
+padding-left: 0px;
+}
+}
+@media (max-width: 768px) {
 html{ font-size: 12px; }
 #logo{
 width:80%;
@@ -55,12 +56,15 @@ width: 60%;
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
+#words{
+	padding-left: 0px;
 }
-
-
-
-@media (min-width: 992px) {
-html{ font-size: 14px; }
+#words{
+padding-left: 0px;
+}
+}
+@media (max-width: 420px) {
+html{ font-size: 10px; }
 #logo{
 width:80%;
 }
@@ -71,21 +75,58 @@ width: 60%;
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
+#words{
+	padding-left: 0px;
 }
-
-
-
-@media (min-width: 1200px) {
-html{ font-size: 14px; }
+#words h1{
+	font-size: 3rem;
+}
+.show{
+	padding-top: 10px;
+}
+}
+@media (max-width: 375px) {
+html{ font-size: 10px; }
 #logo{
-width:90%;
+width:80%;
 }
 #toTopbtn{
 width: 60%;
 }
+#different a{
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#words{
+	padding-left: 0px;
+}
+#words h1{
+	font-size: 3rem;
+}
+.show{
+	padding-top: 10px;
+}
 }
 
-
+@media (max-width: 320px) {
+html{ font-size: 8px; }
+#logo{
+width:70%;
+}
+#toTopbtn{
+width: 60%;
+}
+#different a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#words{
+	padding-left: 0px;
+}
+#words h1{
+	font-size: 3rem;
+}
+}
 
 body{
 font-family:'SourceSansPro-Regular',"proxima-nova",'Microsoft YaHei',sans-serif;
@@ -149,7 +190,6 @@ text-align: center;
 }
 .show{
 padding-top: 40px;
-padding-bottom: 60px;
 }
 .words-container{
 }
@@ -157,15 +197,14 @@ padding-bottom: 60px;
 text-align: left;
 word-wrap: break-word;
 }
-#words{
-line-height: 26px;
-padding-left: 90px;
+.show-words{
+	padding-left: 90px;
 }
-#words h1{
+.show-words h1{
 font-size: 4rem;
 font-weight: 500;
 }
-#words p{
+.show-words p{
 font-size: 1.5rem;
 font-family: "SourceSansPro-ExtraLight";
 }
