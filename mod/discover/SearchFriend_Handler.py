@@ -14,6 +14,7 @@ class SearchFriendHandler(BaseHandler):
 		a_campus = self.get_argument('campus')
 		a_school = self.get_argument('school')
 		a_user_enjoyment = self.get_argument('user_enjoyment')
+		print a_user_enjoyment
 
 		string = ''
 		try:
@@ -26,8 +27,8 @@ class SearchFriendHandler(BaseHandler):
 			if a_gender:
 				string = string + 'gender=\'%s\'' % a_gender + ' and '
 			if a_user_enjoyment:
-				stirng = string + '(uid) in (select uid from User_tag.user_enjoyment like \'%%%s%%\')' % a_user_enjoyment + ' and '
-
+				string = string + 'uid in (select uid from User_tag where User_tag.user_enjoyment like \'%%%s%%\')' % a_user_enjoyment + ' and '
+		
 
 			print "select * from Users where %s;" % string
 			
