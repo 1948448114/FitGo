@@ -12,7 +12,7 @@ html{
 	font-size: 14px;
 	font-family: "microsoft yahei";
 }
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
 html{ font-size: 14px; }
 #logo{
 width:80%;
@@ -24,11 +24,10 @@ width: 60%;
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
-
 }
 
 
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
 html{ font-size: 14px; }
 #logo{
 width:80%;
@@ -43,8 +42,14 @@ width: 60%;
 #words{
 padding-left: 0px;
 }
+#words {
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
-@media (max-width: 768px) {
+
+
+}
+@media screen and (max-width: 768px) {
 html{ font-size: 12px; }
 #logo{
 width:80%;
@@ -62,8 +67,11 @@ width: 60%;
 #words{
 padding-left: 0px;
 }
+#picture1,#picture2,#picture3,#picture4{
+	width: 90%;
 }
-@media (max-width: 420px) {
+}
+@media screen and (max-width: 420px) {
 html{ font-size: 10px; }
 #logo{
 width:80%;
@@ -84,8 +92,19 @@ width: 60%;
 .show{
 	padding-top: 10px;
 }
+#picture1,#picture2,#picture3,#picture4{
+	width: 90%;
 }
-@media (max-width: 375px) {
+#words{
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+#words{
+	padding-top: 10px;
+	padding-bottom: 50px;
+}
+}
+@media screen and (max-width: 375px) {
 html{ font-size: 10px; }
 #logo{
 width:80%;
@@ -103,12 +122,13 @@ width: 60%;
 #words h1{
 	font-size: 3rem;
 }
-.show{
-	padding-top: 10px;
+
+#picture1,#picture2,#picture3,#picture4{
+	width: 90%;
 }
 }
 
-@media (max-width: 320px) {
+@media screen and (max-width: 325px) {
 html{ font-size: 8px; }
 #logo{
 width:70%;
@@ -122,12 +142,16 @@ width: 60%;
 }
 #words{
 	padding-left: 0px;
+	padding-bottom: 50px;
+	padding-top: 50px;
 }
 #words h1{
 	font-size: 3rem;
 }
+#picture1,#picture2,#picture3,#picture4{
+	width: 90%;
 }
-
+}
 body{
 font-family:'SourceSansPro-Regular',"proxima-nova",'Microsoft YaHei',sans-serif;
 font-size: 1rem;
@@ -182,15 +206,15 @@ margin-bottom: 30px;
 text-align: center;
 font-weight: 100;
 }
+
+
 .shadow1{
 background-color: rgba(238,234,234,.6);
 }
 .item{
 text-align: center;
 }
-.show{
-padding-top: 40px;
-}
+
 .words-container{
 }
 .show-words{
@@ -206,7 +230,7 @@ font-weight: 500;
 }
 .show-words p{
 font-size: 1.5rem;
-font-family: "SourceSansPro-ExtraLight";
+font-family: "Microsoft YaHei";
 }
 .arrow-right{
 padding-top:
@@ -353,16 +377,20 @@ height: 155px;
 }
 .purple{
 background-color: #8085e8;
+font-family: "Microsoft YaHei";
 }
 .pink{
 background-color: #fb99cc;
 color:#313131;
+font-family: "Microsoft YaHei";
 }
 .blue{
 background-color:#5cc1f0;
+font-family: "Microsoft YaHei";
 }
 .gray{
 background-color: #76748f;
+font-family: "Microsoft YaHei";
 }
 .none-padding{
 padding-right: 0px;
