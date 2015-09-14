@@ -8,26 +8,13 @@ src:url("/static/fonts/ProximaNova-Light.otf");}
 font-family: "SourceSansPro-Regular";
 src:url("/static/fonts/SourceSansPro-Regular.ttf");
 }
+
 html{
 	font-size: 14px;
 	font-family: "microsoft yahei";
 }
-@media screen and (max-width: 1200px) {
-html{ font-size: 14px; }
-#logo{
-width:80%;
-}
-#toTopbtn{
-width: 60%;
-}
-#different a{
-	padding-top: 5px;
-	padding-bottom: 10px;
-}
-}
 
-
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) and (min-width: 992px) {
 html{ font-size: 14px; }
 #logo{
 width:80%;
@@ -40,16 +27,18 @@ width: 60%;
 	padding-bottom: 10px;
 }
 #words{
-padding-left: 0px;
+	padding-left: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
-#words {
-	padding-top: 50px;
-	padding-bottom: 50px;
+#pictures{
+	padding-left: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 }
 
-
-}
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) and (min-width: 768px){
 html{ font-size: 12px; }
 #logo{
 width:80%;
@@ -61,17 +50,22 @@ width: 60%;
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
-#words{
-	padding-left: 0px;
-}
-#words{
-padding-left: 0px;
-}
 #picture1,#picture2,#picture3,#picture4{
 	width: 90%;
 }
+.show-words{
+	padding-left: 30px !important;
+	height: 280px;
 }
-@media screen and (max-width: 420px) {
+.showup{
+		padding-bottom: 10px !important;
+}
+.showdown{
+	padding-top: 30px !important;
+}
+}
+
+@media screen and (max-width: 767px) and (min-width: 380px){
 html{ font-size: 10px; }
 #logo{
 width:80%;
@@ -79,79 +73,62 @@ width:80%;
 #toTopbtn{
 width: 60%;
 }
-#different a{
-	padding-top: 5px;
-	padding-bottom: 10px;
-}
-#words{
-	padding-left: 0px;
-}
-#words h1{
-	font-size: 3rem;
-}
-.show{
-	padding-top: 10px;
-}
-#picture1,#picture2,#picture3,#picture4{
-	width: 90%;
-}
-#words{
-	padding-top: 20px;
-	padding-bottom: 30px;
-}
-#words{
-	padding-top: 10px;
-	padding-bottom: 50px;
-}
-}
-@media screen and (max-width: 375px) {
-html{ font-size: 10px; }
-#logo{
-width:80%;
-}
-#toTopbtn{
-width: 60%;
-}
-#different a{
-	padding-top: 5px;
-	padding-bottom: 10px;
-}
-#words{
-	padding-left: 0px;
-}
-#words h1{
-	font-size: 3rem;
-}
 
 #picture1,#picture2,#picture3,#picture4{
 	width: 90%;
 }
+.container{
+	margin-right: 2rem;
+	margin-left: 2rem;
+}
+.show-words{
+	padding-left: 0px !important;
+}
+.showdown{
+	padding-top: 10px !important;
+}
+.showup{
+	padding-bottom: 20px !important;
+	padding-top: 10px !important;
+	height: 300px !important;
+}
 }
 
-@media screen and (max-width: 325px) {
+@media screen and (max-width: 379px) {
 html{ font-size: 8px; }
 #logo{
-width:70%;
+width:80%;
 }
 #toTopbtn{
 width: 60%;
 }
 #different a{
 	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 }
-#words{
-	padding-left: 0px;
-	padding-bottom: 50px;
-	padding-top: 50px;
-}
-#words h1{
-	font-size: 3rem;
-}
+
 #picture1,#picture2,#picture3,#picture4{
 	width: 90%;
 }
+.container{
+	margin-right: 2rem;
+	margin-left: 2rem;
 }
+.show-words{
+	padding-left: 0px !important;
+}
+.showdown{
+	padding-top: 10px !important;
+}
+.showup{
+	padding-bottom: 20px !important;
+	padding-top: 10px !important;
+	height: 268px !important;
+}
+}
+
+
+
 body{
 font-family:'SourceSansPro-Regular',"proxima-nova",'Microsoft YaHei',sans-serif;
 font-size: 1rem;
@@ -206,7 +183,14 @@ margin-bottom: 30px;
 text-align: center;
 font-weight: 100;
 }
-
+.showup{
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+.showdown{
+	padding-bottom: 50px;
+	padding-top: 80px;
+}
 
 .shadow1{
 background-color: rgba(238,234,234,.6);
@@ -252,11 +236,6 @@ position: relative;
 }
 .flex-viewpoint{
 min-height: 500px;
-}
-@media(max-width: 750px){.container{
-margin-right: 20px;
-margin-left: 20px;
-}
 }
 * {
 margin: 0;
