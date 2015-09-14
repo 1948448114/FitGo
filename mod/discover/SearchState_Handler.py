@@ -33,7 +33,6 @@ class SearchStateHandler(BaseHandler):
 						content['topic_content'] = n.topic_content
 						content['topic_pic'] = n.topic_pic
 						content['pic_shape'] = n.pic_shape
-						content['topic_time'] = strftime("%Y-%m-%d",localtime(string.atoi(n.topic_time)))
 						content['topic_starers'] = n.topic_starers
 						content1.append(content)
 					retjson['content'] = content1
