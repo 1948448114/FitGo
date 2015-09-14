@@ -41,7 +41,7 @@ $(document).ready(function() {
         $("#verify_dropdown").hide();
         $("#signup_dropdown").hide();
         $("#login_div").hide();
-        $("#find_password_dropdown").fadeIn(slow);
+        $("#find_password_dropdown").fadeIn();
     });
     $("#check_btn").click(function(event) {
         /* Act on the event */

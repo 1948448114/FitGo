@@ -1,31 +1,19 @@
-
-html {  
+html{  
   font-size: 16px; 
   font-family: "microsoft yahei"; 
 }  
 @media (max-width: 900px) {  
-  html { font-size: 14px; }  
+html{ font-size: 14px; }  
 }  
 @media (max-width: 400px) {  
-  html { font-size: 12px; }  
+html{ font-size: 12px; }  
 }  
-
 body {
     font-size: 100%;
     background-color: #eaeff5;
 }
-
-#invite .largetext{
-	font-size: 3rem;
-	font-weight:200;
-	font-family: "microsoft yahei";
-
-	color:#a2030e;
-	text-align: center;
-}
-
-#invite_pic{
-	width: 100%;
+#invite .row{
+	margin-bottom: 10px;
 }
 #invite_pic_div
 {
@@ -33,15 +21,29 @@ body {
 	margin: 0px;
 	padding:0px;
 }
+#invite .largetext{
+	font-size: 3rem;
+	font-weight:200;
+	color:#a2030e;
+	text-align: center;
+}
+.create_invite,.search_invite{
+	font-size: 1.25rem;
+	padding-left: 2px;
+	border: none;
+	color: #a2030e;
+}
+
+#invite_pic{
+	width: 100%;
+}
+
 .search_invite a:hover{
 	text-decoration:blink;
 }
-#invite .row{
-	margin-bottom: 10px;
-}
+
 
 .icon{
-
   position: absolute;
   left: 12px;
   top: 9px;
@@ -62,12 +64,7 @@ body {
 	font-family: "microsoft yahei";
 }
 
-.create_invite,.search_invite{
-	font-size: 1.25rem;
-	padding-left: 2px;
-	border: none;
-	    color: #a2030e;
-}
+
 .input-group-addon {
     
     background-color: #fff;
