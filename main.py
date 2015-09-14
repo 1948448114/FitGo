@@ -44,6 +44,7 @@ from mod.invite.RespondInvite_Handler import RespondInviteHandler
 
 
 from mod.recom.RecomUser_Handler import RecomUserHandler
+
 from mod.recom.RecomActivity_Handler import RecomActivityHandler
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
