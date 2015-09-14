@@ -63,6 +63,7 @@ body{
 #menu .bar{
 	color:#eeeeee;
 	font-size: 1.3rem;
+	font-weight: 600;
 }
 #menu button:hover{
 	color:#7f81e7;
