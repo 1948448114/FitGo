@@ -17,7 +17,8 @@ class CreateStateHandler(BaseHandler):
 			a_topic_content = self.get_argument('topic_content')
 			a_topic_pic = self.get_argument('topic_pic')
 			a_topic_time = int(time.time())
-			# a_topic_time = self.get_argument('topic_time')
+			if not a_topic_pic:
+				a_topic_pic = '/static/picture/4d50b87084de0ac805776fa256d352d0.jpg'
 			retjson = {'code':200,'content':'ok'}
 			print user_id,a_topic_title
 			try:

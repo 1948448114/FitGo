@@ -14,8 +14,8 @@ class DiscoverPageHandler(BaseHandler):
     def post(self):
         try:
             times = self.get_argument("times")#刷新次数［0,1，2，。。。。］
-            start = int(times)*11
-            end = start + 11
+            start = int(times)*12
+            end = start + 12
             try:
                 topics = self.db.query(TopicsCache).order_by((TopicsCache.topic_time+0).desc())[start:end]#topic_time参数格式未解决
                 print type(TopicsCache.topic_time)
