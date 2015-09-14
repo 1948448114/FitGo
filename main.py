@@ -29,6 +29,7 @@ from mod.plans.Plans_Handler import PlansHandler
 from mod.plans.CompleteInfoHandler import CompleteInfoHandler
 from mod.plans.Lookplans_Handler import LookplansHandler
 from mod.plans.ChangePorHandler import ChangePorHandler
+from mod.plans.ForOthersHandler import ForOthersHandler
 
 from mod.index.index import IndexHandler
 
@@ -106,7 +107,9 @@ class Application(tornado.web.Application):
             (r'/plans/Info',CompleteInfoHandler),
             (r'/plans/detail',LookplansHandler),
             (r'/plans/Info/changePor',ChangePorHandler),
+            (r'/plans/forothers',ForOthersHandler),
             (r'/recom/recomuser',RecomUserHandler),
+
 
             ]
         settings = dict(
