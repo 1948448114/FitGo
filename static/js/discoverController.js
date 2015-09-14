@@ -10,12 +10,94 @@ $(document).ready(function() {
 
 
     getAllState();
+    newState();
+    // $("#submit_state_btn").click(function(event) {
+    //     /* Act on the event */
+    //     $(".create_state").hide();
+    //     $(".find_friend").hide();
+    //     $("#friend_state").show();
+    //     $(".container_friend").hide();
+    //     $("#search_state_list").hide();
+    //     window.location.reload();
+    // });
     
 });
 
 //初始化函数
 function init(){
+    $("#create_state_title_error").hide();
+}
 
+
+function newState(){
+    var state_title = $("#create_state_title").val();
+    var state_detail = $("#create_state_detail").val();
+    $("#submit_state_btn").click(function(event) {
+        if(state_title.length<0){
+            $("#create_state_title_error").show();
+        }
+        else{
+            fileupload();
+        }
+    });
+    
+}
+
+
+
+function fileupload(){
+    var picURL = '';
+    var state_title = $("#create_state_title").val();
+    var state_detail = $("#create_state_detail").val();
+    if($("#up_img_WU_FILE_0").val()){
+        $("#up_img_WU_FILE_1").ajaxSubmit(function(message){
+            data = JSON.parse(message);
+            picURL = data['content'];
+            statePost(state_title,state_detail,picURL);
+        });
+    }
+    else{
+        statePost(state_title,state_detail,'');
+    }
+}
+
+function statePost(title,detail,pic_URL){
+    jQuery.ajax({
+      url: '/discover/create',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        'topic_title': title,
+        'topic_content':detail,
+        'topic_pic':pic_URL
+  },
+      success: function(data, textStatus, xhr) {
+        if(data['code'] == 200){
+            $("#create_state_title_error").removeClass('alert-danger');
+            $("#create_state_title_error").attr('class','alert alert-success showing')
+            $("#create_state_title_error").html("success");
+            $("#create_state_title_error").show();
+            setTimeout(function() {
+                    $("#create_state_title_error").hide();
+                    $("#create_new_invite").hide();
+                    $(".create_state").hide();
+                    $(".find_friend").hide();
+                    $("#friend_state").show();
+                    $(".container_friend").hide();
+                    $("#search_state_list").hide();
+                    },1000);
+        }
+        else{
+            $("#create_state_title_error").html(data['content']);
+            $("#create_state_title_error").show();
+        }
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        $("#create_state_title_error").html("Network Error!");
+        $("#create_state_title_error").show();
+      }
+    });
+    
 }
 
 function getAllState(){
@@ -25,7 +107,7 @@ function getAllState(){
       data: {
         'times': times},
       success: function(data, textStatus, xhr) {
-        console.log(data);
+        // console.log(data);
         $("#discover_state_all").html(data);
 
         other();
@@ -35,7 +117,7 @@ function getAllState(){
 
       },
       error: function(xhr, textStatus, errorThrown) {
-        //called when there is an error
+        console.log(textStatus);
       }
     });
 };
@@ -231,15 +313,7 @@ $(function() {
     });
 
 
-    $("#submit_state_btn").click(function(event) {
-        /* Act on the event */
-        $(".create_state").hide();
-        $(".find_friend").hide();
-        $("#friend_state").show();
-        $(".container_friend").hide();
-        $("#search_state_list").hide();
-        window.location.reload();
-    });
+    
 
 
     $("#find_btn").click(function(event) {

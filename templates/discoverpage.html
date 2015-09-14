@@ -101,24 +101,29 @@
                 <div class="row create_state">
                     <div class="have_icon">
                         <span class="create">Create your State: </span>
-                        <span class="icon-camera"><input type="file" class="filePrew"  id="up_img_WU_FILE_0" size=3 tabIndex=3 name="pic"></span>
+                        <span class="icon-camera">
+                            <form  action="/discover/create/state/pic" enctype="multipart/form-data" id="up_img_WU_FILE_1" method='post' onsubmit="return fileupload()">
+                            <input type="file" class="filePrew"  id="up_img_WU_FILE_0" size=3 tabIndex=3 name="file">
+                        </form>
+                        </span>
                     </div>
                     <div class="have_icon">
                         <span class="icon  icon-magic"></span>
                         <input type="text" class="form-control" id="create_state_title" placeholder="Say something in short...">
                     </div>
                     
-                    <div class="wrong_message">
-                        <div class="alert alert-danger showing" id="create_state_title_error">
-                            Please say something as title
-                        </div>
-                    </div>
+                    
                     
                     <div class="have_icon">
                         <span class="icon icon-edit"></span>
                         <textarea placeholder="Details" id="create_state_detail" class="form-control textareaMargin" rows="8"></textarea>
                     </div>
-                    
+
+                    <div class="wrong_message">
+                        <div class="alert alert-danger showing" id="create_state_title_error">
+                            Please say something as title
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-5">
@@ -198,4 +203,5 @@
             </div> -->
         </div>
     </div>
+    <script src="{{static_url('js/jquery.form.js') }}"></script>
     {%end%}

@@ -5,6 +5,7 @@ import tornado.web
 import shutil
 import os
 from mod.auth.Base_Handler import BaseHandler
+import json
 #/discover/create/state/pic
 class UploadPicHandler(BaseHandler):
     def get(self):
@@ -25,6 +26,5 @@ class UploadPicHandler(BaseHandler):
             retjson['content'] = filepath
         else:
             retjson = {'code':400,'content':'failed to upload picture'}
-
-        self.write(retjson)
+        self.write(json.dumps(retjson,ensure_ascii=False, indent=2))
  

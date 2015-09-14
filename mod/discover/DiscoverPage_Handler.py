@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
 import tornado.web
 import tornado.gen
-from mod.auth.Base_Handler import BaseHandler
+from mod.auth.Base_Handler import BaseHandler,UsersCache
 from ..databases.tables import TopicsCache
 import traceback
 
@@ -42,8 +41,8 @@ class DiscoverPageHandler(BaseHandler):
             except Exception,e:
                 print e
                 retjson = {'code':400,'content':'failed to query state'}
-            self.write(retjson)
-                self.render('discover_state.html',content=retjson)
+            # self.write(retjson)
+            self.render('discover_state.html',content=retjson)
         except Exception,e:
             print traceback.print_exc()
             print str(e)

@@ -14,7 +14,8 @@ import math
 class LoginHandler(BaseHandler):
     def get(self):
         if not self.current_user:  
-            self.render('login.html')  
+            self.redirect('/')
+            # self.render('login.html')  
         else:  
             self.redirect('/')  
         
@@ -27,7 +28,8 @@ class LoginHandler(BaseHandler):
             self.db.delete(users)
             try:
                 self.db.commit()
-            except:
+            except Exception,e:
+                print e
                 self.db.rollback()
                 retjson['code'] = 401
                 retjson['content'] = u'Database store is wrong!'
@@ -61,9 +63,10 @@ class LoginHandler(BaseHandler):
                 self.db.add(status)
                 try:
                     self.db.commit()
-                    self.count(person.uid)
+                    # self.count(person.uid)
 
-                except:
+                except Exception,e:
+                    print e
                     self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
