@@ -37,15 +37,13 @@ class SearchStateHandler(BaseHandler):
 						content1.append(content)
 					retjson['content'] = content1
 					print retjson
-					self.write(retjson)
 				else:
 					retjson = {'code':400,'content':'not match topics_title'}
-					self.write(retjson)
 			except Exception,e:
 				print e
 				retjson = {'code':400,'content':'failed to search state'}
-				self.write(retjson)
 		else:
 			retjson = {'code':400,'content':'topic_title is null'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+		print ret
 		self.write(ret)
