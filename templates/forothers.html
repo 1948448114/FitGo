@@ -1,0 +1,103 @@
+{% extends "header.html" %}
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/plans.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/default.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/component.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/daterangepicker-bs3.css')}}">
+{% end %}
+{% block body %}
+    <div class="container moreMargin">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-3 ">
+                <img class="alignCenter" src="/static/images/pic.svg">
+            </div>
+            <div class="col-xs-9 col-xs-offset-3 col-sm-8 col-sm-offset-0 col-md-9 fontStyle">
+                <h3>Your Name</h3>
+                <h2>Signature:lalalalalala</h2>
+            </div>
+        </div>
+        
+        <div class="container moreMargin">
+            <div class="col-sm-10 col-xs-10">
+                <div class="tabbable">
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-2">
+                            <ul class="nav tabFocus" role="tablist">
+                                <li  role="presentation" class>
+                                    <a id="tab2" href="#9" data-toggle="tab">查看历史计划</a>
+                                </li>
+                                <li role="presentation">
+                                    <a id="tab3" href="#20" data-toggle="tab">查看历史动态</a>
+                                </li>
+                                      <li  role="presentation" class>
+                                    <a id="tab3" href="#10" data-toggle="tab">添加为好友</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-10 col-xs-10">
+                            <div class="tab-content chuo">
+                                <div id="9"role="tabpanel" class="tab-pane tabBC1 active" id="">
+                                    <h4>查看ta的历史计划(*¯︶¯*)</h4>
+                                    <p>那些年ta制定过的计划们~</p>
+                                    <p>
+                                        <a class="tabA" id="to-plans" href="#">戳我戳我</a></p>
+                                    </div>
+                                    <div id="20"role="tabpanel" class="tab-pane tabBC1" id="">
+                                        <h4>查看ta的历史动态 (●′ω`●)</h4>
+                                        <p>翻翻ta的过去~</p>
+                                        <p>
+                                            <a class="tabA" id="to-states" href="#">戳我戳我</a></p>
+                                        </div>                                        <div id="10" role="tabpanel" class="tab-pane tabBC1" id="">
+                                            <h4>添加ta为新好友 ╭(′▽`)╭(′▽`)╯</h4>
+                                            <p>添加为好友后，您可以在主页、发现页面和活动页面随时看到ta的动态，在约健身时ta也将成为您的优先推荐人~</p>
+                                            <p><a class="tabA" id="tab4" href="#">戳我戳我</a></p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container stateMargin" id="myplans">
+                        <h1>Plans</h1>
+                        <div class="main">
+                            <ul class="cbp_tmtimeline" id="myTab_plan_show">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="container stateMargin" id="mystates">
+                        <h1>States</h1>
+                        <div class="main">
+                            <ul class="cbp_tmtimeline">
+                                <li class="nextMargin">
+                                    <time class="cbp_tmtime " datetime="2013-04-10 18:30"><span >
+                                        4/10/13</span> <span class="fontSize">18:30</span></time>
+                                        <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                                        <div class="cbp_tmlabel">
+                                            <div class="protect">
+                                                <h2>LALALALALALALALALALALALALA</h2>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="nextMargin">
+                                        <time class="cbp_tmtime " datetime="2013-04-10 18:30"><span >
+                                            4/10/13</span> <span class="fontSize">18:30</span></time>
+                                            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="protect">
+                                                    <h2>LALALALALALALALALALALALALA</h2>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript" src="{{static_url('js/moment.min.js')}}"></script>
+                        <script type="text/javascript" src="{{static_url('js/daterangepicker.js')}}"></script>
+                        <script type="text/javascript" src="{{static_url('js/jquery.scrollTo.js')}}"></script>
+                        <script type="text/javascript" src="{{static_url('js/plans.js')}}"></script>
+                        <script type="text/javascript" src="{{static_url('js/jquery.smooth-scroll.min.js')}}"></script>
+                    {% end %}

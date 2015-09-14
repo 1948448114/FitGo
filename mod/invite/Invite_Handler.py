@@ -12,7 +12,7 @@ class InviteHandler(BaseHandler):
 		arg_uid = self.current_user.uid
 		arg_start_time = self.get_argument("start_time")
 		arg_duration = self.get_argument("duration")
-		arg_create_time = time.time()
+		arg_create_time = int(time.time())
 		# arg_create_time = self.get_argument("create_time")#arg_create_time = time.time()
 		arg_fit_location = self.get_argument("fit_location")
 		arg_fit_item = self.get_argument("fit_item")
@@ -26,6 +26,7 @@ class InviteHandler(BaseHandler):
 			retjson['content'] = 'Some arguments are empty'
 		else:
 			try:
+				arg_start_time = int(time.mktime(time.strptime(arg_start_time,"%Y-%m-%d %H:%M")))
 				status = InviteCache(uid=arg_uid,start_time=arg_start_time,duration=arg_duration,\
 					create_time=arg_create_time,fit_location=arg_fit_location,fit_item=arg_fit_item,\
 					user_tag=arg_user_tag,gender=arg_gender,remark=arg_remark)

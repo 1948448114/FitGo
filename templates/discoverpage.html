@@ -1,224 +1,206 @@
 {% extends "header.html" %}
 {% block header %}
     <link rel="stylesheet" href="{{static_url('css/discover.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{static_url('css/pfold.css') }}">
-    <script src="{{static_url('js/discover.js') }}"></script>
-    <script src="{{static_url('js/jquery.pfold.js') }}"></script>
-    <script type="text/javascript">
-    $(function() {
-    // say we want to have only one item opened at one moment
-    var opened = false;
-    $( '#grid > div.uc-container' ).each( function( i ) {
-    var $item = $( this ), direction;
-    switch( i%12 ) {
-    case 0 :
-    direction = ['right','bottom'];
-    break;
-    case 1 :
-    direction = ['right','bottom'];
-    break;
-    case 2 :
-    direction = ['left','bottom'];
-    break;
-    case 3 :
-    direction = ['left','bottom'];
-    break;
-    case 4 :
-    direction = ['top','right'];
-    break;
-    case 5 :
-    direction = ['bottom','right'];
-    break;
-    case 6 :
-    direction = ['top','left'];
-    break;
-    case 7 :
-    direction = ['bottom','left'];
-    break;
-    case 8 :
-    direction = ['right','top'];
-    break;
-    case 9 :
-    direction = ['right','top'];
-    break;
-    case 10 :
-    direction = ['left','top'];
-    break;
-    case 11 :
-    direction = ['left','top'];
-    break;
-    }
-    var pfold = $item.pfold( {
-    folddirection : direction,
-    speed : 300,
-    onEndFolding : function() { opened = false; },
-    // centered : true
-    } );
-    $item.find( 'span.icon-eye' ).on( 'click', function() {
-    if( !opened ) {
-    opened = true;
-    pfold.unfold();
-    }
-    } ).end().find( 'span.icon-cancel' ).on( 'click', function() {
-    pfold.fold();
-    } );
-    } );
-    $("#share_btn").click(function(event) {
-    /* Act on the event */
-    $(".create_state").show('slow/400/fast');
-    });
-    $("#submit_state_btn").click(function(event) {
-    /* Act on the event */
-    $(".create_state").hide('slow/400/fast');
-    });
-    $("#find_btn").click(function(event) {
-    /* Act on the event */
-    $(".create_state").hide('slow/400/fast');
-    });
     
-    });
-    $(function() {
-    $("#menu .home").removeClass("home");
-    $($("#menu .bar").get(1)).addClass("home");
-    });
-    </script>
+    <script src="{{static_url('js/discover-state.js') }}"></script>
+    <script src="{{static_url('js/discover-friend.js') }}"></script>
+    <script src="{{static_url('js/discoverController.js') }}"></script>
 {% end %}
 {% block body %}
     <div class="container">
         <div class="discover_state">
             <div class="latest_state row">
-                <div id="grid" class="grid clearfix">
-                    {% for i in content %}
-                        {% module discover_state(i) %}
-                    {% end %}
-                    {% for i in content %}
-                        {% module discover_state(i) %}
-                    {% end %}
-                    
+                <div class="have_icon">
+                    <a class="icon-spinner">
+                    </a>
+                </div>
+                <div id="discover_state_all" class="grid clearfix">
+                    <div>hello</div>
                 </div>
             </div>
-            <div class="title" >
-                <div>
-                    <p class="largetext">
-                        <button class="btn" id="find_btn">Find</button> your Friend.
-                        <button class="btn" id="share_btn">Share</button> your Happiness.
-                    </p>
+        </div>
+    </div>
+    <div class="title" id="friend_title">
+        <div class="largetext">
+            <p >
+                <a class="btn" href="#friend_title" id="find_btn">Find</a> your Friend.
+                
+                <a class="btn" href="#friend_title" id="share_btn">Share</a> your Happiness.
+            </p>
+        </div>
+    </div>
+    <div class="container search_state">
+        <div class='row'>
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="input-group have_icon search_state_group">
+                    <span class="icon icon-search"></span>
+                    <input type="text" class="form-control" aria-label="Search" id="search_state_tag" placeholder="Search State...">
+                    <span class="input-group-addon btn" id="search_state_btn" ><a href="#search_state_list">Go! </a></span>
                 </div>
             </div>
-            <div class='row create_state' >
-                <div class="col-sm-5 col-sm-offset-2">
-                    <div class="row create_state">
-                        <span class="create">Create your State:</span>
-                        <div class="have_icon">
-                            <span class="icon  icon-magic"></span>
-                            <input type="text" class="form-control" id="create_state_title" placeholder="Say something in short...">
-                        </div>
-                        <div class="have_icon">
-                            <span class="icon icon-edit"></span>
-                            <textarea placeholder="Details" id="create_state_detail" class="form-control textareaMargin" rows="8"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="row">
-                        <div class="col-sm-12" id="discover_png">
-                            <img src="/static/images/discover/1.png">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            
-                            <button  type="submit" class="btn btn-default" id="submit_state_btn">Share</button>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>            
         </div>
     </div>
     <div class="container">
-        <div class="discover_friend">
-            <div class='row find_friend' >
-                <div class="col-sm-5 col-sm-offset-2">
-                    <div class="row create_state">
-                        <span class="create">Create your State:</span>
-                        <div class="have_icon">
-                            <span class="icon  icon-magic"></span>
-                            <input type="text" class="form-control" id="create_state_title" placeholder="Say something in short...">
-                        </div>
-                        <div class="have_icon">
-                            <span class="icon icon-edit"></span>
-                            <textarea placeholder="Details" id="create_state_detail" class="form-control textareaMargin" rows="8"></textarea>
-                        </div>
+        <div class="row find_friend">
+            <div class="col-sm-3 col-sm-offset-1">
+                <div class="row">
+                    <div class="col-sm-12" id="discover_png_1">
+                        <img src="/static/images/discover/3.png">
                     </div>
                 </div>
-                <div class="col-sm-5">
-                    <div class="row">
-                        <div class="col-sm-12" id="discover_png">
-                            <img src="/static/images/discover/1.png">
-                        </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row find_friend">
+                    
+                    <div class="have_icon">
+                        <span class="icon  icon-desktop"></span>
+                        <input type="text" class="form-control" aria-label="Search" id="search_user_tag" placeholder="Search by tag...">
                     </div>
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            
-                            <button  type="submit" class="btn btn-default" id="submit_state_btn">Share</button>
-                            
+                    <div class="have_icon">
+                        <span class="icon  icon-user"></span>
+                        <input type="text" class="form-control"  id="search_username" placeholder="昵称">
+                    </div>
+                    <div class=" have_icon">
+                        <span class="icon   icon-home"></span>
+                        <input type="text" class="form-control"  id="search_school" placeholder="School">
+                    </div>
+                    <div class="have_icon">
+                        <span class="icon  icon-map-marker"></span>
+                        <input type="text" class="form-control"  id="search_campus" placeholder="Campus">
+                    </div>
+                    <div class="have_icon">
+                        <span class="icon  icon-group"></span>
+                        <select class="form-control styled-select" id="gender">
+                            <option class="option-color">Gender</option>
+                            <option class="option-color">Female</option>
+                            <option class="option-color">Male</option>
+                            <option class="option-color">Other</option>
+                            <option class="option-color">Unlimited</option>
+                        </select>
+                    </div>
+                    <div >
+                        <button  type="submit" class="btn btn-danger col-sm-12" id="find_friend_btn">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <div class="col-sm-12" id="discover_png_2">
+                        <img src="/static/images/discover/2.png">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class='row create_state' >
+            <div class="col-sm-5 col-sm-offset-2">
+                <div class="row create_state">
+                    <div class="have_icon">
+                        <span class="create">Create your State: </span>
+                        <span class="icon-camera">
+                            <form  action="/discover/create/state/pic" enctype="multipart/form-data" id="up_img_WU_FILE_1" method='post' onsubmit="return fileupload()">
+                            <input type="file" class="filePrew"  id="up_img_WU_FILE_0" size=3 tabIndex=3 name="file">
+                        </form>
+                        </span>
+                    </div>
+                    <div class="have_icon">
+                        <span class="icon  icon-magic"></span>
+                        <input type="text" class="form-control" id="create_state_title" placeholder="Say something in short...">
+                    </div>
+                    
+                    
+                    
+                    <div class="have_icon">
+                        <span class="icon icon-edit"></span>
+                        <textarea placeholder="Details" id="create_state_detail" class="form-control textareaMargin" rows="8"></textarea>
+                    </div>
+
+                    <div class="wrong_message">
+                        <div class="alert alert-danger showing" id="create_state_title_error">
+                            Please say something as title
                         </div>
                     </div>
                 </div>
             </div>
-            <ul class="cbp_tmtimeline">
-                <li>
-                    <time class="cbp_tmtime" datetime="2013-04-10 18:30">
-                    <span>4/10/13</span>
-                    <span>18:30</span>
-                    </time>
-                    <div class="cbp_tmicon cbp_tmicon-phone">
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-12 " id="warp">
+                        <form>
+                            <img id="imgShow_WU_FILE_0" width="200" height="150"/>
+                        </form>
+                        <!--  <input type="file" id="up_img_WU_FILE_0" placeholder="Say something in short..." /> -->
                     </div>
-                    <div class="cbp_tmlabel">
-                        <h2>Ricebean black-eyed pea</h2>
-                        <p>Winter</p>
+                    <div class="col-sm-12" id="discover_png">
+                        <img src="/static/images/discover/1.png">
                     </div>
-                </li>
-                <li>
-                    <time class="cbp_tmtime" datetime="2013-04-11T12:04">
-                    <span>4/11/13</span>
-                    <span>12:04</span>
-                    </time>
-                    <div class="cbp_tmicon cbp_tmicon-screen"></div>
-                    <div class="cbp_tmlabel">
-                        <h2>Greens radish arugula</h2>
-                        <p>Caulie.</p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <button  type="submit" class="btn btn-danger" id="submit_state_btn">Share</button>
                     </div>
-                </li>
-                
-                <li>
-                    <time class="cbp_tmtime" datetime="2013-04-17 12:11">
-                    <span>4/17/13</span>
-                    <span>12:11</span>
-                    </time>
-                    <div class="cbp_tmicon cbp_tmicon-screen"></div>
-                    <div class="cbp_tmlabel">
-                        <h2>Greens radish arugula</h2>
-                        <p>Caulie</p>
-                    </div>
-                </li>
-                <li>
-                    <time class="cbp_tmtime" datetime="2013-04-18 09:56">
-                    <span>4/18/13</span>
-                    <span>09:56</span>
-                    </time>
-                    <div class="cbp_tmicon cbp_tmicon-phone"></div>
-                    <div class="cbp_tmlabel">
-                        <h2>Sprout garlic kohlrabi</h2>
-                        <p>
-                            Parsnip lotus root celery yarrow seakale tomato
-                        </p>
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
     
+    
+    
+    <div class="container">
+        <div class="discover_state" id="friend_state">
+            <div class="row">
+                <div id="discover_state_friend" class="grid clearfix">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="discover_state" id="search_state_list">
+            <div class="row">
+                <div id="discover_state_list" class="grid clearfix">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container_friend">
+            <div id="friend_item1" class="friend_item">
+                <img id="friend_img1" src="/static/images/discover/1.jpg">
+                <span id="cover1" class="friend_cover">
+                    <a hre="/plans"><h2>拉拉</h2>  </a>
+                    <p>天线哒哒B</p>
+                    <button id="add_friend">Add Friend</button>
+                </span>
+            </div>
+            <!--   <div id="friend_item2" class="friend_item">
+                <img id="friend_img2" src="/static/images/discover/2.jpg">
+                <span id="cover2" class="friend_cover">
+                    <h2>迪西</h2>
+                    <p>天线哒哒B</p>
+                    <button id="add_friend">Add Friend</button>
+                </span>
+            </div>
+            <div id="friend_item3" class="friend_item">
+                <img id="friend_img3" src="/static/images/discover/3.jpg">
+                <span id="cover3" class="friend_cover">
+                    <h2>阿波</h2>
+                    <p>天线哒哒B</p>
+                    <button id="add_friend">Add Friend</button>
+                </span>
+            </div>
+            <div id="friend_item4" class="friend_item">
+                <img id="friend_img4" src="/static/images/discover/4.jpg">
+                <span id="cover4" class="friend_cover">
+                    <h2>丁丁</h2>
+                    <p>天线哒哒B</p>
+                    <button id="add_friend">Add Friend</button>
+                </span>
+            </div> -->
+        </div>
+    </div>
+    <script src="{{static_url('js/jquery.form.js') }}"></script>
     {%end%}

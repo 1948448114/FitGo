@@ -1,27 +1,10 @@
-@font-face{
-  font-family: "proxima-nova-regular";
-  src:url("/static/fonts/ProximaNova-Regular.otf");}
-@font-face{
-  font-family: "proxima-nova-semibold";
-  src:url("/static/fonts/ProximaNova-Semibold.otf");}
-.title h1{
-	text-align: center;
-	font-size: 50px;
-	font-family: "SourceSansPro-ExtraLight";
-	color:#a2030e;
 
+body {
+    font-size: 100%;
+    background-color: #eaeff5;
 }
-
-
-.title strong{
-	font-family: "SourceSansPro-Regular"
-}
-.search_invite a:hover{
-	text-decoration:blink;
-}
-
-#invite_pic{
-	width: 100%;
+#invite .row{
+	margin-bottom: 10px;
 }
 #invite_pic_div
 {
@@ -29,27 +12,37 @@
 	margin: 0px;
 	padding:0px;
 }
-#invite .row{
-	margin-bottom: 10px;
-}
 #invite .largetext{
-	font-size: 50px;
-	font-weight:200; 
-
+	font-size: 4rem;
+	font-weight:200;
+	color:#a2030e;
+	text-align: center;
 }
+.create_invite,.search_invite{
+	font-size: 1.25rem;
+	padding-left: 2px;
+	border: none;
+	color: #a2030e;
+}
+
+#invite_pic{
+	width: 100%;
+}
+
+.search_invite a:hover{
+	text-decoration:blink;
+}
+
+
 .icon{
   position: absolute;
-  left: 12px;
-  top: 9px;
-  font-size: 15px;
+  left: 0.75rem;
+  top: 0.5652rem;
+  font-size: 1rem;
   z-index: 999;
   color: #333;
 }
 
-body {
-    font-size: 100%;
-    background-color: #eaeff5;
-}
 .styled-select{
    appearance:none;
    -moz-appearance:none;
@@ -59,22 +52,19 @@ body {
 }
 .option-color{
 	background-color: rgba(255,255,255,.2);
+	font-family: "microsoft yahei";
 }
 
-.create_invite,.search_invite{
-	font-size: 20px;
-	padding-left: 2px;
-	border: none;
-	    color: #a2030e;
-}
+
 .input-group-addon {
-    
-    font-size: 14px;
     
     background-color: #fff;
    
  }
-
+.input-group-addon a{
+    
+    font-size: 1rem;
+ }
 #search_btn{
  	
  	border-left-width: 0px;
@@ -87,9 +77,9 @@ body {
 
  }
 #search_btn,#search_invite_tag,#search_more_btn{
-	height: 36px;
+	height: 2.25rem;
 	margin: 0px;
-	 font-size: 15px;
+	 font-size: 1rem;
 }
 #search_btn:hover {
     color: #fff;
@@ -116,12 +106,13 @@ body {
 {
 	border:none;
 }
-#invite_new_btn
+#invite_new_btn,#invite_message_btn
 {
-	font-size: 34px;
+	font-size: 2rem;
 	text-align: center;
 	color: #7f81e7;
-
+	font-family: "microsoft yahei";
+	padding:auto;
 }
 .creat
 {
@@ -132,10 +123,10 @@ body {
 	    display:none;
 }
 .search_invite_group{
-	margin-bottom: 20px;
+	margin-bottom: 1.25rem;
 }
 #invite_more_detail{
-	margin-bottom: 30px;
+	margin-bottom: 1.875rem;
 }
 #invite_png{
 	float:right;
@@ -145,16 +136,25 @@ body {
     border-color: #292e6f;
 }
 #submit_invite_btn button {
-    padding-left: 30px;
-    padding-right: 30px;
-    font-family: "proxima-nova-semibold",sans-serif;
-    font-size: 15px;
+    padding:auto 1.875rem;
+    font-size: 1rem;
     background-color: #7f81e7;
     border:none;
     color: #ffffff;
  }
 
 
+img, ul, li,b{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+ul {
+	list-style: none;
+}
 
 .container_timeline{
 	width: 1000px;
@@ -163,16 +163,16 @@ body {
 }
 
 /* 默认样式 */
-.timeline li {
+#timeline li {
 	height: 160px;
 	position: relative;
 }
 
-.timeline li div {
+#timeline li div {
 	position: absolute;
 }
 
-.timeline .check .spring {
+#timeline .check .spring {
 	position: absolute;
 	display: block;
 	width: 51px;
@@ -182,7 +182,7 @@ body {
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAPElEQVQYV2NkQAP/gYARCNDFUQRgirAphitEl0TngxXisg5ZnBGXIpgbYfIYjkb3BNxGbBLYxIgyEaQRAA8KKAWYsZtjAAAAAElFTkSuQmCC);
 }
 
-.timeline .check s {
+#timeline .check s{
 	position: absolute;
 	display: block;
 	left: 157px;
@@ -190,11 +190,11 @@ body {
 	width: 16px;
 	height: 16px;
 	border: 3px solid #41838E;
-	background: #fff url(../images/sprite.png) 1px -100px;
+	background: #fff url(/static/images/invite/sprite.png) 1px -100px;
 	cursor: pointer;
 }
 
-.timeline .check .line {
+#timeline .check .line {
 	position: absolute;
 	width: 38px;
 	height: 1px;
@@ -204,29 +204,29 @@ body {
 	font-size: 1px;
 }
 
-.timeline .thumb {
+#timeline .thumb {
 	width: 82px;
 	top: 13px;
 	left: 32px;
 }
 
-.timeline .thumb img {
+#timeline .thumb img {
 	width: 72px;
 	height: 72px;
 	border: 5px solid #41838E;
 }
 
-.timeline .thumb span {
+#timeline .thumb span {
 	display: block;
 	height: 30px;
 	line-height: 30px;
 	color: #41838E;
 	text-align: center;
-	font-size: 12px;
+	font-size: 0.75rem;
 	font-family: Arial black;
 }
 
-.timeline .content {
+#timeline .content {
 	left: 234px;
 	top: 10px;
 	width: 730px;
@@ -234,87 +234,98 @@ body {
 	background: #fff;
 }
 
-.timeline .content h3{
+#timeline .content h3{
 	margin: 23px 15px;
-	font-size: 30px;
-	font-family: microsoft yahei;
+	font-size: 2rem;
+	font-family: "microsoft yahei";
 }
 
-.timeline .content p {
+#timeline .content p {
 	display: none;
 }
 
-.timeline .content b {
+#timeline .content b {
 	position: absolute;
 	display: block;
 	width: 17px;
 	height: 34px;
-	background: url(../images/sprite.png);
+	background: url(/static/images/invite/sprite.png);
 	left: -21px;
 	top: 25px;
 }
 
 /* 高亮样式 */
-.timeline li.active {
+#timeline li.active {
 	height: 230px;
 }
 
-.timeline li.active div {
+#timeline li.active div {
 	position: absolute;
 }
 
-.timeline .active .check .spring {
+#timeline .active .check .spring {
 	left: 106px;
 	top: 47px;
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAPUlEQVQYV2NkQAOfUjX+882+wYgujiIAU4RNMVwhuiQ6H6wQl3XI4oy4FMHcCJPHcDS6J2A2EqUQpJhohQBbNyaHFmzEqgAAAABJRU5ErkJggg==);
 }
 
-.timeline .active .check s {
+#timeline .active .check s{
 	left: 152px;
 	top: 36px;
 	width: 20px;
 	height: 20px;
 	border: 5px solid #fff;
-	background: #F26328 url(../images/sprite.png) 2px -200px;
+	background: #F26328 url(/static/images/invite/sprite.png) 2px -200px;
 	cursor: pointer;
 }
 
-.timeline .active .check .line {
+#timeline .active .check .line {
 	background: #F26328;
 	width: 43px;
 	left: 176px;
 	top: 50px;
 }
 
-.timeline .active .thumb {
+#timeline .active .thumb {
 	width: 110px;
 	top: 10px;
 	left: -10px;
 }
 
-.timeline .active .thumb img {
+#timeline .active .thumb img {
 	width: 100px;
 	height: 100px;
 	border: 8px solid #F26328;
 }
 
-.timeline .active .thumb span {
+#timeline .active .thumb span {
 	color: #F26328;
 
 }
 
-.timeline .active .content {
+#timeline .active .content {
 	border-left: 5px solid #F26328;
 }
 
-.timeline .active .content p {
+#timeline .active .content p {
 	display: block;
 	margin: 23px 15px;
 	line-height: 1.5;
-	font-size: 14px;
+	font-size: 1rem;
 }
 
-.timeline .active .content b {
-	background: url(../images/sprite.png) 0 -43px;
+#timeline .active .content b {
+	background: url(/static/images/invite/sprite.png) 0 -43px;
 	left: -20px;
+}
+.list_name{
+	position: relative;
+}
+.list_p{
+font-size: 2rem;
+position: absolute;
+top:10px;
+left:10px;
+	color: rgba(0,0,0,0.3);
+	font-family: "microsoft yahei";
 }

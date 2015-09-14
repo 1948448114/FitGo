@@ -1,0 +1,27 @@
+{% extends "header.html" %}
+{% block header %}
+  <link rel="stylesheet" type="text/css" href="{{static_url('css/style.css') }}">
+{% end %}
+{% block body %}
+  <div class="porContainer">
+    <div class="imageBox">
+      <div class="thumbBox"></div>
+      <div class="spinner" style="display: none"></div>
+    </div>
+    <div class="action">
+      <div class="new-contentarea tc"> 
+      <a href="javascript:void(0)" class="upload-img">
+        <label style="font-size:20px" for="upload-file">Choose One</label>
+      </a>
+      <input type="file" class="submitStyle" name="file" id="upload-file" method="post" action="portrait">
+    </div>
+    <input type="button" class="Btnsty_peyton" value="OK" id="subPor">
+    <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
+    <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+  </div>
+  <div class="cropped"></div>
+</div>
+<div style="min-height:200px"></div>
+<script type="text/javascript" src="{{static_url('js/infochange.js')}}"></script>
+<script type="text/javascript" src="{{static_url('js/cropbox-min.js')}}"></script>
+{% end %}

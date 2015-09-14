@@ -6732,24 +6732,24 @@ button.close {
   }
 }
 @media (max-width: 767px) {
-  .hidden-xs {
+/*  .hidden-xs {
     display: none !important;
-  }
+  }*/
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .hidden-sm {
+/*  .hidden-sm {
     display: none !important;
   }
-}
+*/}
 @media (min-width: 992px) and (max-width: 1199px) {
-  .hidden-md {
+/*  .hidden-md {
     display: none !important;
-  }
+  }*/
 }
 @media (min-width: 1200px) {
-  .hidden-lg {
+/*  .hidden-lg {
     display: none !important;
-  }
+  }*/
 }
 .visible-print {
   display: none !important;
