@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // init();
-    search();
+    // search();
     NewInvitation();
     $("#create_invite_information_message").hide();
     // $(".wrong_message").hide();
@@ -86,7 +86,7 @@ function search(){
       success: function(data, textStatus, xhr) {
         $("#timeline").html(data);
         item_click();
-        newInvite()
+        newInvite();
       },
       error: function(xhr, textStatus, errorThrown) {
         $("#timeline").html('<li class="wrong_message" ><div class="content" id="wrong_message"><h3>Network Error!</h3></div></li>');
@@ -98,7 +98,26 @@ function newInvite(){
   $(".confirm_invite").each(function(index, el) {
       $(this).click(function(event) {
           console.log(index);
-
+          var _id=$(this).attr('value');
+          var uid=$("#"+_id).find('.user_index').attr('value');
+          jQuery.ajax({
+            url: '/invite/request',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+              'uid': uid,
+              '_id':_id
+          },
+            success: function(data, textStatus, xhr) {
+              if(data['code']==200){
+                $(this).attr({"disabled":"disables"});
+              }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+              //called when there is an error
+            }
+          });
+          
       });
   });
 }
