@@ -39,7 +39,7 @@ class SearchInviteHandler(BaseHandler):
 			content1 = []
 			for i in invitations:
 				content = {}
-				# content['uid'] = i.uid
+				content['uid'] = i.uid
 				user = self.db.query(UsersCache).filter(UsersCache.uid==i.uid).one()
 				content['name'] = user.name
 				content['portrait'] = user.portrait

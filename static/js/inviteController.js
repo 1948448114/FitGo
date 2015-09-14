@@ -97,9 +97,10 @@ function search(){
 function newInvite(){
   $(".confirm_invite").each(function(index, el) {
       $(this).click(function(event) {
-          console.log(index);
+          // console.log(index);
           var _id=$(this).attr('value');
           var uid=$("#"+_id).find('.user_index').attr('value');
+          var thisButton = $(this);
           jQuery.ajax({
             url: '/invite/request',
             type: 'POST',
@@ -110,7 +111,7 @@ function newInvite(){
           },
             success: function(data, textStatus, xhr) {
               if(data['code']==200){
-                $(this).attr({"disabled":"disables"});
+               thisButton.attr({"disabled":"disabled"});
               }
             },
             error: function(xhr, textStatus, errorThrown) {
@@ -120,4 +121,8 @@ function newInvite(){
           
       });
   });
+};
+
+function getAllInvite(){
+  
 }

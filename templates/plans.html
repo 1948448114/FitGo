@@ -10,11 +10,11 @@
     <div class="container moreMargin">
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-3 ">
-                <img class="alignCenter" src="/static/images/pic.svg">
+                <img class="alignCenter" id="user_portrait" src="/static/images/pic.svg">
             </div>
             <div class="col-xs-9 col-xs-offset-3 col-sm-8 col-sm-offset-0 col-md-9 fontStyle">
-                <h3>Your Name</h3>
-                <h2>Signature:lalalalalala</h2>
+                <h3 id="user_name">Your Name</h3>
+                <h2 id="user_signature">Signature:lalalalalala</h2>
                 <a href="/plans/Info"><span class="icon-edit"></span>修改个人信息</a>
             </div>
         </div>
@@ -159,6 +159,9 @@
                             </div>
                         </div>
                     </div>
+                    {% if user %}
+                        <input type="hidden" id="uid" value="{{user.uid}}">
+                    {% end %}
                     <script type="text/javascript" src="{{static_url('js/moment.min.js')}}"></script>
                     <script type="text/javascript" src="{{static_url('js/daterangepicker.js')}}"></script>
                     <script type="text/javascript" src="{{static_url('js/jquery.scrollTo.js')}}"></script>
