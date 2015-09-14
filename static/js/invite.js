@@ -1,4 +1,4 @@
-window.onload = function(){
+function item_click(){
    
     var curIndex = 0,
         //记录当前已经添加active类的li的索引号
@@ -24,8 +24,11 @@ window.onload = function(){
  };
 
     $(document).ready(function() {
+
+
     $("#invite_new").click(function(event) {
     /* Act on the event */
+    
     $("#create_new_invite").show('slow/400/fast');
     $("#invite_more_detail").hide();
     $(".invite_block").hide();
