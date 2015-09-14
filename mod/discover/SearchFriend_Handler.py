@@ -4,7 +4,7 @@
 import tornado.web
 import tornado.gen
 from mod.auth.Base_Handler import BaseHandler
-from ..databases.tables import UsersCache,User_tagCache,TopicsCa
+from ..databases.tables import UsersCache,User_tagCache
 
 #/discover/search/friends
 class SearchFriendHandler(BaseHandler):

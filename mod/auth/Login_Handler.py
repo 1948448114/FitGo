@@ -13,8 +13,9 @@ import math
 
 class LoginHandler(BaseHandler):
     def get(self):
-        if not self.current_user:  
-            self.render('login.html')  
+        if not self.current_user:
+            self.render('login.html')    
+            # self.redirect('/')
         else:  
             self.redirect('/')  
         

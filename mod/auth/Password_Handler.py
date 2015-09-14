@@ -11,6 +11,7 @@ import uuid
 import re
 
 class PasswordHandler(BaseHandler):
+	# @tornado.web.authenticated
 	def put(self):
 		old_passwd = self.get_argument('old_password')
 		new_passwd = self.get_argument('new_password')
