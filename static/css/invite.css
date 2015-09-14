@@ -8,7 +8,7 @@ body {
 }
 #invite_pic_div
 {
-	width: 100%;
+	
 	margin: 0px;
 	padding:0px;
 }
@@ -72,12 +72,12 @@ body {
 	
  #search_invite_tag
  {
- 	    border-top-left-radius:0.25rem;
-    border-bottom-left-radius: 0.25rem;
+ 	    border-top-left-radius:4px;
+    border-bottom-left-radius: 4px;
 
  }
 #search_btn,#search_invite_tag,#search_more_btn{
-	height: 2.25rem;
+	height: 30px;
 	margin: 0px;
 	 font-size: 1rem;
 }
@@ -224,7 +224,7 @@ ul {
 	font-family: "microsoft yahei";
 }
 #timeline .content h4{
-	margin: 1.6rem 0.5rem;
+	margin: 1.6rem 1rem;
 	font-size: 1.5rem;
 	font-family: "microsoft yahei";
 }
@@ -313,4 +313,55 @@ margin-left:5rem;
 	bottom:1rem;
 	right: 3rem;
 	border:none;
+}
+#invite_message_list{
+	margin-left:10px auto;
+	color: #a2030e;
+	font-size: 1.25rem;
+}
+#invite_message_all_list{
+	margin-left:10px auto;
+	font-size: 1.25rem;
+	color: #a2030e;
+}
+#invite_message_btn{
+	text-align: center;
+}
+#invite_message_list button{
+	padding-left:2rem;
+	padding-right: 2rem;
+	margin-left:1rem;
+	margin-right: 1rem;
+	font-size: 1rem;
+
+}
+
+#invite_message,#invite_message_all{
+	font-size: 1.75rem;
+	margin-bottom: 5px;
+	margin-top: 15px;
+	font-weight: normal;
+}
+
+#invite_new_btn a{
+	font-size: 2.5rem;
+	margin-top: 0px;
+	color: rgb(127, 129, 231);
+}
+#invite_new_btn a:hover{
+	font-size: 2.5rem;
+	color: #337ab7;
+}
+#invite_new :hover{
+	font-size: 2.75rem;
+	color: #337ab7;
+}
+#invite_new_btn{
+    margin-top: 5px;
+	margin-bottom: 15px;
+}
+#invite_message_list,#invite_message_all_list{
+	display:none;
+	margin-left: 5rem;
+	margin-right: 1rem;
 }

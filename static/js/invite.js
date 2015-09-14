@@ -32,16 +32,40 @@ function item_click(){
     $("#create_new_invite").show('slow/400/fast');
     $("#invite_more_detail").hide();
     $(".invite_block").hide();
-    
-    
+    $("#invite_message_list").hide();
+    $("#invite_message_all_list").hide();
     });
+
     $("#search_more_btn").click(function(event) {
     /* Act on the event */
     $(".invite_block").show();
     $("#invite_more_detail").show('slow/400/fast');
     $("#create_new_invite").hide();
+    $("#invite_message_list").hide();
+    $("#invite_message_all_list").hide();
     });
- 
+
+
+   $("#invite_message").click(function(event) {
+    /* Act on the event */
+    $(".invite_block").hide();
+    $("#invite_more_detail").hide();
+    $("#create_new_invite").hide();
+    $("#invite_message_list").fadeIn();
+    $("#invite_message_all_list").hide();
+    });
+
+   $("#invite_message_all").click(function(event) {
+    /* Act on the event */
+    $(".invite_block").hide();
+    $("#invite_more_detail").hide();
+    $("#create_new_invite").hide();
+    $("#invite_message_all_list").fadeIn();
+    $("#invite_message_list").hide();
+    });
+
+
+
     
     $("#search_invite_start_time").datetimepicker({
     

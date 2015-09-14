@@ -2,10 +2,13 @@ $(document).ready(function() {
     // init();
     // search();
     NewInvitation();
+    getNewInvite();
     $("#create_invite_information_message").hide();
     // $(".wrong_message").hide();
     $("#search_btn").click(function(event) {
         search();
+          $("#invite_message_list").hide();
+          $("#invite_message_all_list").hide();
     });
 });
 
@@ -92,7 +95,6 @@ function search(){
         $("#timeline").html('<li class="wrong_message" ><div class="content" id="wrong_message"><h3>Network Error!</h3></div></li>');
       }
     });
-    
 };
 function newInvite(){
   $(".confirm_invite").each(function(index, el) {
@@ -121,8 +123,37 @@ function newInvite(){
           
       });
   });
+
 };
 
-function getAllInvite(){
-  
+function getNewInvite(){
+  $("#invite_message").click(function(event) {
+    /* Act on the event */
+
+    jQuery.ajax({
+      url: '/invite/respond',
+      type: 'GET',
+      success: function(data, textStatus, xhr) {
+        $("#invite_message").html(data);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        //called when there is an error
+      }
+    });
+    
+    $(".invite_block").hide();
+    $("#invite_more_detail").hide();
+    $("#create_new_invite").hide();
+    $("#invite_message_list").fadeIn();
+    $("#invite_message_all_list").hide();
+    });
+};
+
+function getAllinvite(){
+  $(".invite_block").hide();
+    $("#invite_more_detail").hide();
+    $("#create_new_invite").hide();
+    $("#invite_message_all_list").fadeIn();
+    $("#invite_message_list").hide();
 }
+
