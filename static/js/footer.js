@@ -1,11 +1,11 @@
 $(document).ready(function() {
                 if($("meta[name=toTop]").attr("content")=="true"){
-                $("<div id='toTop'><img src='/static/images/top1.png'></div>").appendTo('body');
+                $("<div id='toTop'><img id='toTopbtn' src='/static/images/top1.png'></div>").appendTo('body');
                 $("#toTop").css({
                     width: '50px',
                     height: '50px',
                     bottom:'10px',
-                    right:'15px',
+                    right:'10px',
                     position:'fixed',
                     cursor:'pointer',
                     zIndex:'999999',
