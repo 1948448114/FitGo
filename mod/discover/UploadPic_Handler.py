@@ -18,8 +18,6 @@ class UploadPicHandler(BaseHandler):
             retjson = {'code':200,'content':'picture upload success!'}
             for meta in file_metas:
                 filename=meta['filename']
-                # newname=i.replace(filename,'123')
-                # os.rename(filename,newname)
                 filepath=os.path.join(upload_path,filename)
                 print filepath,type(meta)
                 with open(filepath,'wb') as up:      #有些文件需要已二进制的形式存储，实际中可以更改
@@ -30,4 +28,6 @@ class UploadPicHandler(BaseHandler):
             retjson = {'code':400,'content':'failed to upload picture'}
 
         self.write(retjson)
+    def RenameFiles(oldfilename):
+        newfilename = oldfilename.replace(oldfilename,'123')
  
