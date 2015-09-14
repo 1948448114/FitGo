@@ -57,9 +57,10 @@ function fileupload(){
     if($("#upload-file").val()){
         $("#upload_form").ajaxSubmit(function(message){
            data = JSON.parse(message);
+           console.log(data)
            if(data['code']==200){
            window.location.href="/plans/Info";
-       }
+        }
         });
     }
     else{
