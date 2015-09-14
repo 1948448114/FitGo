@@ -6,6 +6,7 @@ from Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,CookieCache
 #/auth/logout
 class LogoutHandler(BaseHandler):
+    # @tornado.web.authenticated
     def delete(self):#用户登出，删除cookie
         status = self.current_user
         if status:
