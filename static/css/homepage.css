@@ -11,13 +11,22 @@
 html{  
   font-size: 16px; 
   font-family: "microsoft yahei"; 
-}  
-@media (max-width: 900px) {  
-html{ font-size: 14px; }  
-}  
-@media (max-width: 420px) {  
+}
+@media (min-width: 320px) {  
+html{ font-size: 8px; }  
+}
+@media (min-width: 410px) {  
+html{ font-size: 10px; }  
+}
+@media (min-width: 768px) {  
 html{ font-size: 12px; }  
 }
+@media (min-width: 992px) {  
+html{ font-size: 14px; }  
+} 
+@media (min-width: 1200px) {  
+html{ font-size: 14px; }  
+}    
 
 body{
 	font-family:'SourceSansPro-Regular',"proxima-nova",'Microsoft YaHei',sans-serif;
@@ -53,7 +62,7 @@ body{
 }
 #menu .bar{
 	color:#eeeeee;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 }
 #menu button:hover{
 	color:#7f81e7;
