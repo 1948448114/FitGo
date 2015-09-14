@@ -82,7 +82,7 @@ class Application(tornado.web.Application):
             (r'/user/usertopic/(\d+)',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),
             (r'/user/userinfo/([\S]+)',UserinfoHandler),
-            (r'/user/userinfo/portrait',UploadPortraitHandler),
+            (r'/user/userinfopic/portrait',UploadPortraitHandler),
 
             (r'/invite/user_page',InvitePageHandler),
             (r'/invite',InviteHandler),
