@@ -1,11 +1,14 @@
 $(document).ready(function() {
     // init();
-    search();
+    // search();
     NewInvitation();
+    getNewInvite();
     $("#create_invite_information_message").hide();
     // $(".wrong_message").hide();
     $("#search_btn").click(function(event) {
         search();
+          $("#invite_message_list").hide();
+          $("#invite_message_all_list").hide();
     });
 });
 
@@ -86,19 +89,122 @@ function search(){
       success: function(data, textStatus, xhr) {
         $("#timeline").html(data);
         item_click();
-        newInvite()
+        newInvite();
       },
       error: function(xhr, textStatus, errorThrown) {
         $("#timeline").html('<li class="wrong_message" ><div class="content" id="wrong_message"><h3>Network Error!</h3></div></li>');
       }
     });
-    
 };
 function newInvite(){
   $(".confirm_invite").each(function(index, el) {
       $(this).click(function(event) {
-          console.log(index);
-
+          // console.log(index);
+          var _id=$(this).attr('value');
+          var uid=$("#"+_id).find('.user_index').attr('value');
+          var thisButton = $(this);
+          jQuery.ajax({
+            url: '/invite/request',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+              'uid': uid,
+              '_id':_id
+          },
+            success: function(data, textStatus, xhr) {
+              if(data['code']==200){
+               thisButton.attr({"disabled":"disabled"});
+              }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+              //called when there is an error
+            }
+          });
+          
       });
   });
+
+};
+
+function getNewInvite(){
+  $("#invite_message_btn").click(function(event) {
+    /* Act on the event */
+
+    jQuery.ajax({
+      url: '/invite/respond',
+      type: 'GET',
+      success: function(data, textStatus, xhr) {
+        $("#invite_message_list").html(data);
+        inviteOperation()
+        $(".invite_block").hide();
+        $("#invite_more_detail").hide();
+        $("#create_new_invite").hide();
+        $("#invite_message_list").fadeIn();
+        $("#invite_message_all_list").hide();
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        console.log(textStatus)
+      }
+    });
+    
+    
+    });
+};
+
+
+function inviteOperation(){
+  $(".btn-info").each(function(index, el) {
+    
+    $(this).click(function(event) {
+      request_id = $(this).attr('value');
+      request_uid = $("#"+request_id).find(".request_info").attr('value');
+      // console.log(request_id+request_uid);
+
+      /* Act on the event */
+      RespondRequest(request_id,request_uid,1);
+    });
+  });
+
+  $(".btn-danger").each(function(index, el) {
+    $(this).click(function(event) {
+      /* Act on the event */
+      request_id = $(this).attr('value');
+      request_uid = $("#"+request_id).find(".request_info").attr('value');
+      // console.log(request_id+request_uid);
+      RespondRequest(request_id,request_uid,2);
+    });
+  });
+};
+
+function RespondRequest(_id,request_id,code){
+  // console.log(_id);
+  // console.log(request_id);
+  jQuery.ajax({
+        url: '/invite/respond',
+        type: 'PUT',
+        dataType: 'json',
+        data: {
+          '_id': _id,
+          'uid_request':request_id,
+          'code':code
+      },
+        success: function(data, textStatus, xhr) {
+          if(data['code']==200){
+            $("#"+_id+" button").attr({'disabled':'disabled'});
+          }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          //called when there is an error
+          console.log(textStatus)
+        }
+      });
+};
+
+function getAllinvite(){
+  $(".invite_block").hide();
+    $("#invite_more_detail").hide();
+    $("#create_new_invite").hide();
+    $("#invite_message_all_list").fadeIn();
+    $("#invite_message_list").hide();
 }
+

@@ -12,7 +12,7 @@ class SearchInviteHandler(BaseHandler):
 		# t=time.time()
 		retjson = {'code':200,'content':'ok'}
 
-		sql = "select * from Invite where"
+		sql = "select * from Invite where uid!=\'%s\' and " % self.current_user.uid
 		string =""
 		keys=('start_time','fit_location','fit_item','user_tag','gender')
 		args=dict.fromkeys(keys)
@@ -39,7 +39,7 @@ class SearchInviteHandler(BaseHandler):
 			content1 = []
 			for i in invitations:
 				content = {}
-				# content['uid'] = i.uid
+				content['uid'] = i.uid
 				user = self.db.query(UsersCache).filter(UsersCache.uid==i.uid).one()
 				content['name'] = user.name
 				content['portrait'] = user.portrait
