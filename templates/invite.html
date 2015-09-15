@@ -23,35 +23,36 @@
             <div class="row button">
                 <div class="form-group col-sm-2 col-sm-offset-2 col-xs-4 " id="invite_message_btn"  >
                     <a href="#invite_title">
-                        <label id="invite_message" ><span class="icon-lightbulb"></span>"新消息"</label>
+                        <label  ><span class="icon-lightbulb"></span>新消息</label>
                     </a>
                 </div>
                 <div class="form-group col-sm-4 col-xs-4 " id="invite_new_btn"  >
                     <a href="#invite_title">
-                        <label id="invite_new" ><span class="icon-user"></span>"约健身"</label>
+                        <label ><span class="icon-user"></span>约健身</label>
                     </a>
                 </div>
                 <div class="form-group col-sm-2 col-xs-4 " id="invite_message_all_btn"  >
                     <a href="#invite_title">
-                        <label id="invite_message_all" ><span class="icon-exchange"></span>"消息列表"</label>
+                        <label ><span class="icon-exchange"></span>消息列表</label>
                     </a>
                 </div>
             </div>
         </div>
+         
         <div id="invite_message_list" class="container">
             <table class="table table-hover row">
-                <thead>
+                <thead >
                     <tr>
                         <th>No.</th>
-                        <th>姓名Name</th>
-                        <th>项目Item</th>
-                        <th>地点Location</th>
-                        <th>时间Time</th>
-                        <th>性别Gender</th>
-                        <th></th>
+                        <th>姓名</th>
+                        <th>项目</th>
+                        <th>地点</th>
+                        <th>时间</th>
+                        <th>性别</th>
+                        <th class="th_width">选项</th>
                     </tr>
                 </thead>
-                <tbody id="invite_message">
+                <tbody>
                     <tr>
                         <th scope="row">1</th>
                         <td id="invite_message_name">Mark</td>
@@ -59,32 +60,41 @@
                         <td id="invite_message_location">Otto</td>
                         <td id="invite_message_time">@mdo</td>
                         <td id="invite_message_gender">@mdo</td>
-                        <td id="invite_message_btn">
-                            <button id="invite_message_btn_yes" class="btn btn-info">确认</button>
-                        <button id="invite_message_btn_no" class="btn btn-danger">拒绝</button></td>
+                        <td class="invite_message_btn_block btn-group" role="group">
+                            <button type="button" id="invite_message_btn_yes" class="btn btn-info">确认</button>
+                        <button type="button" id="invite_message_btn_no" class="btn btn-danger">拒绝</button></td>
                     </tr>
                     
                 </tbody>
             </table>
+        
         </div>
         <div id="invite_message_all_list" class="container">
             <table class="table table-hover row">
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>姓名Name</th>
-                        <th>项目Item</th>
-                        <th>地点Location</th>
-                        <th>时间Time</th>
+                        <th>发起者</th>
+                        <th>联系方式</th>
+                        <th>响应者</th>
+                        <th>联系方式</th>
+                        <th class="invite_message_item">项目</th>
+                        <th class="invite_message_location">地点</th>
+                        <th class="invite_message_time">时间</th>
+                        <th >状态</th>
                     </tr>
                 </thead>
-                <tbody id="invite_message_all">
+                <tbody>
                     <tr>
                         <th scope="row">1</th>
                         <td id="invite_message_name">Mark</td>
-                        <td id="invite_message_item">@mdo</td>
-                        <td id="invite_message_location">Otto</td>
-                        <td id="invite_message_time">@mdo</td>
+                        <td >13612112121</td>
+                        <td>jettu</td>
+                        <td>13612112121</td>
+                        <td class="invite_message_item">Otto</td>
+                        <td class="invite_message_location">@mdo</td>
+                        <td class="invite_message_time">7:00</td>
+                        <td>同意</td>
                     </tr>
                     
                 </tbody>
@@ -231,7 +241,7 @@
             </div>
             <div id="invite_more_detail">
                 <div class='row' >
-                    <div class="col-sm-2 col-sm-offset-2">
+                    <div class="col-sm-2 col-sm-offset-2  col-xs-6">
                         <span class="search_invite">Where:</span>
                         <div class="have_icon">
                             <span class="icon  icon-map-marker"></span>
@@ -255,7 +265,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2  col-xs-6">
                         <span class="search_invite">What:</span>
                         <div class="have_icon">
                             <span class="icon   icon-lightbulb"></span>
@@ -273,7 +283,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2  col-xs-6">
                         <span class="search_invite">Who:</span>
                         <div class="have_icon">
                             <span class="icon  icon-group"></span>
@@ -289,7 +299,7 @@
                     
                     
                     
-                    <div class="col-sm-2">
+                    <div class="col-sm-2  col-xs-6">
                         <span class="search_invite">When:</span>
                         <div class="have_icon">
                             <span class="icon  icon-calendar"></span>

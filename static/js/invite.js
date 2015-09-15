@@ -26,7 +26,7 @@ function item_click(){
     $(document).ready(function() {
 
 
-    $("#invite_new").click(function(event) {
+    $("#invite_new_btn").click(function(event) {
     /* Act on the event */
     
     $("#create_new_invite").show('slow/400/fast');
@@ -46,7 +46,7 @@ function item_click(){
     });
 
 
-   $("#invite_message").click(function(event) {
+   $("#invite_message_btn").click(function(event) {
     /* Act on the event */
     $(".invite_block").hide();
     $("#invite_more_detail").hide();
@@ -55,7 +55,7 @@ function item_click(){
     $("#invite_message_all_list").hide();
     });
 
-   $("#invite_message_all").click(function(event) {
+   $("#invite_message_all_btn").click(function(event) {
     /* Act on the event */
     $(".invite_block").hide();
     $("#invite_more_detail").hide();
