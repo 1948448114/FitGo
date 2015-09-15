@@ -3,7 +3,7 @@
 import tornado.web
 import tornado.gen
 from ..auth.Base_Handler import BaseHandler
-from ..databases.tables import InviteCache
+from ..databases.tables import InviteCache,UsersCache
 import json,time,string
 #/invite/search/
 class SearchInviteHandler(BaseHandler):
@@ -29,26 +29,28 @@ class SearchInviteHandler(BaseHandler):
 			if not start_time or not fit_location or not fit_item or not user_tag or not gender :
 				sql = "select * from Invite where "
 			try:
-				invitations=self.db.execute(sql).fetchall()[0:40]
-				content1 = []
-				for i in invitations:
-					content = {}
-					content['uid'] = i.uid
-					content['start_time'] = i.start_time
-					content['duration'] = i.duration
-					content['create_time'] = i.create_time
-					content['fit_location'] = i.fit_location
-					content['fit_item'] = i.fit_item
-					content['user_tag'] = i.user_tag
-					content['gender'] = i.gender
-					content['remark'] = i.remark
-					content['_id'] = i._id
-					content1.append(content)
-				retjson['content'] = content1
-			except Exception, e:
-				retjson['code'] = 401
-				retjson['content'] = u'Nothing found!Please try other conditions'
-		except Exception,e:
-			retjson = {'code':400,'content':'no parameters'}
+			invitations=self.db.execute(sql).fetchall()[0:40]
+			content1 = []
+			for i in invitations:
+				content = {}
+				# content['uid'] = i.uid
+				user = self.db.query(UsersCache).filter(UsersCache.uid==i.uid).one()
+				content['name'] = user.name
+				content['portrait'] = user.portrait
+				content['start_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(i.start_time)))
+				content['duration'] = i.duration
+				content['create_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(i.create_time)))
+				content['fit_location'] = i.fit_location
+				content['fit_item'] = i.fit_item
+				content['user_tag'] = i.user_tag
+				content['gender'] = i.gender
+				content['remark'] = i.remark
+				content['_id'] = i._id
+				content1.append(content)
+			retjson['content'] = content1
+		except Exception, e:
+			print e
+			retjson['code'] = 401
+			retjson['content'] = u'Nothing found!Please try other conditions'
 		# self.write(retjson)
 		self.render("invite_item.html",ret=retjson)

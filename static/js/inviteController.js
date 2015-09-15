@@ -85,10 +85,20 @@ function search(){
       },
       success: function(data, textStatus, xhr) {
         $("#timeline").html(data);
+        item_click();
+        newInvite()
       },
       error: function(xhr, textStatus, errorThrown) {
         $("#timeline").html('<li class="wrong_message" ><div class="content" id="wrong_message"><h3>Network Error!</h3></div></li>');
       }
     });
     
+};
+function newInvite(){
+  $(".confirm_invite").each(function(index, el) {
+      $(this).click(function(event) {
+          console.log(index);
+
+      });
+  });
 }
