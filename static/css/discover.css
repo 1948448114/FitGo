@@ -8,17 +8,22 @@ body {
 @media (min-width: 320px){
   .discover_state .uc-container {
   
-     width: 120px;
+/*     width: 120px;
      height: 90px;
 }
 .discover_state .uc-container_square {
-  
+  */
      width: 120px;
      height: 120px;
 }
 .grid {
   width: 280px;
     margin: 20px auto;
+        margin-top:6rem;
+}
+.icon-spinner {
+  top:0px;
+  right:0px;
 }
 .friend_item,.friend_cover,.friend_item img
 {
@@ -35,20 +40,25 @@ width: 90px;
 
 
 
-@media (min-width: 769px){
+@media (min-width: 768px){
 .discover_state .uc-container {
-     width: 160px;
+/*     width: 160px;
      height: 120px;
 
 }
 .discover_state .uc-container_square {
-  
+  */
      width: 160px;
      height: 160px;
 }
 .grid {
   width: 720px;
     margin: 20px auto;
+     margin-top:6rem;
+}
+.icon-spinner {
+  top:0px;
+  right:1rem;
 }
 .friend_item,.friend_item img
 {
@@ -66,14 +76,14 @@ width: 120px;
 
 @media (min-width: 992px){
 .discover_state .uc-container {
-     width: 200px;
-     /*height: 150px;*/
+ /*    width: 200px;
+     height: 150px;
 
 }
 .discover_state .uc-container_square {
-  
+  */
      width: 200px;
-  /*   height: 200px;*/
+     height: 200px;
 }
 .grid {
     width: 880px;
@@ -88,6 +98,7 @@ width: 150px;
    width: 850px;
     margin: 20px auto;
 }
+
 }
 
 
@@ -130,7 +141,7 @@ width: 150px;
 .discover_state .uc-initial-content,
 .discover_state .uc-back,
 .discover_state .uc-front {
-    background: #7f81e7 ;
+    background-color: rgba(234,239,245,1);
 }
 .discover_state img{
   width: 100%;
@@ -140,7 +151,7 @@ width: 150px;
     top: 0;
     left: 0;
     text-indent: 4px;
-    font-size: 60px;
+    font-size: 4.28rem;
     color: transparent;
     color: rgba(255,255,255,0);
     width: 100%;
@@ -179,7 +190,7 @@ width: 150px;
     left: 10px;
     right: 10px;
     padding: 10px;
-    font-size: 12px;
+    font-size: 1rem;
     line-height: 16px;
     font-weight: bold;
 }
@@ -198,7 +209,7 @@ width: 150px;
     top: 10px;
     line-height: 30px;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.25rem;
     border-radius: 50%;
     text-indent: 1px;
     text-decoration: none;
@@ -221,7 +232,7 @@ a:hover{
     background: rgba(0,0,0,0.4);
     text-align: center;
     line-height: 15px;
-    font-size: 18px;
+    font-size: 1.25rem;
     color: #fff;
     opacity: 1;
     width: 18px;
@@ -246,18 +257,18 @@ a:hover{
     position: absolute;
     left: 12px;
     top: 6px;
-    font-size: 22px;
+    font-size: 1.6rem;
     z-index: 999;
     color: #333;
 }
 #find_friend_btn{
-  font-size: 16px;
+  font-size: 1.1rem;
       color: #fff;
-        background: #7f81e7;
+    background: #7f81e7;
     border-color: #7f81e7;
 }
 .find_friend,.create_state{
-  font-size: 20px;
+  font-size: 1.4rem;
     padding-left: 2px;
    margin: 10px auto;
     border: none;
@@ -276,13 +287,12 @@ a:hover{
 }
 .title p{
   text-align: center;
-  font-size: 50px;
-  font-family: "SourceSansPro-ExtraLight";
+  font-size: 4rem;
   color:#a2030e;
 font-weight:200; 
 }
 #add_photo{
-      font-size: 22px;
+      font-size: 1.6rem;
 }
 
 .filePrew { 
@@ -292,7 +302,7 @@ top: 0;
 left: 0; 
 width: 200px; 
 height: 39px; 
-font-size: 100px; /* 增大不同浏览器的可点击区域 */ 
+font-size: 5rem; /* 增大不同浏览器的可点击区域 */ 
 opacity: 0; /* 实现的关键点 */ 
 filter:alpha(opacity=0);/* 兼容IE */ 
 } 
@@ -302,12 +312,12 @@ filter:alpha(opacity=0);/* 兼容IE */
 #find_btn,#share_btn{
   font-family: "SourceSansPro-Regular";
   font-weight:200; 
-  font-size: 50px;
+  font-size: 4rem;
   background-color: #eaeff5;
 }
 #submit_state_btn
 {
-   font-size: 22px;
+   font-size: 1.6rem;
    padding: 5px 20px;
    margin-top: 10px;
 }
@@ -345,7 +355,7 @@ position: absolute;
 
 .friend_cover h2
 {
-  font-size:36px; 
+  font-size:2.5rem; 
   text-align: center; 
   color: #FFF; 
   border-bottom: 1px dashed #fff;
@@ -354,7 +364,7 @@ position: absolute;
 }
 .friend_cover p
 {
-  font-size:14px; 
+  font-size:1rem; 
   text-align: center; 
   color: #FFF; 
   margin:0px 10px; 
@@ -363,8 +373,7 @@ position: absolute;
 }
 .friend_cover button
 {
-  font-family: "arial"; 
-  font-size:16px; 
+  font-size:1.1rem; 
   color: white;  
   background-color: #7f81e7; 
   border:none; 
@@ -379,7 +388,7 @@ position: absolute;
   text-decoration:blink;
 }
 .search_state{
-  font-size: 20px;
+  font-size: 1.5rem;
   padding-left: 2px;
   border: none;
       color: #a2030e;
@@ -393,7 +402,7 @@ position: absolute;
 #search_state_btn,#search_state_tag{
   height: 36px;
   margin: 0px;
-   font-size: 15px;
+   font-size: 1.1rem;
 }
 #search_state_btn:hover {
     color: #fff;
