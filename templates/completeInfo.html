@@ -6,37 +6,22 @@
 {% end %}
 {% block body %}
 	<div class="container moreMargin">
-		<div class="row">
-			<div class="col-sm-2 col-sm-offset-4 form-group">
-				<img src="/static/images/pic.svg">
+		<div class="row picMargin">
+			<div class="col-sm-2 col-xs-6 col-sm-offset-4 form-group picMargin">
+				<img style="width:150px;height:150px"id="personal_img" src="/static/images/pic.svg" class="img-circle">
 			</div>
-			<div class="col-sm-6 form-group name infoName">
+			<div class="col-sm-6 col-xs-6 form-group name infoName">
 				<h3 id="yourname">Your name</h3>
 				<div class="margin-por">
-					<a id="changePor" href="/plans/Info/changePor"><span class="icon-camera"></span>修改头像</a><br>
+					<a class="back-size" id="changePor" href="/plans/Info/changePor"><span class="icon-camera"></span>修改头像</a><br>
 				</div>
 				<div class="margin-key">
-					<a id="changeKey"><span class="icon-key"></span>修改密码</a>
+					<a class="back-size"id="changeKey"><span class="icon-key"></span>修改密码</a>
 				</div>
 				<div class="margin-key">
-					<a id="backPlan" href="/plans"><span class="icon-home"></span>返回我的主页</a>
+					<a id="backPlan" href="/plans" class="back-size"><span class="icon-home"></span>返回我的主页</a>
 				</div>
 			</div>
-			<!-- <div id="changeMyPor">
-				<div class="imageBox">
-					<div class="thumbBox"></div>
-					<div class="spinner" style="display: none"></div>
-				</div>
-				<div class="action">
-					<div class="new-contentarea tc"> <a href="javascript:void(0)" class="upload-img">
-						<label for="upload-file">请先选择图片...</label>
-					</a>
-					<input type="file" class="" name="upload-file" id="upload-file" />
-				</div>
-				<input type="button"   class="Btnsty_peyton" value="OK">
-				<input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
-				<input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
-			</div> -->
 			<div class="cropped"></div>
 		</div>
 		<div id="changePassword">

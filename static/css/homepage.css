@@ -14,7 +14,9 @@ html{
 	font-family: "microsoft yahei";
 }
 
+
 @media screen and (max-width: 1200px) and (min-width: 992px) {
+
 html{ font-size: 14px; }
 #logo{
 width:80%;
@@ -31,10 +33,12 @@ width: 60%;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
 #pictures{
 	padding-left: 0px;
 	padding-top: 20px;
 	padding-bottom: 20px;
+
 }
 }
 

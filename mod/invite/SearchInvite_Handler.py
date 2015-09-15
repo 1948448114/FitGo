@@ -3,7 +3,7 @@
 import tornado.web
 import tornado.gen
 from ..auth.Base_Handler import BaseHandler
-from ..databases.tables import InviteCache
+from ..databases.tables import InviteCache,UsersCache
 import json,time,string
 #/invite/search/
 class SearchInviteHandler(BaseHandler):
@@ -39,7 +39,10 @@ class SearchInviteHandler(BaseHandler):
 			content1 = []
 			for i in invitations:
 				content = {}
-				content['uid'] = i.uid
+				# content['uid'] = i.uid
+				user = self.db.query(UsersCache).filter(UsersCache.uid==i.uid).one()
+				content['name'] = user.name
+				content['portrait'] = user.portrait
 				content['start_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(i.start_time)))
 				content['duration'] = i.duration
 				content['create_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(i.create_time)))

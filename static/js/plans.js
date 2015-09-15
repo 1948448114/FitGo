@@ -34,21 +34,7 @@ $(document).ready(function(){
         $(".yesShow5").hide();
         $(".yesShow6").hide();
         $(".yesShow7").hide();
-        $('.restButton').each(function(index, el) {
-            $(this).bind('click', function() {
-                var activeTab = $(event.target).val();
-                var nextTab = (parseInt(activeTab) + parseInt('1')).toString();
-                var radio_value = $('.radio' + activeTab + ' input[name="ifrest' + activeTab + '"]:checked').val();
-                if (radio_value == "disagree") {
-                    $('.yesShow' + activeTab).show();
-                } else if (radio_value == null) {
-                    alert("Please Choose one!")
-                } else {
-                    $('.yesShow' + activeTab).hide();
-                    $('#myTab a[href="#' + nextTab + '"]').tab('show');
-                }
-            });
-        });
+
 
 }
 		function newPlan() {
@@ -104,6 +90,7 @@ $(document).ready(function(){
 
 
     init();
+    initButton();
     newPlan();
     getPlan();
 });
@@ -115,6 +102,7 @@ function getPlan(){
       type: 'GET',
       success: function(data, textStatus, xhr) {
         $("#myTab_plan_show").html(data);
+
       },
       error: function(xhr, textStatus, errorThrown) {
         
@@ -123,7 +111,25 @@ function getPlan(){
     
 };
 
-
+function initButton(){
+    $('.restButton').each(function(index, el) {
+            var but = $(this);
+            $(this).bind('click', function() {
+                var activeTab = but.val();
+                console.log(activeTab);
+                var nextTab = (parseInt(activeTab) + parseInt('1')).toString();
+                var radio_value = $('.radio' + activeTab + ' input[name="ifrest' + activeTab + '"]:checked').val();
+                if (radio_value == "disagree") {
+                    $('.yesShow' + activeTab).show();
+                } else if (radio_value == null) {
+                    alert("Please Choose one!")
+                } else {
+                    $('.yesShow' + activeTab).hide();
+                    $('#myTab a[href="#' + nextTab + '"]').tab('show');
+                }
+            });
+        });
+}
 
 
 

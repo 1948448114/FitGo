@@ -66,8 +66,8 @@ class PlansHandler(BaseHandler):
             }
         }
 
-    其中，selectValue共11个,其中0,1,2是有氧运动三个选择框,3,4,5,6是无氧运动,7,8,9,10是拉伸运动
-          inputValue共9个，分别对应有氧，无氧以及拉伸运动的用户自定义输入
+    其中，selectValue共11个,其中0,1,2是有氧运动三个选择框,3,4,5,6,7是无氧运动,8,9,10是拉伸运动
+          inputValue共3个，分别对应有氧，无氧以及拉伸运动的用户自定义输入
      """
      @tornado.web.authenticated
      def get(self):

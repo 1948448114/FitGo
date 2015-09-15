@@ -1,58 +1,3 @@
-@media screen and (max-width: 1200px) and (min-width: 992px){
-html{ font-size: 14px; }
-}
-@media screen and (max-width: 991px) and (min-width: 768px){
-html{ font-size: 12px; }
-}
-@media screen and (max-width: 767px) and (min-width: 380px){
-html{ font-size: 10px; }
-#time-row{
-  margin-top: 2rem !important;
-}
-.actSearch{
-  display: none;
-}
-.confirmSearch{
-  display: block!important;
-}
-#searchText{
-  display: block;
-}
-.fontsize-control{
-  font-size: 2rem!important;
-}
-.icon-size{
-  font-size: 3rem!important;
-}
-.time-size{
-  font-size: 1rem!important;
-}
-}
-@media screen and (max-width: 379px){
-html{ font-size: 8px; }
-#time-row{
-  margin-top: 2rem !important;
-}
-.actSearch{
-  display: none;
-}
-.confirmSearch{
-  display: block!important;
-}
-#searchText{
-  display: block;
-}
-.fontsize-control{
-  font-size: 2rem!important;
-}
-.icon-size{
-  font-size: 3rem!important;
-}
-.time-size{
-  font-size: 1rem!important;
-}
-}
-
 #time-row{
 	font-family: "Microsoft Yahei";
 }
@@ -725,7 +670,60 @@ input:readonly{
   font-size: 2rem;
   color: #000;
 }
-
+@media screen and (max-width: 1200px) and (min-width: 992px){
+html{ font-size: 14px; }
+}
+@media screen and (max-width: 991px) and (min-width: 768px){
+html{ font-size: 12px; }
+}
+@media screen and (max-width: 767px) and (min-width: 380px){
+html{ font-size: 10px; }
+#time-row{
+  margin-top: 2rem !important;
+}
+.actSearch{
+  display: none;
+}
+.confirmSearch{
+  display: block!important;
+}
+#searchText{
+  display: block;
+}
+.fontsize-control{
+  font-size: 1.5rem!important;
+}
+.icon-size{
+  font-size: 3rem!important;
+}
+.time-size{
+  font-size: 1rem!important;
+}
+}
+@media screen and (max-width: 379px){
+html{ font-size: 8px; }
+#time-row{
+  margin-top: 2rem !important;
+}
+.actSearch{
+  display: none;
+}
+.confirmSearch{
+  display: block!important;
+}
+#searchText{
+  display: block;
+}
+.fontsize-control{
+  font-size: 1.5rem!important;
+}
+.icon-size{
+  font-size: 3rem!important;
+}
+.time-size{
+  font-size: 1rem!important;
+}
+}
 
 
 

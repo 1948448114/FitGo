@@ -55,7 +55,7 @@
 	margin: 0 0 10px 15%;
 	background: #FFFFCC;
 	color: #2f3c55;
-	padding-bottom: 11em;
+	padding-bottom: 14em;
 	padding-top: 2em;
 	font-size: 1em;
 	font-weight: 300;
@@ -138,7 +138,7 @@
 @media screen and (max-width: 65.375em) {
 
 	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
-		font-size: 1.5em;
+		font-size: 30px;
 	}
 }
 
@@ -168,13 +168,13 @@
 		right: auto;
 		left: 20px;
 		border-right-color: transparent;
-		border-bottom-color: #3594cb;
+		border-bottom-color: #FFFFCC;
 		top: -20px;
 	}
 
 	.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
 		border-right-color: transparent;
-		border-bottom-color: #6cbfee;
+		border-bottom-color: #e7f9ff;
 	}
 
 	.cbp_tmtimeline > li .cbp_tmicon {
