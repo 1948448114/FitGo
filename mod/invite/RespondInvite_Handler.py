@@ -53,6 +53,7 @@ class RespondInviteHandler(BaseHandler):
 					content1['fit_location'] = invitation.fit_location
 					content1['fit_item'] = invitation.fit_item
 					content1['user_tag'] = invitation.user_tag
+
 					content1['gender'] = user.gender
 					content1['remark'] = invitation.gender
 				except Exception,e:
@@ -66,7 +67,6 @@ class RespondInviteHandler(BaseHandler):
 					content1['user_tag'] = ''
 					content1['gender'] = ''
 					content1['remark'] = ''
-					
 				content.append(content1)
 			retjson['content'] = content
 		except Exception, e:

@@ -27,6 +27,7 @@ class UserPageHandler(BaseHandler):
         # uid = self.get_argument('id')
         retjson = {'code':200,'content':'ok'}
         uid = user_id
+        print uid
         try:
             gender = self.get_argument('gender') 
             name = self.get_argument('name') 
@@ -37,30 +38,41 @@ class UserPageHandler(BaseHandler):
             signature = self.get_argument('signature') 
             # self.write(campus+info_email+info_phone+portrait+user_name)
 
-            if not gender or not name or not school or not campus or not info_phone :
-                retjson['code'] = 400
-                retjson['content'] = u'Arguments is empty'
-            # elif re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", info_email) == None :
-            #     retjson['code'] = 404
-            #     retjson['content'] = u'Your email format is wrong'
-            else:
+            if name:
+                string = 'name=\'%s\'' % name + ','
+                if gender:
+                    string = string + 'gender=\'%s\'' % gender + ','
+                if school:
+                    string = string + 'school=\'%s\'' % school + ','
+                if campus:
+                    string = string + 'campus=\'%s\'' % campus + ','
+                if info_phone:
+                    string = string + 'info_phone=\'%s\'' % info_phone + ','
+                if signature:
+                    string = string + 'signature=\'%s\'' % signature + ','
+                length0 = len(string)
+                length = length0 - 1
+                string = string[0:length]
+                print "update Users set %s where uid=\'%s\';" % (string,uid)
                 try:
-                    # get the DBinfo of the person UID equals uid
-                    t1 = self.db.query(UsersCache).filter(UsersCache.uid == uid)
-                    # update the data of personal infomation 
-                    t1.update({UsersCache.gender:gender,UsersCache.name:name,UsersCache.school:school,UsersCache.campus:campus,UsersCache.signature:signature,UsersCache.info_phone:info_phone})
-                    self.db.query(User_tagCache).filter(User_tagCache.uid == uid).update({User_tagCache.user_enjoyment:tag})
+                    self.db.execute("update Users set %s where uid=\'%s\';" % (string,uid))
+                except Exception,e:
+                    retjson = {'code':400,'content':'Users failed to update'}
+                if tag:
+                    print "update User_tag set user_enjoyment=\'%s\' where uid=\'%s\';" % (tag,uid)
                     try:
-                        self.db.commit()
-                    except Exception, e:
-                        self.db.rollback()
-                        retjson['code'] = 401
-                        retjson['content'] = u'Database store is wrong!'
-                except Exception, e:
-                    retjson['code'] = 402
-                    retjson['content'] = "Sql store is wrong!Try again!"
-            #format json
-            
+                        self.db.execute("update User_tag set user_enjoyment=\'%s\' where uid=\'%s\';" % (tag,uid))
+                    except Exception,e:
+                        retjson = {'code':400,'content':'User_tag failed to update'}
+                try:
+                    self.db.commit()
+                except:
+                    self.db.rollback()
+                    retjson['code'] = 401
+                    retjson['content'] = u'Database store is wrong!'
+            else:
+                retjson = {'code':400,'content':"name is null"}
+           
         except Exception,e:
             print e
             retjson['code'] = 400
