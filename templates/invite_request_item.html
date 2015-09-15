@@ -1,25 +1,17 @@
-<thead>
-    <tr>
-        <th></th>
-        <th>姓名Name</th>
-        <th>项目Item</th>
-        <th>地点Location</th>
-        <th>时间Time</th>
-        <th>性别Gender</th>
-        <th></th>
-        <th></th>
-    </tr>
-</thead>
-<tbody id="invite_message">
-    <tr>
-        <th scope="row">1</th>
-        <td id="invite_message_name">Mark</td>
-        <td id="invite_message_item">@mdo</td>
-        <td id="invite_message_location">Otto</td>
-        <td id="invite_message_time">@mdo</td>
-        <td id="invite_message_gender">@mdo</td>
-        <td id="invite_message_btn_yes"><button class="btn btn-info">确认</button></td>
-        <td id="invite_message_btn_no"><button class="btn btn-danger">拒绝</button></td>
-    </tr>
-    
-</tbody>
+
+{% if content['code'] == 200 %}
+    {% fot item in range(len(content['content'])) %}
+        <tr>
+            <th scope="row">item</th>
+            <td ><a href="/plans//Info/{{{{content['content'][item]['uid']}}}}">{{content['content'][item]['name']}}</td>
+            <td >{{content['content'][item]['fit_item']}}</td>
+            <td >{{content['content'][item]['fit_location']}}</td>
+            <td >{{content['content'][item]['start_time']}}</td>
+            <td >{{content['content'][item]['gender']}}</td>
+            <td id="invite_message_btn_yes"><button class="btn btn-info">确认</button></td>
+            <td id="invite_message_btn_no"><button class="btn btn-danger">拒绝</button></td>
+        </tr>
+    {% end %}
+{% else %}
+    <p>{{content['content']}}</p>
+{% end %}
