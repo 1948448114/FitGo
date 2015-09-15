@@ -9,33 +9,34 @@ from time import time
 import uuid
 import re
 import math,uuid
-import hashlib,random,string,os,Image
+import hashlib,random,string,os,Image,StringIO
 from code import create_validate_code
 
 class CodeHandler(BaseHandler):
-	def get(self,codes):
-		retjson = {'code':200,'content':'ok'}
-		code_name = hashlib.md5(codes.join(str(uuid.uuid1()))).hexdigest()+'.gif'
+	def get(self,code_time):
+		code_time = hashlib.md5(str(code_time)).hexdigest()
+		code_img = create_validate_code()
+		con = {code_time:code_img[1]}
 		try:
-			code_img = create_validate_code()
-			outfile = os.path.join(os.path.dirname('static')+'static/idcode',code_name)
-			code_img[0].save(outfile,"GIF")
-			retjson['content'] = '/'+outfile
-			con = {outfile[:-4]:code_img[1]}
-			try:
-				self.Mongodb().Code.insert(con)# % code_name
-			except Exception,e:
-				retjson['code'] = 400
-				retjson['content'] = 'Store code wrong!'
+			self.Mongodb().Code.insert(con)
+			s = StringIO.StringIO()
+			code_img[0].save(s,"GIF")
+			img_data = s.getvalue()
+			s.close()
+			self.set_header('Content-Type','image/gif')
+			self.write(img_data)
 		except Exception,e:
-			self.db.rollback()
-			retjson['code'] = 401
-			retjson['content'] = u'Get code wrong!'
-		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-		self.write(ret)
-	def identify_code(self,outfile,code) :
+			retjson = {'code':200,'content':'ok'}
+			retjson['code'] = 400
+			retjson['content'] = 'Store code wrong!'
+			ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+			self.write(ret)
+		
+
+	def identify_code(self,code_time,code) :
 		try:
-			plan = self.Mongodb().Plan.find({outfile[:-4]:code})
+			code_time = hashlib.md5(str(code_time)).hexdigest()
+			plan = self.Mongodb().Plan.find({code_time:code})
 			if plan :
 				return 0
 			else :

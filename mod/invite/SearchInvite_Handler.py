@@ -11,29 +11,35 @@ class SearchInviteHandler(BaseHandler):
 	def post(self):#搜索匹配者
 		# t=time.time()
 		retjson = {'code':200,'content':'ok'}
+
+		sql = "select * from Invite where uid!=\'%s\' and " % self.current_user.uid
+		string =""
+		keys=('start_time','fit_location','fit_item','user_tag','gender')
+		args=dict.fromkeys(keys)
+		state = 1
+		for key in args :
+			args[key]=self.get_argument(key)
+			if key == 'start_time' and args[key]:
+				state =0
+				string=string+' and start_time >= %s' % args['start_time']
+			elif key == 'gender' and args[key]:
+				state =0
+				string=string+' and gender = \'%s\'' % args['gender']
+			elif args[key]:
+				state =0
+				string=string+' and '+key+' like \'%'+args[key]+'%\''
+		if state:
+			time_now=time.time()
+			sql="select * from Invite where start_time >= %s order by start_time;" % str(time_now)
+		else:
+			sql=sql+string[4:]+" order by start_time;"
+		print sql
 		try:
-			sql = "select * from Invite where"
-			string =""
-			keys=('start_time','fit_location','fit_item','user_tag','gender')
-			args=dict.fromkeys(keys)
-			for key in args :
-				args[key]=self.get_argument(key)
-				if key == 'start_time' and args[key]:
-					string=string+' and start_time >= %s' % args['start_time']
-				elif key == 'gender' and args[key]:
-					string=string+' and gender = \'%s\'' % args['gender']
-				elif args[key]:
-					string=string+' and '+key+' like \'%'+args[key]+'%\''
-			sql=sql+string[4:]+";"
-			print sql
-			if not start_time or not fit_location or not fit_item or not user_tag or not gender :
-				sql = "select * from Invite where "
-			try:
 			invitations=self.db.execute(sql).fetchall()[0:40]
 			content1 = []
 			for i in invitations:
 				content = {}
-				# content['uid'] = i.uid
+				content['uid'] = i.uid
 				user = self.db.query(UsersCache).filter(UsersCache.uid==i.uid).one()
 				content['name'] = user.name
 				content['portrait'] = user.portrait

@@ -75,7 +75,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r'/',IndexHandler),
             (r'/body',BodyHandler),
-            (r'/auth/code/(\d+)',CodeHandler),
+            (r'/auth/code/(\d+[.]\d+)',CodeHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
             (r'/auth/register/verify',VerifyHandler),

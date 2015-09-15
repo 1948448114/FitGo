@@ -43,12 +43,12 @@ class LoginHandler(BaseHandler):
         user_password=str(self.get_argument("user_password"))
         code=self.get_argument("code")
         is_remember = self.get_argument('is_remember')
-        out_file = self.get_argument('out_file')
+        code_time = self.get_argument('code_time')
         retjson = {'code':200,'content':'ok'}
         if not info_email or not user_password or not code:
             retjson['code'] = 400
             retjson['content'] = u'Arguments are empty'
-        elif CodeHandler.identify_code(code,identify_code) :
+        elif CodeHandler.identify_code(code_time,code) :
             retjson['code'] = 403
             retjson['content'] = u'Code is wrong'
         else:
