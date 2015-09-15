@@ -93,6 +93,7 @@ $(document).ready(function(){
     initButton();
     newPlan();
     getPlan();
+    getInfo()
 });
 
 
@@ -110,6 +111,7 @@ function getPlan(){
     });
     
 };
+
 
 function initButton(){
     $('.restButton').each(function(index, el) {
@@ -130,6 +132,26 @@ function initButton(){
             });
         });
 }
+
+function getInfo(){
+    var uid = $("#uid").attr('value');
+    jQuery.ajax({
+            url: '/user/userinfo/' + uid,
+            type: 'POST',
+            dataType: 'json',
+            success: function(data, textStatus, xhr) {
+                //called when successful
+                if (data['code'] == 200) {
+                    $("#user_portrait").attr('src',data['info']['portrait']);
+                    $("#user_name").html(data['info']['name']);
+                    $("#user_signature").html('Signature:'+data['info']['signature']);
+                }   
+            },
+            error: function(xhr, textStatus, errorThrown) {
+            }
+        });
+}
+
 
 
 

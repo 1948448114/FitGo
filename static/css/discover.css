@@ -1,50 +1,10 @@
-@font-face {
-  font-family: 'entypo-selected';
-  src: url("../fonts/entypo-selected.eot");
-  src: url("../fonts/entypo-selected.eot?#iefix") format('embedded-opentype'), 
-  url("../fonts/entypo-selected.woff") format('woff'), 
-  url("../fonts/entypo-selected.ttf") format('truetype'), 
-  url("../fonts/entypo-selected.svg#entypo-selected") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-.discover_state .icon-eye:before,
-.discover_state .icon-cancel:before{
-  font-family: 'entypo-selected';
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: 0.2em;
-  text-align: center;
-  line-height: 1em;
-}
-.state_title h1{
-  text-align: center;
-  font-size: 50px;
-  font-family: "SourceSansPro-ExtraLight";
-  color:#a2030e;
-
-}
-
-
-.state_title strong{
-  font-family: "SourceSansPro-Regular"
-}
-
-
-.discover_state .icon-eye:before{ content: '\56'; } 
-.discover_state .icon-cancel:before{ content: '\2715'; }
-
-
-
 body {
     font-size: 100%;
-
     background-color: #eaeff5;
 }
+
+
+
 @media (min-width: 320px){
   .discover_state .uc-container {
   
@@ -71,7 +31,11 @@ width: 90px;
 }
 
 }
-@media (min-width: 992px){
+
+
+
+
+@media (min-width: 769px){
 .discover_state .uc-container {
      width: 160px;
      height: 120px;
@@ -96,16 +60,20 @@ width: 120px;
     margin: 20px auto;
 }
 }
-@media (min-width: 1200px){
+
+
+
+
+@media (min-width: 992px){
 .discover_state .uc-container {
      width: 200px;
-     height: 150px;
+     /*height: 150px;*/
 
 }
 .discover_state .uc-container_square {
   
      width: 200px;
-     height: 200px;
+  /*   height: 200px;*/
 }
 .grid {
     width: 880px;
@@ -120,7 +88,38 @@ width: 150px;
    width: 850px;
     margin: 20px auto;
 }
- }
+}
+
+
+
+.icon-spinner {
+  position: absolute;
+  top:3rem;
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(127,129,231,0.5);
+  right:3rem;
+}
+.discover_state .icon-certificate:before,
+.discover_state  .icon-remove:before{
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  line-height: 1em;
+}
+.state_title h1{
+  text-align: center;
+  font-size: 4rem;
+  color:#a2030e;
+
+}
+
+
 .discover_state .uc-container {
     float: left;
     margin: 10px 10px;
@@ -136,7 +135,7 @@ width: 150px;
 .discover_state img{
   width: 100%;
 }
-.discover_state .icon-eye {
+.discover_state .icon-certificate {
     position: absolute;
     top: 0;
     left: 0;
@@ -161,10 +160,10 @@ width: 150px;
     -ms-transition: all 0.3s linear;
     transition: all 0.3s linear;
 }
-.discover_state .uc-container_square .icon-eye {
+.discover_state .uc-container_square .icon-certificate {
   line-height: 300%;
 }
-.no-touch .discover_state .uc-initial-content:hover .icon-eye {
+.no-touch .discover_state .uc-initial-content:hover .icon-certificate {
     color: rgba(255,255,255,0.8);
     background: rgba(127,129,231,0.7);
 }
@@ -204,24 +203,20 @@ width: 150px;
     text-indent: 1px;
     text-decoration: none;
 }
+
+
+
 .discover_state .icon-plus{
   top: 45px;
   background: rgba(127,129,231,0.9);
 }
-.icon-spinner {
-  position: absolute;
-  top:35px;
-  font-size: 60px;
-  font-weight: 900;
-  color: rgba(127,129,231,0.5);
-  right:30px;
-}
+
 a:hover{
     text-decoration: none;
     color:rgba(127,129,231,1);
 }
 
-.discover_state .icon-cancel {
+.discover_state .icon-remove {
     position: absolute;
     background: rgba(0,0,0,0.4);
     text-align: center;
@@ -237,7 +232,7 @@ a:hover{
     box-shadow: 0 1px 0 rgba(255,255,255,0.4);
 }
 
-.discover_state .icon-cancel:hover {
+.discover_state .icon-remove:hover {
     background: rgba(0,0,0,1);
 }
 .have_icon
@@ -606,3 +601,7 @@ position: absolute;
   z-index: 9999;
 }
 
+p{
+  margin-bottom: 0px ;
+  margin-top: 0.75rem;
+}

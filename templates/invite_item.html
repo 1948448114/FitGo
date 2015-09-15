@@ -1,28 +1,37 @@
 {% if ret["code"] == 200 %}
-	{% for item in ret["content"] %}
-		<li id="{{item['_id']}}" class="list_item">
-            <div class="check">
-                <s></s>
-            </div>
-            <div class="thumb">
-                <a href="/plans/Info/{{item['uid']}}"><img src="{{item['portrait']}}" class="user_index" value="{{item['uid']}}"/></a>
-                <span>{{item['start_time']}}</span>
-            </div>
+    {% if len(ret['content']) < 1 %}
+        <li class="wrong_message" >
             <div class="content">
                 <b></b>
-                <h3>{{item['fit_item']}}</h3>
-                <h4>{{item['user_tag']}}</h4>
-                <p>remark<p>
-                    <button class="btn btn-danger confirm_invite" value="{{item['_id']}}">约！</button>
+                <h3>I'm Sorry.T_T.We Can't find anyone.</h3>
+                <p>cannot find</p>
             </div>
         </li>
-	{% end %}	
+    {% else %}
+    	{% for item in ret["content"] %}
+    		<li id="{{item['_id']}}" class="list_item">
+                <div class="check">
+                    <s></s>
+                </div>
+                <div class="thumb">
+                    <a href="/plans/Info/{{item['uid']}}"><img src="{{item['portrait']}}" class="user_index" value="{{item['uid']}}"/></a>
+                    <span>{{item['start_time']}}</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>{{item['fit_item']}}</h3>
+                    <h4>{{item['user_tag']}}</h4>
+                    <p>remark<p>
+                        <button class="btn btn-danger confirm_invite" value="{{item['_id']}}">约！</button>
+                </div>
+            </li>
+	   {% end %}	
+    {% end %}
 {% else %}
 	<li class="wrong_message" >
-           
             <div class="content">
                 <b></b>
-                <h3>Wrong information.</h3>
+                <h3>I'm Sorry.T_T.Something is Wrong!</h3>
                 <p>cannot find</p>
             </div>
         </li>
