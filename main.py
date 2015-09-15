@@ -52,13 +52,13 @@ from mod.recom.RecomActivity_Handler import RecomActivityHandler
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
-from mod.discover.AddFriend_Handler import AddFriendHandler
-from mod.discover.AllFriends_Handler import AllFriendsHandler
-
-from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
-from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
 from mod.discover.UploadPic_Handler import UploadPicHandler
+from mod.discover.JoinState_Handler import JoinStateHandler
+from mod.discover.AddFriend_Handler import AddFriendHandler
+from mod.discover.AllFriends_Handler import AllFriendsHandler
+from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
+from mod.discover.SearchFriend_Handler import SearchFriendHandler
 # from mod.discover.RecomUser_Handler import RecomUserHandler
 # from mod.recommend.RecomUser_Handler import RecomUserHandler
 
@@ -105,6 +105,7 @@ class Application(tornado.web.Application):
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
             (r'/discover/create/state/pic',UploadPicHandler),
+            (r'/discover/join',JoinStateHandler),
             
             (r'/plans',PlansHandler),
             (r'/plans/Info',CompleteInfoHandler),

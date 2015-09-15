@@ -13,7 +13,7 @@ class ResponseListHandler(BaseHandler):
 		try:
 			content=[]
 			response = self.db.query(Invite_relation).filter(Invite_relation.uid_respond==arg_uid,\
-				Invite_relation.state == '1').order_by(Invite_relation.id).all()
+				Invite_relation.state == '1').order_by(Invite_relation.id.desc()).all()
 			if response:
 				for i in response:
 					content1={}
@@ -33,12 +33,13 @@ class ResponseListHandler(BaseHandler):
 						content1['respond_phone'] = u'无'
 					else:
 						content1['respond_phone'] = respond_user.info_phone
+					# content1['start_time'] = invitation.start_time
 					content1['start_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(invitation.start_time)))
 					content1['fit_location'] = invitation.fit_location
 					content1['fit_item'] = invitation.fit_item
 					content.append(content1)
 			response = self.db.query(Invite_relation).filter(Invite_relation.uid_respond==arg_uid,\
-				Invite_relation.state == '2').order_by(Invite_relation.id).all()
+				Invite_relation.state == '2').order_by(Invite_relation.id.desc()).all()
 			
 			for i in response:
 				content1={}
@@ -52,6 +53,7 @@ class ResponseListHandler(BaseHandler):
 				content1['respond_name'] = respond_user.name
 				content1['request_phone'] = ''
 				content1['respond_phone'] = ''
+				# content1['start_time'] = invitation.start_time
 				content1['start_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(invitation.start_time)))
 				content1['fit_location'] = invitation.fit_location
 				content1['fit_item'] = invitation.fit_item
