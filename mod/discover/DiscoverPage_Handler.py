@@ -6,6 +6,7 @@ import tornado.gen
 from mod.auth.Base_Handler import BaseHandler,UsersCache
 from ..databases.tables import TopicsCache
 import traceback
+from state_like_controller import getLike
 
 #/discover/discover_page
 class DiscoverPageHandler(BaseHandler):
@@ -33,7 +34,7 @@ class DiscoverPageHandler(BaseHandler):
                         content['topic_pic'] = n.topic_pic
                         content['pic_shape'] = n.pic_shape
                         content['topic_title'] = n.topic_title
-                        content['topic_starers'] = n.topic_starers 
+                        content['topic_starers'] = getLike(n.topic_id,self.Mongodb())
                         content1.append(content)
                     retjson['content'] = content1
                 else:

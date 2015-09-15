@@ -6,6 +6,7 @@ import tornado.gen
 from mod.auth.Base_Handler import BaseHandler,UsersCache
 from ..databases.tables import TopicsCache
 from time import mktime,strptime,strftime,time,localtime
+from state_like_controller import getLike
 import json,string
 # from sqlalchemy import func
 
@@ -34,7 +35,7 @@ class SearchStateHandler(BaseHandler):
 						content['topic_content'] = n.topic_content
 						content['topic_pic'] = n.topic_pic
 						content['pic_shape'] = n.pic_shape
-						content['topic_starers'] = n.topic_starers
+						content['topic_starers'] = getLike(n.topic_id,self.Mongodb())
 						content1.append(content)
 					retjson['content'] = content1
 					# print retjson
