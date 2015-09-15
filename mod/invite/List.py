@@ -33,8 +33,7 @@ def ListHandler(self,uid,state):
 					content1['respond_phone'] = u'无'
 				else:
 					content1['respond_phone'] = respond_user.info_phone
-				if invitation.start_time:
-					content1['start_time'] = invitation.start_time
+				content1['start_time'] = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(int(invitation.start_time)))
 				content1['fit_location'] = invitation.fit_location
 				content1['fit_item'] = invitation.fit_item
 				content.append(content1)
@@ -59,7 +58,7 @@ def ListHandler(self,uid,state):
 					content1['respond_phone'] = u'无'
 				else:
 					content1['respond_phone'] = respond_user.info_phone
-				content1['start_time'] = invitation.start_time
+				content1['start_time'] = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(int(invitation.start_time)))
 				content1['fit_location'] = invitation.fit_location
 				content1['fit_item'] = invitation.fit_item
 				content.append(content1)
