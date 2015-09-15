@@ -21,7 +21,7 @@ class InviteHandler(BaseHandler):
 		arg_remark = self.get_argument("remark")
 		arg_id = time.time()
 		retjson = {'code':200,'content':'ok'}
-		if not arg_uid or not arg_fit_location or not arg_start_time or not arg_fit_item:
+		if not arg_uid or not arg_fit_location or not arg_start_time or not arg_fit_item or not arg_user_tag:
 			retjson['code'] = 400
 			retjson['content'] = 'Some arguments are empty'
 		else:
