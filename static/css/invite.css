@@ -336,7 +336,7 @@ margin-left:5rem;
 
 }
 
-#invite_message,#invite_message_all{
+.invite_message,.invite_message_all{
 	font-size: 1.75rem;
 	margin-bottom: 5px;
 	margin-top: 15px;

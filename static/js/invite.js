@@ -46,23 +46,23 @@ function item_click(){
     });
 
 
-   $("#invite_message").click(function(event) {
-    /* Act on the event */
-    $(".invite_block").hide();
-    $("#invite_more_detail").hide();
-    $("#create_new_invite").hide();
-    $("#invite_message_list").fadeIn();
-    $("#invite_message_all_list").hide();
-    });
+   // $("#invite_message").click(function(event) {
+   //  /* Act on the event */
+   //  $(".invite_block").hide();
+   //  $("#invite_more_detail").hide();
+   //  $("#create_new_invite").hide();
+   //  $("#invite_message_list").fadeIn();
+   //  $("#invite_message_all_list").hide();
+   //  });
 
-   $("#invite_message_all").click(function(event) {
-    /* Act on the event */
-    $(".invite_block").hide();
-    $("#invite_more_detail").hide();
-    $("#create_new_invite").hide();
-    $("#invite_message_all_list").fadeIn();
-    $("#invite_message_list").hide();
-    });
+   // $("#invite_message_all").click(function(event) {
+   //  /* Act on the event */
+   //  $(".invite_block").hide();
+   //  $("#invite_more_detail").hide();
+   //  $("#create_new_invite").hide();
+   //  $("#invite_message_all_list").fadeIn();
+   //  $("#invite_message_list").hide();
+   //  });
 
 
 

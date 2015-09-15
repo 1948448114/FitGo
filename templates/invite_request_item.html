@@ -1,17 +1,33 @@
+<table class="table table-hover row">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>姓名Name</th>
+                        <th>项目Item</th>
+                        <th>地点Location</th>
+                        <th>时间Time</th>
+                        <th>性别Gender</th>
+                        <th></th>
+                    </tr>
+                </thead>
 {% if content['code'] == 200 %}
-    {% fot item in range(len(content['content'])) %}
+    {% for item in range(len(content['content'])) %}
+        <tbody class="invite_message" id="{{content['content'][item]['_id']}}">
         <tr>
             <th scope="row">item</th>
-            <td ><a href="/plans//Info/{{{{content['content'][item]['uid']}}}}">{{content['content'][item]['name']}}</td>
+            <td ><a href="/plans//Info/{{content['content'][item]['uid_request']}}">{{content['content'][item]['name']}}</td>
             <td >{{content['content'][item]['fit_item']}}</td>
             <td >{{content['content'][item]['fit_location']}}</td>
             <td >{{content['content'][item]['start_time']}}</td>
             <td >{{content['content'][item]['gender']}}</td>
-            <td id="invite_message_btn_yes"><button class="btn btn-info">确认</button></td>
-            <td id="invite_message_btn_no"><button class="btn btn-danger">拒绝</button></td>
+            <input type="hidden" class="request_info" value="{{content['content'][item]['uid_request']}}">
+            <td ><button class="btn btn-info" value="{{content['content'][item]['_id']}}">确认</button></td>
+            <td ><button class="btn btn-danger" value="{{content['content'][item]['uid_request']}}">拒绝</button></td>
         </tr>
+        <tbody>
     {% end %}
 {% else %}
     <p>{{content['content']}}</p>
 {% end %}
+</table>
 
