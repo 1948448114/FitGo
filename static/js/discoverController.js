@@ -1,11 +1,7 @@
-var times=0;
+var times = 0;
 //加载的js
 $(document).ready(function() {
     init();
-
-
-    
-    
 
 
 
@@ -13,64 +9,62 @@ $(document).ready(function() {
     newState();
     searchState();
     serachFriend();
-    
+
 });
 
 //初始化函数
-function init(){
+function init() {
     $("#create_state_title_error").hide();
 }
 
 
-function newState(){
+function newState() {
     var state_title = $("#create_state_title").val();
     var state_detail = $("#create_state_detail").val();
     $("#submit_state_btn").click(function(event) {
-        if(state_title.length<0){
+        if (state_title.length < 0) {
             $("#create_state_title_error").show();
-        }
-        else{
+        } else {
             fileupload();
         }
     });
-    
+
 }
 
 
 
-function fileupload(){
+function fileupload() {
     var picURL = '';
     var state_title = $("#create_state_title").val();
     var state_detail = $("#create_state_detail").val();
-    if($("#up_img_WU_FILE_0").val()){
-        $("#up_img_WU_FILE_1").ajaxSubmit(function(message){
+    if ($("#up_img_WU_FILE_0").val()) {
+        $("#up_img_WU_FILE_1").ajaxSubmit(function(message) {
             data = JSON.parse(message);
             picURL = data['content'];
-            statePost(state_title,state_detail,picURL);
+            statePost(state_title, state_detail, picURL);
         });
-    }
-    else{
-        statePost(state_title,state_detail,'');
+    } else {
+        statePost(state_title, state_detail, '');
     }
 }
 
-function statePost(title,detail,pic_URL){
+function statePost(title, detail, pic_URL) {
     jQuery.ajax({
-      url: '/discover/create',
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        'topic_title': title,
-        'topic_content':detail,
-        'topic_pic':pic_URL
-  },
-      success: function(data, textStatus, xhr) {
-        if(data['code'] == 200){
-            $("#create_state_title_error").removeClass('alert-danger');
-            $("#create_state_title_error").attr('class','alert alert-success showing')
-            $("#create_state_title_error").html("success");
-            $("#create_state_title_error").show();
-            setTimeout(function() {
+        url: '/discover/create',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            'topic_title': title,
+            'topic_content': detail,
+            'topic_pic': pic_URL
+        },
+        success: function(data, textStatus, xhr) {
+            if (data['code'] == 200) {
+                $("#create_state_title_error").removeClass('alert-danger');
+                $("#create_state_title_error").attr('class', 'alert alert-success showing')
+                $("#create_state_title_error").html("success");
+                $("#create_state_title_error").show();
+                setTimeout(function() {
                     $("#create_state_title_error").hide();
                     $("#create_new_invite").hide();
                     $(".create_state").hide();
@@ -78,107 +72,108 @@ function statePost(title,detail,pic_URL){
                     $("#friend_state").show();
                     $(".container_friend").hide();
                     $("#search_state_list").hide();
-                    },1000);
-        }
-        else{
-            $("#create_state_title_error").html(data['content']);
+                }, 1000);
+            } else {
+                $("#create_state_title_error").html(data['content']);
+                $("#create_state_title_error").show();
+            }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            $("#create_state_title_error").html("Network Error!");
             $("#create_state_title_error").show();
         }
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        $("#create_state_title_error").html("Network Error!");
-        $("#create_state_title_error").show();
-      }
     });
-    
+
 }
 
-function searchState(){
+function searchState() {
     $("#search_state_btn").click(function(event) {
         /* Act on the event */
         var search_title = $("#search_state_tag").val();
         console.log(search_title)
-        if(search_title.length<1){
+        if (search_title.length < 1) {
             $("#search_state_tag").val("You must input something");
-        }
-        else{
+        } else {
             jQuery.ajax({
-              url: '/discover/search/state',
-              type: 'POST',
-              data: {'topic_title': search_title},
-              success: function(data, textStatus, xhr) {
-                $("#discover_state_list").html(data);
-                other();
-                $("#search_state_list").show();
-                $(".create_state").hide();
-                $(".container_friend").hide();
-                $(".find_friend").hide();
-                $("#friend_state").hide();
-              },
-              error: function(xhr, textStatus, errorThrown) {
-                $("#discover_state_list").html('Network Error!');
-              }
+                url: '/discover/search/state',
+                type: 'POST',
+                data: {
+                    'topic_title': search_title
+                },
+                success: function(data, textStatus, xhr) {
+                    $("#discover_state_list").html(data);
+                    other();
+                    $("#search_state_list").show();
+                    $(".create_state").hide();
+                    $(".container_friend").hide();
+                    $(".find_friend").hide();
+                    $("#friend_state").hide();
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    $("#discover_state_list").html('Network Error!');
+                }
             });
-            
+
         }
     });
 }
 
 
-function serachFriend(){
-    var gender=$("#gender").val();
-    if(gender=="Gender"){
-        gender="";
+function serachFriend() {
+    var gender = $("#gender").val();
+    if (gender == "Gender") {
+        gender = "";
     }
     $("#find_friend_btn").click(function(event) {
         /* Act on the event */
         jQuery.ajax({
-          url: '/discover/search/friends',
-          type: 'POST',
-          data: {
-              'name':$("#search_username").val(),
-              'gender':gender,
-              'campus':$("#search_campus").val(),
-              'school':$("#search_school").val(),
-              'user_enjoyment':$("#search_user_tag").val()
-          },
-          success: function(data, textStatus, xhr) {
-            console.log("here")
-            $("#serach_friend_list").html(data);
-            friend_list_js()
-            $(".container_friend").show();
-            $(".create_state").hide();
-            $(".find_friend").hide();
-            $("#search_state_list").hide();
-            $("#friend_state").hide();
-              },
-          error: function(xhr, textStatus, errorThrown) {
-            $("#serach_friend_list").html('Network Error!');
-          }
+            url: '/discover/search/friends',
+            type: 'POST',
+            data: {
+                'name': $("#search_username").val(),
+                'gender': gender,
+                'campus': $("#search_campus").val(),
+                'school': $("#search_school").val(),
+                'user_enjoyment': $("#search_user_tag").val()
+            },
+            success: function(data, textStatus, xhr) {
+                console.log("here")
+                $("#serach_friend_list").html(data);
+                friend_list_js()
+                $(".container_friend").show();
+                $(".create_state").hide();
+                $(".find_friend").hide();
+                $("#search_state_list").hide();
+                $("#friend_state").hide();
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                $("#serach_friend_list").html('Network Error!');
+            }
         });
-        
+
     });
 }
 
-function getAllState(){
+function getAllState() {
     jQuery.ajax({
-      url: '/discover/discover_page',
-      type: 'POST',
-      data: {
-        'times': times},
-      success: function(data, textStatus, xhr) {
-        // console.log(data);
-        $("#discover_state_all").html(data);
+        url: '/discover/discover_page',
+        type: 'POST',
+        data: {
+            'times': times
+        },
+        success: function(data, textStatus, xhr) {
+            // console.log(data);
+            $("#discover_state_all").html(data);
 
-        // other();
-        // friendtState();
-        AllStatezhan();
-        times=times+1;
+            // other();
+            // friendtState();
+            AllStatezhan();
+            times = times + 1;
 
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        console.log(textStatus);
-      }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.log(textStatus);
+        }
     });
 };
 
@@ -233,12 +228,12 @@ function AllStatezhan() {
             },
             centered: true
         });
-        $item.find('span.icon-eye').on('click', function() {
+        $item.find('span.icon-certificate').on('click', function() {
             if (!opened) {
                 opened = true;
                 pfold.unfold();
             }
-        }).end().find('span.icon-cancel').on('click', function() {
+        }).end().find('span.icon-remove').on('click', function() {
             pfold.fold();
         });
     });
@@ -284,16 +279,18 @@ function friendtState() {
             },
             // centered : true
         });
-        $item1.find('span.icon-eye').on('click', function() {
+        $item1.find('span.icon-certificate').on('click', function() {
             if (!opened) {
                 opened = true;
+
                 pfold.unfold();
             }
-        }).end().find('span.icon-cancel').on('click', function() {
+        }).end().find('span.icon-remove').on('click', function() {
             pfold.fold();
         });
     });
 };
+
 function other() {
     // say we want to have only one item opened at one moment
     var opened = false;
@@ -322,16 +319,17 @@ function other() {
             },
             // centered : true
         });
-        $item1.find('span.icon-eye').on('click', function() {
+        $item1.find('span.icon-certificate').on('click', function() {
             if (!opened) {
                 opened = true;
                 pfold.unfold();
             }
-        }).end().find('span.icon-cancel').on('click', function() {
+        }).end().find('span.icon-remove').on('click', function() {
             pfold.fold();
         });
     });
 };
+
 function friend_list_js() {
 
     var a = new sHover("friend_item", "friend_cover");
