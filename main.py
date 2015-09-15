@@ -93,7 +93,7 @@ class Application(tornado.web.Application):
             (r'/invite/request',RequestInviteHandler),
             (r'/invite/respond',RespondInviteHandler),
             (r'/invite/unrespondlist',UnResponseListHandler),
-            (r'invite/respondlist',ResponseListHandler),
+            (r'/invite/respondlist',ResponseListHandler),
 
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),

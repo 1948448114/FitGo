@@ -7,12 +7,12 @@
 {% end %}
 {% block body %}
     <div id="invite">
-        <div class="row" >
-            <div id="invite_pic_div" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <img src="/static/images/invite.jpg"id="invite_pic">
-            </div>
+        
+        <div id="invite_pic_div">
+            <img src="/static/images/invite.jpg"id="invite_pic">
         </div>
-        <div >
+        
+        <div class="title_div">
             <p class="largetext" id="invite_title">
                 Life is short. Have a
                 <strong>Better Run</strong>
@@ -20,193 +20,84 @@
             </p>
         </div>
         <div class="container create_invite">
-            <div class="row">
-                
-                <div class="form-group col-sm-4 col-sm-offset-2 col-xs-6 " id="invite_new_btn"  >
+            <div class="row button">
+                <div class="form-group col-sm-2 col-sm-offset-2 col-xs-4 " id="invite_message_btn"  >
                     <a href="#invite_title">
-                        <label id="invite_new" ><span class=" icon-user"></span>"约健身"</label>
+
+                        <label ><span class="icon-lightbulb"></span>新消息</label>
                     </a>
                 </div>
-                <div class="form-group col-sm-4 col-xs-6 " id="invite_message_btn"  >
-                    <a href="">
-                        <label id="invite_message" ><span class="icon-lightbulb"></span>"消息列表"</label>
+                <div class="form-group col-sm-4 col-xs-4 " id="invite_new_btn"  >
+                    <a href="#invite_title">
+                        <label ><span class="icon-user"></span>约健身</label>
+                    </a>
+                </div>
+                <div class="form-group col-sm-2 col-xs-4 " id="invite_message_all_btn"  >
+                    <a href="#invite_title">
+                        <label ><span class="icon-exchange"></span>消息列表</label>
                     </a>
                 </div>
             </div>
-            <div id="invite_message_list" class="container">
-        
-                <table class="table table-hover row">
-            <thead>
-                        <tr>
-                            <th></th>
-                            <th>姓名Name</th>
-                            <th>地点Location</th>
-                            <th>时间Time</th>
-                            <th>性别Gender</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="invite_message">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td id="invite_message_name">Mark</td>
-                            <td id="invite_message_location">Otto</td>
-                            <td id="invite_message_time">@mdo</td>
-                            <td id="invite_message_gender">@mdo</td>
-                            <td id="invite_message_btn_yes"><button class="btn btn-info">确认</button></td>
-                            <td id="invite_message_btn_no"><button class="btn btn-danger">拒绝</button></td>
-                        </tr>
-                       
-                    </tbody>
-                </table>
-            </div>
-            <div id="create_new_invite">
-                <div class="row" >
-                    <div class="col-sm-6 col-sm-offset-2">
-                        <div class="row" >
-                            <div class="col-sm-4 col-xs-6">
-                                <span class="create_invite">Where:</span>
-                                <div class="have_icon">
-                                    <span class="icon  icon-map-marker"></span>
-                                    <select class="form-control styled-select" id="create_fit_location">
-                                        <option class="option-color">Location</option>
-                                        <option class="option-color">梅园操场</option>
-                                        <option class="option-color">桃园操场</option>
-                                        <option class="option-color">橘园操场</option>
-                                        <option class="option-color">梅园宿舍</option>
-                                        <option class="option-color">桃园宿舍</option>
-                                        <option class="option-color">桔园宿舍</option>
-                                        <option class="option-color">东门</option>
-                                        <option class="option-color">钢铁大菊花</option>
-                                        <option class="option-color">网球场</option>
-                                        <option class="option-color">桃园篮球场</option>
-                                        <option class="option-color">图书馆</option>
-                                        <option class="option-color">大活</option>
-                                        <option class="option-color">焦廷标馆</option>
-                                        <option class="option-color">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-xs-6">
-                                <span class="create_invite">What:</span>
-                                <div class="have_icon">
-                                    <span class="icon  icon-lightbulb"></span>
-                                    <select class="form-control styled-select" id="create_fit_item">
-                                        <option class="option-color">Fit Item</option>
-                                        <option class="option-color">Run</option>
-                                        <option class="option-color">Press-up</option>
-                                        <option class="option-color">Table Tennis</option>
-                                        <option class="option-color">Swimming</option>
-                                        <option class="option-color">Badminton</option>
-                                        <option class="option-color">Cycling</option>
-                                        <option class="option-color">Tennis</option>
-                                        <option class="option-color">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-4 col-xs-6">
-                                <span class="create_invite">Who:</span>
-                                <div class="have_icon">
-                                    <span class="icon  icon-group"></span>
-                                    <select class="form-control styled-select" id="create_gender">
-                                        <option class="option-color">Gender</option>
-                                        <option class="option-color">Female</option>
-                                        <option class="option-color">Male</option>
-                                        <option class="option-color">Other</option>
-                                        <option class="option-color">Unlimited</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-xs-6">
-                                <span class="create_invite">When:</span>
-                                <div class="have_icon">
-                                    <span class="icon  icon-calendar"></span>
-                                    <input  size="16" type="text" readonly class="form-control" id="create_invite_start_time"placeholder="Start time">
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-4 col-xs-6">
-                                <span class="create_invite">How long:</span>
-                                <div class="have_icon">
-                                    <span class="icon   icon-time"></span>
-                                    <select class="form-control styled-select" id="create_duration">
-                                        <option class="option-color">Duration</option>
-                                        <option class="option-color">less than 30 min</option>
-                                        <option class="option-color">30min</option>
-                                        <option class="option-color">45min</option>
-                                        <option class="option-color">60min</option>
-                                        <option class="option-color">More than 60min</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-4 col-xs-6">
-                                <span class="create_invite">Which:</span>
-                                <div class="have_icon">
-                                    <span class="icon   icon-tag"></span>
-                                    <input type="text" class="form-control" id="create_invite_tag" placeholder="加个标签">
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class='row' >
-                            <div class="col-sm-12 col-xs-12">
-                                <span class="create_invite creat">(づ￣ 3￣)づ</span>
-                                <div class="have_icon">
-                                    <span class="icon   icon-comments"></span>
-                                    <input type="text" class="form-control" id="create_invite_more" placeholder="快说~还有什么更多要求。。。">
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row">
-                            <div class="col-sm-12 " id="invite_png">
-                                <img src="/static/images/invite/2.png">
-                            </div>
-                            <div class="col-sm-8 wrong_message">
-                                <div class="alert alert-danger showing" id="create_invite_information_message">Wrong information.</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-2" id="submit_invite_btn">
-                                    <button  type="submit" id="NewButton" class="btn btn-default">发表请求</button>
-                                    
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='container search_invite '>
-                <div class='row'>
-                    <div class="col-sm-2 "></div>
-                    <!--      <div class="col-sm-3 invite_block"></div> -->
-                    <div class="col-sm-8 ">
-                        <div class="input-group have_icon search_invite_group">
-                            <span class="icon   icon-search"></span>
-                            <input type="text" class="form-control" aria-label="Search" id="search_invite_tag" placeholder="搜搜别人的约健身请求~">
-                            
-                            
-                            <span class="input-group-addon btn" id="search_btn" ><a href="#invite_title">Go! </a></span>
-                            
-                            
-                            <span class="input-group-addon btn btn-danger" id="search_more_btn"><a href="#invite_title">高级搜索</a></span>
-                            
-                        </div>
-                    </div>
+        </div>
+         
+        <div id="invite_message_list" class="container">
+            <table class="table table-hover row">
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td id="invite_message_name">Mark</td>
+                        <td id="invite_message_item">@mdo</td>
+                        <td id="invite_message_location">Otto</td>
+                        <td id="invite_message_time">@mdo</td>
+                        <td id="invite_message_gender">@mdo</td>
+                        <td class="invite_message_btn_block btn-group" role="group">
+                            <button type="button" id="invite_message_btn_yes" class="btn btn-info">确认</button>
+                        <button type="button" id="invite_message_btn_no" class="btn btn-danger">拒绝</button></td>
+                    </tr>
                     
-                </div>
-                <div id="invite_more_detail">
-                    <div class='row' >
-                        <div class="col-sm-2 col-sm-offset-2">
-                            <span class="search_invite">Where:</span>
+                </tbody>
+            </table>
+        </div>
+        <div id="invite_message_all_list" class="container">
+            <table class="table table-hover row">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>发起者</th>
+                        <th>联系方式</th>
+                        <th>响应者</th>
+                        <th>联系方式</th>
+                        <th class="invite_message_item">项目</th>
+                        <th class="invite_message_location">地点</th>
+                        <th class="invite_message_time">时间</th>
+                        <th >状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td >Mark</td>
+                        <td >13612112121</td>
+                        <td>jettu</td>
+                        <td>13612112121</td>
+                        <td class="invite_message_item">Otto</td>
+                        <td class="invite_message_location">@mdo</td>
+                        <td class="invite_message_time">7:00</td>
+                        <td>同意</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div id="create_new_invite">
+            <div class="row" >
+                <div class="col-sm-6 col-sm-offset-2">
+                    <div class="row" >
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">Where:</span>
                             <div class="have_icon">
                                 <span class="icon  icon-map-marker"></span>
-                                <select class="form-control styled-select" id="fit_location">
+                                <select class="form-control styled-select" id="create_fit_location">
                                     <option class="option-color">Location</option>
                                     <option class="option-color">梅园操场</option>
                                     <option class="option-color">桃园操场</option>
@@ -222,15 +113,14 @@
                                     <option class="option-color">大活</option>
                                     <option class="option-color">焦廷标馆</option>
                                     <option class="option-color">Other</option>
-                                    <option class="option-color">Unlimited</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-2">
-                            <span class="search_invite">What:</span>
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">What:</span>
                             <div class="have_icon">
-                                <span class="icon   icon-lightbulb"></span>
-                                <select class="form-control styled-select" id="fit_item">
+                                <span class="icon  icon-lightbulb"></span>
+                                <select class="form-control styled-select" id="create_fit_item">
                                     <option class="option-color">Fit Item</option>
                                     <option class="option-color">Run</option>
                                     <option class="option-color">Press-up</option>
@@ -240,15 +130,15 @@
                                     <option class="option-color">Cycling</option>
                                     <option class="option-color">Tennis</option>
                                     <option class="option-color">Other</option>
-                                    <option class="option-color">Unlimited</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-2">
-                            <span class="search_invite">Who:</span>
+                        
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">Who:</span>
                             <div class="have_icon">
                                 <span class="icon  icon-group"></span>
-                                <select class="form-control styled-select" id="gender">
+                                <select class="form-control styled-select" id="create_gender">
                                     <option class="option-color">Gender</option>
                                     <option class="option-color">Female</option>
                                     <option class="option-color">Male</option>
@@ -257,15 +147,152 @@
                                 </select>
                             </div>
                         </div>
-                        
-                        
-                        
-                        <div class="col-sm-2">
-                            <span class="search_invite">When:</span>
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">When:</span>
                             <div class="have_icon">
                                 <span class="icon  icon-calendar"></span>
-                                <input  size="16" type="text" readonly class="form-control" id="search_invite_start_time"placeholder="Start time">
+                                <input  size="16" type="text" readonly class="form-control" id="create_invite_start_time"placeholder="Start time">
                             </div>
+                        </div>
+                        
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">How long:</span>
+                            <div class="have_icon">
+                                <span class="icon   icon-time"></span>
+                                <select class="form-control styled-select" id="create_duration">
+                                    <option class="option-color">Duration</option>
+                                    <option class="option-color">less than 30 min</option>
+                                    <option class="option-color">30min</option>
+                                    <option class="option-color">45min</option>
+                                    <option class="option-color">60min</option>
+                                    <option class="option-color">More than 60min</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">Which:</span>
+                            <div class="have_icon">
+                                <span class="icon   icon-tag"></span>
+                                <input type="text" class="form-control" id="create_invite_tag" placeholder="加个标签">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class='row' >
+                        <div class="col-sm-12 col-xs-12">
+                            <span class="create_invite creat">(づ￣ 3￣)づ</span>
+                            <div class="have_icon">
+                                <span class="icon   icon-comments"></span>
+                                <input type="text" class="form-control" id="create_invite_more" placeholder="快说~还有什么更多要求。。。">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12 " id="invite_png">
+                            <img src="/static/images/invite/2.png">
+                        </div>
+                        <div class="col-sm-8 wrong_message">
+                            <div class="alert alert-danger showing" id="create_invite_information_message">Wrong information.</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-2" id="submit_invite_btn">
+                                <button  type="submit" id="NewButton" class="btn btn-default">发表请求</button>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='container search_invite '>
+            <div class='row'>
+                <div class="col-sm-2 "></div>
+                <!--      <div class="col-sm-3 invite_block"></div> -->
+                <div class="col-sm-8 ">
+                    <div class="input-group have_icon search_invite_group">
+                        <span class="icon   icon-search"></span>
+                        <input type="text" class="form-control" aria-label="Search" id="search_invite_tag" placeholder="搜搜别人的约健身请求~">
+                        
+                        
+                        <span class="input-group-addon btn" id="search_btn" ><a href="#invite_title">Go! </a></span>
+                        
+                        
+                        <span class="input-group-addon btn btn-danger" id="search_more_btn"><a href="#invite_title">高级搜索</a></span>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div id="invite_more_detail">
+                <div class='row' >
+                    <div class="col-sm-2 col-sm-offset-2  col-xs-6">
+                        <span class="search_invite">Where:</span>
+                        <div class="have_icon">
+                            <span class="icon  icon-map-marker"></span>
+                            <select class="form-control styled-select" id="fit_location">
+                                <option class="option-color">Location</option>
+                                <option class="option-color">梅园操场</option>
+                                <option class="option-color">桃园操场</option>
+                                <option class="option-color">橘园操场</option>
+                                <option class="option-color">梅园宿舍</option>
+                                <option class="option-color">桃园宿舍</option>
+                                <option class="option-color">桔园宿舍</option>
+                                <option class="option-color">东门</option>
+                                <option class="option-color">钢铁大菊花</option>
+                                <option class="option-color">网球场</option>
+                                <option class="option-color">桃园篮球场</option>
+                                <option class="option-color">图书馆</option>
+                                <option class="option-color">大活</option>
+                                <option class="option-color">焦廷标馆</option>
+                                <option class="option-color">Other</option>
+                                <option class="option-color">Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2  col-xs-6">
+                        <span class="search_invite">What:</span>
+                        <div class="have_icon">
+                            <span class="icon   icon-lightbulb"></span>
+                            <select class="form-control styled-select" id="fit_item">
+                                <option class="option-color">Fit Item</option>
+                                <option class="option-color">Run</option>
+                                <option class="option-color">Press-up</option>
+                                <option class="option-color">Table Tennis</option>
+                                <option class="option-color">Swimming</option>
+                                <option class="option-color">Badminton</option>
+                                <option class="option-color">Cycling</option>
+                                <option class="option-color">Tennis</option>
+                                <option class="option-color">Other</option>
+                                <option class="option-color">Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2  col-xs-6">
+                        <span class="search_invite">Who:</span>
+                        <div class="have_icon">
+                            <span class="icon  icon-group"></span>
+                            <select class="form-control styled-select" id="gender">
+                                <option class="option-color">Gender</option>
+                                <option class="option-color">Female</option>
+                                <option class="option-color">Male</option>
+                                <option class="option-color">Other</option>
+                                <option class="option-color">Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="col-sm-2  col-xs-6">
+                        <span class="search_invite">When:</span>
+                        <div class="have_icon">
+                            <span class="icon  icon-calendar"></span>
+                            <input  size="16" type="text" readonly class="form-control" id="search_invite_start_time"placeholder="Start time">
                         </div>
                     </div>
                 </div>
@@ -273,115 +300,15 @@
         </div>
     </div>
 </div>
-  <div class="container list_name">
-    <div class="list_p">
-        <p>健身请求列表</p>
-    </div>
-    </div>
+</div>
+<div class="container list_name">
+<div class="list_p">
+    <p>健身请求列表</p>
+</div>
+</div>
 <div class="container container_timeline">
-       <ul id="timeline" class="timeline">
-        <!-- <li class="wrong_message" >
-            <div class="content" id="wrong_message">
-                <h3>Wrong information.</h3>
-            </div>
-        </li>
-        <li class="active">
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top1.jpg" alt="">
-                <span>10:00</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>lalala</h3>
-                <p>lalalalalala</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top2.jpg" />
-                <span>7:30</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>llllsls</h3>
-                <p>lslslsls</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top3.jpg" />
-                <span>7:00</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>ldldlddl</h3>
-                <p>ldldldldl</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top4.jpg" />
-                <span>21:30</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>qwqwqwq</h3>
-                <p>qwqwqwq</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top5.jpg" />
-                <span>20:00</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>sadasdasd</h3>
-                <p>adasdsadsad</p>
-            </div>
-        </li>
-        <li>
-            <div class="check">
-                <b class="spring"></b>
-                <s></s>
-                <b class="line"></b>
-            </div>
-            <div class="thumb">
-                <img src="/static/images/invite/top6.jpg" />
-                <span>18:40</span>
-            </div>
-            <div class="content">
-                <b></b>
-                <h3>dfsdfsdfds</h3>
-                <p>sdfdsfsdfdsf</p>
-            </div>
-        </li> -->
-    </ul>
+<ul id="timeline" class="timeline">
+</ul>
 </div>
 <script src="{{static_url('js/inviteController.js') }}"></script>
 {% end %}
