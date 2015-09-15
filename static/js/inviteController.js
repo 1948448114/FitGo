@@ -127,26 +127,77 @@ function newInvite(){
 };
 
 function getNewInvite(){
-  $("#invite_message").click(function(event) {
+  $("#invite_message_btn").click(function(event) {
     /* Act on the event */
 
     jQuery.ajax({
       url: '/invite/respond',
       type: 'GET',
       success: function(data, textStatus, xhr) {
-        $("#invite_message").html(data);
+        $("#invite_message_list").html(data);
+        inviteOperation()
+        $(".invite_block").hide();
+        $("#invite_more_detail").hide();
+        $("#create_new_invite").hide();
+        $("#invite_message_list").fadeIn();
+        $("#invite_message_all_list").hide();
       },
       error: function(xhr, textStatus, errorThrown) {
-        //called when there is an error
+        console.log(textStatus)
       }
     });
     
-    $(".invite_block").hide();
-    $("#invite_more_detail").hide();
-    $("#create_new_invite").hide();
-    $("#invite_message_list").fadeIn();
-    $("#invite_message_all_list").hide();
+    
     });
+};
+
+
+function inviteOperation(){
+  $(".btn-info").each(function(index, el) {
+    
+    $(this).click(function(event) {
+      request_id = $(this).attr('value');
+      request_uid = $("#"+request_id).find(".request_info").attr('value');
+      // console.log(request_id+request_uid);
+
+      /* Act on the event */
+      RespondRequest(request_id,request_uid,1);
+    });
+  });
+
+  $(".btn-danger").each(function(index, el) {
+    $(this).click(function(event) {
+      /* Act on the event */
+      request_id = $(this).attr('value');
+      request_uid = $("#"+request_id).find(".request_info").attr('value');
+      // console.log(request_id+request_uid);
+      RespondRequest(request_id,request_uid,2);
+    });
+  });
+};
+
+function RespondRequest(_id,request_id,code){
+  // console.log(_id);
+  // console.log(request_id);
+  jQuery.ajax({
+        url: '/invite/respond',
+        type: 'PUT',
+        dataType: 'json',
+        data: {
+          '_id': _id,
+          'uid_request':request_id,
+          'code':code
+      },
+        success: function(data, textStatus, xhr) {
+          if(data['code']==200){
+            $("#"+_id+" button").attr({'disabled':'disabled'});
+          }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          //called when there is an error
+          console.log(textStatus)
+        }
+      });
 };
 
 function getAllinvite(){

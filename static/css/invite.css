@@ -359,7 +359,9 @@ table{
 	padding-right: 0px !important;
 }
 
+
 #invite_message_all_list tbody,#invite_message_list tbody{
+
 	font-size: 1.75rem;
 	margin-bottom: 0px;
 	margin-top: 15px;

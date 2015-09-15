@@ -15,6 +15,7 @@ class RespondInviteHandler(BaseHandler):
 		arg_id = self.get_argument('_id')
 		arg_uid_request = self.get_argument('uid_request')
 		arg_code = self.get_argument('code')
+		# print arg_code,arg_id,arg_uid_request,arg_uid_respond
 		try:
 			requests=self.db.query(Invite_relation).filter(\
 				Invite_relation.uid_respond==arg_uid_respond,\
@@ -31,11 +32,10 @@ class RespondInviteHandler(BaseHandler):
 	# @tornado.web.authenticated
 	def get(self):#get all 请求
 		arg_uid = self.current_user.uid
-		print arg_uid
 		retjson = {'code':200,'content':'ok'}
 		try:
 			requests=self.db.query(Invite_relation).filter(Invite_relation.uid_respond==arg_uid,\
-				Invite_relation.state == '0').all()
+				Invite_relation.state == '0',Invite_relation.uid_request!=arg_uid).all()
 			content=[]
 			for i in requests:
 				content1={}
@@ -45,17 +45,15 @@ class RespondInviteHandler(BaseHandler):
 				content1['_id'] = i._id
 				try:
 					invitation = self.db.query(InviteCache).filter(InviteCache._id==i._id).one()
-					print invitation._id
 					user = self.db.query(UsersCache).filter(UsersCache.uid==i.uid_request).one()
-					print user.name
 					content1['name'] = user.name
-					content1['start_time'] = invitation.start_time
+					content1['start_time'] = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(int(invitation.start_time)))
 					content1['duration'] = invitation.duration
-					content1['create_time'] = invitation.create_time
+					content1['create_time'] = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(int(invitation.create_time)))
 					content1['fit_location'] = invitation.fit_location
 					content1['fit_item'] = invitation.fit_item
 					content1['user_tag'] = invitation.user_tag
-					content1['gender'] = invitation.gender
+					content1['gender'] = user.gender
 					content1['remark'] = invitation.gender
 				except Exception,e:
 					retjson['code'] = 402
@@ -75,4 +73,5 @@ class RespondInviteHandler(BaseHandler):
 			retjson['code'] = 401
 			retjson['content'] = u'No request!'
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+		print retjson
 		self.render('invite_request_item.html',content=retjson)
