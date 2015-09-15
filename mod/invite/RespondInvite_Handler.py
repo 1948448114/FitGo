@@ -35,7 +35,7 @@ class RespondInviteHandler(BaseHandler):
 		retjson = {'code':200,'content':'ok'}
 		try:
 			requests=self.db.query(Invite_relation).filter(Invite_relation.uid_respond==arg_uid,\
-				Invite_relation.state == '0').all()
+				Invite_relation.state == '0',Invite_relation.uid_request!=arg_uid).all()
 			content=[]
 			for i in requests:
 				content1={}

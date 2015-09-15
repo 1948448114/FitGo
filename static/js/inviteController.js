@@ -154,10 +154,12 @@ function getNewInvite(){
 
 function inviteOperation(){
   $(".btn-info").each(function(index, el) {
-    request_id = $(this).attr('value');
-    request_uid = $("#"+request_id).find(".request_info").attr('value');
-    console.log(request_id+request_uid);
+    
     $(this).click(function(event) {
+      request_id = $(this).attr('value');
+      request_uid = $("#"+request_id).find(".request_info").attr('value');
+      // console.log(request_id+request_uid);
+
       /* Act on the event */
       RespondRequest(request_id,request_uid,1);
     });
@@ -166,14 +168,17 @@ function inviteOperation(){
   $(".btn-danger").each(function(index, el) {
     $(this).click(function(event) {
       /* Act on the event */
+      request_id = $(this).attr('value');
+      request_uid = $("#"+request_id).find(".request_info").attr('value');
+      // console.log(request_id+request_uid);
       RespondRequest(request_id,request_uid,2);
     });
   });
 };
 
 function RespondRequest(_id,request_id,code){
-  console.log(_id);
-  console.log(request_id);
+  // console.log(_id);
+  // console.log(request_id);
   jQuery.ajax({
         url: '/invite/respond',
         type: 'PUT',
