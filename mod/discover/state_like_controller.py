@@ -11,16 +11,16 @@ def getLike(topic_id,Mongodb):
         else:
             try:
                 # print act_id
-                topic = Mongodb.Topic.find_one({"_id":str(topic_id)}) 
+                topic = Mongodb.Topic.find_one({'_id':str(topic_id)}) 
                 if topic:
-                    keys = act.keys()
+                    keys = topic.keys()
                     content = []
                     for key in keys:
                         if key != '_id':
                             content.append({'uid':key,'name':topic[key]})
                     retjson['content'] = content
                 else:
-                    Mongodb.Topic.insert({"_id":topic_id})
+                    Mongodb.Topic.insert({'_id':str(topic_id)})
                     retjson['content'] = []
             except:
                 print traceback.print_exc()

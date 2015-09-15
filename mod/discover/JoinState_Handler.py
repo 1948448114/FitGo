@@ -29,7 +29,7 @@ class JoinStateHandler(BaseHandler):
                 user = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
                 try:
                     topic = self.Mongodb().Topic
-                    act.update({"_id":topic_id},{"$set":{uid:user.name}},True)
+                    topic.update({"_id":topic_id},{"$set":{uid:user.name}},True)
                 except Exception,e:
                     print traceback.print_exc()
                     retjson['code'] = 500

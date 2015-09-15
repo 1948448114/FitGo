@@ -9,7 +9,6 @@ $(document).ready(function() {
     newState();
     searchState();
     serachFriend();
-
 });
 
 //初始化函数
@@ -168,6 +167,7 @@ function getAllState() {
             // other();
             // friendtState();
             AllStatezhan();
+            addLike();
             times = times + 1;
 
         },
@@ -339,6 +339,58 @@ function friend_list_js() {
         opacity: 80
     });
 };
+
+function refresfLike(topic_id){
+    jQuery.ajax({
+      url: '/discover/join',
+      type: 'GET',
+      dataType: 'json',
+      data: {'topic_id': topic_id},
+      success: function(data, textStatus, xhr) {
+        //called when successful
+        if(data['code'] == 200){
+                    var htmlInsert = "";
+                    for (var i = 0; i < data['content'].length; i++) {
+                        htmlInsert+="<a href='#'>"+data['content'][i]['name']+"</a>";
+                    };
+                    console.log(htmlInsert,topic_id);
+                    $("p[value='"+topic_id+"']").html(htmlInsert);
+        }
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        //called when there is an error
+      }
+    });
+    
+}
+
+function addLike(){
+    console.log($("#like").length);
+    $(".like").each(function(index, el) {
+        var topic_id = $(this).attr('value');
+        console.log(topic_id);
+        $(this).click(function(event) {
+            console.log('click');
+            jQuery.ajax({
+              url: '/discover/join',
+              type: 'POST',
+              dataType: 'json',
+              data: {'topic_id': topic_id},
+              success: function(data, textStatus, xhr) {
+                if(data['code'] == 200){
+                    refresfLike(topic_id);
+                }
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                //called when there is an error
+                console.log(textStatus);
+              }
+            });
+            
+        });
+    });
+}
+
 $(function() {
     $(".icon-camera").click(function(event) {
         /* Act on the event */
