@@ -56,7 +56,7 @@ class RespondInviteHandler(BaseHandler):
 					content1['fit_item'] = invitation.fit_item
 					content1['user_tag'] = invitation.user_tag
 					content1['gender'] = invitation.gender
-					content1['remark'] = invitation.gender
+					content1['remark'] = invitation.remark
 				except Exception,e:
 					retjson['code'] = 402
 					content1['name'] =  ''
