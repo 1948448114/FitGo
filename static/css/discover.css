@@ -87,7 +87,11 @@ width: 120px;
 }
 .grid {
     width: 880px;
-    margin: 20px auto;
+      margin-top:6rem;
+}
+.icon-spinner {
+  top:0px;
+  right:1rem;
 }
 .friend_item,.friend_item img
 {
