@@ -68,7 +68,6 @@ class RespondInviteHandler(BaseHandler):
 					content1['user_tag'] = ''
 					content1['gender'] = ''
 					content1['remark'] = ''
-					
 				content.append(content1)
 			retjson['content'] = content
 		except Exception, e:
