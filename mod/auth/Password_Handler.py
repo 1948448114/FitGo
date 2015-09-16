@@ -17,6 +17,7 @@ class PasswordHandler(BaseHandler):
 		old_passwd = self.get_argument('old_password')
 		new_passwd = self.get_argument('new_password')
 		user_cookie = self.current_user
+		print 'user',user_cookie
 		# user_cookie = self.get_argument('uid')
 		retjson = {"code":200,"content":""}
 		try:
@@ -24,21 +25,21 @@ class PasswordHandler(BaseHandler):
 			old_salt = usr1.salt
 			old_password = hashlib.md5(old_salt.join(old_passwd)).hexdigest()
 			if old_password == usr1.password:
-				print '======'
 				new_salt = ''.join(random.sample(string.ascii_letters + string.digits, 32))
 				usr1.password = hashlib.md5(new_salt.join(new_passwd)).hexdigest()
-				print usr1.password
+				usr1.salt = new_salt
 				self.db.add(usr1)
+				try:
+					self.db.commit()
+				except Exception,e:
+					self.db.rollback()
+					retjson['code'] = 400
+					retjson['content'] = 'store data wrong!Try again'
 				retjson['content'] = "passwd update ok!"
 			else:
 				retjson['code'] = 400
 				retjson['content'] = 'old password is wrong'
-			try:
-				self.db.commit()
-			except Exception,e:
-				self.db.rollback()
-				retjson['code'] = 400
-				retjson['content'] = 'store data wrong!Try again'
+			
 		except NoResultFound:
 			retjson['code'] = 400
 			retjson['content'] = 'Please check your old password'
