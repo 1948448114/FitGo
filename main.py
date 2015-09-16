@@ -19,6 +19,7 @@ from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
 from mod.auth.Base_Handler import BaseHandler
 from mod.auth.Password_Handler import PasswordHandler
+from mod.auth.FindPassword_Handler import FindPasswordHandler
 
 from mod.user.UserInfo_Handler import UserinfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
@@ -80,6 +81,7 @@ class Application(tornado.web.Application):
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
+            (r'/auth/findpassword',FindPasswordHandler),
             
             (r'/user/usertopic/(\d+)',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),
