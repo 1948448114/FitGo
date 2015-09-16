@@ -106,15 +106,18 @@ $(document).ready(function() {
 
 
 
-    $("#search_invite_start_time").datetimepicker({
+        
 
+
+    $('#search_invite_start_time').datetimepicker({
         startView: 2,
         forceParse: 0,
         showMeridian: 1,
         autoclose: true,
         todayBtn: true,
-        todayHighlight: true
+        todayHighlight: true,
     });
+
     $("#create_invite_start_time").datetimepicker({
 
         startView: 2,
@@ -124,13 +127,6 @@ $(document).ready(function() {
         todayBtn: true,
         todayHighlight: true
 
-    });
-    $("#search_invite_time").datetimepicker({
-        format: 'yyyy-mm-dd',
-        minView: "month",
-        todayHighlight: true,
-        autoclose: true,
-        todayBtn: true,
     });
 });
 $(function() {
