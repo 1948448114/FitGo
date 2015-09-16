@@ -20,7 +20,10 @@ from ..auth.Base_Handler import BaseHandler
 class UserPageHandler(BaseHandler):
     """修改个人信息"""
     def get(self,user_id):
-        self.render("infochange.html",user = self.current_user)
+        if self.current_user:
+            self.render('infochange.html',state=1,user=self.current_user)
+        else:
+            self.render('index.html',state=0,user=self.current_user)
 
     def post(self,user_id):
         # 获取id

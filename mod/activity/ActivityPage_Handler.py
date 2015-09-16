@@ -13,7 +13,10 @@ import random
 #/activity/activity_page
 class ActivityPageHandler(BaseHandler):
     def get(self):
-        self.render('activity.html', user=self.current_user)
+        if self.current_user:
+            self.render('activity.html',state=1,user=self.current_user)
+        else:
+            self.render('index.html',state=0,user=self.current_user)
     def post(self):
         nowtime = int(time())
         retjson = {'code':200,'content':''}

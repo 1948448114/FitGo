@@ -70,9 +70,11 @@ class PlansHandler(BaseHandler):
     其中，selectValue共11个,其中0,1,2是有氧运动三个选择框,3,4,5,6,7是无氧运动,8,9,10是拉伸运动
           inputValue共3个，分别对应有氧，无氧以及拉伸运动的用户自定义输入
      """
-     @tornado.web.authenticated
      def get(self):
-        self.render("plans.html", user=self.current_user)
+        if self.current_user:
+            self.render('plans.html',state=1,user=self.current_user)
+        else:
+            self.render('index.html',state=0,user=self.current_user)
 
      def post(self):
         retjson = {'code':200,'content':'ok'}

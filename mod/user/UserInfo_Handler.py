@@ -34,7 +34,7 @@ class UserinfoHandler(BaseHandler):
                     'signature':person.signature,
                     'pic':person.portrait
                 }
-                self.render("forothers.html",uid=uid,content=content,user = self.current_user)
+                self.render("forothers.html",state=1,uid=uid,content=content,user = self.current_user)
         except NoResultFound:
             self.redirect('/')
     def post(self,user_id):

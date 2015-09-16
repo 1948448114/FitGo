@@ -307,6 +307,11 @@
                     
                 </div>
             </div>
+             {% if state %}
+                <input type="hidden" value="1" id="user_state">
+            {% else %}
+                <input type="hidden" value="0" id="user_state">
+            {% end %}
             {% block body %}
             {% end %}
             {% module footer() %}
