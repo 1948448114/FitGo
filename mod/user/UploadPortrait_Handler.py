@@ -34,7 +34,6 @@ class UploadPortraitHandler(BaseHandler):
         
             try:
                 a_uid = self.current_user.uid
-                print "update Users set portrait=\'%s\' where uid=\'%s\';" % (database_path,a_uid)
                 self.db.execute("update Users set portrait=\'%s\' where uid=\'%s\';" % (database_path,a_uid))  
                 
                 try:
@@ -46,7 +45,6 @@ class UploadPortraitHandler(BaseHandler):
                 retjson['content'] = 'success to add to database'
             except Exception,e:
                 retjson['content'] = 'failed to add to database'
-                print filepath,type(filepath)
         else:
             retjson = {'code':400,'content':'failed to upload portrait'}
         self.write(json.dumps(retjson,ensure_ascii=False, indent=2))

@@ -20,7 +20,6 @@ class UsertopicHandler(BaseHandler):
         try:
             uid = self.get_argument('uid')
             # uid = self.current_user.uid
-            print uid
             # person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
             topics = self.db.query(TopicsCache).filter(TopicsCache.uid == uid).all()
             
@@ -44,7 +43,6 @@ class UsertopicHandler(BaseHandler):
             rejson['code'] = 400
             rejson[content] = 'No user'
         except Exception,e:
-            print str(e)
             rejson['code'] = 500
             rejson['content'] = 'Error'
         ret = json.dumps(rejson,ensure_ascii = False, indent = 2)
