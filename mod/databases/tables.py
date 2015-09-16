@@ -26,13 +26,13 @@ class CookieCache(Base):
 	__tablename__ = "Cookie"
 
 	id = Column(Integer,primary_key=True)
-	uid = Column(VARCHAR(64))
+	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
 	cookie = Column(VARCHAR(64))
 class PlansCache(Base):
 	__tablename__ = 'Plans'
 
 	plan_id = Column(Integer,primary_key=True)
-	uid = Column(VARCHAR(64))
+	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
 	create_time = Column(VARCHAR(64),nullable=False)
 	start_time = Column(VARCHAR(64))
 	end_time = Column(VARCHAR(64))
@@ -45,7 +45,7 @@ class InviteCache(Base):
 	__tablename__ = 'Invite'
 
 	_id = Column(Integer,primary_key = True)
-	uid = Column(VARCHAR(64))
+	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
 	start_time = Column(VARCHAR(64))
 	duration = Column(VARCHAR(64))
 	create_time = Column(VARCHAR(64))
@@ -63,13 +63,13 @@ class Invite_relation(Base):
 	uid_respond = Column(VARCHAR(64))
 	state = Column(VARCHAR(8)) 
 	grade = Column(VARCHAR(64))
-	_id = Column(Integer,ForeignKey('Invite'))
+	_id = Column(Integer,ForeignKey('Invite._id',ondelete='CASCADE'))
 	relationship('Invite',backref='Invite_relation')
 
 class User_tagCache(Base):
 	__tablename__ = 'User_tag'
 
-	uid = Column(VARCHAR(64),primary_key=True)
+	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'),primary_key=True)
 	user_enjoyment = Column(VARCHAR(64))
 	user_join_times = Column(Integer)
 	user_score = Column(VARCHAR(64))
@@ -79,7 +79,7 @@ class ActCache(Base):
 	__tablename__ = 'Act'
 
 	act_id = Column(Integer,primary_key=True)
-	uid = Column(VARCHAR(64))
+	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
 	create_time = Column(VARCHAR(64))
 	act_title = Column(VARCHAR(64))
 	start_time = Column(VARCHAR(64))
@@ -91,7 +91,7 @@ class ActCache(Base):
 class TopicsCache(Base):
 	__tablename__ = 'Topics'
 
-	uid = Column(VARCHAR(64))
+	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
 	topic_id = Column(Integer,primary_key=True)
 	topic_time = Column(VARCHAR(64))
 	topic_content = Column(VARCHAR(64))

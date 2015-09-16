@@ -8,7 +8,7 @@ DB_NAME = 'fitgo'
 # DB_HOST = '127.0.0.1:3307'
 # DB_USER = 'root'
 # DB_PWD = '8387110'
-# DB_NAME = 'yue'
+# DB_NAME = 'test'
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
