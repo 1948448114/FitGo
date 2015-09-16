@@ -6,6 +6,7 @@ import Image, ImageDraw, ImageFont, ImageFilter
 _letter_cases = "abcdefghjkmnpqrstuvwxy" # 小写字母，去除可能干扰的i，l，o，z
 _upper_cases = _letter_cases.upper() # 大写字母
 _numbers = ''.join(map(str, range(3, 10))) # 数字
+
 init_chars = ''.join((_letter_cases, _numbers))
 fontType="/Library/Fonts/Microsoft Sans Serif.ttf"
   

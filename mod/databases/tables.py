@@ -28,6 +28,7 @@ class CookieCache(Base):
 	id = Column(Integer,primary_key=True)
 	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
 	cookie = Column(VARCHAR(64))
+	
 class PlansCache(Base):
 	__tablename__ = 'Plans'
 

@@ -3,7 +3,7 @@
 import tornado.web
 import tornado.gen
 from Base_Handler import BaseHandler
-from ..databases.tables import UsersCache,CookieCache,PlansCache,ActCache,InviteCache
+from ..databases.tables import UsersCache,CookieCache,ActCache,InviteCache
 import json
 from time import time
 import uuid
