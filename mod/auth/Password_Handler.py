@@ -37,12 +37,11 @@ class PasswordHandler(BaseHandler):
 		try:
 			arg_info_email = self.get_argument('info_email')
 			arg_student_card = self.get_argument('student_card')
-			arg_student_id = self.get_argument('student_id')
 			arg_new_password = self.get_argument('new_password')
 			retjson = {"code":200,"content":""}
 			try:
 				user = self.db.query(UsersCache).filter(UsersCache.info_email==arg_info_email,\
-					UsersCache.student_id==arg_student_id,UsersCache.student_card==arg_student_card).one()
+					UsersCache.student_card==arg_student_card).one()
 				if user:
 					user.password = arg_new_password
 					self.db.add(user)

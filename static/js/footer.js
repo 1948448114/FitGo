@@ -226,4 +226,48 @@ $(document).ready(function() {
         });
 
     });
+
+    //找回密码
+    $("#find_password_btn").click(function(event) {
+        var newPassword = $("#password_find_password").val();
+        var passwordConfirm = $("#password_confirm_find_password").val();
+      var email = $("#info_email_find_password");
+        var card = $("#student_card_find_password");
+       if(email.length<1||card.length<1||newPassword.length<1||passwordConfirm.email.length<1){
+            $("#change_password_message").html('Something is Null!');
+            $("#change_password_message").show();
+        }
+        else if (newPassword != passwordConfirm) {
+            $("#change_password_message").html('You must input the same password');
+            $("#change_password_message").show();
+        } else {
+            /* Act on the event */
+           jQuery.ajax({
+                url: '/auth/password',
+               type: 'POST',
+                dataType: 'json',
+                data: {
+                    'info_email': $("#info_email_find_password"),
+                    'student_card': $("#student_card_find_password"),
+                    'newPassword':'1'
+                },
+                success: function(data, textStatus, xhr) {
+                    if (data['code'] == 200) {
+                        $("#change_password_message").html('You must input the same password');
+                        $("#change_password_message").show();
+                    } else {
+                        $("#change_password_message").html(data['content']);
+                        $("#change_password_message").show();
+                    }
+                    //called when successful
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                        $("#change_password_message").html('Network error!');
+                        $("#change_password_message").show();
+                }
+            });
+        }
+
+});
+
 });
