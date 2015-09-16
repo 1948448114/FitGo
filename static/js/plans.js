@@ -93,7 +93,8 @@ $(document).ready(function(){
     initButton();
     newPlan();
     getPlan();
-    getInfo()
+    getInfo();
+    getState();
 });
 
 
@@ -154,6 +155,25 @@ function getInfo(){
             error: function(xhr, textStatus, errorThrown) {
             }
         });
+}
+
+
+function getState(){
+    var uid = $("#uid").attr('value');
+    jQuery.ajax({
+      url: '/user/usertopic',
+      type: 'POST',
+      data:{
+        'uid':uid
+      },
+      success: function(data, textStatus, xhr) {
+        $("#my_state_show").html(data);
+
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        
+      }
+    });
 }
 
 

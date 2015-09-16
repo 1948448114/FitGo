@@ -28,7 +28,7 @@
                 <a class="join" value="{{ret['content'][item]['id']}}"><span class="icon-plus"></span>加入</a>
                 <span class="cd-date time-size" id="time">{{ret['content'][item]['create_time']}}</span>
             </div>
-            <div class="toright" id={{ret['content'][item]['id']}}>
+            <div class="toright" id="{{ret['content'][item]['id']}}">
                {% module act_join_people(ret['content'][item]['join_uid']) %}
             </div>
         </div>

@@ -21,7 +21,7 @@ body {
     margin: 20px auto;
         margin-top:2rem;
 }
-.icon-spinner {
+.icon-double-angle-right {
   top:0px;
   right:0px;
 }
@@ -56,7 +56,7 @@ width: 90px;
     margin: 20px auto;
      margin-top:2rem;
 }
-.icon-spinner {
+.icon-double-angle-right {
   top:0px;
   right:-1.5rem;
 }
@@ -89,7 +89,7 @@ width: 120px;
     width: 880px;
       margin-top:2rem;
 }
-.icon-spinner {
+.icon-double-angle-right {
   top:0px;
   right:0px;
 }
@@ -107,7 +107,7 @@ width: 150px;
 
 
 
-.icon-spinner {
+.icon-double-angle-right {
   position: absolute;
   top:3rem;
   font-size: 4rem;
@@ -126,7 +126,7 @@ width: 150px;
   text-align: center;
   line-height: 1em;
 }
-.state_title h1{
+.state_title{
   text-align: center;
   font-size: 4rem;
   color:#a2030e;
@@ -311,7 +311,7 @@ filter:alpha(opacity=0);/* 兼容IE */
 .wrong_message .showing{
   bottom: auto;
 }
-#find_btn,#share_btn{
+#friend_btn,#find_btn,#share_btn{
   font-family: "SourceSansPro-Regular";
   font-weight:200; 
   font-size: 4rem;
@@ -348,7 +348,7 @@ position: absolute;
   background-color: rgb(235,137,112); 
   text-align: center; 
  }
-.container_friend
+.container_friend,
 {
    border:solid 1px #ddd; 
     background:powderblue; 
@@ -615,4 +615,14 @@ position: absolute;
 p{
   margin-bottom: 0px ;
   margin-top: 0.75rem;
+}
+.row{
+  position: relative;
+}
+.state_name_p{
+  font-size: 10rem;
+  color: rgba(0,0,0,0.1);
+  margin: 0px ;
+  position: absolute;
+  top:0px;
 }

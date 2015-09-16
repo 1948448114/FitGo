@@ -19,7 +19,7 @@
                                 赶紧成为第一个赞的人吧~
                             {% else %}
                                 {% for i in item['topic_starers']['content'] %}
-                                    <a href="/user/userinfo/{{i['uid']}}">{{i['name']}}</a>
+                                    <a href="/user/userinfo/{{i['uid']}}">{{i['name']}},</a>
                                 {% end %}
                             {% end %}
                         </p>

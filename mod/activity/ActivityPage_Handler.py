@@ -29,8 +29,8 @@ class ActivityPageHandler(BaseHandler):
                     'uid':i.uid,
                     'create_time':strftime("%Y-%m-%d",localtime(string.atoi(i.create_time))),
                     'title':i.act_title,
-                    'start':i.start_time,
-                    'end':i.end_time,
+                    'start':strftime("%Y-%m-%d",localtime(int(i.start_time))),
+                    'end':strftime("%Y-%m-%d",localtime(int(i.end_time))),
                     'location':i.act_location,
                     'detail':i.act_detail,
                     'join_uid':getJoinUid(i.act_id,self.Mongodb())

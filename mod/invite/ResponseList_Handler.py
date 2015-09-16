@@ -9,8 +9,8 @@ from List import ListHandler
 #/invite/respondlist
 class ResponseListHandler(BaseHandler):
 	def get(self):#获得用户所有历史请求，包括参与或者被参与的，同意的，不同意的
-		# arg_uid = self.current_user.uid
-		arg_uid = self.get_argument('uid')
+		arg_uid = self.current_user.uid
+		# arg_uid = self.get_argument('uid')
 		agree_list = ListHandler(self.db,arg_uid,'1') 
 		disagree_list = ListHandler(self.db,arg_uid,'2')
 		retjson = {'code':200,'content':'ok','agree_list':'','disagree_list':''}

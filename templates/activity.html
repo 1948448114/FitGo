@@ -41,20 +41,21 @@
 							<div class="form-group col-lg-2 col-sm-2 col-xs-12 no-padding">
 								<div class="haveicon">
 									<span class="icon-calendar absolute-date"></span>
-									<input type="text" class="form-control time-shadow" id="Start-Time-Search" placeholder="Start Time" readOnly>
+									<input type="text" class="form-control time-shadow" id="Start-Time-Search" placeholder="Start Time" data-date-format="yyyy-mm-dd"
+ readOnly>
 								</div>
 							</div>
 							<div id="specialFliter">
 								<div class="form-group col-lg-2 col-sm-2 col-xs-12 no-padding">
 									<div id="searchText" class="searchClass no-padding">
 										<span class=" icon-magic absolute-info"></span>
-										<input type="text"  class="form-control" placeholder="Title">
+										<input type="text"  id="search_title" class="form-control" placeholder="Title">
 									</div>
 									<button class="actSearch" id="toSearch" type="button"><span class="icon-search btn-search"></span></button>
 								</div>
-								<div class="form-group col-sm-3 col-xs-12 confirmSearch no-padding">
-									<label for="searchActivity" class="fontsize-control">
-										<span class="icon-ok"></span>开始搜索
+								<div class="form-group col-sm-3 col-xs-12 confirmSearch no-padding" >
+									<label for="searchActivity" class="fontsize-control" id="search_btn">
+										<span class="icon-ok" ></span>开始搜索
 									</label>
 								</div>
 							</div>

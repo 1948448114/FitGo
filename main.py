@@ -81,7 +81,7 @@ class Application(tornado.web.Application):
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
             
-            (r'/user/usertopic/(\d+)',UsertopicHandler),
+            (r'/user/usertopic',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),
             (r'/user/userinfo/([\S]+)',UserinfoHandler),
             (r'/user/userinfopic/portrait',UploadPortraitHandler),
@@ -133,7 +133,8 @@ class Application(tornado.web.Application):
                         'discover_state':DiscoverStateMoudle,
                         'discover_friend':DiscoverFriendMoudle,
                         'plan_show_item':Plan_show_itemMoudle,
-                        'plan_show':Plan_showMoudle
+                        'plan_show':Plan_showMoudle,
+                        'mystate_show':State_showMoudle
                         },
 
             # xsrf_cookies=True,
