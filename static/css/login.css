@@ -31,13 +31,13 @@
 }
 .form-control{
 
-    font-e: 14px;
+    font-size: 1rem;
     line-height: 1.42857143;
     color: #555;
     display: block;
-    padding-left: 40px;
-    padding-right: 10px;
-    margin-bottom: 10px;
+    padding-left: 2.85rem;
+    padding-right: 0.7rem;
+    margin-bottom: 0.7rem;
 }
 .for_label{
        position: relative;

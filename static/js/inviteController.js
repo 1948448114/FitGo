@@ -3,6 +3,7 @@ $(document).ready(function() {
     // search();
     NewInvitation();
     getNewInvite();
+    getAllinvite()
     $("#create_invite_information_message").hide();
     // $(".wrong_message").hide();
     $("#search_btn").click(function(event) {
@@ -201,10 +202,23 @@ function RespondRequest(_id,request_id,code){
 };
 
 function getAllinvite(){
-  $(".invite_block").hide();
-    $("#invite_more_detail").hide();
-    $("#create_new_invite").hide();
-    $("#invite_message_all_list").fadeIn();
-    $("#invite_message_list").hide();
+    $("#invite_message_all_btn").click(function(event) {
+      /* Act on the event */
+      jQuery.ajax({
+        url: '/invite/respondlist',
+        type: 'GET',
+        success: function(data, textStatus, xhr) {
+          $("#invite_message_all_list").html(data);
+          $(".invite_block").hide();
+          $("#invite_more_detail").hide();
+          $("#create_new_invite").hide();
+          $("#invite_message_all_list").fadeIn();
+          $("#invite_message_list").hide();
+        },
+        error: function(xhr, textStatus, errorThrown) {
+        }
+      });
+      
+    });
 }
 

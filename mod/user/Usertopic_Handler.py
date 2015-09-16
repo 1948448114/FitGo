@@ -10,12 +10,9 @@ from ..auth.Base_Handler import BaseHandler
 
 class UsertopicHandler(BaseHandler):
     """docstring for WatchUser_handler"""
-    def get(self):
-        self.render("userinfo.html",user = self.current_user)
-
-    def post(self):
+    def post(self,user_id):
         # 获取id
-        uid = self.get_argument('id')
+        uid = self.get_argument('uid')
         # person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
         topics = self.db.query(TopicsCache).filter(TopicsCache.uid == uid).all()
         rejson = {'code':200,'content':'ok'}

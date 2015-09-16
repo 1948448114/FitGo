@@ -1,15 +1,9 @@
-@font-face{
-  font-family: "proxima-nova-regular";
-  src:url("/static/fonts/ProximaNova-Regular.otf");}
-@font-face{
-  font-family: "proxima-nova-semibold";
-  src:url("/static/fonts/ProximaNova-Semibold.otf");}
 #time-row{
 	font-family: "Microsoft Yahei";
 }
 .title h1{
 	text-align: center;
-	font-size: 50px;
+	font-size: 4rem;
 	font-family: "SourceSansPro-ExtraLight";
 	color:#a2030e;
 
@@ -434,9 +428,9 @@ span#time.cd-date{
 }
 .icon-absolute{
   position: absolute;
-  left: 15px;
+  left: 0.8rem;
   top: 10px;
-  font-size: 16px;
+  font-size: 1.2rem;
 }
 .control-label.label-right{
   text-align: left;
@@ -458,14 +452,14 @@ span#time.cd-date{
 }
 .calendar-absolute1{
   position: absolute;
-  left: 30px;
-  font-size: 15px;
+  left: 0.8rem;
+  font-size: 1.2rem;
   top: 10px;
 }
 .calendar-absolute2{
   position: absolute;
   left: 30px;
-  font-size: 15px;
+  font-size: 1.2rem;
   top: 10px;
 }
 #act-time label{
@@ -478,18 +472,21 @@ span#time.cd-date{
 }
 .location-absolute{
   position: absolute;
-  left: 30px;
-  font-size: 20px;
-  top: 10px;
+  left: 1rem;
+  font-size: 1.2rem;
+  top: 0.6rem;
 }
 .detail-absolute{
-  font-size: 20px;
+  font-size: 1.2rem;
   top: 10px;
   position: absolute;
-  left: 28px;
+  left: 0.8rem;
 }
 .col-sm-6.no-padding{
-  padding-left: 0;
+  padding-left: 0px;
+}
+.haveicon{
+  display: relative;
 }
 #submit-btn button{
   padding-left: 30px;
@@ -555,32 +552,41 @@ input:readonly{
 .join{
   cursor: pointer;
 }
-.col-sm-2.no-padding{
+.col-xs-12.no-padding{
   padding-left: 0;
+  display: relative;
 }
+
 .absolute-map{
   position: absolute;
-  left: 15px;
+  left: 1.1rem;
   top:10px;
-  font-size: 15px;
+  font-size: 1.2rem;
 }
 .absolute-date{
   position: absolute;
-  top: 10px;
-  font-size: 15px;
-  left: 25px;
+  top: 0.7rem;
+  font-size: 1.2rem;
+  left: 1rem;
 }
 .absolute-info{
   position: absolute;
-  font-size: 20px;
-  top: 8px;
-  left: 22px;
+  font-size: 1.2rem;
+  top: 0.8rem;
+  left: 1.2rem;
 }
 .btn-search{
   font-size: 20px;
+
+}
+.col-sm-3.no-padding{
+  padding-left: 0px;
 }
 .actSearch{
-  padding: 5px;
+  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   border:none;
   background-color: #ffffff;
   border-radius: 4px;
@@ -589,12 +595,12 @@ input:readonly{
   display: none;
 }
 .confirmSearch label{
-  font-size: 20px;
+  font-size: 1.5rem;
   color: #a2030e;
   cursor: pointer;
 }
 #time-row{
-  margin-top: 50px;
+  margin-top: 5rem;
 }
 .wrongSubmit{
   border-radius: 0px;
@@ -656,9 +662,68 @@ input:readonly{
 .timelong{
   width: 80%;
 }
-
-
-
+.no-padding-all{
+  padding-left: 0;
+  padding-right: 0;
+}
+.parti-size{
+  font-size: 2rem;
+  color: #000;
+}
+@media screen and (max-width: 1200px) and (min-width: 992px){
+html{ font-size: 14px; }
+}
+@media screen and (max-width: 991px) and (min-width: 768px){
+html{ font-size: 12px; }
+}
+@media screen and (max-width: 767px) and (min-width: 380px){
+html{ font-size: 10px; }
+#time-row{
+  margin-top: 2rem !important;
+}
+.actSearch{
+  display: none;
+}
+.confirmSearch{
+  display: block!important;
+}
+#searchText{
+  display: block;
+}
+.fontsize-control{
+  font-size: 1.5rem!important;
+}
+.icon-size{
+  font-size: 3rem!important;
+}
+.time-size{
+  font-size: 1rem!important;
+}
+}
+@media screen and (max-width: 379px){
+html{ font-size: 8px; }
+#time-row{
+  margin-top: 2rem !important;
+}
+.actSearch{
+  display: none;
+}
+.confirmSearch{
+  display: block!important;
+}
+#searchText{
+  display: block;
+}
+.fontsize-control{
+  font-size: 1.5rem!important;
+}
+.icon-size{
+  font-size: 3rem!important;
+}
+.time-size{
+  font-size: 1rem!important;
+}
+}
 
 
 

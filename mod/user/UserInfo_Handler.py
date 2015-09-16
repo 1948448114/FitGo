@@ -13,10 +13,30 @@ from ..auth.Base_Handler import BaseHandler
 
 
 class UserinfoHandler(BaseHandler):
-    """获取个人信息"""
-    def get(self):
-        self.render("userinfo.html",user = self.current_user)
+    """
+    get函数：
+        访问个人主页
+        tips：
+            如果用户不存在，跳转到首页
+            如果用户是自己，跳转到自己个人主页
+    post函数:
+        获取个人信息
 
+    """
+    def get(self,uid):
+        try:
+            if uid==self.current_user.uid:
+                self.redirect('/plans')
+            else:
+                person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
+                content={
+                    'name':person.name,
+                    'signature':person.signature,
+                    'pic':person.portrait
+                }
+                self.render("forothers.html",state=1,uid=uid,content=content,user = self.current_user)
+        except NoResultFound:
+            self.redirect('/')
     def post(self,user_id):
         # 获取id
         # uid = self.get_argument('id')

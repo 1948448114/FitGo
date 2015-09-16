@@ -70,7 +70,7 @@ $(document).ready(function() {
         });
 
         $("#menu .home").removeClass("home");
-        $($("#menu .bar").get(4)).addClass("home");
+        $($("#menu .bar").get(2)).addClass("home");
         $('#Start-Time').datepicker('hide');
         $('#Start-Time').datepicker({
             format: 'yyyy-mm-dd'

@@ -9,10 +9,6 @@ import json
 import hashlib
 #/discover/create/state/pic
 class UploadPicHandler(BaseHandler):
-    def get(self):
-        # pass
-        self.render("upload_pic.html",user=self.current_user)
- 
     def post(self):
         # upload_path=os.path.join(os.path.dirname('mod'),'static/picture')  #文件的暂存路径
         upload_path = '/static/picture'
@@ -31,7 +27,7 @@ class UploadPicHandler(BaseHandler):
                 with open(filepath,'wb') as up:      #有些文件需要已二进制的形式存储，实际中可以更改
                     up.write(meta['body'])
 
-            retjson['content'] = filepath
+            retjson['content'] = '/'+filepath
             print filepath,type(filepath)
         else:
             retjson = {'code':400,'content':'failed to upload picture'}

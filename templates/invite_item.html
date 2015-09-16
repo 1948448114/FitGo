@@ -14,7 +14,7 @@
                     <s></s>
                 </div>
                 <div class="thumb">
-                    <a href="/plans/Info/{{item['uid']}}"><img src="{{item['portrait']}}" class="user_index" value="{{item['uid']}}"/></a>
+                    <a href="/user/userinfo/{{item['uid']}}"><img src="{{item['portrait']}}" class="user_index" value="{{item['uid']}}"/></a>
                     <span>{{item['start_time']}}</span>
                 </div>
                 <div class="content">
@@ -29,7 +29,6 @@
     {% end %}
 {% else %}
 	<li class="wrong_message" >
-           
             <div class="content">
                 <b></b>
                 <h3>I'm Sorry.T_T.Something is Wrong!</h3>

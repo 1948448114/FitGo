@@ -68,9 +68,7 @@
 .Btnsty_peyton{ float: right;
   width: 66px;
   display: inline-block;
-  margin-bottom: 10px;
   height: 57px;
-  line-height: 57px;
   font-size: 20px;
   color: #9999FF;
   margin:0px 2px;
@@ -79,6 +77,9 @@
   text-decoration: none;
   cursor: pointer;
   border: 1px #9999FF solid;
+}
+.Btnsty_peyton:focus{
+	box-shadow: 0 0 5px #9999ff;
 }
 /*选择文件上传*/
 .new-contentarea {
@@ -113,7 +114,6 @@ a.upload-img{
 	display: inline-block;
 	margin-bottom: 10px;
 	height:57px;
-	line-height: 57px;
 	font-size: 20px;
 	color: #FFFFFF;
 	background-color:#9999FF;
@@ -127,6 +127,6 @@ a.upload-img{
 }
 .action input:focus{
 	outline: none;
-	box-shadow: 0 0 5px #9999ff;
+	box-shadow: 0 0 5px #9999FF;
 }
 .tc{text-align:center;}

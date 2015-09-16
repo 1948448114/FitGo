@@ -44,7 +44,6 @@ from mod.invite.SearchInvite_Handler import SearchInviteHandler
 from mod.invite.RequestInvite_Handler import RequestInviteHandler
 from mod.invite.RespondInvite_Handler import RespondInviteHandler
 from mod.invite.ResponseList_Handler import ResponseListHandler
-from mod.invite.UnResponseList_Handler import UnResponseListHandler
 
 
 from mod.recom.RecomUser_Handler import RecomUserHandler
@@ -53,13 +52,13 @@ from mod.recom.RecomActivity_Handler import RecomActivityHandler
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
-from mod.discover.AddFriend_Handler import AddFriendHandler
-from mod.discover.AllFriends_Handler import AllFriendsHandler
-
-from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
-from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
 from mod.discover.UploadPic_Handler import UploadPicHandler
+from mod.discover.JoinState_Handler import JoinStateHandler
+from mod.discover.AddFriend_Handler import AddFriendHandler
+from mod.discover.AllFriends_Handler import AllFriendsHandler
+from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
+from mod.discover.SearchFriend_Handler import SearchFriendHandler
 # from mod.discover.RecomUser_Handler import RecomUserHandler
 # from mod.recommend.RecomUser_Handler import RecomUserHandler
 
@@ -92,7 +91,6 @@ class Application(tornado.web.Application):
             (r'/invite/search',SearchInviteHandler),
             (r'/invite/request',RequestInviteHandler),
             (r'/invite/respond',RespondInviteHandler),
-            (r'/invite/unrespondlist',UnResponseListHandler),
             (r'/invite/respondlist',ResponseListHandler),
 
             (r'/activity',ActivityPageHandler),
@@ -108,6 +106,7 @@ class Application(tornado.web.Application):
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
             (r'/discover/create/state/pic',UploadPicHandler),
+            (r'/discover/join',JoinStateHandler),
             
             (r'/plans',PlansHandler),
             (r'/plans/Info',CompleteInfoHandler),

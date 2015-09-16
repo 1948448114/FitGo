@@ -6,14 +6,20 @@ import tornado.gen
 from mod.auth.Base_Handler import BaseHandler,UsersCache
 from ..databases.tables import TopicsCache
 import traceback
+from state_like_controller import getLike
+from sqlalchemy.orm.exc import NoResultFound
 
 #/discover/discover_page
 class DiscoverPageHandler(BaseHandler):
     def get(self):#发现主页面
-        self.render('discoverpage.html',user=self.current_user)
+        if self.current_user:
+            self.render('discoverpage.html',state=1,user=self.current_user)
+        else:
+            self.render('index.html',state=0,user=self.current_user)
     def post(self):
         try:
             times = self.get_argument("times")#刷新次数［0,1，2，。。。。］
+            print times
             start = int(times)*12
             end = start + 12
             try:
@@ -25,7 +31,10 @@ class DiscoverPageHandler(BaseHandler):
                     for n in topics:
                         content = {}
                         content['uid'] = n.uid
-                        user = self.db.query(UsersCache).filter(UsersCache.uid==n.uid).one()
+                        try:
+                            user = self.db.query(UsersCache).filter(UsersCache.uid==n.uid).one()
+                        except NoResultFound:
+                            break
                         content['name'] = user.name
                         content['topics_id'] = n.topic_id
                         content['topic_time'] = n.topic_time
@@ -33,7 +42,7 @@ class DiscoverPageHandler(BaseHandler):
                         content['topic_pic'] = n.topic_pic
                         content['pic_shape'] = n.pic_shape
                         content['topic_title'] = n.topic_title
-                        content['topic_starers'] = n.topic_starers 
+                        content['topic_starers'] = getLike(n.topic_id,self.Mongodb())
                         content1.append(content)
                     retjson['content'] = content1
                 else:
