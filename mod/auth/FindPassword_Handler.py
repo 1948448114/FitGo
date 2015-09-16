@@ -13,6 +13,10 @@ class FindPasswordHandler(BaseHandler):
 			arg_student_card = self.get_argument('student_card')
 			arg_student_id = self.get_argument('student_id')
 			arg_new_password = self.get_argument('new_password')
+
+			# salt = ''.join(random.sample(string.ascii_letters + string.digits, 32))
+			# arg_new_password = hashlib.md5(salt.join(arg_new_password)).hexdigest()
+
 			retjson = {"code":200,"content":""}
 			try:
 				user = self.db.query(UsersCache).filter(UsersCache.info_email==arg_info_email,\
