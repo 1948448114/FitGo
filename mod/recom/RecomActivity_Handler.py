@@ -29,13 +29,21 @@ class RecomActivityHandler(BaseHandler):
     def post (self):
       """
         推荐活动，不需要参数，post方法。返回json值。json值是推荐的活动集合
+
+        方法：post
+        参数：None
+        返回：Json格式的  code：状态码  content： 活动集合。content是一个list。
+        测试：已测试，可用。
+        注意事项：数据库 act_item 不可为空
+
       """
 
       rejson = {'code':200,'content':'ok'}
       # uid
       user_cookie = self.current_user
       uid = user_cookie.uid
-
+      # uid = '1c4b5307-9fb8-5087-9c47-65e20fd3dce7'
+      # uid = 'b96c8e3c-9402-50b0-bd59-1a69bb9fca1e'
       person = self.db.query(ActCache).filter(ActCache.uid == uid).first()
 
       # cos = float(person.cos)

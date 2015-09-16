@@ -113,6 +113,7 @@ class Application(tornado.web.Application):
             (r'/plans/detail',LookplansHandler),
             (r'/plans/Info/changePor',ChangePorHandler),
             (r'/plans/forothers',ForOthersHandler),
+            
             (r'/recom/recomuser',RecomUserHandler),
             (r'/recom/recomactivity',RecomActivityHandler),
             ]

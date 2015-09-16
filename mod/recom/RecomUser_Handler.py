@@ -11,9 +11,15 @@ import json
 from pymongo import MongoClient
 
 from ..databases.tables import UsersCache,CookieCache
-# 
+''' 
    # 推荐用户  你值得拥有。。。。。。传给你你要的可爱妹纸的id 性别 还有可能的配对率
-# 
+
+   方法：post
+   参数：None
+   返回：Json格式的状态码（code）和用户集合（content）。content是一个list。
+   测试：已测试，可用。
+
+'''
 
 class RecomUserHandler(BaseHandler):
 
@@ -65,7 +71,7 @@ class RecomUserHandler(BaseHandler):
           
 
           content['portrait'] = str(user.portrait)
-
+          content['gender'] = str(user.gender)
           content1.append(content)
 
 
