@@ -12,6 +12,7 @@ import json
 from tornado.httpclient import HTTPRequest, AsyncHTTPClient
 import urllib
 import traceback
+import hashlib,random,string
 
 class RegisterHandler(BaseHandler):
     def get(self):
@@ -34,16 +35,20 @@ class RegisterHandler(BaseHandler):
             try:
                 #store password and name
                 t1=self.db.query(UsersCache).filter(UsersCache.uid==arg_uid) #UserCache object
-                t1.update({UsersCache.name:arg_name,UsersCache.password : arg_password})
+                salt = ''.join(random.sample(string.ascii_letters + string.digits, 32))
+                arg_password = hashlib.md5(salt.join(arg_password)).hexdigest()
+                t1.update({UsersCache.name:arg_name,UsersCache.password : arg_password,UsersCache.salt:salt})
                 #create cookie and store
                 cookie_uuid=uuid.uuid1()
                 self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
                 status_cookie = CookieCache(cookie=cookie_uuid,uid=arg_uid)
                 self.db.add(status_cookie)
-                #commit to sql
+                # commit to sql
+                self.db.execute("update Users set portrait='/static/portrait/1.png' where uid=\'%s\';" % arg_uid)
                 try:
                     self.db.commit()
                 except Exception, e:
+                    print e
                     self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'

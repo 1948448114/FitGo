@@ -9,10 +9,6 @@ import json
 import hashlib
 #/discover/create/state/pic
 class UploadPicHandler(BaseHandler):
-    def get(self):
-        # pass
-        self.render("upload_pic.html",user=self.current_user)
- 
     def post(self):
         # upload_path=os.path.join(os.path.dirname('mod'),'static/picture')  #文件的暂存路径
         upload_path = '/static/picture'

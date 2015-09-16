@@ -12,4 +12,4 @@ class IndexHandler(BaseHandler):
         #     print " no user redirect to login "
         #     self.redirect("/auth/login")
         # return
-        self.render('index.html', user=self.current_user)
+        self.render('index.html',state=1,user=self.current_user)

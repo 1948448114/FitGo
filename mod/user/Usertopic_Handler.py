@@ -2,8 +2,6 @@
 #!/usr/bin/env python
 import tornado.web
 import tornado.gen
-import tornado.web
-import tornado.gen
 import json
 from ..databases.tables import TopicsCache
 from ..auth.Base_Handler import BaseHandler
@@ -14,25 +12,18 @@ class UsertopicHandler(BaseHandler):
     """docstring for WatchUser_handler"""
     def post(self,user_id):
         # 获取id
-        # uid = self.get_argument('id')
-        uid = user_id
+        uid = self.get_argument('uid')
         # person = self.db.query(UsersCache).filter(UsersCache.uid == uid).one()
         topics = self.db.query(TopicsCache).filter(TopicsCache.uid == uid).all()
         rejson = {'code':200,'content':'ok'}
         content1 = []
         for row in topics:
             content={}
-            topic_id = row.topic_id
-            uid = row.uid
             topic_content = row.topic_content
-            topic_pic = row.topic_pic
             topic_title = row.topic_title
             topic_starers = row.topic_starers
 
-            content['uid'] = str(uid)
-            content['topic_id'] = str(topic_id)
             content['topic_content'] = str(topic_content)
-            content['topic_pic'] = str(topic_pic)
             content['topic_title'] = str(topic_title)
             content['topic_starers'] = str(topic_starers)
             content1.append(content)

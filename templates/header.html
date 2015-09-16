@@ -195,19 +195,14 @@
                             </div>
                             
                         </div>
-                        <div class="form-group">
-                            <button id="check_btn" class="btn btn-danger btn-lg btn-block">Check!</button>
-                        </div>
+                        
                     </div>
                 </div>
                 
-            </div>
-            <div class="row">
-                <div class="alert alert-danger login-message showing" id="find_message">Wrong Email or password.</div>
-            </div>
-        </div>
-        <div id="find_password_new_pwd">
-            <div class="container container_login_signup">
+           
+            
+        
+            
                 <div class="row">
                     <div class="on_left col-sm-2 col-sm-offset-2  col-dx-6">
                         <h3>Step 2:</h3>
@@ -320,36 +315,36 @@
     var paddingbottom = 20;
     var defaultHeight = 0;
     function drop(obj, ivalue) {
-        var a = obj.offsetHeight;
-        var speed = (ivalue - obj.offsetHeight) / 8;
-        a += Math.floor(speed);
-        obj.style.height = a + "px";
+    var a = obj.offsetHeight;
+    var speed = (ivalue - obj.offsetHeight) / 8;
+    a += Math.floor(speed);
+    obj.style.height = a + "px";
     }
     window.onload = function() {
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].index = i;
-            btns[i].onmouseover = function() {
-                var osubnav = subnavs[this.index];
-                var sublinks = osubnav.getElementsByTagName("a");
-                if (osubnav.firstChild.tagName == undefined) {
-                    var itarheight = parseInt(osubnav.childNodes[1].offsetHeight) * sublinks.length + paddingbottom;
-                } else {
-                    var itarheight = parseInt(osubnav.firstChild.offsetHeight) * sublinks.length + paddingbottom;
-                }
-                clearInterval(this.itimer);
-                this.itimer = setInterval(function() {
-                    drop(osubnav, itarheight);
-                },
-                30);
-            }
-            btns[i].onmouseout = function() {
-                var osubnav = subnavs[this.index];
-                clearInterval(this.itimer);
-                this.itimer = setInterval(function() {
-                    drop(osubnav, defaultHeight);
-                },
-                30);
-            }
-        }
+    for (var i = 0; i < btns.length; i++) {
+    btns[i].index = i;
+    btns[i].onmouseover = function() {
+    var osubnav = subnavs[this.index];
+    var sublinks = osubnav.getElementsByTagName("a");
+    if (osubnav.firstChild.tagName == undefined) {
+    var itarheight = parseInt(osubnav.childNodes[1].offsetHeight) * sublinks.length + paddingbottom;
+    } else {
+    var itarheight = parseInt(osubnav.firstChild.offsetHeight) * sublinks.length + paddingbottom;
     }
-</script>
+    clearInterval(this.itimer);
+    this.itimer = setInterval(function() {
+    drop(osubnav, itarheight);
+    },
+    30);
+    }
+    btns[i].onmouseout = function() {
+    var osubnav = subnavs[this.index];
+    clearInterval(this.itimer);
+    this.itimer = setInterval(function() {
+    drop(osubnav, defaultHeight);
+    },
+    30);
+    }
+    }
+    }
+    </script>
