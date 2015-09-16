@@ -58,7 +58,7 @@ $(document).ready(function(){
             });
             plan['content']['target'] = $("#Target").val();
             plan['content']['signature'] = $("#signature").val();
-            plan['content']['start_time'] = $("#reservationtime").val();
+            plan['content']['start_time'] = $("#reservation").val();
             plan['content']['end_time'] = '';
             console.log(JSON.stringify(plan));
             jQuery.ajax({
@@ -93,7 +93,8 @@ $(document).ready(function(){
     initButton();
     newPlan();
     getPlan();
-    getInfo()
+    getInfo();
+    getState();
 });
 
 
@@ -154,6 +155,25 @@ function getInfo(){
             error: function(xhr, textStatus, errorThrown) {
             }
         });
+}
+
+
+function getState(){
+    var uid = $("#uid").attr('value');
+    jQuery.ajax({
+      url: '/user/usertopic',
+      type: 'POST',
+      data:{
+        'uid':uid
+      },
+      success: function(data, textStatus, xhr) {
+        $("#my_state_show").html(data);
+
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        
+      }
+    });
 }
 
 

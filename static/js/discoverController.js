@@ -23,6 +23,7 @@ function newState() {
     $("#submit_state_btn").click(function(event) {
         if (state_title.length < 0) {
             $("#create_state_title_error").show();
+            window.location.reload();
         } else {
             fileupload();
         }
@@ -313,7 +314,7 @@ function other() {
         }
         var pfold = $item1.pfold({
             folddirection: direction,
-            speed: 600,
+            speed: 300,
             onEndFolding: function() {
                 opened = false;
             },
@@ -351,7 +352,7 @@ function refresfLike(topic_id){
         if(data['code'] == 200){
                     var htmlInsert = "";
                     for (var i = 0; i < data['content'].length; i++) {
-                        htmlInsert+="<a href='/user/userinfo/"+data['content'][i]['uid']+"'>"+data['content'][i]['name']+"</a>";
+                        htmlInsert+="<a href='/user/userinfo/"+data['content'][i]['uid']+"'>"+data['content'][i]['name']+",</a>";
                     };
                     console.log(htmlInsert,topic_id);
                     $("p[value='"+topic_id+"']").html(htmlInsert);
@@ -405,6 +406,12 @@ $(function() {
 
     $("#share_btn").click(function(event) {
         /* Act on the event */
+        var x=document.getElementsByTagName("input");
+        for (var i=0;i<x.length;i++) 
+        { x[i].value='';}
+        var y=document.getElementsByTagName("textarea");
+        for (var i=0;i<y.length;i++) 
+        { y[i].value='';}
         $(".create_state").show('slow/400/fast');
         $(".find_friend").hide('slow/400/fast');
         $(".container_friend").hide();
@@ -413,6 +420,10 @@ $(function() {
     });
     $("#find_btn").click(function(event) {
         /* Act on the event */
+        var x=document.getElementsByTagName("input");
+        for (var i=0;i<x.length;i++) 
+        { x[i].value='';}
+        document.getElementsByTagName('select')[0].selectedIndex = document.getElementsByTagName('select')[0].value;
         $(".find_friend").show('slow/400/fast');
         $(".create_state").hide('slow/400/fast');
         $("#friend_state").hide();
@@ -420,7 +431,7 @@ $(function() {
         $(".create_state").hide();
     });
 
-    $(".icon-spinner").click(function(event) {
+    $(".icon-double-angle-right").click(function(event) {
         /* Act on the event */
         console.log('here');
         getAllState();
