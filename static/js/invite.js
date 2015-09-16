@@ -7,7 +7,6 @@ function item_click() {
         clickArea = timeLine.getElementsByTagName("s"),
         //查找所有li元素对象
         timePoint = timeLine.getElementsByTagName("li");
-
     //为每个被点击的对象绑定单击事件
     var times = new Array();
     for (var i = 0, len = clickArea.length; i < len; i++) {
