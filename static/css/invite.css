@@ -137,10 +137,14 @@ body {
     border:none;
     color: #ffffff;
  }
+li{
+	margin-bottom: 10px;
+}
 
-
-img, ul, li,b{
+img, ul, b{
 	margin: 0;
+}
+img, ul, li,b{
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -238,7 +242,7 @@ ul {
 
 /* 高亮样式 */
 .timeline  li.active{
-	height: 16rem;
+	height: 14rem;
 }
 
 .timeline li.active div{
@@ -313,10 +317,9 @@ margin-left:5rem;
 	padding: 3px 3rem;
 	right: 1rem;
 	border:none;
-	width: 8rem;
+	width: 9rem;
 	font-size: 2rem;
-	border-color: #F26328;
-	background-color: #F26328;
+		background-color: #6666CC;
 }
 
 #invite_new_btn a{
@@ -397,12 +400,39 @@ text-align: center;
 	width: 80%;
 	margin :0px 10%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 992px){
 #invite_message_all_btn a,#invite_message_btn a{
 	font-size: 1.5rem;
 }
 }
 @media screen and (max-width: 767px){
+	.confirm_invite{
+	position: absolute;
+	top:auto;
+	bottom:0px;
+	padding: 3px 1rem;
+	right: 1rem;
+	border:none;
+	width: 4rem;
+	font-size: 2rem;
+		background-color: #6666CC;
+}
+
 	.container {
     margin-right: 0px;
     margin-left: 0px;
@@ -464,32 +494,16 @@ text-align: center;
 }
 
 
-
-
-
-
-
-
-
-
-.confirm_invite{
-	position: relative;
-	margin:0px;
-	padding: 3px 3rem;
-	border:none;
-	width: 8rem;
-	font-size: 2rem;
-	background-color: #F26328;
-}
-
 .container_timeline{
 	margin: 0 auto;
 	background: none;
 }
-
+#invite_new_btn{
+	margin-bottom: 0px;
+}
 /* 默认样式 */
 .timeline  li{
-	/*height: 10rem;*/
+	height: 10rem;
 	width: 100%;
 	position: relative;
 }
@@ -545,12 +559,12 @@ text-align: center;
 }
 
 .timeline  .content h3{
-	margin: 1.6rem 1rem;
+	margin: 1rem 1rem;
 	font-size: 2rem;
 	font-family: "microsoft yahei";
 }
 .timeline  .content h4{
-	margin: 1.6rem 1rem;
+	margin: 1rem 1rem;
 	font-size: 1.5rem;
 	font-family: "microsoft yahei";
 }
