@@ -12,9 +12,6 @@ from ..auth.Base_Handler import BaseHandler
 
 class UsertopicHandler(BaseHandler):
     """docstring for WatchUser_handler"""
-    def get(self):
-        self.render("userinfo.html",user = self.current_user)
-
     def post(self,user_id):
         # 获取id
         # uid = self.get_argument('id')

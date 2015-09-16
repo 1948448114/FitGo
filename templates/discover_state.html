@@ -9,7 +9,7 @@
                 <img src="{{item['topic_pic']}}"  alt="image-discover"/>
                 <div class="state_title">
                     <h4>{{item['topic_title']}}</h4> by
-                    <a href="/plans" >{{item['name']}}</a>
+                    <a href="/user/userinfo/{{item['uid']}}" >{{item['name']}}</a>
                     <a class="icon_link icon-heart-empty like" value="{{item['topics_id']}}"></a>
                     <p>{{item['topic_content']}}</p>
                     <!-- <a class="icon_link  icon-plus">+</a> -->
@@ -19,7 +19,7 @@
                                 赶紧成为第一个赞的人吧~
                             {% else %}
                                 {% for i in item['topic_starers']['content'] %}
-                                    <a href="#">{{i['name']}}</a>
+                                    <a href="/user/userinfo/{{i['uid']}}">{{i['name']}}</a>
                                 {% end %}
                             {% end %}
                         </p>

@@ -5,7 +5,7 @@
             <p>还没有参与者，赶快参加吧~</p>
         {% else %}
             {% for i in content['content'] %}
-                <a href="#">{{i['name']}}</a>,
+                <a href="/user/userinfo/{{i['uid']}}">{{i['name']}}</a>,
             {% end %}
         {% end %}
     {% else %}

@@ -98,9 +98,13 @@ $(document).ready(function(){
 
 
 function getPlan(){
+    var uid = $("#uid").attr('value');
     jQuery.ajax({
       url: '/plans/detail',
       type: 'GET',
+      data:{
+        'uid':uid
+      },
       success: function(data, textStatus, xhr) {
         $("#myTab_plan_show").html(data);
 
