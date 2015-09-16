@@ -97,5 +97,5 @@ function item_click(){
     });
     $(function() {
     $("#menu .home").removeClass("home");
-    $($("#menu .bar").get(3)).addClass("home");
+    $($("#menu .bar").get(1)).addClass("home");
     });

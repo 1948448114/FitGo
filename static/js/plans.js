@@ -22,7 +22,7 @@ $(document).ready(function(){
 			$(event.target).addClass('a-active');
 		});
 		$("#menu .home").removeClass("home");
-        $($("#menu .bar").get(2)).addClass("home");
+        $($("#menu .bar").get(4)).addClass("home");
         $('#reservation').daterangepicker(null, function(start, end, label) {
                     console.log(start.toISOString(), end.toISOString(), label);
                   });

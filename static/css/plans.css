@@ -14,6 +14,10 @@ html{ font-size: 14px; }
 .fontStyle a{
 	cursor: pointer;
 }
+.picsize{
+	width:150px;
+	height:150px
+}
 .inputText{
 	height: 100%;
 	width: 85%;
@@ -43,7 +47,7 @@ textarea:focus{
     background-color: #fff;
 }
 .infoName h3{
-	font-size: 2rem;
+	font-size: 2.5rem;
 	color:#85da5c;
 }
 .margin-por{
@@ -442,9 +446,6 @@ textarea:focus{
 .nextMargin{
 	margin-bottom: 30px;
 }
-.back-size{
-	font-size: 1rem;
-}
 .btnword{
 	font-size: 1.5rem;
 }
@@ -491,6 +492,10 @@ textarea:focus{
 .picMargin{
 	margin-top: 20px;
 }
+.back-size{
+	font-size: 1rem;
+}
+
 @media screen and (max-width: 1200px) and (min-width: 992px){
 html{ font-size: 14px; }
 
@@ -642,6 +647,16 @@ html{ font-size: 10px; }
 	#noplan{
 		font-size: 1.5rem;
 	}
+	.back-size{
+	font-size: 1.5rem;
+	}
+	#cominfo{
+	font-size: 1.5rem;
+}
+	.picsize{
+	width:100px;
+	height:100px
+}
 }
 @media screen and (max-width: 379px){
 html{ font-size: 8px; }
@@ -786,6 +801,16 @@ html{ font-size: 8px; }
 		word-break:break-all; 
 		word-wrap:break-word;
 	}
+	.back-size{
+	font-size: 1.5rem;
+	}
+	#cominfo{
+	font-size: 1.5rem;
+}
+	.picsize{
+	width:100px!important;
+	height:100px!important;
+}
 }
 
 
