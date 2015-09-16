@@ -5,7 +5,7 @@ import tornado.web
 import tornado.gen
 import tornado.web
 import tornado.gen
-import json
+import json,time
 
 
 from pymongo import MongoClient
@@ -13,19 +13,6 @@ from pymongo import MongoClient
 from ..databases.tables import UsersCache,CookieCache,ActCache,InviteCache
 #/discover/add
 class RecomInviteHandler(BaseHandler):
-    @property
-    def db(self):
-        return self.application.db
-
-
-    @property
-    def Mongodb(self):
-      return self.application.Mongodb
-
-
-    def on_finish(self):
-        self.db.close()
-
     def get (self):
       """
         推荐invite，不需要参数，post方法。返回json值。json值是推荐的活动集合
@@ -42,8 +29,7 @@ class RecomInviteHandler(BaseHandler):
       # uid
       user_cookie = self.current_user
       # uid = user_cookie.uid
-      uid = '1c4b5307-9fb8-5087-9c47-65e20fd3dce7'
-      # uid = 'b96c8e3c-9402-50b0-bd59-1a69bb9fca1e'
+      uid = self.current_user.uid
       person = self.db.query(InviteCache).filter(InviteCache.uid == uid).first()
 
       # cos = float(person.cos)
@@ -88,9 +74,9 @@ class RecomInviteHandler(BaseHandler):
         content['gender'] = str(act.gender)
      
         content['_id'] = str(act._id)
-        content['create_time'] = str(act.create_time)
+        content['create_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(act.create_time)))
         content['duration'] = str(act.duration)
-        content['start_time'] = str(act.start_time)
+        content['start_time'] = time.strftime("%Y-%m-%d %H:%M",time.localtime(int(act.start_time)))
         if act.fit_location is None:
           content['fit_location'] = str((act.fit_location))
         else:
@@ -116,5 +102,5 @@ class RecomInviteHandler(BaseHandler):
             
       ret = json.dumps(rejson,ensure_ascii = False, indent = 2)
 
-       
-      self.write(ret)
+      self.render("invite_item.html",ret=rejson)
+      # self.write(ret)
