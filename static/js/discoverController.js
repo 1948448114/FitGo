@@ -352,7 +352,7 @@ function refresfLike(topic_id){
         if(data['code'] == 200){
                     var htmlInsert = "";
                     for (var i = 0; i < data['content'].length; i++) {
-                        htmlInsert+="<a href='/user/userinfo/"+data['content'][i]['uid']+"'>"+data['content'][i]['name']+"</a>";
+                        htmlInsert+="<a href='/user/userinfo/"+data['content'][i]['uid']+"'>"+data['content'][i]['name']+",</a>";
                     };
                     console.log(htmlInsert,topic_id);
                     $("p[value='"+topic_id+"']").html(htmlInsert);
