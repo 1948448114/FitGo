@@ -12,14 +12,13 @@ from pymongo import MongoClient
 from sqlalchemy.orm import scoped_session, sessionmaker
 from mod.databases.db import engine
 from UI_moudles.UI_moudle import *
-
+from mod.auth.Code_Handler import CodeHandler
 
 from mod.auth.Login_Handler import LoginHandler
 from mod.auth.Logout_Handler import LogoutHandler
 from mod.auth.Register_Handler import RegisterHandler,VerifyHandler
 from mod.auth.Base_Handler import BaseHandler
 from mod.auth.Password_Handler import PasswordHandler
-from mod.auth.FindPassword_Handler import FindPasswordHandler
 
 from mod.user.UserInfo_Handler import UserinfoHandler
 from mod.user.Usertopic_Handler import UsertopicHandler
@@ -45,7 +44,6 @@ from mod.invite.SearchInvite_Handler import SearchInviteHandler
 from mod.invite.RequestInvite_Handler import RequestInviteHandler
 from mod.invite.RespondInvite_Handler import RespondInviteHandler
 from mod.invite.ResponseList_Handler import ResponseListHandler
-from mod.invite.UnResponseList_Handler import UnResponseListHandler
 
 
 from mod.recom.RecomUser_Handler import RecomUserHandler
@@ -54,13 +52,13 @@ from mod.recom.RecomActivity_Handler import RecomActivityHandler
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
 from mod.discover.CreateState_Handler import CreateStateHandler
-from mod.discover.AddFriend_Handler import AddFriendHandler
-from mod.discover.AllFriends_Handler import AllFriendsHandler
-
-from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
-from mod.discover.SearchFriend_Handler import SearchFriendHandler
 from mod.discover.SearchState_Handler import SearchStateHandler
 from mod.discover.UploadPic_Handler import UploadPicHandler
+from mod.discover.JoinState_Handler import JoinStateHandler
+from mod.discover.AddFriend_Handler import AddFriendHandler
+from mod.discover.AllFriends_Handler import AllFriendsHandler
+from mod.discover.DeleteFriend_Handler import DeleteFriendHandler
+from mod.discover.SearchFriend_Handler import SearchFriendHandler
 # from mod.discover.RecomUser_Handler import RecomUserHandler
 # from mod.recommend.RecomUser_Handler import RecomUserHandler
 
@@ -76,12 +74,12 @@ class Application(tornado.web.Application):
         handlers = [
             (r'/',IndexHandler),
             (r'/body',BodyHandler),
+            (r'/auth/code/(\d+[.]\d+)',CodeHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
-            (r'/auth/findpassword',FindPasswordHandler),
             
             (r'/user/usertopic/(\d+)',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),
@@ -93,7 +91,6 @@ class Application(tornado.web.Application):
             (r'/invite/search',SearchInviteHandler),
             (r'/invite/request',RequestInviteHandler),
             (r'/invite/respond',RespondInviteHandler),
-            (r'/invite/unrespondlist',UnResponseListHandler),
             (r'/invite/respondlist',ResponseListHandler),
 
             (r'/activity',ActivityPageHandler),
@@ -109,6 +106,7 @@ class Application(tornado.web.Application):
             (r'/discover/create',CreateStateHandler),
             (r'/discover/search/state',SearchStateHandler),
             (r'/discover/create/state/pic',UploadPicHandler),
+            (r'/discover/join',JoinStateHandler),
             
             (r'/plans',PlansHandler),
             (r'/plans/Info',CompleteInfoHandler),

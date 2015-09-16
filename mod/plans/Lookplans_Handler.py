@@ -21,8 +21,9 @@ class LookplansHandler(BaseHandler):
     """
     def get(self):
         retjson = {'code':200,'content':'ok'}
+        uid = self.get_argument('uid')
         try:
-            uid = self.current_user.uid
+            # uid = self.current_user.uid
             if not uid:
                 retjson['code'] = 400
                 retjson['content'] = 'Parameter Lack'

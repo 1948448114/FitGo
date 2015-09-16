@@ -1,7 +1,9 @@
 {% for item in content['content'] %}
     <li class="nextMargin">
-        <time class="cbp_tmtime " datetime="2013-04-10 18:30"><span>1
-            </span> <span class="fontSize">2</span></time>
+        <time class="cbp_tmtime" >
+            <span>{{item['create_y']}}
+            </span>
+             <span class="fontSize">{{item['create_h']}}</span></time>
             <div class="cbp_tmicon cbp_tmicon-phone"></div>
             <div class="cbp_tmlabel">
                 <div class="protect">
@@ -40,13 +42,13 @@
                                 </div>
                             </div>
                         </div>
-                        {% module plan_show_item(1,item) %}
-                        {% module plan_show_item(2,item) %}
-                        {% module plan_show_item(3,item) %}
-                        {% module plan_show_item(4,item) %}
-                        {% module plan_show_item(5,item) %}
-                        {% module plan_show_item(6,item) %}
-                        {% module plan_show_item(7,item) %}
+                        {% module plan_show_item('1',item) %}
+                        {% module plan_show_item('2',item) %}
+                        {% module plan_show_item('3',item) %}
+                        {% module plan_show_item('4',item) %}
+                        {% module plan_show_item('5',item) %}
+                        {% module plan_show_item('6',item) %}
+                        {% module plan_show_item('7',item) %}
                     </div>
                 </div>
             </div>

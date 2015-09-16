@@ -9,11 +9,10 @@ from time import time
 import uuid
 import re
 import math
-
-
+import hashlib,random,string
+from Code_Handler import identify_code
 class LoginHandler(BaseHandler):
     def get(self):
-
         if not self.current_user:  
             self.redirect('/')
             # self.render('login.html') 
@@ -30,7 +29,6 @@ class LoginHandler(BaseHandler):
             try:
                 self.db.commit()
             except Exception,e:
-                print e
                 self.db.rollback()
                 retjson['code'] = 401
                 retjson['content'] = u'Database store is wrong!'
@@ -42,43 +40,48 @@ class LoginHandler(BaseHandler):
 
     def post(self):
         info_email=self.get_argument("info_email")
-        user_password=self.get_argument("user_password")
+        user_password=str(self.get_argument("user_password"))
         code=self.get_argument("code")
         is_remember = self.get_argument('is_remember')
+        code_random = self.get_argument('code_random')
         retjson = {'code':200,'content':'ok'}
-        if not info_email or not user_password :
+        if not info_email or not user_password or not code:
             retjson['code'] = 400
             retjson['content'] = u'Arguments are empty'
+        elif identify_code(self.Mongodb(),code_random,code) :
+            retjson['code'] = 403
+            retjson['content'] = u'Code is wrong'
         else:
             try:
                 #user is right?
-                person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email,UsersCache.password==user_password).one()
-                #yes => set cookie
-                cookie_uuid=uuid.uuid1()
-                if is_remember == '1' :
-                    self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
-                else:
-                    self.set_secure_cookie('username',str(cookie_uuid),expires_days=None)
-                #ok => store
-                status = CookieCache(cookie=cookie_uuid,uid=person.uid)
-                self.db.add(status)
-                try:
-                    self.db.commit()
-                except Exception,e:
-                    print e
-                    self.db.rollback()
-                    retjson['code'] = 401
-                    retjson['content'] = u'Database store is wrong!'
+                person=self.db.query(UsersCache).filter(UsersCache.info_email==info_email).one()
+                passwd = hashlib.md5(person.salt.join(user_password)).hexdigest()
+                if passwd == person.password:
+                    # self.count(person.uid)
+                    self.count(person.uid)
+                    #yes => set cookie
+                    cookie_uuid=uuid.uuid1()
+                    if is_remember == '1' :
+                        self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
+                    else:
+                        self.set_secure_cookie('username',str(cookie_uuid),expires_days=None)
+                    #ok => store
+                    status = CookieCache(cookie=cookie_uuid,uid=person.uid)
+                    self.db.add(status)
+                    try:
+                        self.db.commit()
+                    except Exception,e:
+                        self.db.rollback()
+                        retjson['code'] = 401
+                        retjson['content'] = u'Database store is wrong!'
+                else :
+                    retjson['code'] = 402
+                    retjson['content'] = u'User name or password is wrong!'
             except Exception, e:
-                print e
                 retjson['code'] = 402
                 retjson['content'] = u'User name or password is wrong!'
-        
-        # self.count(person.uid)
-        self.count(person.uid)
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
         self.write(ret)
-        print(str(retjson['code']))
 
 
 
@@ -171,9 +174,6 @@ class LoginHandler(BaseHandler):
           x1 = 0
           y1 = 10
 
-        print -3/1
-        print x1
-        print y1
         if x1 == 0 and y1 == 10:
           cos = 0;
         else:

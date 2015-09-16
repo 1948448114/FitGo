@@ -145,6 +145,7 @@ img, ul, li,b{
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+
 	vertical-align: baseline;
 }
 ul {
@@ -157,19 +158,19 @@ ul {
 }
 
 /* 默认样式 */
-#timeline li {
+#timeline li,#timeline_tuijian li {
 	height: 12rem;
 	width: 100%;
 	position: relative;
 }
 
-#timeline li div {
+#timeline li div ,#timeline_tuijian li div {
 	position: absolute;
 	width: 100%;
 }
 
 
-#timeline .check s{
+#timeline .check s,#timeline_tuijian .check s{
 	position: absolute;
 	display: block;
 	left: 14.5rem;
@@ -183,29 +184,30 @@ ul {
 
 
 
-#timeline .thumb {
+#timeline .thumb,#timeline_tuijian .thumb {
 	width: 9%;
 	top: 1.5rem;
 	left: 6rem;
 }
 
-#timeline .thumb img {
+#timeline .thumb img,#timeline_tuijian .thumb img {
 	width: 6rem;
 	height: 6rem;
 	border: 5px solid #6666CC;
+	border-radius: 50%;
 }
 
-#timeline .thumb span {
+#timeline .thumb span ,#timeline_tuijian .thumb span {
 	display: block;
 	height: 1rem;
 	line-height: 1rem;
 	color: #6666CC;
 	text-align: center;
 	font-size: 1rem;
-	font-family: Arial black;
+
 }
 
-#timeline .content {
+#timeline .content,#timeline_tuijian .content {
 	left: 18rem;
 	top: 1rem;
 	width: 73%;
@@ -213,18 +215,18 @@ ul {
 	background: #fff;
 }
 
-#timeline .content h3{
+#timeline .content h3,#timeline_tuijian .content h3{
 	margin: 1.6rem 1rem;
 	font-size: 2rem;
 	font-family: "microsoft yahei";
 }
-#timeline .content h4{
+#timeline .content h4,#timeline_tuijian .content h4{
 	margin: 1.6rem 1rem;
 	font-size: 1.5rem;
 	font-family: "microsoft yahei";
 }
 
-#timeline .content b {
+#timeline .content b,#timeline_tuijian .content b {
 	position: absolute;
 	display: block;
 	width: 17px;
@@ -235,11 +237,11 @@ ul {
 }
 
 /* 高亮样式 */
-#timeline li.active {
+#timeline li.active,#timeline_tuijian li.active {
 	height: 16rem;
 }
 
-#timeline li.active div {
+#timelineli.active div,#timeline_tuijian li.active div {
 	position: absolute;
 }
 
@@ -252,7 +254,7 @@ ul {
 	line-height: 1.5;
 	font-size: 1rem;
 }
-#timeline .active .check s{
+#timeline.active .check s,#timeline_tuijian .active .check s{
 	left: 14.1rem;
 	top: 2.85rem;
 	width: 2rem;
@@ -264,29 +266,31 @@ ul {
 
 
 
-#timeline .active .thumb {
+#timeline.active .thumb ,#timeline_tuijian .active .thumb {
 	width: 8rem;
 	top: 1rem;
 	left: 4rem;
+
 }
 
-#timeline .active .thumb img {
+#timeline.active .thumb img ,#timeline_tuijian .active .thumb img {
 	width: 8rem;
 	height: 8rem;
 	border: 8px solid #F26328;
+border-radius: 50%;
 }
 
-#timeline .active .thumb span {
+#timeline.active .thumb span,#timeline_tuijian .active .thumb span {
 	color: #F26328;
 
 }
 
-#timeline .active .content {
+#timeline .active .content,#timeline_tuijian .active .content {
 	border-left: 5px solid #F26328;
 }
 
 
-#timeline .active .content b {
+#timeline.active .content b,#timeline_tuijian .active .content b {
 	background: url(/static/images/invite/pic.png) 0 -43px;
 	left: -20px;
 	top: 1.8rem;
@@ -339,7 +343,7 @@ margin-left:5rem;
 	text-align: center;
 	color: #7f81e7;
 	font-family: "microsoft yahei";
-	padding:auto;
+	padding:0px;
 }
 
 
@@ -388,7 +392,11 @@ text-align: center;
 	width: 80%;
 	margin :0px 10%;
 }
-
+@media screen and (max-width: 992px){
+#invite_message_all_btn a,#invite_message_btn a{
+	font-size: 1.5rem;
+}
+}
 @media screen and (max-width: 767px){
 	.container {
     margin-right: 0px;
@@ -438,4 +446,167 @@ text-align: center;
 #invite_new_btn a:hover{
 	font-size: 2.2rem;
 }
+
+
+.icon{
+  position: absolute;
+  left: 0.75rem;
+  top: 0.65rem;
+  font-size: 1.5rem;
+  z-index: 999;
+  color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.container_timeline{
+	margin: 0 auto;
+	background: none;
+}
+
+/* 默认样式 */
+#timeline li,#timeline_tuijian li {
+	height: 10rem;
+	width: 100%;
+	position: relative;
+}
+
+#timeline li div,#timeline_tuijian li div {
+	position: absolute;
+	width: 100%;
+}
+
+
+#timeline .check s,#timeline_tuijian .check s{
+	position: absolute;
+	display: block;
+	left: 7rem;
+	top: 4rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 2px solid #6666CC;
+	background: #fff url(/static/images/invite/pic.png) 1px -101px;
+	cursor: pointer;
+}
+
+
+
+#timeline .thumb,#timeline_tuijian .thumb {
+	width: 9%;
+	top: 1.5rem;
+	left: 0.5rem;
+}
+
+#timeline .thumb img,#timeline_tuijian .thumb img {
+	width: 6rem;
+	height: 6rem;
+	border: 4px solid #6666CC;
+	border-radius: 50%;
+}
+
+#timeline .thumb span ,#timeline_tuijian .thumb span {
+	display: block;
+	width: 6rem;
+	line-height: 1rem;
+	color: #6666CC;
+	text-align: center;
+	font-size: 1rem;
+}
+
+#timeline .content ,#timeline_tuijian .content {
+	left: 10rem;
+	top: 1rem;
+	width: 60%;
+	border-left: 4px solid #6666CC;
+	background: #fff;
+}
+
+#timeline .content h3,#timeline_tuijian .content h3{
+	margin: 1.6rem 1rem;
+	font-size: 2rem;
+	font-family: "microsoft yahei";
+}
+#timeline .content h4,#timeline_tuijian .content h4{
+	margin: 1.6rem 1rem;
+	font-size: 1.5rem;
+	font-family: "microsoft yahei";
+}
+
+#timeline .content b,#timeline_tuijian .content b {
+	position: absolute;
+	display: block;
+	width: 17px;
+	height: 34px;
+	background: url(/static/images/invite/pic.png);
+	left: -20px;
+	top: 2.3rem;
+}
+
+/* 高亮样式 */
+#timeline li.active,#timeline_tuijian li.active {
+	height: 14rem;
+}
+
+#timeline li.active div ,#timeline_tuijian li.active div {
+	position: absolute;
+}
+
+.timeline .content p {
+	display: none;
+}
+.timeline .active .content p {
+	display: block;
+	margin: 1.5rem 1rem;
+	line-height: 1.5;
+	font-size: 1rem;
+}
+#timeline .active .check s,#timeline_tuijian .active .check s{
+	left: 5rem;
+	top: 1rem;
+	width: 2rem;
+	height: 2rem;
+	border: 4px solid #fff;
+	background: #F26328 url(/static/images/invite/pic.png) 2px -200px;
+	cursor: pointer;
+}
+
+#timeline .active .thumb ,#timeline_tuijian .active .thumb {
+	width: 4rem;
+	top: 1rem;
+	left: 0.5rem;
+
+}
+
+#timeline .active .thumb img ,#timeline_tuijian .active .thumb img {
+	width: 4rem;
+	height: 4rem;
+	border: 4px solid #F26328;
+border-radius: 50%;
+}
+
+#timeline .active .content,#timeline_tuijian .active .content {
+	border-left: 4px solid #F26328;
+    left: 8rem;
+	top: 1rem;
+    width: 75%;
+}
+
+#timeline .active .content b ,#timeline_tuijian .active .content b {
+	background: url(/static/images/invite/pic.png) 0 -43px;
+	left: -20px;
+	top: 0px;
+}
+}
+
+.none_{
+	min-height: 12rem;
 }

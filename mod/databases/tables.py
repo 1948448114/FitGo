@@ -17,6 +17,7 @@ class UsersCache(Base):
 	school = Column(VARCHAR(64))
 	campus = Column(VARCHAR(64))
 	password = Column(VARCHAR(64))
+	salt = Column(VARCHAR(64))
 	info_email = Column(VARCHAR(64))
 	info_phone = Column(VARCHAR(64))
 	portrait = Column(VARCHAR(64))

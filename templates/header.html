@@ -53,10 +53,10 @@
                     <div id="navbar" class="collapse navbar-collapse" style="align:right">
                         <ul  id="different" class="nav navbar-nav navbar-right">
                             <li><a class="bar home" href="/">HOME</a></li>
-                            <li><a class="bar" href="/discover/discover_page">DISCOVER</a></li>
-                            <li><a class="bar" href="/plans">PLANS</a></li>
                             <li><a class="bar" href="/invite/user_page">INVITE</a></li>
                             <li><a class="bar" href="/activity">ACTIVITIES</a></li>
+                            <li><a class="bar" href="/discover/discover_page">DISCOVER</a></li>
+                            <li><a class="bar" href="/plans">ME</a></li>
                             {% if user %}
                                 <li id="but"><button id="logout" type="button" class="btn btn-default navbar-btn" >LOGOUT</button></li>
                             {% else %}
@@ -67,7 +67,7 @@
                     </div>
                 </nav>
             </div>
-<!-- 
+            <!--
             {% if user %}
                 <input type="hidden" id="user_state" value="yes" />
             {% else %}
@@ -111,7 +111,7 @@
                                     <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="row wrong_message">
                         <div class="alert alert-danger showing" id="verify_message">Wrong Email or password.</div>
@@ -262,13 +262,28 @@
                                         <input type="password" name="password" id="password_login" class="form-control" placeholder="Password(at least six)">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-2 col-sm-offset-4">
                                 <div class="form-group">
                                     <div class="for_label">
                                         <label for="code_login" class="control_label glyphicon glyphicon-comment">
                                         </label>
                                         <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
                                     </div>
+                                    <div class="for_label">
+                                        <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
+                                        title ="看不清?点击更换图片" />
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-2 ">
+                                <div class="form-group">
+                                    <div class="for_label">
+                                        <div id="code_pic">人家是验证码</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-4">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" id = "login_check" name="rememberme" value="forever" checked="checked"> Remember Me
@@ -296,6 +311,11 @@
                     
                 </div>
             </div>
+             {% if state %}
+                <input type="hidden" value="1" id="user_state">
+            {% else %}
+                <input type="hidden" value="0" id="user_state">
+            {% end %}
             {% block body %}
             {% end %}
             {% module footer() %}
