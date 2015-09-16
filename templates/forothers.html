@@ -15,7 +15,11 @@
                 </div>
                 <div class="col-xs-6 col-sm-8 col-sm-offset-0 col-md-9 fontStyle">
                     <h3 >{{content['name']}}</h3>
-                    <p><h2>Signature:{{content['signature']}}</p>
+                    {% if content['signature'] %}
+                        <p><h2>Signature:{{content['signature']}}</p>
+                    {% else %}
+                        <p><h2>Signature:</p>
+                    {% end %}
                 </div>
             </div>
         </div>
@@ -103,5 +107,4 @@
                         <script type="text/javascript" src="{{static_url('js/jquery.scrollTo.js')}}"></script>
                         <script type="text/javascript" src="{{static_url('js/forothers.js')}}"></script>
                         <script type="text/javascript" src="{{static_url('js/jquery.smooth-scroll.min.js')}}"></script>
-                        <script type="text/javascript" src="{{static_url('js/plans.js')}}"></script>
                     {% end %}

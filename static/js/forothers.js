@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 
     var user_uid = $("#forothers_uid").val();
+    console.log(user_uid)
     function init(){
         $('#to-plans').click(function(event) {
             $("html,body").animate({scrollTop:$("#myplans").offset().top},800);

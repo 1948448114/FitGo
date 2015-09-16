@@ -7,7 +7,6 @@ function item_click() {
         clickArea = timeLine.getElementsByTagName("s"),
         //查找所有li元素对象
         timePoint = timeLine.getElementsByTagName("li");
-
     //为每个被点击的对象绑定单击事件
     var times = new Array();
     for (var i = 0, len = clickArea.length; i < len; i++) {
@@ -107,15 +106,18 @@ $(document).ready(function() {
 
 
 
-    $("#search_invite_start_time").datetimepicker({
+        
 
+
+    $('#search_invite_start_time').datetimepicker({
         startView: 2,
         forceParse: 0,
         showMeridian: 1,
         autoclose: true,
         todayBtn: true,
-        todayHighlight: true
+        todayHighlight: true,
     });
+
     $("#create_invite_start_time").datetimepicker({
 
         startView: 2,
@@ -125,13 +127,6 @@ $(document).ready(function() {
         todayBtn: true,
         todayHighlight: true
 
-    });
-    $("#search_invite_time").datetimepicker({
-        format: 'yyyy-mm-dd',
-        minView: "month",
-        todayHighlight: true,
-        autoclose: true,
-        todayBtn: true,
     });
 });
 $(function() {

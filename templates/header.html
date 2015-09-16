@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="{{static_url('css/login.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/footer.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
-        
+        <link rel="stylesheet" type="text/css" href="{{static_url('css/flayout_220082c.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{static_url('css/home_2c89410.css') }}">
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
         <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -42,26 +43,18 @@
                             <li><a class="bar " href="/activity">ACTIVITIES</a></li>
                             <li><a class="bar " href="/discover/discover_page">DISCOVER</a></li>
                             <li><a class="bar" href="/plans">ME</a></li>
-                            {% if user %}
-                                <li id="but"><button id="who-name" type="button" class="dropdown-toggle btn btn-default navbar-btn" data-toggle="dropdown" >NAME</button>
-                                    
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li id="but" role="presentation"><a id="logout" role="menuitem" tabindex="-1" type="button" class="btn btn-default navbar-btn" >LOGOUT</a>
-                                    </li>
-                                </ul>
+                            <li id="moredown"><a id="morecolor" class="bar" href="">MORE</a>
+                            <ul class="absoluteul">
+                                <li>About us</li>
+                                <li id="move-to-contact">Contact us</li>
+                                <li>Help me</li>
+                            </ul>
+                        </li>
+                        {% if user %}
+                            <li id="but"><button id="who-name" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" >LOG OUT</button>
                             </li>
                         {% else %}
-                            <li id="but"><button id="login" type="button" class="btn dropdown-toggle btn-default navbar-btn" data-toggle="dropdown">LOGIN</button>
-                                <div>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                </div>
+                            <li id="but"><button id="login" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">LOGIN</button>
                             </li>
                         {% end %}
                     </ul>
@@ -199,7 +192,7 @@
                     </div>
                 </div>
                 
-            
+                
                 <div class="row">
                     <div class="on_left col-sm-2 col-sm-offset-2  col-dx-6">
                         <h3>Step 2:</h3>
@@ -264,20 +257,14 @@
                                 </label>
                                 <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
                             </div>
-                            <div class="for_label">
-                                <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
-                                        title ="看不清?点击更换图片" />
-                            </div>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-2 ">
-                        <div class="form-group">
-                            <div class="for_label">
-                                <div id="code_pic">人家是验证码</div>
-                            </div>
-                        </div>
+                        <div id="code_pic">
+                            <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
+                        title ="看不清?点击更换图片" /></div>
                     </div>
-                    <div class="col-sm-4 col-sm-offset-4">
+                    <div class="col-sm-4 col-sm-offset-4 col-xs-12">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" id = "login_check" name="rememberme" value="forever" checked="checked"> Remember Me
@@ -302,50 +289,14 @@
             <div class="row wrong_message">
                 <div class="alert alert-danger showing" id="login_message">Wrong Email or password.</div>
             </div>
+            {% if state %}
+                <input type="hidden" value="1" id="user_state">
+            {% else %}
+                <input type="hidden" value="0" id="user_state">
+            {% end %}
             
         </div>
     </div>
     {% block body %}
     {% end %}
     {% module footer() %}
-    <script type="text/javascript">
-    var supnav = document.getElementById("supnav");
-    var nav = document.getElementById("nav");
-    var btns = document.getElementsByTagName("li");
-    var subnavs = nav.getElementsByTagName("div");
-    var paddingbottom = 20;
-    var defaultHeight = 0;
-    function drop(obj, ivalue) {
-    var a = obj.offsetHeight;
-    var speed = (ivalue - obj.offsetHeight) / 8;
-    a += Math.floor(speed);
-    obj.style.height = a + "px";
-    }
-    window.onload = function() {
-    for (var i = 0; i < btns.length; i++) {
-    btns[i].index = i;
-    btns[i].onmouseover = function() {
-    var osubnav = subnavs[this.index];
-    var sublinks = osubnav.getElementsByTagName("a");
-    if (osubnav.firstChild.tagName == undefined) {
-    var itarheight = parseInt(osubnav.childNodes[1].offsetHeight) * sublinks.length + paddingbottom;
-    } else {
-    var itarheight = parseInt(osubnav.firstChild.offsetHeight) * sublinks.length + paddingbottom;
-    }
-    clearInterval(this.itimer);
-    this.itimer = setInterval(function() {
-    drop(osubnav, itarheight);
-    },
-    30);
-    }
-    btns[i].onmouseout = function() {
-    var osubnav = subnavs[this.index];
-    clearInterval(this.itimer);
-    this.itimer = setInterval(function() {
-    drop(osubnav, defaultHeight);
-    },
-    30);
-    }
-    }
-    }
-    </script>

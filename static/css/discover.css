@@ -127,10 +127,7 @@ width: 150px;
   line-height: 1em;
 }
 .state_title{
-  text-align: center;
   font-size: 4rem;
-  color:#a2030e;
-
 }
 
 
@@ -413,6 +410,7 @@ position: absolute;
 }
 #search_state_list{
   display: none;
+  position: relative;
 }
 
 /* pfold style */
@@ -620,9 +618,10 @@ p{
   position: relative;
 }
 .state_name_p{
-  font-size: 10rem;
+  font-size: 4rem;
   color: rgba(0,0,0,0.1);
   margin: 0px ;
   position: absolute;
-  top:0px;
+  left:5rem;
+  top:-4rem;
 }

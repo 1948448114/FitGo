@@ -1,10 +1,11 @@
 .contact-padding{
-	padding-top: 2.5rem;
+	padding-top: 1rem;
 	padding-bottom: 2.5rem;
 	padding-right: .5rem;
 	padding-left: .5rem;
 }
 .contact-info{
+	
 	text-align: center;
 	font-family: "proxima-nova";
 	color: #4182c7;
@@ -24,6 +25,7 @@
 	cursor: pointer;
 }
 .phone{
+	
 	border-left-style: solid;
 	border-right-style: solid;
 	border-width: 1px;
@@ -31,6 +33,7 @@
 	
 }
 .gray-font{
+	
 	color: #7e8590;
 	font-size: 1rem;
 }
@@ -62,3 +65,23 @@ footer{
 	text-align: center;
 	font-size:2rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

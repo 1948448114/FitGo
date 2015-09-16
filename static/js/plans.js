@@ -58,7 +58,7 @@ $(document).ready(function(){
             });
             plan['content']['target'] = $("#Target").val();
             plan['content']['signature'] = $("#signature").val();
-            plan['content']['start_time'] = $("#reservationtime").val();
+            plan['content']['start_time'] = $("#reservation").val();
             plan['content']['end_time'] = '';
             console.log(JSON.stringify(plan));
             jQuery.ajax({
@@ -149,7 +149,12 @@ function getInfo(){
                 if (data['code'] == 200) {
                     $("#user_portrait").attr('src',data['info']['portrait']);
                     $("#user_name").html(data['info']['name']);
+                    if(data['info']['signature']){
                     $("#user_signature").html('Signature:'+data['info']['signature']);
+                    }
+                    else{
+                        $("#user_signature").html('Signature:');
+                    }
                 }   
             },
             error: function(xhr, textStatus, errorThrown) {
@@ -167,6 +172,7 @@ function getState(){
         'uid':uid
       },
       success: function(data, textStatus, xhr) {
+        console.log('here');
         $("#my_state_show").html(data);
 
       },

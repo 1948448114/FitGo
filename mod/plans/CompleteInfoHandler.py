@@ -7,4 +7,7 @@ from mod.auth.Base_Handler import BaseHandler
 
 class CompleteInfoHandler(BaseHandler):
 	def get(self):
-		self.render('completeInfo.html',user=self.current_user)
+		if self.current_user:
+			self.render('completeInfo.html',state=1,user=self.current_user)
+		else:
+			self.render('index.html',state=0,user=self.current_user)

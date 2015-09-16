@@ -8,7 +8,7 @@
             <div class="cbp_tmlabel">
                 <div class="protect">
                     <ul id="myTab" class="nav nav-tabs">
-                        <li role="presentation" class="active"><a href="#summary1" data-toggle="tab">Plan</a></li>
+                        <li role="presentation" class="active"><a href="#{{item['_id']}}0" data-toggle="tab">Plan</a></li>
                         <li role="presentation"><a href="#{{item['_id']}}1" data-toggle="tab">Monday</a></li>
                         <li role="presentation"><a href="#{{item['_id']}}2" data-toggle="tab">Tuesday</a></li>
                         <li role="presentation"><a href="#{{item['_id']}}3" data-toggle="tab">Wednesday</a></li>
@@ -18,7 +18,7 @@
                         <li role="presentation"><a href="#{{item['_id']}}7" data-toggle="tab">Sunday</a></li>
                     </ul>
                     <div class="tab-content tabBelow">
-                        <div role="tabpanel" class="tab-pane active" id="summary1">
+                        <div role="tabpanel" class="tab-pane active" id="{{item['_id']}}0">
                             <div class="col-sm-8 oneRow">
                                 <div class="form-inline">
                                     <div class="col-sm-12">
@@ -30,7 +30,7 @@
                                     <div class="col-sm-12 timePick">
                                         <label class="control-label" for="reservationtime">计划时间段</label>
                                         <div class="input-prepend input-group moreLength">
-                                            <input disabled="disabled" type="text"  name="reservation" id="reservationtime1" class="userInput3-more" value="10/01/2015 1:00 PM - 10/07/2015 1:30 PM">
+                                            <input disabled="disabled" type="text"  name="reservation" id="reservationtime1" class="userInput3-more" value="{{item['content']['start_time']}}">
                                         </div>
                                     </div>
                                 </div>

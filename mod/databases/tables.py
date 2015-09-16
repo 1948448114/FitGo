@@ -28,19 +28,14 @@ class CookieCache(Base):
 	id = Column(Integer,primary_key=True)
 	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
 	cookie = Column(VARCHAR(64))
-	
+
 class PlansCache(Base):
 	__tablename__ = 'Plans'
 
 	plan_id = Column(Integer,primary_key=True)
 	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
-	create_time = Column(VARCHAR(64),nullable=False)
-	start_time = Column(VARCHAR(64))
-	end_time = Column(VARCHAR(64))
-	fit_location = Column(VARCHAR(64))
 	fit_item = Column(VARCHAR(64))
-	remark = Column(VARCHAR(64))
-	grader = Column(Integer)
+
 
 class InviteCache(Base):
 	__tablename__ = 'Invite'
