@@ -44,15 +44,15 @@
                             <li><a class="bar " href="/discover/discover_page">DISCOVER</a></li>
                             <li><a class="bar" href="/plans">ME</a></li>
                             <li id="moredown"><a id="morecolor" class="bar" href="">MORE</a>
-                                <ul class="absoluteul">
-                                    <li>About us</li>
-                                    <li id="move-to-contact">Contact us</li>
-                                    <li>Help me</li>
-                                </ul>
+                            <ul class="absoluteul">
+                                <li>About us</li>
+                                <li id="move-to-contact">Contact us</li>
+                                <li>Help me</li>
+                            </ul>
+                        </li>
+                        {% if user %}
+                            <li id="but"><button id="who-name" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" >LOG OUT</button>
                             </li>
-                            {% if user %}
-                                <li id="but"><button id="who-name" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" >LOG OUT</button>
-                                </li>
                         {% else %}
                             <li id="but"><button id="login" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">LOGIN</button>
                             </li>
@@ -175,7 +175,6 @@
                                 <label for="info_email_find_password" class="control_label glyphicon glyphicon-envelope">
                                 </label>
                                 <input type="text" name="email" id="info_email_find_password" class="form-control" placeholder="Your Email">
-
                             </div>
                             
                         </div>
@@ -193,7 +192,7 @@
                     </div>
                 </div>
                 
-            
+                
                 <div class="row">
                     <div class="on_left col-sm-2 col-sm-offset-2  col-dx-6">
                         <h3>Step 2:</h3>
@@ -261,11 +260,11 @@
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-2 ">
-                                <div id="code_pic">
-                                    <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
-                                        title ="看不清?点击更换图片" /></div>
+                        <div id="code_pic">
+                            <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
+                        title ="看不清?点击更换图片" /></div>
                     </div>
-                    <div class="col-sm-4 col-sm-offset-4">
+                    <div class="col-sm-4 col-sm-offset-4 col-xs-12">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" id = "login_check" name="rememberme" value="forever" checked="checked"> Remember Me
@@ -290,7 +289,6 @@
             <div class="row wrong_message">
                 <div class="alert alert-danger showing" id="login_message">Wrong Email or password.</div>
             </div>
-
             {% if state %}
                 <input type="hidden" value="1" id="user_state">
             {% else %}
@@ -302,4 +300,3 @@
     {% block body %}
     {% end %}
     {% module footer() %}
-
