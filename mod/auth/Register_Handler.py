@@ -43,10 +43,12 @@ class RegisterHandler(BaseHandler):
                 self.set_secure_cookie("username",str(cookie_uuid),expires_days=30,expires=int(time())+2592000)
                 status_cookie = CookieCache(cookie=cookie_uuid,uid=arg_uid)
                 self.db.add(status_cookie)
-                #commit to sql
+                # commit to sql
+                self.db.execute("update Users set portrait='/static/portrait/1.png' where uid=\'%s\';" % arg_uid)
                 try:
                     self.db.commit()
                 except Exception, e:
+                    print e
                     self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
