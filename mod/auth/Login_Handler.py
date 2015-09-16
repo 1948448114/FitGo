@@ -3,7 +3,7 @@
 import tornado.web
 import tornado.gen
 from Base_Handler import BaseHandler
-from ..databases.tables import UsersCache,CookieCache,PlansCache,ActCache
+from ..databases.tables import UsersCache,CookieCache,PlansCache,ActCache,InviteCache
 import json
 from time import time
 import uuid
@@ -186,6 +186,10 @@ class LoginHandler(BaseHandler):
 
       t2 = self.db.query(ActCache).filter(ActCache.uid == uid)
       if t2 is not None:
-        t2.update({ActCache.cos:cos})                   
+        t2.update({ActCache.cos:cos})       
+
+      t3 = self.db.query(InviteCache).filter(InviteCache.uid == uid)
+      if t3 is not None:
+        t3.update({InviteCache.cos:cos})             
       self.db.commit()
 

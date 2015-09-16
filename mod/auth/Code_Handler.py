@@ -34,8 +34,8 @@ class CodeHandler(BaseHandler):
 def identify_code(Mongodb,code_time,code) :
 	try:
 		code=str(code)
-		code_time = hashlib.md5(str(code_time)).hexdigest()
-		plan = Mongodb.Plan.find_one({code_time:code})
+		code_time = hashlib.md5(str(code_time[11:])).hexdigest()
+		plan = Mongodb.Code.find_one({code_time:code})
 		if plan :
 			return 0
 		else :
