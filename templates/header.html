@@ -52,11 +52,11 @@
                     </div>
                     <div id="navbar" class="collapse navbar-collapse" style="align:right">
                         <ul  id="different" class="nav navbar-nav navbar-right">
-                            <li><a class="bar home" href="/">首页</a></li>
-                            <li><a class="bar" href="/invite/user_page">约</a></li>
-                            <li><a class="bar" href="/activity">活动</a></li>
-                            <li><a class="bar" href="/discover/discover_page">发现</a></li>
-                            <li><a class="bar" href="/plans">个人主页</a></li>
+                            <li><a class="bar home" href="/">HOME</a></li>
+                            <li><a class="bar" href="/invite/user_page">INVITE</a></li>
+                            <li><a class="bar" href="/activity">ACTIVITIES</a></li>
+                            <li><a class="bar" href="/discover/discover_page">DISCOVER</a></li>
+                            <li><a class="bar" href="/plans">ME</a></li>
                             {% if user %}
                                 <li id="but"><button id="logout" type="button" class="btn btn-default navbar-btn" >LOGOUT</button></li>
                             {% else %}
@@ -193,9 +193,19 @@
                                     </div>
                                     
                                 </div>
-                                
+                                <div class="form-group">
+                                    <button id="check_btn" class="btn btn-danger btn-lg btn-block">Check!</button>
+                                </div>
                             </div>
                         </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-danger login-message showing" id="find_message">Wrong Email or password.</div>
+                    </div>
+                </div>
+                <div id="find_password_new_pwd">
+                    <div class="container container_login_signup">
                         <div class="row">
                             <div class="on_left col-sm-2 col-sm-offset-2  col-dx-6">
                                 <h3>Step 2:</h3>

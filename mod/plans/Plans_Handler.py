@@ -13,7 +13,8 @@ from ..databases.tables import PlansCache
 from ..databases.tables import UsersCache
 
 from ..auth.Base_Handler import BaseHandler
-import json
+import json,time
+from time import strftime,localtime
 
 
 class PlansHandler(BaseHandler):
@@ -78,6 +79,8 @@ class PlansHandler(BaseHandler):
         planJson = self.get_argument('plan')
         plan = json.loads(planJson)
         plan['uid'] = self.current_user.uid
+        plan['create_y'] = strftime("%Y-%m-%d",localtime(time.time()))
+        plan['create_h'] = strftime("%H:%M",localtime(time.time()))
         try:
             self.Mongodb().Plan.insert(plan)
         except Exception,e:

@@ -1,7 +1,9 @@
 {% for item in content['content'] %}
     <li class="nextMargin">
-        <time class="cbp_tmtime" ><span>1
-            </span> <span class="fontSize">2</span></time>
+        <time class="cbp_tmtime" >
+            <span>{{item['create_y']}}
+            </span>
+             <span class="fontSize">{{item['create_h']}}</span></time>
             <div class="cbp_tmicon cbp_tmicon-phone"></div>
             <div class="cbp_tmlabel">
                 <div class="protect">
