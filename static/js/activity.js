@@ -64,7 +64,8 @@ function refresh(){
 function search(){
     var location = $("#options-search").val();
     if(location=='Location'){location='';}
-    var start_time = $("#Start-Time-Search").val();
+    var start_time = $("#
+        ").val();
     var title=$("#search_title").val();
     if(!start_time&&!location&&!title){
     }

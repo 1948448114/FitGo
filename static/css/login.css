@@ -109,3 +109,11 @@
     webkit-transform: translate3d(0,0,0);
 
 }
+.checkbox{
+  margin-top:0px;
+  margin-bottom: 5px;
+}
+
+.form-group{
+  margin-bottom: 0px;
+}
