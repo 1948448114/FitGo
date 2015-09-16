@@ -9,6 +9,7 @@ import json
 from time import time
 import uuid
 import re
+import hashlib,random,string
 
 class PasswordHandler(BaseHandler):
 	# @tornado.web.authenticated
@@ -18,10 +19,19 @@ class PasswordHandler(BaseHandler):
 		user_cookie = self.current_user
 		retjson = {"code":200,"content":""}
 		try:
-			usr1=self.db.query(UsersCache).filter(UsersCache.uid==user_cookie.uid,UsersCache.password==old_passwd).one()
-			usr1.password = new_passwd
-			self.db.add(usr1)
-			retjson['content'] = "passwd update ok!"
+			usr1=self.db.query(UsersCache).filter(UsersCache.uid==user_cookie.uid).one()
+			old_salt = usr1.salt
+			old_password = hashlib.md5(old_salt.join(old_passwd)).hexdigest()
+			if old_password == usr1.password:
+				print '======'
+				new_salt = ''.join(random.sample(string.ascii_letters + string.digits, 32))
+				usr1.password = hashlib.md5(new_salt.join(old_passwd)).hexdigest()
+				print usr1.password
+				self.db.add(usr1)
+				retjson['content'] = "passwd update ok!"
+			else:
+				retjson['code'] = 400
+				retjson['content'] = 'old password is wrong'
 			try:
 				self.db.commit()
 			except Exception,e:
@@ -38,12 +48,15 @@ class PasswordHandler(BaseHandler):
 			arg_info_email = self.get_argument('info_email')
 			arg_student_card = self.get_argument('student_card')
 			arg_new_password = self.get_argument('new_password')
+			salt = ''.join(random.sample(string.ascii_letters + string.digits, 32))
+			arg_new_password = hashlib.md5(salt.join(arg_new_password)).hexdigest()
 			retjson = {"code":200,"content":""}
 			try:
 				user = self.db.query(UsersCache).filter(UsersCache.info_email==arg_info_email,\
 					UsersCache.student_card==arg_student_card).one()
 				if user:
 					user.password = arg_new_password
+					user.salt = salt
 					self.db.add(user)
 					retjson['content'] = "passwd update ok!"
 				else:
