@@ -9,7 +9,9 @@ $(document).ready(function() {
     // $(".wrong_message").hide();
     $("#search_btn").click(function(event) {
         search();
+        $(".list_name").show();
           $("#invite_message_list").hide();
+          
           $("#invite_message_all_list").hide();
     });
 });
