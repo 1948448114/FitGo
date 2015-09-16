@@ -54,6 +54,7 @@ class InviteCache(Base):
 	user_tag = Column(VARCHAR(64))
 	gender = Column(VARCHAR(64))
 	remark = Column(VARCHAR(64))
+	cos = Column(Float)
 class Invite_relation(Base):
 	__tablename__ = 'Invite_relation'
 

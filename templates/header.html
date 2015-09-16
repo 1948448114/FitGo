@@ -257,18 +257,12 @@
                                 </label>
                                 <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
                             </div>
-                            <div class="for_label">
-                                <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
-                                        title ="看不清?点击更换图片" />
-                            </div>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-2 ">
-                        <div class="form-group">
-                            <div class="for_label">
-                                <div id="code_pic">人家是验证码</div>
-                            </div>
-                        </div>
+                                <div id="code_pic">
+                                    <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
+                                        title ="看不清?点击更换图片" /></div>
                     </div>
                     <div class="col-sm-4 col-sm-offset-4">
                         <div class="checkbox">

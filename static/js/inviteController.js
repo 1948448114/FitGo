@@ -3,7 +3,8 @@ $(document).ready(function() {
     // search();
     NewInvitation();
     getNewInvite();
-    getAllinvite()
+    getAllinvite();
+    recom();
     $("#create_invite_information_message").hide();
     // $(".wrong_message").hide();
     $("#search_btn").click(function(event) {
@@ -67,6 +68,23 @@ function NewInvitation(){
     });
 }
 
+
+function recom(){
+  jQuery.ajax({
+    url: '/recom/recominvite',
+    type: 'GET',
+    success: function(data, textStatus, xhr) {
+      //called when successful
+      $("#timeline_tuijian").html(data);
+        item_click_tuijian();
+        newInvite();
+    },
+    error: function(xhr, textStatus, errorThrown) {
+      //called when there is an error
+    }
+  });
+  
+}
 
 function search(){
     var tag=$("#search_invite_tag").val();
