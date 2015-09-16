@@ -19,11 +19,12 @@ class SearchActivityHandler(BaseHandler):
 		a_location = self.get_argument("location")
 		string = ''
 		retjson = {'code':200,'content':'ok'}
-		a_start_time = int(mktime(strptime(a_start_time,"%M\/%d\/%Y")))
+		
 		try:
 			if a_act_title:
 				string = string + 'act_title like \'%%%s%%\'' % a_act_title + ' and '
 			if a_start_time:
+				a_start_time = int(mktime(strptime(a_start_time,"%Y-%m-%d")))
 				string = string + 'start_time=\'%s\'' % a_start_time + ' and '
 			if a_location:
 				string = string + 'act_location=\'%s\'' % a_location + ' and '
@@ -34,7 +35,6 @@ class SearchActivityHandler(BaseHandler):
 				length0 = len(string)
 				length = length0 - 5
 				string = string[0:length]
-				print "select * from Act where %s;" % string
 				activitys = self.db.execute("select * from Act where %s;" % string).fetchall()
 				if activitys:
 					content1 = []

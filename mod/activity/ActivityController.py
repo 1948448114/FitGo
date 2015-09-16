@@ -19,7 +19,7 @@ def getJoinUid(act_id,Mongodb):
                             content.append({'uid':key,'name':act[key]})
                     retjson['content'] = content
                 else:
-                    Mongodb.Act.insert({"_id":act_id})
+                    Mongodb.Act.insert({"_id":str(act_id)})
                     retjson['content'] = []
             except:
                 print traceback.print_exc()
