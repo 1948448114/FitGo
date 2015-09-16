@@ -49,7 +49,7 @@ from mod.invite.UnResponseList_Handler import UnResponseListHandler
 
 
 from mod.recom.RecomUser_Handler import RecomUserHandler
-
+from mod.recom.RecomInvite_Handler import RecomInviteHandler
 from mod.recom.RecomActivity_Handler import RecomActivityHandler
 
 from mod.discover.DiscoverPage_Handler import DiscoverPageHandler
@@ -118,6 +118,7 @@ class Application(tornado.web.Application):
             
             (r'/recom/recomuser',RecomUserHandler),
             (r'/recom/recomactivity',RecomActivityHandler),
+            (r'/recom/recominvite',RecomInviteHandler),
             ]
         settings = dict(
             cookie_secret="7CA71A57B571B5AEAC5E64C6042415DE",
