@@ -16,16 +16,17 @@ class PasswordHandler(BaseHandler):
 	def put(self):
 		old_passwd = self.get_argument('old_password')
 		new_passwd = self.get_argument('new_password')
-		user_cookie = self.current_user
+		# user_cookie = self.current_user
+		user_cookie = self.get_argument('uid')
 		retjson = {"code":200,"content":""}
 		try:
-			usr1=self.db.query(UsersCache).filter(UsersCache.uid==user_cookie.uid).one()
+			usr1=self.db.query(UsersCache).filter(UsersCache.uid==user_cookie).one()
 			old_salt = usr1.salt
 			old_password = hashlib.md5(old_salt.join(old_passwd)).hexdigest()
 			if old_password == usr1.password:
 				print '======'
 				new_salt = ''.join(random.sample(string.ascii_letters + string.digits, 32))
-				usr1.password = hashlib.md5(new_salt.join(old_passwd)).hexdigest()
+				usr1.password = hashlib.md5(new_salt.join(new_passwd)).hexdigest()
 				print usr1.password
 				self.db.add(usr1)
 				retjson['content'] = "passwd update ok!"
