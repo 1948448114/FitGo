@@ -10,7 +10,7 @@ import uuid
 import re
 import math
 import hashlib,random,string
-from Code_Handler import CodeHandler
+from Code_Handler import identify_code
 class LoginHandler(BaseHandler):
     def get(self):
         if not self.current_user:  
@@ -43,12 +43,12 @@ class LoginHandler(BaseHandler):
         user_password=str(self.get_argument("user_password"))
         code=self.get_argument("code")
         is_remember = self.get_argument('is_remember')
-        code_time = self.get_argument('code_time')
+        code_random = self.get_argument('code_random')
         retjson = {'code':200,'content':'ok'}
         if not info_email or not user_password or not code:
             retjson['code'] = 400
             retjson['content'] = u'Arguments are empty'
-        elif CodeHandler.identify_code(code_time,code) :
+        elif identify_code(self.Mongodb(),code_random,code) :
             retjson['code'] = 403
             retjson['content'] = u'Code is wrong'
         else:

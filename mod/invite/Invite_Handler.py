@@ -10,7 +10,6 @@ class InviteHandler(BaseHandler):
 	# @tornado.web.authenticated
 	def post(self):#发布健身
 		retjson = {'code':200,'content':'ok'}
-<<<<<<< HEAD
 		try:
 			arg_uid = self.current_user.uid
 			arg_start_time = self.get_argument("start_time")
@@ -26,19 +25,8 @@ class InviteHandler(BaseHandler):
 				retjson['code'] = 400
 				retjson['content'] = 'Some arguments are empty'
 			else:
-=======
-		if not arg_uid or not arg_fit_location or not arg_start_time or not arg_fit_item or not arg_user_tag:
-			retjson['code'] = 400
-			retjson['content'] = 'Some arguments are empty'
-		else:
-			try:
-				arg_start_time = int(time.mktime(time.strptime(arg_start_time,"%Y-%m-%d %H:%M")))
-				status = InviteCache(uid=arg_uid,start_time=arg_start_time,duration=arg_duration,\
-					create_time=arg_create_time,fit_location=arg_fit_location,fit_item=arg_fit_item,\
-					user_tag=arg_user_tag,gender=arg_gender,remark=arg_remark)
-				self.db.add(status)
->>>>>>> 67ecc5b4e376303e69d708ed8e08828ac3f4de89
 				try:
+					arg_start_time = int(time.mktime(time.strptime(arg_start_time,"%Y-%m-%d %H:%M")))
 					status = InviteCache(uid=arg_uid,start_time=arg_start_time,duration=arg_duration,\
 						create_time=arg_create_time,fit_location=arg_fit_location,fit_item=arg_fit_item,\
 						user_tag=arg_user_tag,gender=arg_gender,remark=arg_remark)

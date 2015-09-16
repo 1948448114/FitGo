@@ -26,20 +26,19 @@ class CodeHandler(BaseHandler):
 			self.set_header('Content-Type','image/gif')
 			self.write(img_data)
 		except Exception,e:
-			retjson = {'code':200,'content':'ok'}
-			retjson['code'] = 400
-			retjson['content'] = 'Store code wrong!'
+			retjson = {'code':400,'content':'Store code wrong!'}
 			ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 			self.write(ret)
 		
 
-	def identify_code(self,code_time,code) :
-		try:
-			code_time = hashlib.md5(str(code_time)).hexdigest()
-			plan = self.Mongodb().Plan.find({code_time:code})
-			if plan :
-				return 0
-			else :
-				return 1
-		except:
+def identify_code(Mongodb,code_time,code) :
+	try:
+		code=str(code)
+		code_time = hashlib.md5(str(code_time)).hexdigest()
+		plan = Mongodb.Plan.find_one({code_time:code})
+		if plan :
+			return 0
+		else :
 			return 1
+	except:
+		return 1

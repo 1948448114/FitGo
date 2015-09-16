@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+        $("#code_img").attr("src",'/auth/code/'+Math.random());
+
                 if($("meta[name=toTop]").attr("content")=="true"){
                 $("<div id='toTop'><img id='toTopbtn' src='/static/images/top1.png'></div>").appendTo('body');
                 $("#toTop").css({
@@ -68,6 +71,12 @@ $(document).ready(function() {
         $("#login_div").hide();
         $("#find_password_new_pwd").fadeIn();
     });
+    // $("#code_img").click(function(event) {
+    //     /* change code */
+    //     time=new time()
+    //     codes = time.getTime()+Math.random()
+    //     document.getElementById('code_img').src="/auth/code/"+codes;
+    // )};
     $("#login").click(function(event) {
         /* Act on the event */
         $("#verify_dropdown").hide();
@@ -177,6 +186,7 @@ $("#signup_btn").click(function(event) {
                     'info_email': $("#info_email_login").val(),
                     'user_password': $("#password_login").val(),
                     'code': $("#code_login").val(),
+                    'code_random':$("#code_img").attr("src"),
                     'is_remember': is_remember
                 },
                 success: function(data, textStatus, xhr) {
