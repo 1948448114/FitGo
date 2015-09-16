@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="{{static_url('css/login.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/footer.css') }}">
         <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
-        
+        <link rel="stylesheet" type="text/css" href="{{static_url('css/flayout_220082c.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{static_url('css/home_2c89410.css') }}">
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
         <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -42,26 +43,18 @@
                             <li><a class="bar " href="/activity">ACTIVITIES</a></li>
                             <li><a class="bar " href="/discover/discover_page">DISCOVER</a></li>
                             <li><a class="bar" href="/plans">ME</a></li>
-                            {% if user %}
-                                <li id="but"><button id="who-name" type="button" class="dropdown-toggle btn btn-default navbar-btn" data-toggle="dropdown" >NAME</button>
-                                    
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li id="but" role="presentation"><a id="logout" role="menuitem" tabindex="-1" type="button" class="btn btn-default navbar-btn" >LOGOUT</a>
-                                    </li>
+                            <li id="moredown"><a id="morecolor" class="bar" href="">MORE</a>
+                                <ul class="absoluteul">
+                                    <li>About us</li>
+                                    <li id="move-to-contact">Contact us</li>
+                                    <li>Help me</li>
                                 </ul>
                             </li>
+                            {% if user %}
+                                <li id="but"><button id="who-name" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" >LOG OUT</button>
+                                </li>
                         {% else %}
-                            <li id="but"><button id="login" type="button" class="btn dropdown-toggle btn-default navbar-btn" data-toggle="dropdown">LOGIN</button>
-                                <div>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                    <a href="#">导航菜单</a>
-                                </div>
+                            <li id="but"><button id="login" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">LOGIN</button>
                             </li>
                         {% end %}
                     </ul>
@@ -348,4 +341,18 @@
     }
     }
     }
+    $(function(){
+        var navRoot = document.getElementById("different");
+for (i=0; i<navRoot.childNodes.length; i++) {
+var node = navRoot.childNodes[i];
+if (node.nodeName=="li") {
+node.onmouseover=function(){
+this.className+=" over";
+  }
+  node.onmouseout=function() {
+  this.className=this.className.replace("over","");
+   }
+   }
+  }
+})
     </script>
