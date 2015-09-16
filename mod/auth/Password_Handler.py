@@ -57,6 +57,7 @@ class PasswordHandler(BaseHandler):
 			except Exception,e:
 				retjson = {'code':400,'content':'failed to query database'}
 		except Exception,e:
+			print str(e)
 			retjson = {'code':400,'content':'no parameters'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)

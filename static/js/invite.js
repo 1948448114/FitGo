@@ -9,20 +9,31 @@ function item_click(){
         timePoint = timeLine.getElementsByTagName("li");
 
     //为每个被点击的对象绑定单击事件
+    var times=new Array();
     for( var i = 0, len = clickArea.length; i < len; i++ ){
+        times[i] = 0;
         (function( i ){
             clickArea[i].onclick = function(){
                 //为被点击的时间点li添加active类
                 timePoint[i].className = "active";
-                if(curIndex!=-1){
+                if(curIndex!=-1&&i!=curIndex){
                     timePoint[curIndex].className = "";
+                    times[i] = 1;
+                }
+                else if(i==curIndex&&times[i]==1)
+                {
+                    timePoint[curIndex].className = "";
+                    times[i] = 0;
+                }
+                else{
+                    times[i] = 1;
                 }
                     curIndex = i;
             };
-        })( i );
+        })(i);
     }
  };
- function item_click(){
+ function item_click_tuijian(){
    
  var //记录当前已经添加active类的li的索引号
         curIndex =-1,

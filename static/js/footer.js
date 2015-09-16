@@ -222,9 +222,9 @@ $(document).ready(function() {
     $("#find_password_btn").click(function(event) {
         var newPassword = $("#password_find_password").val();
         var passwordConfirm = $("#password_confirm_find_password").val();
-      var email = $("#info_email_find_password");
-        var card = $("#student_card_find_password");
-       if(email.length<1||card.length<1||newPassword.length<1||passwordConfirm.email.length<1){
+        var email = $("#info_email_find_password").val();
+        var card = $("#student_card_find_password").val();
+       if(email.length<1||card.length<1||newPassword.length<1||passwordConfirm.length<1){
             $("#change_password_message").html('Something is Null!');
             $("#change_password_message").show();
         }
@@ -233,19 +233,33 @@ $(document).ready(function() {
             $("#change_password_message").show();
         } else {
             /* Act on the event */
+            console.log('here')
            jQuery.ajax({
                 url: '/auth/password',
-               type: 'POST',
+                type: 'POST',
                 dataType: 'json',
                 data: {
-                    'info_email': $("#info_email_find_password"),
-                    'student_card': $("#student_card_find_password"),
-                    'newPassword':'1'
+                    'info_email': email,
+                    'student_card': card,
+                    'new_password':newPassword
                 },
                 success: function(data, textStatus, xhr) {
+                    console.log(data)
                     if (data['code'] == 200) {
-                        $("#change_password_message").html('You must input the same password');
+                        $("#change_password_message").html('Success');
                         $("#change_password_message").show();
+                         setTimeout(function(){
+
+                        $("#signup_dropdown").hide();
+                        $("#login_div").fadeIn();
+                        $("#find_password_dropdown").hide();
+                        $("#find_password_new_pwd").hide();
+                        $("#login_message").hide();
+                        $("#sign_up_message").hide();
+                        $("#change_password_message").hide();
+                        $("#find_message").hide();
+                        $("#verify_message").hide();
+                    },1000);
                     } else {
                         $("#change_password_message").html(data['content']);
                         $("#change_password_message").show();
@@ -253,6 +267,7 @@ $(document).ready(function() {
                     //called when successful
                 },
                 error: function(xhr, textStatus, errorThrown) {
+                    console.log(textStatus)
                         $("#change_password_message").html('Network error!');
                         $("#change_password_message").show();
                 }
