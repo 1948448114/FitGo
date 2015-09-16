@@ -149,7 +149,12 @@ function getInfo(){
                 if (data['code'] == 200) {
                     $("#user_portrait").attr('src',data['info']['portrait']);
                     $("#user_name").html(data['info']['name']);
+                    if(data['info']['signature']){
                     $("#user_signature").html('Signature:'+data['info']['signature']);
+                    }
+                    else{
+                        $("#user_signature").html('Signature:');
+                    }
                 }   
             },
             error: function(xhr, textStatus, errorThrown) {
