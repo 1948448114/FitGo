@@ -7,7 +7,7 @@ _letter_cases = "abcdefghjkmnpqrstuvwxy" # 小写字母，去除可能干扰的i
 _upper_cases = _letter_cases.upper() # 大写字母
 _numbers = ''.join(map(str, range(3, 10))) # 数字
 init_chars = ''.join((_letter_cases, _upper_cases, _numbers))
-fontType="/usr/share/fonts/truetype/freefont/FreeSans.ttf"
+fontType="/Library/Fonts/Tahoma.ttf"
   
 def create_validate_code(size=(150, 40),
                              chars=init_chars,
