@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var uid="";
     if($("#user_state").val()=='0'){
         $("#verify_dropdown").hide();
         $("#signup_dropdown").hide();
@@ -40,25 +41,8 @@ $(document).ready(function() {
                 666)
         });
     }
-    var uid = "";
-
-    // var user_state = $("#user_state").val();
-    // var current_url = window.location.pathname;
-    // console.log(user_state);
-    // console.log(current_url);
-    // if(user_state&&current_url!="/"){
-    //     $("#verify_dropdown").hide();
-    //     $("#signup_dropdown").hide();
-    //     $("#login_div").show();
-    //     $("#find_password_dropdown").hide();
-    //     $("#find_password_new_pwd").hide();
-    //     $("#login_message").hide();
-    //     $("#sign_up_message").hide();
-    //     $("#change_password_message").hide();
-    //     $("#find_message").hide();
-    //     $("#verify_message").hide();
-    // }
-
+    
+    $("#code_img").attr("src",'/auth/code/'+Math.random());
     $(".dropdown_close").click(function(event) {
         /* Act on the event */
         $("#verify_dropdown").hide();
@@ -81,6 +65,12 @@ $(document).ready(function() {
         $("#login_div").hide();
         $("#find_password_new_pwd").fadeIn();
     });
+    // $("#code_img").click(function(event) {
+    //     /* change code */
+    //     time=new time()
+    //     codes = time.getTime()+Math.random()
+    //     document.getElementById('code_img').src="/auth/code/"+codes;
+    // )};
     $("#login").click(function(event) {
         /* Act on the event */
         $("#verify_dropdown").hide();
@@ -188,6 +178,7 @@ $(document).ready(function() {
                     'info_email': $("#info_email_login").val(),
                     'user_password': $("#password_login").val(),
                     'code': $("#code_login").val(),
+                    'code_random':$("#code_img").attr("src"),
                     'is_remember': is_remember
                 },
                 success: function(data, textStatus, xhr) {
@@ -271,3 +262,4 @@ $(document).ready(function() {
 });
 
 });
+

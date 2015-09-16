@@ -12,7 +12,7 @@ from pymongo import MongoClient
 from sqlalchemy.orm import scoped_session, sessionmaker
 from mod.databases.db import engine
 from UI_moudles.UI_moudle import *
-
+from mod.auth.Code_Handler import CodeHandler
 
 from mod.auth.Login_Handler import LoginHandler
 from mod.auth.Logout_Handler import LogoutHandler
@@ -74,6 +74,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r'/',IndexHandler),
             (r'/body',BodyHandler),
+            (r'/auth/code/(\d+[.]\d+)',CodeHandler),
             (r'/auth/login',LoginHandler),
             (r'/auth/logout', LogoutHandler),
             (r'/auth/register/verify',VerifyHandler),
@@ -112,6 +113,7 @@ class Application(tornado.web.Application):
             (r'/plans/detail',LookplansHandler),
             (r'/plans/Info/changePor',ChangePorHandler),
             (r'/plans/forothers',ForOthersHandler),
+            
             (r'/recom/recomuser',RecomUserHandler),
             (r'/recom/recomactivity',RecomActivityHandler),
             ]
