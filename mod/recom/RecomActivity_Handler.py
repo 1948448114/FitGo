@@ -48,7 +48,6 @@ class RecomActivityHandler(BaseHandler):
 
       # cos = float(person.cos)
       if person is None:
-        print 'person is none '
         cos = 0.0
         acts = self.db.query(ActCache).filter().all() 
 

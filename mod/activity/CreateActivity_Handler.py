@@ -42,7 +42,6 @@ class CreateActivityHandler(BaseHandler):
 						retjson['code'] = 401
 						retjson['content'] = u'Database store is wrong!'
 				except Exception,e:
-					print e
 					retjson['code'] = 400
 					retjson['content'] = 'failed to create activity'
 			else:
@@ -50,7 +49,6 @@ class CreateActivityHandler(BaseHandler):
 				retjson['content'] = 'have null parameter'
 			
 		except Exception,e:
-			print traceback.print_exc()
 			retjson['code'] = 400
 			retjson['content'] = 'Parameter Lack'
 		self.write(json.dumps(retjson,ensure_ascii=False, indent=2))

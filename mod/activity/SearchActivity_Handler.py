@@ -51,11 +51,9 @@ class SearchActivityHandler(BaseHandler):
 						content['join_uid'] = getJoinUid(n.act_id,self.Mongodb())
 						content1.append(content)
 					retjson['content'] = content1
-					print retjson
 				else:
 					retjson = {'code':400,'content':'not match activity'}
 		except Exception, e:
-			print e
 			retjson = {'code':400,'content':'failed to search activity'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		num = []

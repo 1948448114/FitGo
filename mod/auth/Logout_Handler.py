@@ -14,7 +14,6 @@ class LogoutHandler(BaseHandler):
             try:
                 self.db.commit()
             except Exception,e:
-                print e
                 self.db.rollback()
         else:
             pass

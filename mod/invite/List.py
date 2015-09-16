@@ -63,7 +63,6 @@ def ListHandler(db,uid,state):
 				content.append(content1)
 		retjson['content'] = content
 	except Exception, e:
-		print str(e)
 		retjson['code'] = 401
 		retjson['content'] = u'No request!'
 	return retjson

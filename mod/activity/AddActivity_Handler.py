@@ -51,11 +51,9 @@ class AddActivityHandler(BaseHandler):
                     act = self.Mongodb().Act
                     act.update({"_id":act_id},{"$set":{uid:user.name}},True)
                 except Exception,e:
-                    print traceback.print_exc()
                     retjson['code'] = 500
                     retjson['content'] = 'SQL Error!'
             except Exception,e:
-                print traceback.print_exc()
                 retjson['code'] = 500
                 retjson['content'] = 'SQL Error!'
         self.write(json.dumps(retjson,ensure_ascii=False,indent=2))

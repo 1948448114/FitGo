@@ -17,7 +17,6 @@ class PasswordHandler(BaseHandler):
 		old_passwd = self.get_argument('old_password')
 		new_passwd = self.get_argument('new_password')
 		user_cookie = self.current_user
-		print 'user',user_cookie
 		# user_cookie = self.get_argument('uid')
 		retjson = {"code":200,"content":""}
 		try:
@@ -72,7 +71,6 @@ class PasswordHandler(BaseHandler):
 			except Exception,e:
 				retjson = {'code':400,'content':'failed to query database'}
 		except Exception,e:
-			print str(e)
 			retjson = {'code':400,'content':'no parameters'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)

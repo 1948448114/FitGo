@@ -75,5 +75,4 @@ class RespondInviteHandler(BaseHandler):
 			retjson['code'] = 401
 			retjson['content'] = u'No request!'
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-		print retjson
 		self.render('invite_request_item.html',content=retjson)

@@ -33,7 +33,6 @@ class SearchInviteHandler(BaseHandler):
 			sql="select * from Invite where start_time >= %s order by start_time;" % str(time_now)
 		else:
 			sql=sql+string[4:]+" order by start_time;"
-		print sql
 		try:
 			invitations=self.db.execute(sql).fetchall()[0:40]
 			content1 = []
@@ -55,7 +54,6 @@ class SearchInviteHandler(BaseHandler):
 				content1.append(content)
 			retjson['content'] = content1
 		except Exception, e:
-			print e
 			retjson['code'] = 401
 			retjson['content'] = u'Nothing found!Please try other conditions'
 		# self.write(retjson)
