@@ -22,6 +22,9 @@ class plan_itemMoudle(tornado.web.UIModule):
 class Plan_show_itemMoudle(tornado.web.UIModule):
     def render(self,content_id,content):
         return self.render_string('plan_show_item.html',content_id=content_id,content=content)
+class State_showMoudle(tornado.web.UIModule):
+    def render(self,content_id,content):
+        return self.render_string('mystate_show.html',content_id=content_id,content=content)
 class DiscoverStateMoudle(tornado.web.UIModule):
     def render(self,content):
         return self.render_string('discover_state.html',content=content)
