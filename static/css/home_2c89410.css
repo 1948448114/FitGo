@@ -213,7 +213,7 @@
     height:470px;
     position:relative;
     float:left;
-    background:#469acb;
+    background:#;
     overflow:hidden;
 }
 .ag-content-customer-ele-detail ul {
@@ -325,10 +325,10 @@
     -o-animation:mymove 1s both;
 }
 .ag-content-customer-ele-detail-display-right {
-    width:580px;
+    width:500px;
     height:420px;
     position:absolute;
-    top:50px;
+    top:130px;
     right:-120px;
     opacity:0;
     filter:alpha(opacity=0);

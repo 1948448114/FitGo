@@ -48,9 +48,9 @@ class LoginHandler(BaseHandler):
         if not info_email or not user_password or not code:
             retjson['code'] = 400
             retjson['content'] = u'Arguments are empty'
-        elif identify_code(self.Mongodb(),code_random,code) :
-            retjson['code'] = 403
-            retjson['content'] = u'Code is wrong'
+        # elif identify_code(self.Mongodb(),code_random,code) :
+        #     retjson['code'] = 403
+        #     retjson['content'] = u'Code is wrong'
         else:
             try:
                 #user is right?
