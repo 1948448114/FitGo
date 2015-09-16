@@ -86,7 +86,6 @@ class PlansHandler(BaseHandler):
         try:
             self.Mongodb().Plan.insert(plan)
         except Exception,e:
-            print e
             retjson['code'] = 400
             retjson['content'] = 'New Plan Error!'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)

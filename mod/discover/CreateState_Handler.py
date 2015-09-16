@@ -20,7 +20,6 @@ class CreateStateHandler(BaseHandler):
 			if not a_topic_pic:
 				a_topic_pic = '/static/picture/4d50b87084de0ac805776fa256d352d0.jpg'
 			retjson = {'code':200,'content':'ok'}
-			print user_id,a_topic_title
 			try:
 				topics = TopicsCache(uid=user_id,topic_title=a_topic_title,\
 					topic_content=a_topic_content,topic_pic=a_topic_pic,topic_time=int(time.time()))
@@ -37,10 +36,8 @@ class CreateStateHandler(BaseHandler):
 					retjson = {'code':400,'content':'have null parameter '}
 	         
 			except Exception,e:
-				print e
 				retjson = {'code':400,'content':'failed to create state'}
 		except Exception,e:
-			print e;
 			retjson = {'code':400,'content':'no parameter'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)

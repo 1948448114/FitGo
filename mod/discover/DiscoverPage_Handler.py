@@ -19,12 +19,10 @@ class DiscoverPageHandler(BaseHandler):
     def post(self):
         try:
             times = self.get_argument("times")#刷新次数［0,1，2，。。。。］
-            print times
             start = int(times)*12
             end = start + 12
             try:
                 topics = self.db.query(TopicsCache).order_by((TopicsCache.topic_time+0).desc())[start:end]#topic_time参数格式未解决
-                print type(TopicsCache.topic_time)
                 if topics:
                     retjson = {'code':200,'content':'success to query state'}
                     content1 = []
@@ -48,9 +46,7 @@ class DiscoverPageHandler(BaseHandler):
                 else:
                     retjson = {'code':400,'content':'have no state'}
             except Exception,e:
-                print e
                 retjson = {'code':400,'content':'failed to query state'}
             self.render('discover_state.html',content=retjson)
         except Exception,e:
-            print traceback.print_exc()
-            print str(e)
+            retjson = {'code':400,'content':'no parameter'}

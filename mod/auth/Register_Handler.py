@@ -48,7 +48,6 @@ class RegisterHandler(BaseHandler):
                 try:
                     self.db.commit()
                 except Exception, e:
-                    print e
                     self.db.rollback()
                     retjson['code'] = 401
                     retjson['content'] = u'Database store is wrong!'
@@ -99,7 +98,6 @@ class VerifyHandler(BaseHandler):
                     if arg_student_card == yikatong[0] and arg_student_id == xuehao[0] :
                         retjson['content'] = 'right'
                     else :
-                        print arg_student_card
                         retjson['code'] = 404
                         retjson['content'] = u'Your student_card or id not right'
                         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
@@ -115,7 +113,6 @@ class VerifyHandler(BaseHandler):
                     return
 
             except Exception, e:
-                print e
                 retjson['code'] = 404
                 retjson['content'] = u'search card and id failed '
                 ret = json.dumps(retjson,ensure_ascii=False, indent=2)

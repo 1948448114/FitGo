@@ -23,7 +23,6 @@ def getLike(topic_id,Mongodb):
                     Mongodb.Topic.insert({'_id':str(topic_id)})
                     retjson['content'] = []
             except:
-                print traceback.print_exc()
                 retjson['code'] = 500
                 retjson['content'] = 'SQL Error!'
     except:

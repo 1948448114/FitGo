@@ -14,8 +14,6 @@ class ResponseListHandler(BaseHandler):
 		agree_list = ListHandler(self.db,arg_uid,'1') 
 		disagree_list = ListHandler(self.db,arg_uid,'2')
 		retjson = {'code':200,'content':'ok','agree_list':'','disagree_list':''}
-		print agree_list['code']
-		print disagree_list['code']
 		if agree_list['code'] == 200:
 			retjson['agree_list'] = agree_list['content']
 		else:

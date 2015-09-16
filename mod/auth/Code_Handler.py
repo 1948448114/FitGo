@@ -17,7 +17,6 @@ class CodeHandler(BaseHandler):
 		code_time = hashlib.md5(str(code_time)).hexdigest()
 		code_img = create_validate_code()
 		con = {code_time:code_img[1]}
-		print code_img[1]
 		try:
 			self.Mongodb().Code.insert(con)
 			s = StringIO.StringIO()

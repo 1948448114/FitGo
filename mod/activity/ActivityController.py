@@ -22,7 +22,6 @@ def getJoinUid(act_id,Mongodb):
                     Mongodb.Act.insert({"_id":str(act_id)})
                     retjson['content'] = []
             except:
-                print traceback.print_exc()
                 retjson['code'] = 500
                 retjson['content'] = 'SQL Error!'
         # print retjson

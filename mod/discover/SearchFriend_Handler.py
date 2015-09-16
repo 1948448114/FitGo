@@ -30,7 +30,6 @@ class SearchFriendHandler(BaseHandler):
 				string = string + 'uid in (select uid from User_tag where User_tag.user_enjoyment like \'%%%s%%\')' % a_user_enjoyment + ' and '
 		
 
-			print "select * from Users where %s;" % string
 			
 			if string.strip()=='':
 				retjson = {'code':400,'content':'all parameters are null'}
@@ -55,10 +54,8 @@ class SearchFriendHandler(BaseHandler):
 
 
 		except Exception,e:
-			print e
 			retjson = {'code':400,'content':'failed to search friend'}
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-		print retjson
 		self.render('discover_friend.html',content=retjson)
 
 		

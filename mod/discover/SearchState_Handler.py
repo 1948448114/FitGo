@@ -17,7 +17,6 @@ class SearchStateHandler(BaseHandler):
 		a = a_topic_title
 		if a_topic_title:
 			try:
-				print "select * from Topics where topic_title like \'%%%s%%\';" % a
 				
 				topics = self.db.execute("select * from Topics where topic_title like \'%%%s%%\';" % a_topic_title).fetchall()
 
@@ -42,7 +41,6 @@ class SearchStateHandler(BaseHandler):
 				else:
 					retjson = {'code':400,'content':'not match topics_title'}
 			except Exception,e:
-				print e
 				retjson = {'code':400,'content':'failed to search state'}
 		else:
 			retjson = {'code':400,'content':'topic_title is null'}

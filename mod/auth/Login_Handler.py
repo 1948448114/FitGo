@@ -48,9 +48,9 @@ class LoginHandler(BaseHandler):
         if not info_email or not user_password or not code:
             retjson['code'] = 400
             retjson['content'] = u'Arguments are empty'
-        elif identify_code(self.Mongodb(),code_random,code) :
-            retjson['code'] = 403
-            retjson['content'] = u'Code is wrong'
+        # elif identify_code(self.Mongodb(),code_random,code) :
+        #     retjson['code'] = 403
+        #     retjson['content'] = u'Code is wrong'
         else:
             try:
                 #user is right?
@@ -58,7 +58,6 @@ class LoginHandler(BaseHandler):
                 passwd = hashlib.md5(person.salt.join(user_password)).hexdigest()
                 if passwd == person.password:
                     # self.count(person.uid)
-                    print str(person.uid)
                     self.count(person.uid)
                     #yes => set cookie
                     cookie_uuid=uuid.uuid1()
@@ -95,10 +94,8 @@ class LoginHandler(BaseHandler):
       y1 = 10
 
       plan = self.db.query(PlansCache).filter(PlansCache.uid == uid).first()
-      print plan
       # fit_item = str((plan.fit_item).encode('UTF-8'))
       # self.write(fit_item)
-      print '1'
       if plan is None:
 
         cos = 0
@@ -182,7 +179,6 @@ class LoginHandler(BaseHandler):
         else:
           cos = (x0*x1 + y0*y1)/(math.sqrt(abs(x0*x0+y0*x0))*math.sqrt(abs(x1*x1+y1*x1)))
 
-      print '2'
       t1 = self.db.query(UsersCache).filter(UsersCache.uid == uid)
 
       t1.update({UsersCache.cos:cos})
