@@ -58,7 +58,7 @@ $(document).ready(function(){
             });
             plan['content']['target'] = $("#Target").val();
             plan['content']['signature'] = $("#signature").val();
-            plan['content']['start_time'] = $("#reservationtime").val();
+            plan['content']['start_time'] = $("#reservation").val();
             plan['content']['end_time'] = '';
             console.log(JSON.stringify(plan));
             jQuery.ajax({
