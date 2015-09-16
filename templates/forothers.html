@@ -8,51 +8,53 @@
 {% end %}
 {% block body %}
     <div class="container moreMargin">
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-3 ">
-                <img class="alignCenter" src="{{content['pic']}}">
-            </div>
-            <div class="col-xs-9 col-xs-offset-3 col-sm-8 col-sm-offset-0 col-md-9 fontStyle">
-                <h3>{{content['name']}}</h3>
-                <h2>Signature:{{content['signature']}}</h2>
+        <div class="container moreMargin">
+            <div class="row moreMargin">
+                <div class="col-xs-6 col-sm-4 col-md-3 ">
+                    <img style="width:200px;height:200px;" class="alignCenter img-circle" src="{{content['pic']}}">
+                </div>
+                <div class="col-xs-6 col-sm-8 col-sm-offset-0 col-md-9 fontStyle">
+                    <h3 >{{content['name']}}</h3>
+                    <p><h2>Signature:{{content['signature']}}</p>
+                </div>
             </div>
         </div>
-        
-        <div class="container moreMargin">
-            <div class="col-sm-10 col-xs-10">
-                <div class="tabbable">
-                    <div class="row">
-                        <div class="col-sm-2 col-xs-2">
-                            <ul class="nav tabFocus" role="tablist">
-                                <li  role="presentation" class>
-                                    <a id="tab2" href="#9" data-toggle="tab">查看历史计划</a>
-                                </li>
-                                <li role="presentation">
-                                    <a id="tab3" href="#20" data-toggle="tab">查看历史动态</a>
-                                </li>
-                                      <li  role="presentation" class>
-                                    <a id="tab3" href="#10" data-toggle="tab">添加为好友</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-10 col-xs-10">
-                            <div class="tab-content chuo">
-                                <div id="9"role="tabpanel" class="tab-pane tabBC1 active" id="">
-                                    <h4>查看ta的历史计划(*¯︶¯*)</h4>
-                                    <p>那些年ta制定过的计划们~</p>
-                                    <p>
-                                        <a class="tabA" id="to-plans" href="#">戳我戳我</a></p>
+            <div class="row moreMargin">
+                <div class="col-sm-10 col-xs-12">
+                    <div class="tabbable">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-4 col-xs-12 nopadidng">
+                                <ul class="nav tabFocus" role="tablist" id="afontsize">
+                                    <li role="presentation" class="active">
+                                        <a  class="a-active" id="tab1" href="#8" data-toggle="tab">查看历史计划</a>
+                                    </li>
+                                    <li  role="presentation" class>
+                                        <a id="tab2" href="#9" data-toggle="tab">查看历史动态</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a id="tab3" href="#20" data-toggle="tab">添加为好友</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-10 col-sm-8 col-xs-12 nopadidng">
+                                <div class="tab-content chuo">
+                                    <div id="8" role="tabpanel" class="tab-pane active tabBC1" id="8">
+                                        <h4>查看ta的历史计划(*¯︶¯*)</h4>
+                                        <p>那些年ta制定过的计划们~</p>
+                                        <a class="tabA" id="to-plans" href="#">戳我戳我</a>
                                     </div>
-                                    <div id="20"role="tabpanel" class="tab-pane tabBC1" id="">
+                                    <div id="9"role="tabpanel" class="tab-pane tabBC1" id="">
                                         <h4>查看ta的历史动态 (●′ω`●)</h4>
-                                        <p>翻翻ta的过去~</p>
+                                        <p>那些年ta制定过的计划们~</p>
                                         <p>
                                             <a class="tabA" id="to-states" href="#">戳我戳我</a></p>
-                                        </div>                                        <div id="10" role="tabpanel" class="tab-pane tabBC1" id="">
+                                        </div>
+                                        <div id="20"role="tabpanel" class="tab-pane tabBC1" id="">
                                             <h4>添加ta为新好友 ╭(′▽`)╭(′▽`)╯</h4>
                                             <p>添加为好友后，您可以在主页、发现页面和活动页面随时看到ta的动态，在约健身时ta也将成为您的优先推荐人~</p>
-                                            <p><a class="tabA" id="tab4" href="#">戳我戳我</a></p>
-                                        </div>
+                                            <p>
+                                                <a class="tabA" id="to-states" href="#">戳我戳我</a></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -101,4 +103,5 @@
                         <script type="text/javascript" src="{{static_url('js/jquery.scrollTo.js')}}"></script>
                         <script type="text/javascript" src="{{static_url('js/forothers.js')}}"></script>
                         <script type="text/javascript" src="{{static_url('js/jquery.smooth-scroll.min.js')}}"></script>
+                        <script type="text/javascript" src="{{static_url('js/plans.js')}}"></script>
                     {% end %}

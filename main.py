@@ -132,7 +132,8 @@ class Application(tornado.web.Application):
                         'discover_state':DiscoverStateMoudle,
                         'discover_friend':DiscoverFriendMoudle,
                         'plan_show_item':Plan_show_itemMoudle,
-                        'plan_show':Plan_showMoudle
+                        'plan_show':Plan_showMoudle,
+                        'mystate_show':State_showMoudle
                         },
 
             # xsrf_cookies=True,

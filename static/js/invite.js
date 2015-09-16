@@ -63,7 +63,12 @@ function item_click(){
 
     $("#invite_new_btn").click(function(event) {
     /* Act on the event */
-    
+    var x=document.getElementsByTagName("input");
+    for (var i=0;i<x.length;i++) 
+        { x[i].value='';}
+    var y=document.getElementsByTagName("select");
+        for (var i=0;i<y.length;i++) 
+        { y[i].selectedIndex = y[i].value;}
     $("#create_new_invite").show('slow/400/fast');
     $("#invite_more_detail").hide();
     $(".invite_block").hide();
@@ -73,6 +78,7 @@ function item_click(){
 
     $("#search_more_btn").click(function(event) {
     /* Act on the event */
+    
     $(".invite_block").show();
     $("#invite_more_detail").show('slow/400/fast');
     $("#create_new_invite").hide();
