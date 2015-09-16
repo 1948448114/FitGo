@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 #coding=utf-8
 import random
-import Image, ImageDraw, ImageFont, ImageFilter
+import ImageDraw, ImageFont, ImageFilter
+from PIL import Image
   
 _letter_cases = "abcdefghjkmnpqrstuvwxy" # 小写字母，去除可能干扰的i，l，o，z
 _upper_cases = _letter_cases.upper() # 大写字母
 _numbers = ''.join(map(str, range(3, 10))) # 数字
 
 init_chars = ''.join((_letter_cases, _numbers))
-fontType="/Library/Fonts/Microsoft Sans Serif.ttf"
+fontType="/home/FitGo/static/font/FreeSans.ttf"
   
 def create_validate_code(size=(150, 40),
                              chars=init_chars,
