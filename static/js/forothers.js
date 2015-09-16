@@ -18,7 +18,7 @@ $(document).ready(function(){
 }
 
     getPlan(user_uid);
-    getInfo(user_uid)
+    getState(user_uid);
 });
 
 
@@ -39,6 +39,22 @@ function getPlan(user_uid){
     });
     
 };
+
+function getState(user_uid){
+  jQuery.ajax({
+      url: '/user/usertopic',
+      type: 'POST',
+      data:{
+        'uid':user_uid
+      },
+      success: function(data, textStatus, xhr) {
+        $("#my_state_show").html(data);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        
+      }
+    });
+}
 
 
 

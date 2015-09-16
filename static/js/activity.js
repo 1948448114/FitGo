@@ -61,8 +61,40 @@ function refresh(){
     
 }
 
+function search(){
+    var location = $("#options-search").val();
+    if(location=='Location'){location='';}
+    var start_time = $("#Start-Time-Search").val();
+    var title=$("#search_title").val();
+    if(!start_time&&!location&&!title){
+    }
+    else{
+        console.log(start_time)
+        jQuery.ajax({
+          url: '/activity/search',
+          type: 'POST',
+          data: {
+            'act_title': title,
+            'start_time':start_time,
+            'location':location
+        },
+          success: function(data, textStatus, xhr) {
+            //called when successful
+            divContent = $("#cd-timeline");
+            divContent.html(data);
+            addJoin();
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            //called when there is an error
+            $("#error_message_content").val("Network Error!");
+            $("#error_message").show("slow");
+          }
+        });
+        
+    }
 
-function test(){alert("heklo");}
+}
+
 $(document).ready(function() {
     function init() {
         $('#hide-new').click(function(event) {
@@ -150,6 +182,12 @@ $(document).ready(function() {
                 $('body').unbind('click');
             });
     };
+
+    $("#search_btn").click(function(event) {
+        /* Act on the event */
+        search();
+    });
+
     init();
     refresh();
     addJoin();

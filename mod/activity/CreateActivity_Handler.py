@@ -30,6 +30,8 @@ class CreateActivityHandler(BaseHandler):
 			a_details = self.get_argument("details")
 			if a_act_title and a_start_time and a_end_time and a_location and a_details:
 				try:
+					a_start_time = int(time.mktime(time.strptime(a_start_time,"%Y-%m-%d")))
+					a_end_time = int(time.mktime(time.strptime(a_end_time,"%Y-%m-%d")))
 					activity = ActCache(uid=user_id,act_title=a_act_title,\
 						start_time=a_start_time,end_time=a_end_time,act_location=a_location,act_detail=a_details,create_time=int(time.time()))
 					self.db.add(activity)

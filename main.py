@@ -81,7 +81,7 @@ class Application(tornado.web.Application):
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
             
-            (r'/user/usertopic/(\d+)',UsertopicHandler),
+            (r'/user/usertopic',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),
             (r'/user/userinfo/([\S]+)',UserinfoHandler),
             (r'/user/userinfopic/portrait',UploadPortraitHandler),
