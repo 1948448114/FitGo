@@ -9,7 +9,7 @@ from time import time
 import uuid
 import re
 import math,uuid
-import hashlib,random,string,os,Image,StringIO
+import hashlib,random,string,os,StringIO
 from code import create_validate_code
 
 class CodeHandler(BaseHandler):
