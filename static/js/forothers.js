@@ -15,9 +15,9 @@ $(document).ready(function(){
             $(event.target).addClass('a-active');
         });
         $("#menu .home").removeClass("home");
-        $($("#menu .bar").get(2)).addClass("home");
+        $($("#menu .bar").get(3)).addClass("home");
 }
-
+    init();
     getPlan(user_uid);
     getState(user_uid);
 });
@@ -31,7 +31,7 @@ function getPlan(user_uid){
         'uid':user_uid
       },
       success: function(data, textStatus, xhr) {
-        console.log(data);
+        // console.log(data);
         $("#myTab_plan_show").html(data);
       },
       error: function(xhr, textStatus, errorThrown) {
