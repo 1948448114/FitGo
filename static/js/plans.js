@@ -172,7 +172,6 @@ function getState(){
         'uid':uid
       },
       success: function(data, textStatus, xhr) {
-        console.log('here');
         $("#my_state_show").html(data);
 
       },

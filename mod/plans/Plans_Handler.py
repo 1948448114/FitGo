@@ -81,6 +81,17 @@ class PlansHandler(BaseHandler):
         retjson = {'code':200,'content':'ok'}
         planJson = self.get_argument('plan')
         plan = json.loads(planJson)
+        plan['uid'] = self.current_user.uid
+        plan['create_y'] = strftime("%Y-%m-%d",localtime(time.time()))
+        plan['create_h'] = strftime("%H:%M",localtime(time.time()))
+        try:
+            self.Mongodb().Plan.insert(plan)
+        except Exception,e:
+            retjson['code'] = 400
+            retjson['content'] = 'New Plan Error!'
+        ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+        self.write(ret)
+        
         Dict = plan['content']
         Dict.pop('end_time')
         # Dict.pop('start_time')
@@ -100,18 +111,5 @@ class PlansHandler(BaseHandler):
 
                 self.db.commit()
                 print k
-
-
-       
-        plan['uid'] = self.current_user.uid
-        plan['create_y'] = strftime("%Y-%m-%d",localtime(time.time()))
-        plan['create_h'] = strftime("%H:%M",localtime(time.time()))
-        try:
-            self.Mongodb().Plan.insert(plan)
-        except Exception,e:
-            retjson['code'] = 400
-            retjson['content'] = 'New Plan Error!'
-        ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-        self.write(ret)
 
 
