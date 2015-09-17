@@ -60,7 +60,7 @@ width: 90px;
   top:0px;
   right:-1.5rem;
 }
-.friend_item,.friend_item img
+.friend_item,.friend_cover,.friend_item img
 {
 width: 160px; 
   height: 160px; 
@@ -93,7 +93,7 @@ width: 160px;
   top:0px;
   right:0px;
 }
-.friend_item,.friend_item img
+.friend_item,.friend_cover,.friend_item img
 {
 width: 200px; 
   height: 200px; 
@@ -337,7 +337,7 @@ position: absolute;
 {
   margin:10px; 
   float: left; 
-  border: 6px solid #ccc;
+  border:none ;
 }
 
 .friend_cover
@@ -358,17 +358,25 @@ position: absolute;
   text-align: center; 
   color: #FFF; 
   border-bottom: 1px dashed #fff;
-  margin:0px 20px; 
-  padding:10px;
+  margin:0px auto; 
+  padding: 0.5rem; 
 }
-.friend_cover p
-{
-  font-size:1rem; 
+.friend_cover h3{
+  font-size:1.5rem; 
   text-align: center; 
   color: #FFF; 
-  margin:0px 10px; 
-  padding: 10px; 
+  margin:0px auto; 
+  padding: 0.5rem; 
   color: #438199;
+}
+.friend_cover a{
+  font-size:2rem; 
+  text-align: center; 
+  background-color: #7f81e7; 
+  border: 1px solid #7f81e7;
+  margin:0px auto; 
+  padding: 0px 0.5rem; 
+  color: #FFF;
 }
 .friend_cover button
 {
