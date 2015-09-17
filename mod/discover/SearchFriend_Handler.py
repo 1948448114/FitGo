@@ -45,7 +45,7 @@ class SearchFriendHandler(BaseHandler):
 						content = {}
 						content['uid'] = n.uid
 						content['name'] = n.name
-						content['signature'] = n.name
+						content['signature'] = n.signature
 						content['portrait'] = n.portrait
 						content1.append(content)
 					retjson['content'] = content1

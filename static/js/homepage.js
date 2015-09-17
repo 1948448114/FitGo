@@ -9,7 +9,6 @@ $(function(){
       dataType: 'json',
       success: function(data, textStatus, xhr) {
         if(data['code']==200){
-          console.log(data['content']['topics'][0]['topic_title'])
           $("#state_one h4").html(data['content']['topics'][0]['topic_title']);
           $("#state_one .content").html(data['content']['topics'][0]['topic_content']);
           $("#state_one .time").html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data['content']['topics'][0]['topic_time']);

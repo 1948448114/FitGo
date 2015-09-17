@@ -90,7 +90,6 @@ function searchState() {
     $("#search_state_btn").click(function(event) {
         /* Act on the event */
         var search_title = $("#search_state_tag").val();
-        console.log(search_title)
         if (search_title.length < 1) {
             $("#search_state_tag").val("You must input something");
         } else {
@@ -137,7 +136,6 @@ function serachFriend() {
                 'user_enjoyment': $("#search_user_tag").val()
             },
             success: function(data, textStatus, xhr) {
-                console.log("here")
                 $("#serach_friend_list").html(data);
                 friend_list_js()
                 $(".container_friend").show();
@@ -173,7 +171,6 @@ function getAllState() {
 
         },
         error: function(xhr, textStatus, errorThrown) {
-            console.log(textStatus);
         }
     });
 };
@@ -354,7 +351,6 @@ function refresfLike(topic_id){
                     for (var i = 0; i < data['content'].length; i++) {
                         htmlInsert+="<a href='/user/userinfo/"+data['content'][i]['uid']+"'>"+data['content'][i]['name']+",</a>";
                     };
-                    console.log(htmlInsert,topic_id);
                     $("p[value='"+topic_id+"']").html(htmlInsert);
         }
       },
@@ -366,12 +362,10 @@ function refresfLike(topic_id){
 }
 
 function addLike(){
-    console.log($("#like").length);
     $(".like").each(function(index, el) {
         var topic_id = $(this).attr('value');
         console.log(topic_id);
         $(this).click(function(event) {
-            console.log('click');
             jQuery.ajax({
               url: '/discover/join',
               type: 'POST',
@@ -384,7 +378,6 @@ function addLike(){
               },
               error: function(xhr, textStatus, errorThrown) {
                 //called when there is an error
-                console.log(textStatus);
               }
             });
             

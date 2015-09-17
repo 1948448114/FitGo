@@ -62,11 +62,11 @@ width: 90px;
 }
 .friend_item,.friend_item img
 {
-width: 120px; 
-  height: 120px; 
+width: 160px; 
+  height: 160px; 
 }
 .container_friend{
-   width: 700px;
+   width: 720px;
     margin: 20px auto;
 }
 }
@@ -95,11 +95,11 @@ width: 120px;
 }
 .friend_item,.friend_item img
 {
-width: 150px; 
-  height: 150px; 
+width: 200px; 
+  height: 200px; 
 }
 .container_friend{
-   width: 850px;
+   width: 880px;
     margin: 20px auto;
 }
 
@@ -308,7 +308,7 @@ filter:alpha(opacity=0);/* 兼容IE */
 .wrong_message .showing{
   bottom: auto;
 }
-#friend_btn,#find_btn,#share_btn{
+#find_btn,#share_btn{
   font-family: "SourceSansPro-Regular";
   font-weight:200; 
   font-size: 4rem;
