@@ -78,7 +78,10 @@ function recom(){
     success: function(data, textStatus, xhr) {
       //called when successful
       $("#timeline_tuijian").html(data);
+      $("#timeline_tuijian").show();
+      $(".list_name_tuijian").show();
         item_click_tuijian();
+        $("#timeline").hide();
         newInvite();
     },
     error: function(xhr, textStatus, errorThrown) {
@@ -109,6 +112,9 @@ function search(){
       },
       success: function(data, textStatus, xhr) {
         $("#timeline").html(data);
+        $("#timeline").show();
+        $("#timeline_tuijian").hide();
+        $(".list_name_tuijian").hide();
         item_click();
         newInvite();
       },

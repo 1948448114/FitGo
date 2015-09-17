@@ -301,11 +301,11 @@ border-radius: 50%;
 }
 
 .list_name_p{
-	font-size: 4rem;
+	font-size: 2rem;
   color: rgba(0,0,0,0.1);
   margin: 0px ;
   position: absolute;
-  left:2rem;
+  left:6rem;
   top:-2rem;
 }
 .content{
@@ -632,6 +632,9 @@ border-radius: 50%;
 .list_name{
 	position: relative;
 	display: none;
+}
+.list_name_tuijian{
+	position: relative;
 }
 .none_{
 	min-height: 10rem;
