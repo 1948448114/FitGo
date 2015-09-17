@@ -30,7 +30,6 @@ class UserPageHandler(BaseHandler):
         # uid = self.get_argument('id')
         retjson = {'code':200,'content':'ok'}
         uid = user_id
-        print uid
         try:
             gender = self.get_argument('gender') 
             name = self.get_argument('name') 
@@ -56,13 +55,11 @@ class UserPageHandler(BaseHandler):
                 length0 = len(string)
                 length = length0 - 1
                 string = string[0:length]
-                print "update Users set %s where uid=\'%s\';" % (string,uid)
                 try:
                     self.db.execute("update Users set %s where uid=\'%s\';" % (string,uid))
                 except Exception,e:
                     retjson = {'code':400,'content':'Users failed to update'}
                 if tag:
-                    print "update User_tag set user_enjoyment=\'%s\' where uid=\'%s\';" % (tag,uid)
                     try:
                         self.db.execute("update User_tag set user_enjoyment=\'%s\' where uid=\'%s\';" % (tag,uid))
                     except Exception,e:
@@ -77,11 +74,9 @@ class UserPageHandler(BaseHandler):
                 retjson = {'code':400,'content':"name is null"}
            
         except Exception,e:
-            print e
             retjson['code'] = 400
             retjson['content'] = u'Arguments is empty'
         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-        print ret
         self.write(ret)
 
 
