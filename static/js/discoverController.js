@@ -105,6 +105,7 @@ function searchState() {
                 success: function(data, textStatus, xhr) {
                     $("#discover_state_list").html(data);
                     other();
+                    addLike();
                     $("#search_state_list").show();
                     $(".create_state").hide();
                     $(".container_friend").hide();
