@@ -55,7 +55,7 @@ class RecomActivityHandler(BaseHandler):
         # cos = float(person.cos)
         cos = person.cos
         act_title = person.act_title
-        acts = self.db.query(ActCache).filter(ActCache.act_title == act_title,ActCache.uid != uid).all()
+        acts = self.db.query(ActCache).filter(ActCache.uid != uid).all()
 
       acts.sort(key = lambda obj:abs(obj.cos-cos),reverse=False)
       content1=[]
