@@ -64,6 +64,7 @@ function statePost(title, detail, pic_URL) {
                 $("#create_state_title_error").attr('class', 'alert alert-success showing')
                 $("#create_state_title_error").html("success");
                 $("#create_state_title_error").show();
+                getAllState();
                 setTimeout(function() {
                     $("#create_state_title_error").hide();
                     $("#create_new_invite").hide();
