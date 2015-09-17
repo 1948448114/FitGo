@@ -5,7 +5,7 @@ import tornado.gen
 from Base_Handler import BaseHandler
 from ..databases.tables import UsersCache,CookieCache
 from sqlalchemy.orm.exc import NoResultFound
-from sqlalchemy import _or
+from sqlalchemy import or_
 import uuid
 import re
 from time import time
@@ -130,7 +130,7 @@ class VerifyHandler(BaseHandler):
                         retjson['code'] = 401
                         retjson['content'] = u'user %s has exited!' % (person.info_email)
                     else :
-                        person = self.db.query(UsersCache).filter(_or(UsersCache.student_card==arg_student_card,UsersCache.info_email==arg_info_email)).one()
+                        person = self.db.query(UsersCache).filter(or_(UsersCache.student_card==arg_student_card,UsersCache.info_email==arg_info_email)).one()
                         retjson['code'] = 401
                         if person.info_email == arg_info_email:
                             retjson['content'] = u'user %s has exited!' % (person.info_email)

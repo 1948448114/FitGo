@@ -4,7 +4,7 @@ $(document).ready(function() {
       var p = document.createElement("span");
       var n = document.createElement("a");
       p.innerHTML = s.substring(0,250);
-      n.innerHTML = s.length > 250 ? "余下全文" : "";
+      n.innerHTML = s.length > 250 ? "..." : "";
       n.onclick = function(){
         if (n.innerHTML == "..."){
           n.innerHTML = "收起";
