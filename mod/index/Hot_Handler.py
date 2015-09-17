@@ -28,7 +28,7 @@ class HotHandler(BaseHandler):
 				content['fit_item'] = i.fit_item
 				content['user_tag'] = i.user_tag
 				content['remark'] = i.remark
-				content['gender'] = i.gender
+				content['location'] = i.fit_location
 				contentall1.append(content)
 			retjson['content']['invite']=contentall1
 
