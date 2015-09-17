@@ -8,6 +8,7 @@ from ..databases.tables import TopicsCache
 from ..auth.Base_Handler import BaseHandler
 from ..discover.state_like_controller import getLike
 from sqlalchemy.orm.exc import NoResultFound
+import traceback
 
 
 
@@ -29,8 +30,8 @@ class UsertopicHandler(BaseHandler):
                 topic_content = row.topic_content
                 topic_title = row.topic_title
                 topic_time = row.topic_time
-                content['topic_content'] = str(topic_content)
-                content['topic_title'] = str(topic_title)
+                content['topic_content'] = topic_content
+                content['topic_title'] = topic_title
                 content['topic_starers'] = getLike(row.topic_id,self.Mongodb())
                 content['time_y'] = strftime("%Y-%m-%d",localtime(int(topic_time)))
                 content['time_h'] = strftime("%H:%M",localtime(int(topic_time)))
@@ -43,6 +44,7 @@ class UsertopicHandler(BaseHandler):
             rejson['code'] = 400
             rejson[content] = 'No user'
         except Exception,e:
+            print traceback.print_exc()
             rejson['code'] = 500
             rejson['content'] = 'Error'
         ret = json.dumps(rejson,ensure_ascii = False, indent = 2)

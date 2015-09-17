@@ -286,3 +286,11 @@
   $('.custom-date').dateRangePicker();
 
 }).call(this);
+
+
+$(document).ready(function() {
+
+  
+});
+
+

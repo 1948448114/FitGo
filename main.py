@@ -32,6 +32,7 @@ from mod.plans.ChangePorHandler import ChangePorHandler
 from mod.plans.ForOthersHandler import ForOthersHandler
 
 from mod.index.index import IndexHandler
+from mod.index.Hot_Handler import HotHandler
 
 from mod.activity.ActivityPage_Handler import ActivityPageHandler
 from mod.activity.CreateActivity_Handler import CreateActivityHandler
@@ -80,6 +81,7 @@ class Application(tornado.web.Application):
             (r'/auth/register/verify',VerifyHandler),
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
+            (r'/hot',HotHandler),
             
             (r'/user/usertopic',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),

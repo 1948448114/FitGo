@@ -75,11 +75,34 @@ class PlansHandler(BaseHandler):
             self.render('plans.html',state=1,user=self.current_user)
         else:
             self.render('index.html',state=0,user=self.current_user)
+        # self.render('plans.html',state=1,user=self.current_user)
 
      def post(self):
         retjson = {'code':200,'content':'ok'}
         planJson = self.get_argument('plan')
         plan = json.loads(planJson)
+        Dict = plan['content']
+        Dict.pop('end_time')
+        # Dict.pop('start_time')
+
+        Dict.pop('target')
+        Dict.pop('signature')
+        print Dict['start_time']
+        del Dict['start_time']
+        uid = self.current_user.uid
+        if Dict is not None :
+            # print Dict['1']['selectValue'][0]
+            for k,v in Dict.items():
+                fit_item = Dict[str(k)]['selectValue'][0]
+                status_cookie = PlansCache(uid = uid,fit_item = fit_item)
+
+                self.db.add(status_cookie)
+
+                self.db.commit()
+                print k
+
+
+       
         plan['uid'] = self.current_user.uid
         plan['create_y'] = strftime("%Y-%m-%d",localtime(time.time()))
         plan['create_h'] = strftime("%H:%M",localtime(time.time()))
