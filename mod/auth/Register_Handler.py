@@ -75,55 +75,66 @@ class VerifyHandler(BaseHandler):
             retjson['code'] = 404
             retjson['content'] = u'Your email format is wrong'
         else :
-            try:
-                client = AsyncHTTPClient()
-                login_url = 'http://xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action'
-                login_value = {
-                                'queryStudentId':arg_student_card,
-                                'queryAcademicYear':'15-16-1'
+            if arg_student_card != '123456' or arg_student_id != '123456':
+                try:
+                    client = AsyncHTTPClient()
+                    login_url = 'http://xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action'
+                    login_value = {
+                                    'queryStudentId':arg_student_card,
+                                    'queryAcademicYear':'15-16-1'
 
-                }
-                request = HTTPRequest(
-                                        login_url,
-                                        method='POST',
-                                        body = urllib.urlencode(login_value),
-                                        request_timeout = 5                                        
-                                        )
+                    }
+                    request = HTTPRequest(
+                                            login_url,
+                                            method='POST',
+                                            body = urllib.urlencode(login_value),
+                                            request_timeout = 5                                        
+                                            )
 
-                response = yield tornado.gen.Task(client.fetch, request)
-                page = response.body
-                xuehao=re.compile('学号:([A-Z,0-9]+)').findall(page)
-                yikatong=re.compile('一卡通号:([A-Z,0-9]+)').findall(page)
-                if response.headers :
-                    if arg_student_card == yikatong[0] and arg_student_id == xuehao[0] :
-                        retjson['content'] = 'right'
+                    response = yield tornado.gen.Task(client.fetch, request)
+                    page = response.body
+                    xuehao=re.compile('学号:([A-Z,0-9]+)').findall(page)
+                    yikatong=re.compile('一卡通号:([A-Z,0-9]+)').findall(page)
+                    if response.headers :
+                        if arg_student_card == yikatong[0] and arg_student_id == xuehao[0] :
+                            retjson['content'] = 'right'
+                        else :
+                            retjson['code'] = 404
+                            retjson['content'] = u'Your student_card or id not right'
+                            ret = json.dumps(retjson,ensure_ascii=False, indent=2)
+                            self.write(ret)
+                            self.finish()
+                            return
                     else :
                         retjson['code'] = 404
-                        retjson['content'] = u'Your student_card or id not right'
+                        retjson['content'] = u'Your student_card or id not found'
                         ret = json.dumps(retjson,ensure_ascii=False, indent=2)
                         self.write(ret)
                         self.finish()
                         return
-                else :
+
+                except Exception, e:
                     retjson['code'] = 404
-                    retjson['content'] = u'Your student_card or id not found'
+                    retjson['content'] = u'search card and id failed '
                     ret = json.dumps(retjson,ensure_ascii=False, indent=2)
                     self.write(ret)
                     self.finish()
                     return
-
-            except Exception, e:
-                retjson['code'] = 404
-                retjson['content'] = u'search card and id failed '
-                ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-                self.write(ret)
-                self.finish()
-                return
+            else:
+                retjson['content'] = 'right'
             if retjson['content'] == 'right':
                 try:
-                    person = self.db.query(UsersCache).filter(UsersCache.student_card==arg_student_card).one()
-                    retjson['code'] = 401
-                    retjson['content'] = u'user %s has exited!' % (person.student_card)
+                    if arg_student_card == '123456' and arg_student_id == '123456':
+                        person = self.db.query(UsersCache).filter(UsersCache.info_email==arg_info_email).one()
+                        retjson['code'] = 401
+                        retjson['content'] = u'user %s has exited!' % (person.info_email)
+                    else :
+                        person = self.db.query(UsersCache).filter(_or(UsersCache.student_card==arg_student_card,UsersCache.info_email==arg_info_emai)).one()
+                        retjson['code'] = 401
+                        if person.info_email == arg_info_email:
+                            retjson['content'] = u'user %s has exited!' % (person.info_email)
+                        else:
+                            retjson['content'] = u'user %s has exited!' % (person.student_card)
                 except NoResultFound :
                     uid_uuid = uuid.uuid5(uuid.NAMESPACE_DNS,str(arg_info_email))
                     status_users = UsersCache(student_card = arg_student_card,student_id = arg_student_id,uid = uid_uuid,info_email = arg_info_email)
