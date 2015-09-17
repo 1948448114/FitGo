@@ -70,16 +70,16 @@
   display: inline-block;
   height: 57px;
   font-size: 20px;
-  color: #9999FF;
+  color: #7f81e7;
   margin:0px 2px;
   background-color: #fff;
   border-radius: 3px;
   text-decoration: none;
   cursor: pointer;
-  border: 1px #9999FF solid;
+  border: 1px #7f81e7 solid;
 }
 .Btnsty_peyton:focus{
-	box-shadow: 0 0 5px #9999ff;
+	box-shadow: 0 0 5px #7f81e7;
 }
 /*选择文件上传*/
 .new-contentarea {
@@ -116,17 +116,17 @@ a.upload-img{
 	height:57px;
 	font-size: 20px;
 	color: #FFFFFF;
-	background-color:#9999FF;
+	background-color:#7f81e7;
 	border-radius: 3px;
 	text-decoration:none;
 	cursor:pointer;
-	border: 0px #9999FF solid;
+	border: 0px #7f81e7 solid;
 }
 #upload-file{
 	cursor: pointer;
 }
 .action input:focus{
 	outline: none;
-	box-shadow: 0 0 5px #9999FF;
+	box-shadow: 0 0 5px #7f81e7;
 }
 .tc{text-align:center;}

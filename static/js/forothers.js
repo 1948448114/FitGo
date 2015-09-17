@@ -6,6 +6,7 @@ $(document).ready(function(){
     function init(){
         $('#to-plans').click(function(event) {
             $("html,body").animate({scrollTop:$("#myplans").offset().top},800);
+            alert("hello");
         });
         $('#to-states').click(function(event) {
             $("html,body").animate({scrollTop:$("#mystates").offset().top},800);
@@ -15,7 +16,7 @@ $(document).ready(function(){
             $(event.target).addClass('a-active');
         });
         $("#menu .home").removeClass("home");
-        $($("#menu .bar").get(2)).addClass("home");
+        $($("#menu .bar").get(3)).addClass("home");
 }
 
     getPlan(user_uid);
