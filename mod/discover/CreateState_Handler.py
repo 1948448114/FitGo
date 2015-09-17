@@ -4,7 +4,7 @@
 import tornado.web
 import tornado.gen
 import json
-import time
+import time,random
 from ..databases.tables import TopicsCache
 from mod.auth.Base_Handler import BaseHandler
 import time
@@ -18,7 +18,7 @@ class CreateStateHandler(BaseHandler):
 			a_topic_pic = self.get_argument('topic_pic')
 			a_topic_time = int(time.time())
 			if not a_topic_pic:
-				a_topic_pic = '/static/picture/4d50b87084de0ac805776fa256d352d0.jpg'
+				a_topic_pic = '/static/sys_pic/%d.jpg' % random.randint(1,12)
 			retjson = {'code':200,'content':'ok'}
 			try:
 				topics = TopicsCache(uid=user_id,topic_title=a_topic_title,\
