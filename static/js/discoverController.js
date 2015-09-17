@@ -64,6 +64,9 @@ function statePost(title, detail, pic_URL) {
                 $("#create_state_title_error").attr('class', 'alert alert-success showing')
                 $("#create_state_title_error").html("success");
                 $("#create_state_title_error").show();
+                times=times-1;
+                getAllState();
+                console.log('get');
                 setTimeout(function() {
                     $("#create_state_title_error").hide();
                     $("#create_new_invite").hide();
@@ -364,7 +367,6 @@ function refresfLike(topic_id){
 function addLike(){
     $(".like").each(function(index, el) {
         var topic_id = $(this).attr('value');
-        console.log(topic_id);
         $(this).click(function(event) {
             jQuery.ajax({
               url: '/discover/join',
