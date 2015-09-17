@@ -101,7 +101,7 @@ class LoginHandler(BaseHandler):
         cos = 0
       else:
         fit_item = (plan.fit_item).encode('UTF-8')
-        if fit_item == u'拳击':
+        if fit_item == '拳击':
           x1 = 10
           y1 = 0
         elif fit_item == '滑板':
@@ -177,9 +177,9 @@ class LoginHandler(BaseHandler):
         if x1 == 0 and y1 == 10:
           cos = 0;
         else:
-          cos = (x0*x1 + y0*y1)/(math.sqrt(abs(x0*x0+y0*x0))*math.sqrt(abs(x1*x1+y1*x1)))
-
+          cos = (x0*x1 + y0*y1)/(math.sqrt(abs(x0*x0+y0*y0))*math.sqrt(abs(x1*x1+y1*y1)))
       t1 = self.db.query(UsersCache).filter(UsersCache.uid == uid)
+
 
       t1.update({UsersCache.cos:cos})
 

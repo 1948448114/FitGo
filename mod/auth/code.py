@@ -10,7 +10,6 @@ _numbers = ''.join(map(str, range(3, 10))) # 数字
 init_chars = ''.join((_letter_cases, _numbers))
 
 fontType="/home/FitGo/static/font/FreeSans.ttf"
-
   
 def create_validate_code(size=(150, 40),
                              chars=init_chars,
