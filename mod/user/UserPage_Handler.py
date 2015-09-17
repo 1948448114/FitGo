@@ -29,6 +29,7 @@ class UserPageHandler(BaseHandler):
         # 获取id
         # uid = self.get_argument('id')
         retjson = {'code':200,'content':'ok'}
+        uid = user_id
         try:
             gender = self.get_argument('gender') 
             name = self.get_argument('name') 

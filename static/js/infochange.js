@@ -9,7 +9,7 @@ $(document).ready(function() {
 		// 	$('#changePassword').hide('slow/400/fast');
 		// });
 		$("#menu .home").removeClass("home");
-		$($("#menu .bar").get(2)).addClass("home");
+		$($("#menu .bar").get(4)).addClass("home");
 		
 	}
 	init();
