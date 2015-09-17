@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-DB_HOST = '123.57.221.18'
+DB_HOST = '115.28.27.150'
 DB_USER = 'fitgouser'
 DB_PWD = 'fitgo2015'
 DB_NAME = 'fitgo'

@@ -145,9 +145,9 @@ class Application(tornado.web.Application):
             
         )
 
-        conn = MongoClient('123.57.221.18', 27017)
+        conn = MongoClient('115.28.27.150', 27017)
         self.Mongodb = conn["fitgo"]
-        self.Mongodb.authenticate('fitgoUser','fitgo2015')
+        self.Mongodb.authenticate('fitgouser','fitgo2015')
         #conn = pymongo.Connection("123.57.221.18", 27017)
         #self.db = conn["fitgo"]
 
