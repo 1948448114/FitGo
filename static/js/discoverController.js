@@ -67,6 +67,7 @@ function statePost(title, detail, pic_URL) {
                 times=times-1;
                 getAllState();
                 console.log('get');
+
                 setTimeout(function() {
                     $("#create_state_title_error").hide();
                     $("#create_new_invite").hide();

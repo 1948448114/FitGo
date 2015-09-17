@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-
     var uid="";
     if($("#user_state").val()=='0'){
         $("#verify_dropdown").hide();
