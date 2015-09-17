@@ -141,7 +141,7 @@ body {
 	margin-bottom: 10px;
 }
 
-img, ul, b{
+img, b{
 	margin: 0;
 }
 img, ul, li,b{
@@ -153,6 +153,7 @@ img, ul, li,b{
 	vertical-align: baseline;
 }
 ul {
+	margin-top: 2rem;
 	list-style: none;
 }
 
@@ -220,8 +221,8 @@ ul {
 }
 
 .timeline  .content h3{
-	margin: 1.6rem 1rem;
-	font-size: 2rem;
+	margin: 1rem 1rem;
+	font-size: 1.5rem;
 	font-family: "microsoft yahei";
 }
 .timeline  .content h4{
@@ -242,7 +243,7 @@ ul {
 
 /* 高亮样式 */
 .timeline  li.active{
-	height: 14rem;
+	height: 16rem;
 }
 
 .timeline li.active div{
@@ -254,9 +255,8 @@ ul {
 }
 .timeline .active .content p {
 	display: block;
-	margin: 1.5rem 1rem;
-	line-height: 1.5;
-	font-size: 1.5rem;
+	margin: 1rem 1rem;
+	font-size: 1.2rem;
 }
 .timeline .active .check s{
 	left: 14.1rem;
@@ -300,12 +300,13 @@ border-radius: 50%;
 	top: 1.8rem;
 }
 
-.list_p{
-	display: none;
-font-size: 4rem;
-margin-left:5rem;
-	color: rgba(0,0,0,0.3);
-	font-family: "microsoft yahei";
+.list_name_p{
+	font-size: 4rem;
+  color: rgba(0,0,0,0.1);
+  margin: 0px ;
+  position: absolute;
+  left:2rem;
+  top:-2rem;
 }
 .content{
 	position: relative;
@@ -425,10 +426,9 @@ text-align: center;
 	position: absolute;
 	top:auto;
 	bottom:0px;
-	padding: 3px 1rem;
+	
 	right: 1rem;
 	border:none;
-	width: 4rem;
 	font-size: 2rem;
 		background-color: #6666CC;
 }
@@ -558,11 +558,7 @@ text-align: center;
 	background: #fff;
 }
 
-.timeline  .content h3{
-	margin: 1rem 1rem;
-	font-size: 2rem;
-	font-family: "microsoft yahei";
-}
+
 .timeline  .content h4{
 	margin: 1rem 1rem;
 	font-size: 1.5rem;
@@ -580,9 +576,9 @@ text-align: center;
 }
 
 /* 高亮样式 */
-/*.timeline  li.active{
+.timeline  li.active{
 	height: 14rem;
-}*/
+}
 
 .timeline  li.active div{
 	position: absolute;
@@ -594,7 +590,6 @@ text-align: center;
 .timeline .active .content p {
 	display: block;
 	margin: 1.5rem 1rem;
-	line-height: 1.5;
 	font-size: 1rem;
 }
 .timeline  .active .check s{
@@ -634,7 +629,10 @@ border-radius: 50%;
 	top: 0px;
 }
 }
-
+.list_name{
+	position: relative;
+	display: none;
+}
 .none_{
-	min-height: 12rem;
+	min-height: 10rem;
 }
