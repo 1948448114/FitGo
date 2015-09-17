@@ -98,7 +98,6 @@ class PlansHandler(BaseHandler):
 
         Dict.pop('target')
         Dict.pop('signature')
-        print Dict['start_time']
         del Dict['start_time']
         uid = self.current_user.uid
         if Dict is not None :
@@ -110,6 +109,5 @@ class PlansHandler(BaseHandler):
                 self.db.add(status_cookie)
 
                 self.db.commit()
-                print k
 
 
