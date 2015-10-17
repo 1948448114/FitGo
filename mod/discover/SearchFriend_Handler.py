@@ -15,7 +15,6 @@ class SearchFriendHandler(BaseHandler):
 		a_campus = self.get_argument('campus')
 		a_school = self.get_argument('school')
 		a_user_enjoyment = self.get_argument('user_enjoyment')
-
 		string = ''
 		try:
 			if a_name:

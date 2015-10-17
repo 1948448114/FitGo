@@ -42,24 +42,37 @@ class InviteCache(Base):
 
 	_id = Column(Integer,primary_key = True)
 	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'))
+	name = Column(VARCHAR(64),nullable=True)
 	start_time = Column(VARCHAR(64))
-	duration = Column(VARCHAR(64))
+	end_time = Column(VARCHAR(64))
 	create_time = Column(VARCHAR(64))
 	fit_location = Column(VARCHAR(64))
 	fit_item = Column(VARCHAR(64))
-	user_tag = Column(VARCHAR(64))
+	item_tag = Column(VARCHAR(64))#自定义和系统提供
 	gender = Column(VARCHAR(64))
-	remark = Column(VARCHAR(64))
+	remark = Column(VARCHAR(64))#备注
+	score = Column(VARCHAR(64))#发起者评论
+	comment = Column(VARCHAR(64))
+	comment_state = Column(VARCHAR(8))#0->not comment,1->able to comment
 	cos = Column(Float)
 class Invite_relation(Base):
 	__tablename__ = 'Invite_relation'
 
 	id = Column(Integer,primary_key = True)
 	uid_request = Column(VARCHAR(64))
-	uid_respond = Column(VARCHAR(64))
+	request_name = Column(VARCHAR(64))
+	uid_respond = Column(VARCHAR(64))#发起项目的人
+	respond_name = Column(VARCHAR(64))
+	respond_phone = Column(VARCHAR(64))
+	fit_item = Column(VARCHAR(64))
 	state = Column(VARCHAR(8)) 
 	grade = Column(VARCHAR(64))
 	_id = Column(Integer,ForeignKey('Invite._id',ondelete='CASCADE'))
+	fit_item = Column(VARCHAR(64))
+	score = Column(VARCHAR(64))#参与者评论
+	comment = Column(VARCHAR(64))
+	comment_state = Column(VARCHAR(8))#0->not comment,1->able to comment
+	
 	relationship('Invite',backref='Invite_relation')
 
 class User_tagCache(Base):
@@ -70,7 +83,6 @@ class User_tagCache(Base):
 	user_join_times = Column(Integer)
 	user_score = Column(VARCHAR(64))
 	user_join_event = Column(VARCHAR(64))
-
 class ActCache(Base):
 	__tablename__ = 'Act'
 
@@ -95,3 +107,23 @@ class TopicsCache(Base):
 	pic_shape = Column(VARCHAR(64))
 	topic_title = Column(VARCHAR(64))
 	topic_starers = Column(Integer)
+class SystemTagCache(Base):
+	__tablename__ = "SystemTag"
+
+	id = Column(Integer,primary_key=True)
+	tag = Column(VARCHAR(64))
+	hot_tag = Column(VARCHAR(64))
+class RecommendItemCache(Base):
+	__tablename__ = 'RecommendItem'
+
+	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'),primary_key=True)
+	item_id = Column(Integer)
+	item_name = Column(VARCHAR(64))
+# class CommentCache(Base):
+# 	__tablename__ = 'Comment'
+
+# 	uid = Column(VARCHAR(64),ForeignKey('Users.uid', ondelete='CASCADE'),primary_key=True)
+# 	comment_id = Column(VARCHAR(64),nullable=True)
+# 	score = Column(VARCHAR(64))
+# 	comment = Column(VARCHAR(64))
+# 	comment_state = Column(VARCHAR(8))#0->not comment,1->able to comment
