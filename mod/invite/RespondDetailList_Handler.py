@@ -53,28 +53,4 @@ class RespondDetailListHandler(BaseHandler):
 			retjson['content'] = u'failed to query database－InviteCache!'
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)
-	def post(self):#确认消息
-		arg_uid_respond = self.get_argument('uid_respond')
-		arg_uid_request = self.get_argument('uid_request')
-		arg_state = self.get_argument('state')
-		retjson = {'code':200,'content':'ok'}
-		try:
-			relation = self.db.query(Invite_relation).filter(Invite_relation.uid_request==arg_uid_request,\
-				Invite_relation.uid_respond==arg_uid_respond).one()
-			if relation:
-				relation.state = arg_state
-				self.db.add(relation)
-				try:
-					self.db.commit()
-				except Exception,e:
-					self.db.rollback()
-					retjson['code'] = 401
-					retjson['content'] = u'Database store is wrong!'
-			else:
-				retjson['content'] = u'no relations!'
-		except Exception, e:
-			retjson['code'] = 401
-			retjson['content'] = u'failed to query Invite_relation!'
-		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-		self.write(ret)
 

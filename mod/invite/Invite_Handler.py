@@ -12,9 +12,13 @@ class InviteHandler(BaseHandler):
 	def post(self):#发布健身
 		retjson = {'code':200,'content':'ok'}
 		try:
-			arg_uid = self.current_user.uid
+			print "aa"
+			# arg_uid = self.current_user.uid
+			# arg_name = self.current_user.name
+			arg_uid = self.get_argument("uid")
+			arg_name = self.get_argument("name")
 			arg_start_time = self.get_argument("start_time")
-			arg_end_time = seld.get_argument("end_time")
+			arg_end_time = self.get_argument("end_time")
 			arg_create_time = int(time.time())
 			arg_fit_location = self.get_argument("fit_location")
 			arg_fit_item = self.get_argument("fit_item")
@@ -28,7 +32,8 @@ class InviteHandler(BaseHandler):
 			else:
 				try:
 					arg_start_time = int(time.mktime(time.strptime(arg_start_time,"%Y-%m-%d %H:%M")))
-					status = InviteCache(uid=arg_uid,start_time=arg_start_time,end_time=arg_end_time,\
+					arg_end_time = int(time.mktime(time.strptime(arg_end_time,"%Y-%m-%d %H:%M")))
+					status = InviteCache(uid=arg_uid,name=arg_name,start_time=arg_start_time,end_time=arg_end_time,\
 						create_time=arg_create_time,fit_location=arg_fit_location,fit_item=arg_fit_item,\
 						item_tag=arg_item_tag,gender=arg_gender,remark=arg_remark)
 					self.db.add(status)

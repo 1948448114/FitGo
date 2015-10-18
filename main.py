@@ -46,7 +46,8 @@ from mod.invite.RequestInvite_Handler import RequestInviteHandler
 from mod.invite.RespondInvite_Handler import RespondInviteHandler
 from mod.invite.RespondList_Handler import RespondListHandler
 from mod.invite.RespondDetailList_Handler import RespondDetailListHandler
-
+from mod.invite.Evaluate_Handler import EvaluateHandler
+from mod.invite.EvaluateList_Handler import EvaluateListHandler
 
 from mod.recom.RecomUser_Handler import RecomUserHandler
 from mod.recom.RecomInvite_Handler import RecomInviteHandler
@@ -96,6 +97,9 @@ class Application(tornado.web.Application):
             (r'/invite/respond',RespondInviteHandler),
             (r'/invite/respondlist',RespondListHandler),
             (r'/invite/responddetaillist',RespondDetailListHandler),
+            (r'/invite/evaluate',EvaluateHandler),
+            (r'/invite/evaluatelist',EvaluateListHandler),
+
 
             (r'/activity',ActivityPageHandler),
             (r'/activity/create',CreateActivityHandler),

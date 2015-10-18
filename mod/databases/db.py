@@ -5,6 +5,7 @@ DB_PWD = 'fitgo2015'
 DB_NAME = 'fitgo'
 
 
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base() #create Base lei

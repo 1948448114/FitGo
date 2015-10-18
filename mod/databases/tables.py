@@ -51,9 +51,6 @@ class InviteCache(Base):
 	item_tag = Column(VARCHAR(64))#自定义和系统提供
 	gender = Column(VARCHAR(64))
 	remark = Column(VARCHAR(64))#备注
-	score = Column(VARCHAR(64))#发起者评论
-	comment = Column(VARCHAR(64))
-	comment_state = Column(VARCHAR(8))#0->not comment,1->able to comment
 	cos = Column(Float)
 class Invite_relation(Base):
 	__tablename__ = 'Invite_relation'
@@ -69,9 +66,9 @@ class Invite_relation(Base):
 	grade = Column(VARCHAR(64))
 	_id = Column(Integer,ForeignKey('Invite._id',ondelete='CASCADE'))
 	fit_item = Column(VARCHAR(64))
-	score = Column(VARCHAR(64))#参与者评论
+	score = Column(VARCHAR(64))
 	comment = Column(VARCHAR(64))
-	comment_state = Column(VARCHAR(8))#0->not comment,1->able to comment
+	comment_state = Column(VARCHAR(8))#0->not able to comment,1->able to comment
 	
 	relationship('Invite',backref='Invite_relation')
 
