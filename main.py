@@ -84,7 +84,7 @@ class Application(tornado.web.Application):
             (r'/auth/register',RegisterHandler),
             (r'/auth/password',PasswordHandler),
             (r'/hot',HotHandler),
-            
+
             (r'/user/usertopic',UsertopicHandler),
             (r'/user/userpage/([\S]+)',UserPageHandler),
             (r'/user/userinfo/([\S]+)',UserinfoHandler),
@@ -115,13 +115,13 @@ class Application(tornado.web.Application):
             (r'/discover/search/state',SearchStateHandler),
             (r'/discover/create/state/pic',UploadPicHandler),
             (r'/discover/join',JoinStateHandler),
-            
+
             (r'/plans',PlansHandler),
             (r'/plans/Info',CompleteInfoHandler),
             (r'/plans/detail',LookplansHandler),
             (r'/plans/Info/changePor',ChangePorHandler),
             (r'/plans/forothers',ForOthersHandler),
-            
+
             (r'/recom/recomuser',RecomUserHandler),
             (r'/recom/recomactivity',RecomActivityHandler),
             (r'/recom/recominvite',RecomInviteHandler),
@@ -150,10 +150,10 @@ class Application(tornado.web.Application):
             # static_url_prefix = os.path.join(os.path.dirname(__file__), '/images/'),
             debug=True
             # "lohin_url":"/auth/LoginHandler"
-            
+
         )
 
-        conn = MongoClient('115.28.27.150', 27017)
+        conn = MongoClient('114.215.97.245', 27017)
         self.Mongodb = conn["fitgo"]
         self.Mongodb.authenticate('fitgouser','fitgo2015')
         #conn = pymongo.Connection("123.57.221.18", 27017)
@@ -170,7 +170,7 @@ class BodyHandler(tornado.web.RequestHandler):
 class TestHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('test.html')
-        
+
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)
