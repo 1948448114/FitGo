@@ -105,7 +105,7 @@ class TopicsCache(Base):
 	topic_title = Column(VARCHAR(64))
 	topic_starers = Column(Integer)
 class SystemTagCache(Base):
-	__tablename__ = "SystemTa"g
+	__tablename__ = "SystemTa"
 
 	id = Column(Integer,primary_key=True)
 	tag = Column(VARCHAR(64))
