@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, String, Integer, VARCHAR,ForeignKey, Float 
+from sqlalchemy import Column, String, Integer, VARCHAR,ForeignKey, Float
 from sqlalchemy.orm import relationship,backref
 from db import engine,Base
 
@@ -62,14 +62,14 @@ class Invite_relation(Base):
 	respond_name = Column(VARCHAR(64))
 	respond_phone = Column(VARCHAR(64))
 	fit_item = Column(VARCHAR(64))
-	state = Column(VARCHAR(8)) 
+	state = Column(VARCHAR(8))
 	grade = Column(VARCHAR(64))
 	_id = Column(Integer,ForeignKey('Invite._id',ondelete='CASCADE'))
 	fit_item = Column(VARCHAR(64))
 	score = Column(VARCHAR(64))
 	comment = Column(VARCHAR(64))
 	comment_state = Column(VARCHAR(8))#0->not able to comment,1->able to comment
-	
+
 	relationship('Invite',backref='Invite_relation')
 
 class User_tagCache(Base):
@@ -105,7 +105,7 @@ class TopicsCache(Base):
 	topic_title = Column(VARCHAR(64))
 	topic_starers = Column(Integer)
 class SystemTagCache(Base):
-	__tablename__ = "SystemTag"
+	__tablename__ = "SystemTa"g
 
 	id = Column(Integer,primary_key=True)
 	tag = Column(VARCHAR(64))

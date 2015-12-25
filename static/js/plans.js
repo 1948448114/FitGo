@@ -111,10 +111,10 @@ function getPlan(){
 
       },
       error: function(xhr, textStatus, errorThrown) {
-        
+
       }
     });
-    
+
 };
 
 
@@ -155,7 +155,7 @@ function getInfo(){
                     else{
                         $("#user_signature").html('Signature:');
                     }
-                }   
+                }
             },
             error: function(xhr, textStatus, errorThrown) {
             }
@@ -176,7 +176,7 @@ function getState(){
 
       },
       error: function(xhr, textStatus, errorThrown) {
-        
+
       }
     });
 }
@@ -185,7 +185,7 @@ function getState(){
 
 
 
-    
+
 
 
 
